@@ -1,0 +1,173 @@
+<!-- ══════════════════════════════
+     PAGE 4 — DOCTOR DASHBOARD
+══════════════════════════════ -->
+<div id="page-doctor" class="page hidden">
+  <nav class="top-nav">
+    <div class="nav-logo" onclick="showPage('landing')" style="cursor:pointer">Absorb<span>AI</span></div>
+    <div class="nav-right">
+      <div class="nav-user"><span id="doctor-name-nav">Dr. Priya Mehta</span><span class="nav-badge badge-doctor">Doctor</span></div>
+      <button class="nav-logout" onclick="doLogout()">Sign Out</button>
+    </div>
+  </nav>
+  <div class="doc-tabs">
+    <button class="doc-tab active" onclick="showDocPanel('queue',this)">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-right:0.35rem;vertical-align:middle"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>Risk Queue
+    </button>
+    <button class="doc-tab" onclick="showDocPanel('prescribe',this)">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-right:0.35rem;vertical-align:middle"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>Prescribe
+    </button>
+    <button class="doc-tab" onclick="showDocPanel('matrix',this)">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-right:0.35rem;vertical-align:middle"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>Interaction Matrix
+    </button>
+    <button class="doc-tab" onclick="showDocPanel('pk',this)">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-right:0.35rem;vertical-align:middle"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>PK Impact
+    </button>
+    <button class="doc-tab" onclick="showDocPanel('override',this)">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-right:0.35rem;vertical-align:middle"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>Override
+    </button>
+    <button class="doc-tab" onclick="showDocPanel('patients',this)">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-right:0.35rem;vertical-align:middle"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Patients
+    </button>
+  </div>
+  <div class="doc-content">
+    <div class="doc-panel active" id="d-queue">
+      <div class="greeting"><h2>Risk Priority <em>Queue</em></h2><p>Patients with active prescriptions, sorted by interaction severity</p></div>
+      <div class="content-card" style="padding:0">
+        <div class="queue-row qheader"><span>#</span><span>Patient</span><span>Drugs</span><span>Top Flag</span><span>Action</span></div>
+        <div id="queue-body"></div>
+      </div>
+    </div>
+
+    <!-- PRESCRIBE PANEL -->
+    <div class="doc-panel" id="d-prescribe">
+      <div class="greeting"><h2>Prescribe <em>Medication</em></h2><p>Add or update a patient's prescription — changes push to their dashboard in real time</p></div>
+
+      <div class="content-card">
+        <div class="card-title">New Prescription <span class="card-badge">Real-Time Sync</span></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem">
+          <div class="input-group">
+            <label>Select Patient</label>
+            <select id="rx-patient" onchange="updateRxPatientInfo()">
+              <option value="">— Choose patient —</option>
+              <option value="patient_demo">Ananya R. (patient@demo.com)</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label>Drug Name</label>
+            <input type="text" id="rx-drug" placeholder="e.g. Metformin">
+          </div>
+          <div class="input-group">
+            <label>Dosage</label>
+            <input type="text" id="rx-dose" placeholder="e.g. 500mg">
+          </div>
+          <div class="input-group">
+            <label>Frequency</label>
+            <select id="rx-freq">
+              <option>Once daily</option>
+              <option>Twice daily</option>
+              <option>Thrice daily</option>
+              <option>With meals</option>
+              <option>At bedtime</option>
+              <option>As needed</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label>Scheduled Time</label>
+            <input type="time" id="rx-time" value="08:00">
+          </div>
+          <div class="input-group">
+            <label>Duration</label>
+            <input type="text" id="rx-duration" placeholder="e.g. 30 days / Ongoing">
+          </div>
+          <div class="input-group" style="grid-column:1/-1">
+            <label>Instructions for Patient</label>
+            <input type="text" id="rx-instructions" placeholder="e.g. Take with food, avoid grapefruit">
+          </div>
+          <div class="input-group" style="grid-column:1/-1">
+            <label>Clinical Notes (internal only)</label>
+            <textarea id="rx-notes" placeholder="Rationale, interaction flags, monitoring requirements..." style="min-height:65px"></textarea>
+          </div>
+        </div>
+        <div id="rx-patient-info" style="display:none;padding:0.8rem 1rem;background:rgba(13,115,119,0.08);border:1px solid rgba(13,115,119,0.2);border-radius:0.6rem;margin-bottom:1rem;font-size:0.8rem;color:var(--muted);line-height:1.6"></div>
+        <div style="display:flex;gap:0.8rem;justify-content:flex-end;align-items:center">
+          <span id="rx-live-badge" style="display:none;font-family:'DM Mono',monospace;font-size:0.65rem;color:#7dce82;letter-spacing:0.08em;display:inline-flex;align-items:center;gap:0.35rem">
+            <svg width="8" height="8" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="#7dce82"/></svg>
+            SYNCING TO PATIENT
+          </span>
+          <button class="btn-gold" onclick="prescribeDrug()" style="padding:0.7rem 1.8rem">Prescribe &amp; Push to Patient &#x2192;</button>
+        </div>
+        <div id="rx-error" style="display:none;margin-top:0.7rem;padding:0.6rem 1rem;background:rgba(240,128,128,0.1);border:1px solid rgba(240,128,128,0.25);border-radius:0.5rem;font-size:0.76rem;color:#f08080;font-family:'DM Mono',monospace"></div>
+      </div>
+
+      <!-- ACTIVE PRESCRIPTIONS TABLE -->
+      <div class="content-card">
+        <div class="card-title">Active Prescriptions <span class="card-badge" id="rx-count-badge">Loading…</span></div>
+        <div id="doc-rx-list" style="display:flex;flex-direction:column;gap:0"></div>
+      </div>
+    </div>
+    <div class="doc-panel" id="d-matrix">
+      <div class="greeting"><h2>Drug&ndash;Nutrient<br><em>Interaction Matrix</em></h2><p id="matrix-patient-label">Prescribe medications to see interaction data here.</p></div>
+      <div class="content-card">
+        <div class="matrix-wrap">
+          <table class="interaction-matrix">
+            <thead><tr><th>Drug</th><th>Interactant</th><th>Mechanism</th><th>Severity</th><th>Separation</th><th>Evidence</th></tr></thead>
+            <tbody id="matrix-body">
+              <tr><td colspan="6" style="text-align:center;padding:2.5rem;color:var(--muted);font-size:0.84rem">No prescriptions yet. Matrix will populate once the doctor prescribes medications.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="color:var(--muted);font-size:0.7rem;margin-top:1rem;font-family:'DM Mono',monospace">Click any row for full evidence citation &middot; Sorted by severity</p>
+      </div>
+    </div>
+    <div class="doc-panel" id="d-pk">
+      <div class="greeting"><h2>Pharmacokinetic<br><em>Impact Summary</em></h2><p>Expected bioavailability changes for current interactions</p></div>
+      <div class="pk-grid" id="pk-grid">
+        <div style="grid-column:1/-1;text-align:center;padding:2.5rem;color:var(--muted);font-size:0.84rem">No prescriptions yet. PK summaries will appear once medications are prescribed.</div>
+      </div>
+      <div class="content-card" style="margin-top:1.5rem">
+        <div class="card-title">Update Lab Values &mdash; <span id="pk-patient-name">No patient selected</span></div>
+        <div class="input-form">
+          <div class="input-row"><div class="input-group"><label>TSH (mIU/L)</label><input type="number" value="2.4"></div><div class="input-group"><label>Creatinine (mg/dL)</label><input type="number" value="1.1"></div></div>
+          <div class="input-row"><div class="input-group"><label>INR</label><input type="number" value="2.3"></div><div class="input-group"><label>ALT (U/L)</label><input type="number" value="28"></div></div>
+          <div style="display:flex;justify-content:flex-end"><button class="btn-gold" onclick="alert('Lab values updated.')">Update &amp; Recalculate</button></div>
+        </div>
+      </div>
+    </div>
+    <div class="doc-panel" id="d-override">
+      <div class="greeting"><h2>Schedule <em>Override</em></h2><p>Modify timing or accept known risks with clinical annotation</p></div>
+      <div class="content-card">
+        <div class="card-title">Override Entry</div>
+        <div class="override-form">
+          <div class="ov-group"><label>Patient</label><input type="text" placeholder="Enter patient name"></div>
+          <div class="ov-group"><label>Drug</label><select id="ov-drug"><option value="">— Select drug —</option></select></div>
+          <div class="ov-group"><label>New Time</label><input type="time" value="09:00"></div>
+          <div class="ov-group"><label>Action</label><select><option>Reschedule to new time</option><option>Lock this time slot</option><option>Accept known risk</option><option>Suspend medication</option></select></div>
+          <div class="ov-group full"><label>Clinical Justification</label><textarea placeholder="Document clinical rationale..."></textarea></div>
+          <div class="ov-actions"><button class="btn-outline-red">Cancel</button><button class="btn-gold" onclick="alert('Override saved to audit log.')">Save Override</button></div>
+        </div>
+      </div>
+      <div class="content-card">
+        <div class="card-title">Audit Log <span class="card-badge">Recent</span></div>
+        <div id="audit-log" style="font-family:'DM Mono',monospace;font-size:0.72rem;color:var(--muted)">
+          <div style="text-align:center;padding:1.5rem;color:var(--muted);font-size:0.82rem">No overrides recorded yet.</div>
+        </div>
+      </div>
+    </div>
+    <div class="doc-panel" id="d-patients">
+      <div class="greeting"><h2>Patient <em>Registry</em></h2><p>Manage patient profiles and import via ABHA</p></div>
+      <div class="content-card">
+        <div class="card-title">Import Patient <span class="card-badge">ABHA / FHIR</span></div>
+        <div style="display:flex;gap:1rem;align-items:flex-end;flex-wrap:wrap">
+          <div class="input-group" style="flex:1;min-width:200px"><label>ABHA ID or Patient Name</label><input type="text" placeholder="14-digit ABHA or full name"></div>
+          <button class="btn-primary" style="padding:0.68rem 1.4rem;font-size:0.82rem" onclick="alert('ABHA record imported via FHIR.')">Import &amp; Load</button>
+        </div>
+      </div>
+      <div class="content-card">
+        <div class="card-title">Registered Patients</div>
+        <div id="patients-list" class="patient-list">
+          <div style="text-align:center;padding:2rem;color:var(--muted);font-size:0.84rem">No patients registered yet.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

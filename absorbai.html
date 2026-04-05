@@ -1,0 +1,1365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AbsorbAI</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Outfit:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --deep:#050c14;--navy:#0a1628;--teal:#0d7377;--teal-light:#14a6aa;
+  --teal-glow:rgba(13,115,119,0.18);--gold:#c8a96e;--gold-light:#e2c992;
+  --white:#f0ede8;--muted:#7a8899;--card:rgba(255,255,255,0.035);
+  --card-border:rgba(255,255,255,0.07);
+}
+html{scroll-behavior:smooth}
+body{background:var(--deep);color:var(--white);font-family:'Outfit',sans-serif;font-weight:300;overflow-x:hidden;min-height:100vh}
+#stars{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.star{position:absolute;border-radius:50%;background:#fff;animation:twinkle var(--d) ease-in-out infinite alternate;opacity:0}
+@keyframes twinkle{to{opacity:var(--o)}}
+.grid-bg{position:fixed;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(13,115,119,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(13,115,119,0.05) 1px,transparent 1px);background-size:80px 80px;mask-image:radial-gradient(ellipse 80% 80% at 50% 40%,black 40%,transparent 100%)}
+.orb{position:absolute;border-radius:50%;filter:blur(80px);animation:drift var(--dur,8s) ease-in-out infinite alternate;pointer-events:none}
+@keyframes drift{to{transform:translate(30px,20px)}}
+
+/* PAGE SYSTEM */
+.page{position:fixed;inset:0;z-index:10;overflow-y:auto;transition:opacity 0.45s ease,transform 0.45s ease;will-change:opacity,transform}
+.page.hidden{opacity:0;pointer-events:none;transform:translateY(18px)}
+.page.visible{opacity:1;pointer-events:all;transform:translateY(0)}
+
+/* NAV */
+.top-nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1.1rem 2.5rem;backdrop-filter:blur(16px);background:rgba(5,12,20,0.88);border-bottom:1px solid var(--card-border)}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:500;letter-spacing:0.04em;cursor:pointer;user-select:none}
+.nav-logo span{color:var(--teal-light)}
+.nav-right{display:flex;align-items:center;gap:0.6rem;position:relative}
+.nav-user{display:flex;align-items:center;gap:0.7rem;font-size:0.82rem;color:var(--muted)}
+.nav-badge{font-family:'DM Mono',monospace;font-size:0.62rem;padding:0.25rem 0.7rem;border-radius:1rem;letter-spacing:0.1em;text-transform:uppercase}
+.badge-doctor{background:rgba(200,169,110,0.15);color:var(--gold-light);border:1px solid rgba(200,169,110,0.3)}
+.badge-patient{background:rgba(13,115,119,0.15);color:var(--teal-light);border:1px solid rgba(13,115,119,0.3)}
+.nav-logout{background:none;border:1px solid var(--card-border);color:var(--muted);padding:0.32rem 0.9rem;border-radius:1rem;font-size:0.74rem;cursor:pointer;transition:all 0.3s;font-family:'Outfit',sans-serif}
+.nav-logout:hover{border-color:#f08080;color:#f08080}
+
+/* NAV DROPDOWN */
+.nav-dropdown-trigger{position:relative}
+.nav-dropdown-btn{display:flex;align-items:center;gap:0.5rem;padding:0.48rem 1.1rem;border-radius:2rem;background:transparent;border:1px solid var(--card-border);color:var(--muted);font-size:0.8rem;cursor:pointer;transition:all 0.3s;font-family:'Outfit',sans-serif;white-space:nowrap}
+.nav-dropdown-btn:hover,.nav-dropdown-btn.open{border-color:var(--teal);color:var(--teal-light);background:var(--teal-glow)}
+.nav-dropdown-btn svg{transition:transform 0.3s}
+.nav-dropdown-btn.open svg{transform:rotate(180deg)}
+.nav-dropdown{position:absolute;top:calc(100% + 0.6rem);right:0;width:320px;background:rgba(10,22,40,0.98);border:1px solid var(--card-border);border-radius:1.1rem;padding:0.5rem;backdrop-filter:blur(20px);box-shadow:0 20px 60px rgba(0,0,0,0.6);display:none;animation:fadeUp 0.22s ease both;z-index:300}
+.nav-dropdown.open{display:block}
+.nav-dropdown-header{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);padding:0.6rem 0.8rem 0.4rem;opacity:0.7}
+.role-card{display:flex;flex-direction:column;gap:0.35rem;padding:0.9rem 1rem;border-radius:0.7rem;cursor:pointer;transition:background 0.2s;border:1px solid transparent;margin-bottom:0.3rem}
+.role-card:last-child{margin-bottom:0}
+.role-card:hover{background:rgba(255,255,255,0.04);border-color:var(--card-border)}
+.role-card.patient:hover{border-color:rgba(13,115,119,0.35)}
+.role-card.doctor:hover{border-color:rgba(200,169,110,0.35)}
+.rc-top{display:flex;align-items:center;gap:0.6rem}
+.rc-icon{font-size:1.1rem}
+.rc-title{font-size:0.88rem;font-weight:400}
+.rc-desc{font-size:0.75rem;color:var(--muted);line-height:1.5;margin-left:1.7rem}
+.rc-actions{display:flex;gap:0.5rem;margin-left:1.7rem;margin-top:0.5rem}
+.rc-btn{padding:0.35rem 0.9rem;border-radius:1rem;font-size:0.74rem;cursor:pointer;font-family:'Outfit',sans-serif;transition:all 0.2s;border:1px solid}
+.rc-btn.teal{background:transparent;border-color:rgba(13,115,119,0.5);color:var(--teal-light)}
+.rc-btn.teal:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
+.rc-btn.gold{background:transparent;border-color:rgba(200,169,110,0.5);color:var(--gold-light)}
+.rc-btn.gold:hover{background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--deep);border-color:var(--gold)}
+.nav-dropdown-divider{height:1px;background:var(--card-border);margin:0.4rem 0.4rem}
+
+/* BUTTONS */
+.btn-primary{padding:0.82rem 2rem;border-radius:2rem;background:linear-gradient(135deg,var(--teal),var(--teal-light));color:#fff;font-size:0.88rem;font-weight:400;border:none;cursor:pointer;letter-spacing:0.04em;transition:transform 0.2s,box-shadow 0.2s;box-shadow:0 4px 28px rgba(13,115,119,0.4);font-family:'Outfit',sans-serif}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 38px rgba(13,115,119,0.6)}
+.btn-ghost{padding:0.82rem 2rem;border-radius:2rem;background:transparent;color:var(--white);font-size:0.88rem;letter-spacing:0.04em;border:1px solid var(--card-border);cursor:pointer;transition:border-color 0.3s,color 0.3s;font-family:'Outfit',sans-serif}
+.btn-ghost:hover{border-color:var(--teal);color:var(--teal-light)}
+.btn-gold{padding:0.65rem 1.5rem;border-radius:0.5rem;background:linear-gradient(135deg,var(--gold),var(--gold-light));border:none;color:var(--deep);font-size:0.83rem;cursor:pointer;font-family:'Outfit',sans-serif;font-weight:400;transition:transform 0.2s}
+.btn-gold:hover{transform:translateY(-1px)}
+.btn-outline-red{padding:0.65rem 1.5rem;border-radius:0.5rem;background:transparent;border:1px solid rgba(240,128,128,0.4);color:#f08080;font-size:0.83rem;cursor:pointer;font-family:'Outfit',sans-serif;transition:all 0.2s}
+.btn-outline-red:hover{background:rgba(240,128,128,0.1)}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.4;transform:scale(0.7)}}
+.section-label{font-family:'DM Mono',monospace;font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--teal-light);margin-bottom:1rem;display:flex;align-items:center;gap:0.8rem}
+.section-label::after{content:'';flex:1;max-width:60px;height:1px;background:var(--teal)}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3rem);font-weight:300;line-height:1.2}
+.section-title em{font-style:italic;color:var(--gold-light)}
+.risk-badge{font-family:'DM Mono',monospace;font-size:0.6rem;padding:0.18rem 0.55rem;border-radius:1rem;letter-spacing:0.08em;text-transform:uppercase;white-space:nowrap}
+.risk-ok{background:rgba(20,166,170,0.15);color:var(--teal-light);border:1px solid rgba(20,166,170,0.3)}
+.risk-warn{background:rgba(200,169,110,0.15);color:var(--gold-light);border:1px solid rgba(200,169,110,0.3)}
+.risk-clear{background:rgba(100,180,100,0.12);color:#7dce82;border:1px solid rgba(100,180,100,0.25)}
+.risk-high{background:rgba(240,128,128,0.15);color:#f08080;border:1px solid rgba(240,128,128,0.3)}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity 0.6s,transform 0.6s}
+.reveal.visible{opacity:1;transform:none}
+.count-up{display:inline-block}
+.std-section{padding:6rem 3rem;position:relative;z-index:1}
+.std-inner{max-width:1200px;margin:0 auto}
+
+/* ═══════════════════════════
+   LANDING
+═══════════════════════════ */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:6rem 2rem 4rem;position:relative;overflow:hidden}
+.hero-tag{display:inline-flex;align-items:center;gap:0.5rem;font-family:'DM Mono',monospace;font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--teal-light);background:rgba(13,115,119,0.12);border:1px solid rgba(13,115,119,0.3);padding:0.4rem 1rem;border-radius:2rem;margin-bottom:2rem;animation:fadeUp 1s 0.3s ease both}
+.hero-tag::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--teal-light);animation:pulse 2s infinite;flex-shrink:0}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(4rem,9vw,8rem);font-weight:300;line-height:1.02;animation:fadeUp 1s 0.5s ease both;max-width:860px;letter-spacing:-0.01em}
+.hero h1 em{font-style:italic;color:var(--teal-light)}
+.hero-sub{margin-top:1.8rem;font-size:clamp(0.95rem,1.6vw,1.1rem);color:var(--muted);line-height:1.75;max-width:580px;animation:fadeUp 1s 0.7s ease both}
+.hero-actions{margin-top:2.8rem;display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;animation:fadeUp 1s 0.9s ease both}
+
+/* STATS */
+.stats-strip{display:flex;border-top:1px solid var(--card-border);border-bottom:1px solid var(--card-border);background:rgba(255,255,255,0.02);position:relative;z-index:1}
+.stat-item{flex:1;padding:2.2rem 1.5rem;text-align:center;border-right:1px solid var(--card-border);transition:background 0.3s}
+.stat-item:last-child{border-right:none}
+.stat-item:hover{background:var(--teal-glow)}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:300;color:var(--teal-light);line-height:1}
+.stat-label{margin-top:0.35rem;font-size:0.75rem;color:var(--muted);letter-spacing:0.04em}
+
+/* FEATURES GRID — strict 3 columns × 2 rows */
+.feat-grid{
+  margin-top:3.5rem;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:0;
+  border:1px solid var(--card-border);
+  border-radius:1.2rem;
+  overflow:hidden;
+}
+.feat-card{
+  background:var(--deep);
+  padding:2.2rem 2rem;
+  border-right:1px solid var(--card-border);
+  border-bottom:1px solid var(--card-border);
+  opacity:0;
+  transform:translateY(18px);
+  transition:opacity 0.5s,transform 0.5s,background 0.3s;
+}
+/* remove right border on 3rd, 6th col */
+.feat-card:nth-child(3n){border-right:none}
+/* remove bottom border on bottom row (4,5,6) */
+.feat-card:nth-child(4),.feat-card:nth-child(5),.feat-card:nth-child(6){border-bottom:none}
+.feat-card.visible{opacity:1;transform:none}
+.feat-card:hover{background:rgba(13,115,119,0.06)}
+.feat-icon{width:42px;height:42px;border-radius:0.7rem;background:var(--teal-glow);border:1px solid rgba(13,115,119,0.3);display:flex;align-items:center;justify-content:center;font-size:1.1rem;margin-bottom:1.2rem}
+.feat-title{font-size:0.95rem;font-weight:400;margin-bottom:0.5rem}
+.feat-desc{font-size:0.82rem;color:var(--muted);line-height:1.7}
+
+/* ═══════════════════════════
+   AUTH PAGE
+═══════════════════════════ */
+#page-auth{background:var(--deep)}
+.auth-wrap{display:flex;align-items:center;justify-content:center;padding:2rem;min-height:calc(100vh - 62px)}
+.auth-card{width:460px;max-width:95vw;background:rgba(255,255,255,0.038);border:1px solid var(--card-border);border-radius:1.6rem;padding:2.8rem 2.4rem;backdrop-filter:blur(20px);box-shadow:0 30px 100px rgba(0,0,0,0.5)}
+.auth-logo{font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:300;text-align:center;margin-bottom:0.3rem}
+.auth-logo span{color:var(--teal-light)}
+.auth-sub{font-size:0.78rem;color:var(--muted);text-align:center;margin-bottom:2rem}
+.auth-mode-tabs{display:flex;gap:0;border:1px solid var(--card-border);border-radius:0.7rem;overflow:hidden;margin-bottom:2rem}
+.auth-mode-tab{flex:1;padding:0.72rem;border:none;background:transparent;color:var(--muted);font-size:0.85rem;cursor:pointer;transition:all 0.3s;font-family:'Outfit',sans-serif;letter-spacing:0.03em}
+.auth-mode-tab.active{background:var(--teal);color:#fff}
+.role-selector{display:flex;gap:0;border:1px solid var(--card-border);border-radius:0.7rem;overflow:hidden;margin-bottom:1.6rem}
+.role-btn{flex:1;padding:0.65rem;border:none;background:transparent;color:var(--muted);font-size:0.82rem;cursor:pointer;transition:all 0.3s;font-family:'Outfit',sans-serif;display:flex;align-items:center;justify-content:center;gap:0.4rem}
+.role-btn.active.patient-active{background:var(--teal);color:#fff}
+.role-btn.active.doctor-active{background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--deep)}
+.method-tabs{display:flex;gap:0.4rem;margin-bottom:1.1rem}
+.method-tab{flex:1;padding:0.48rem;border-radius:0.4rem;border:1px solid var(--card-border);background:transparent;color:var(--muted);font-size:0.72rem;cursor:pointer;transition:all 0.3s;font-family:'Outfit',sans-serif;text-align:center}
+.method-tab.active{border-color:var(--teal);color:var(--teal-light);background:var(--teal-glow)}
+.form-field{margin-bottom:1.05rem}
+.form-field label{display:block;font-family:'DM Mono',monospace;font-size:0.61rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-bottom:0.42rem}
+.form-field input,.form-field select{width:100%;padding:0.72rem 1rem;background:rgba(255,255,255,0.05);border:1px solid var(--card-border);border-radius:0.6rem;color:var(--white);font-family:'Outfit',sans-serif;font-size:0.85rem;outline:none;transition:border-color 0.3s,box-shadow 0.3s}
+.form-field input:focus,.form-field select:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(13,115,119,0.14)}
+.form-field select option{background:var(--navy)}
+.form-row{display:flex;gap:0.8rem}
+.form-row .form-field{flex:1}
+.consent-row{display:flex;align-items:flex-start;gap:0.6rem;margin-bottom:1.3rem}
+.consent-row input[type=checkbox]{margin-top:3px;accent-color:var(--teal);flex-shrink:0}
+.consent-row span{font-size:0.75rem;color:var(--muted);line-height:1.55}
+.auth-btn{width:100%;padding:0.88rem;border-radius:0.7rem;background:linear-gradient(135deg,var(--teal),var(--teal-light));border:none;color:#fff;font-size:0.9rem;cursor:pointer;letter-spacing:0.04em;transition:transform 0.2s,box-shadow 0.2s;font-family:'Outfit',sans-serif;font-weight:400}
+.auth-btn:hover{transform:translateY(-1px);box-shadow:0 8px 32px rgba(13,115,119,0.5)}
+.auth-btn.doctor-btn{background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--deep)}
+.auth-btn.doctor-btn:hover{box-shadow:0 8px 32px rgba(200,169,110,0.4)}
+.auth-error{margin-top:0.9rem;padding:0.65rem 1rem;background:rgba(240,128,128,0.1);border:1px solid rgba(240,128,128,0.25);border-radius:0.5rem;font-size:0.76rem;color:#f08080;font-family:'DM Mono',monospace;display:none;text-align:center}
+.auth-error.show{display:block}
+.auth-success{margin-top:0.9rem;padding:0.65rem 1rem;background:rgba(100,180,100,0.1);border:1px solid rgba(100,180,100,0.25);border-radius:0.5rem;font-size:0.76rem;color:#7dce82;font-family:'DM Mono',monospace;display:none;text-align:center}
+.auth-success.show{display:block}
+.otp-fields{display:flex;gap:0.5rem;margin-bottom:0.5rem}
+.otp-fields input{flex:1;text-align:center;font-size:1.2rem;font-family:'DM Mono',monospace;padding:0.6rem 0;letter-spacing:0.1em;width:0}
+
+/* ═══════════════════════════
+   SHARED DASH
+═══════════════════════════ */
+.content-card{background:var(--card);border:1px solid var(--card-border);border-radius:1.2rem;padding:1.8rem;margin-bottom:1.5rem}
+.card-title{font-size:0.98rem;font-weight:400;margin-bottom:1.2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.5rem}
+.card-badge{font-family:'DM Mono',monospace;font-size:0.6rem;padding:0.2rem 0.65rem;border-radius:1rem;background:var(--teal-glow);color:var(--teal-light);border:1px solid rgba(13,115,119,0.3)}
+.input-form{display:flex;flex-direction:column;gap:1rem}
+.input-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.input-group label{display:block;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.13em;text-transform:uppercase;color:var(--muted);margin-bottom:0.4rem}
+.input-group input,.input-group select,.input-group textarea{width:100%;padding:0.62rem 0.9rem;background:rgba(255,255,255,0.04);border:1px solid var(--card-border);border-radius:0.5rem;color:var(--white);font-family:'Outfit',sans-serif;font-size:0.82rem;outline:none;transition:border-color 0.3s;resize:vertical}
+.input-group input:focus,.input-group select:focus,.input-group textarea:focus{border-color:var(--teal)}
+.input-group select option{background:var(--navy)}
+.toggle-row{display:flex;align-items:center;justify-content:space-between;padding:0.55rem 0;border-bottom:1px solid var(--card-border)}
+.toggle-row:last-child{border-bottom:none}
+.toggle-label{font-size:0.82rem;color:var(--muted)}
+.toggle{position:relative;width:38px;height:21px;flex-shrink:0}
+.toggle input{opacity:0;width:0;height:0}
+.slider{position:absolute;inset:0;background:rgba(255,255,255,0.12);border-radius:21px;cursor:pointer;transition:0.3s}
+.slider::before{content:'';position:absolute;height:15px;width:15px;left:3px;bottom:3px;background:#fff;border-radius:50%;transition:0.3s}
+.toggle input:checked+.slider{background:var(--teal)}
+.toggle input:checked+.slider::before{transform:translateX(17px)}
+.greeting{margin-bottom:2.5rem}
+.greeting h2{font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:300;margin-bottom:0.3rem}
+.greeting p{color:var(--muted);font-size:0.86rem}
+
+/* ═══════════════════════════
+   PATIENT DASHBOARD
+═══════════════════════════ */
+.dash-layout{display:grid;grid-template-columns:230px 1fr;min-height:calc(100vh - 62px)}
+.sidebar{background:rgba(255,255,255,0.018);border-right:1px solid var(--card-border);padding:1.6rem 0;position:sticky;top:62px;height:calc(100vh - 62px);overflow-y:auto}
+.sidebar-section{margin-bottom:1.8rem}
+.sidebar-label{font-family:'DM Mono',monospace;font-size:0.58rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);padding:0 1.3rem;margin-bottom:0.5rem;opacity:0.7}
+.sidebar-item{display:flex;align-items:center;gap:0.65rem;padding:0.58rem 1.3rem;font-size:0.82rem;color:var(--muted);cursor:pointer;transition:all 0.2s;border-left:2px solid transparent}
+.sidebar-item:hover{color:var(--white);background:rgba(255,255,255,0.03)}
+.sidebar-item.active{color:var(--teal-light);border-left-color:var(--teal);background:rgba(13,115,119,0.08)}
+.sidebar-icon{font-size:0.92rem;width:17px;text-align:center}
+.dash-main{padding:2.2rem 2.5rem;overflow-y:auto}
+.dash-panel{display:none}
+.dash-panel.active{display:block;animation:fadeUp 0.35s ease both}
+.widget-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1.1rem;margin-bottom:1.8rem}
+.widget{background:var(--card);border:1px solid var(--card-border);border-radius:1rem;padding:1.3rem 1.4rem;transition:border-color 0.3s}
+.widget:hover{border-color:var(--teal)}
+.widget-label{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.13em;text-transform:uppercase;color:var(--muted);margin-bottom:0.55rem}
+.widget-value{font-family:'Cormorant Garamond',serif;font-size:2.3rem;font-weight:300;color:var(--teal-light);line-height:1}
+.widget-sub{font-size:0.73rem;color:var(--muted);margin-top:0.28rem}
+.widget-danger .widget-value{color:#f08080}
+.widget-warn .widget-value{color:var(--gold-light)}
+.full-timeline{display:flex;flex-direction:column;gap:0}
+.tl-day-row{display:grid;grid-template-columns:68px 14px 1fr;align-items:start;padding:0.75rem 0;border-bottom:1px solid var(--card-border);transition:background 0.2s}
+.tl-day-row:last-child{border-bottom:none}
+.tl-hr{font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--muted);text-align:right;padding-right:0.5rem;padding-top:2px}
+.tl-dot-col{display:flex;justify-content:center;padding-top:3px}
+.tl-dot{width:9px;height:9px;border-radius:50%;background:var(--teal);box-shadow:0 0 7px var(--teal);flex-shrink:0}
+.tl-dot.meal{background:var(--gold);box-shadow:0 0 7px var(--gold)}
+.tl-dot.warn{background:var(--gold-light);box-shadow:0 0 7px var(--gold-light)}
+.tl-dot.danger{background:#f08080;box-shadow:0 0 7px #f08080}
+.tl-info{padding-left:0.9rem;display:flex;align-items:flex-start;gap:0.7rem;flex-wrap:wrap}
+.tl-name{font-size:0.83rem;font-weight:400;flex:1;min-width:90px}
+.tl-note{font-size:0.72rem;color:var(--muted);width:100%;margin-top:0.1rem}
+.tl-badges{display:flex;align-items:center;gap:0.5rem;flex-shrink:0}
+.why-btn{font-family:'DM Mono',monospace;font-size:0.58rem;letter-spacing:0.1em;padding:0.18rem 0.55rem;border-radius:1rem;border:1px solid var(--card-border);background:transparent;color:var(--muted);cursor:pointer;transition:all 0.2s;text-transform:uppercase;white-space:nowrap}
+.why-btn:hover{border-color:var(--teal);color:var(--teal-light)}
+.why-panel{display:none;padding:0.7rem 0.9rem;margin:0.4rem 0 0.4rem 1.8rem;background:rgba(13,115,119,0.07);border:1px solid rgba(13,115,119,0.18);border-radius:0.5rem;font-size:0.77rem;color:var(--muted);line-height:1.65;grid-column:1/-1}
+.why-panel.open{display:block;animation:fadeUp 0.25s ease}
+.risk-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin-bottom:1.8rem}
+.risk-card{padding:1.2rem;border-radius:0.8rem;text-align:center}
+.risk-card.high{background:rgba(240,128,128,0.07);border:1px solid rgba(240,128,128,0.2)}
+.risk-card.med{background:rgba(200,169,110,0.07);border:1px solid rgba(200,169,110,0.2)}
+.risk-card.low{background:rgba(100,180,100,0.07);border:1px solid rgba(100,180,100,0.2)}
+.risk-count{font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:300;line-height:1}
+.risk-card.high .risk-count{color:#f08080}
+.risk-card.med .risk-count{color:var(--gold-light)}
+.risk-card.low .risk-count{color:#7dce82}
+.risk-type{font-size:0.74rem;color:var(--muted);margin-top:0.2rem}
+
+/* ═══════════════════════════
+   DOCTOR DASHBOARD
+═══════════════════════════ */
+.doc-tabs{display:flex;border-bottom:1px solid var(--card-border);padding:0 2.5rem;background:rgba(5,12,20,0.6);position:sticky;top:62px;z-index:50;backdrop-filter:blur(10px);overflow-x:auto}
+.doc-tab{padding:0.88rem 1.3rem;font-size:0.78rem;cursor:pointer;border:none;background:transparent;color:var(--muted);letter-spacing:0.05em;transition:all 0.3s;border-bottom:2px solid transparent;font-family:'Outfit',sans-serif;white-space:nowrap}
+.doc-tab.active{color:var(--teal-light);border-bottom-color:var(--teal)}
+.doc-content{padding:2.2rem 2.5rem;max-width:1300px}
+.doc-panel{display:none}
+.doc-panel.active{display:block;animation:fadeUp 0.35s ease both}
+.matrix-wrap{overflow-x:auto;margin-top:1rem}
+.interaction-matrix{border-collapse:collapse;width:100%;font-size:0.8rem}
+.interaction-matrix th{padding:0.65rem 0.9rem;text-align:left;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--card-border);background:rgba(255,255,255,0.02);font-family:'DM Mono',monospace}
+.interaction-matrix td{padding:0.75rem 0.9rem;border-bottom:1px solid var(--card-border);font-size:0.8rem;vertical-align:middle;transition:background 0.2s;cursor:pointer}
+.interaction-matrix tr:hover td{background:rgba(255,255,255,0.025)}
+.interaction-matrix td:first-child{color:var(--white)}
+.sev-high{color:#f08080}.sev-med{color:var(--gold-light)}.sev-low{color:#7dce82}
+.sev-dot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:0.4rem}
+.sev-dot.high{background:#f08080;box-shadow:0 0 5px #f08080}
+.sev-dot.med{background:var(--gold-light);box-shadow:0 0 5px var(--gold-light)}
+.sev-dot.low{background:#7dce82;box-shadow:0 0 5px #7dce82}
+.patient-list{display:flex;flex-direction:column;gap:0.55rem;margin-top:1rem}
+.patient-row{display:grid;grid-template-columns:1fr auto auto auto;align-items:center;gap:1rem;padding:1rem 1.2rem;background:var(--card);border:1px solid var(--card-border);border-radius:0.8rem;transition:border-color 0.2s,background 0.2s;cursor:pointer}
+.patient-row:hover{border-color:var(--teal);background:rgba(13,115,119,0.05)}
+.p-name{font-size:0.86rem;font-weight:400}
+.p-info{font-size:0.74rem;color:var(--muted)}
+.p-score{font-family:'DM Mono',monospace;font-size:0.85rem}
+.p-score.high{color:#f08080}.p-score.med{color:var(--gold-light)}.p-score.ok{color:#7dce82}
+.pk-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1rem;margin-top:1rem}
+.pk-card{background:rgba(200,169,110,0.05);border:1px solid rgba(200,169,110,0.15);border-radius:0.8rem;padding:1.1rem}
+.pk-drug{font-size:0.82rem;font-weight:400;margin-bottom:0.75rem;color:var(--white)}
+.pk-row{display:flex;justify-content:space-between;align-items:center;padding:0.28rem 0;border-bottom:1px solid var(--card-border);font-size:0.73rem}
+.pk-row:last-child{border-bottom:none}
+.pk-param{color:var(--muted);font-family:'DM Mono',monospace;font-size:0.65rem}
+.pk-val{font-family:'DM Mono',monospace}
+.pk-val.ok{color:#7dce82}.pk-val.warn{color:var(--gold-light)}.pk-val.bad{color:#f08080}
+.override-form{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem}
+.ov-group label{display:block;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:0.38rem}
+.ov-group input,.ov-group select,.ov-group textarea{width:100%;padding:0.62rem 0.9rem;background:rgba(255,255,255,0.04);border:1px solid var(--card-border);border-radius:0.5rem;color:var(--white);font-family:'Outfit',sans-serif;font-size:0.82rem;outline:none;transition:border-color 0.3s;resize:vertical}
+.ov-group input:focus,.ov-group select:focus,.ov-group textarea:focus{border-color:var(--gold)}
+.ov-group textarea{min-height:75px}
+.ov-group.full{grid-column:1/-1}
+.ov-actions{grid-column:1/-1;display:flex;gap:0.8rem;justify-content:flex-end}
+.queue-row{display:grid;grid-template-columns:32px 1fr 100px 80px 140px;align-items:center;gap:1rem;padding:0.85rem 1.2rem;border-bottom:1px solid var(--card-border);font-size:0.82rem;transition:background 0.2s;cursor:pointer}
+.queue-row:hover{background:rgba(255,255,255,0.02)}
+.queue-row.qheader{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);cursor:default}
+.queue-row.qheader:hover{background:none}
+.q-rank{font-family:'DM Mono',monospace;font-size:0.72rem;color:var(--muted)}
+
+@media(max-width:880px){
+  .dash-layout{grid-template-columns:1fr}
+  .sidebar{position:relative;top:0;height:auto;border-right:none;border-bottom:1px solid var(--card-border);display:flex;overflow-x:auto;padding:0.4rem}
+  .sidebar-section,.sidebar-label{display:none}
+  .sidebar-item{white-space:nowrap;border-left:none;border-bottom:2px solid transparent;padding:0.5rem 1rem}
+  .sidebar-item.active{border-left:none;border-bottom-color:var(--teal)}
+  .input-row,.override-form{grid-template-columns:1fr}
+  .risk-grid{grid-template-columns:1fr}
+  .queue-row{min-width:600px}
+  .doc-content,.dash-main{padding:1.4rem}
+  .stats-strip{flex-direction:column}
+  .stat-item{border-right:none;border-bottom:1px solid var(--card-border)}
+  .feat-grid{grid-template-columns:1fr}
+  .feat-card:nth-child(n){border-right:none;border-bottom:1px solid var(--card-border)}
+  .feat-card:last-child{border-bottom:none}
+  .nav-dropdown{width:290px}
+  .role-pick-grid {grid-template-columns:1fr!important;}
+  .form-row {flex-direction:column;gap:0;}
+  .doc-rx-grid {grid-template-columns:1fr!important;}
+  .content-card {overflow-x:auto;}
+  .top-nav {padding:1.1rem 1.2rem;}
+  .tl-day-row {grid-template-columns:50px 14px 1fr;}
+}
+@media(max-width:480px){
+  .hero h1{font-size:3.2rem}
+  .auth-card{padding:2rem 1.4rem}
+  .nav-logo{font-size:1.2rem}
+  .content-card{padding:1.2rem;}
+}
+</style>
+</head>
+<body>
+
+<div id="stars"></div>
+<div class="grid-bg"></div>
+<div class="orb" style="width:520px;height:520px;top:-130px;left:-130px;background:rgba(13,115,119,0.17);--dur:9s"></div>
+<div class="orb" style="width:370px;height:370px;bottom:-100px;right:-100px;background:rgba(200,169,110,0.08);--dur:12s"></div>
+
+<!-- ══════════════════════════════
+     PAGE 1 — LANDING
+══════════════════════════════ -->
+<div id="page-landing" class="page visible">
+  <nav class="top-nav">
+    <div class="nav-logo">Absorb<span>AI</span></div>
+    <div class="nav-right">
+      <!-- DROPDOWN TRIGGER -->
+      <div class="nav-dropdown-trigger">
+        <button class="nav-dropdown-btn" id="nav-dd-btn" onclick="toggleNavDropdown()">
+          Get Started
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </button>
+        <div class="nav-dropdown" id="nav-dropdown">
+          <div class="nav-dropdown-header">I am a&hellip;</div>
+
+          <!-- PATIENT ROLE CARD -->
+          <div class="role-card patient">
+            <div class="rc-top">
+              <span class="rc-icon">&#x1F9D1;&#x200D;&#x2695;&#xFE0F;</span>
+              <span class="rc-title">Patient</span>
+            </div>
+            <div class="rc-desc">Personalized schedule, plain-language explanations, voice reminders, and dietary flags.</div>
+            <div class="rc-actions">
+              <button class="rc-btn teal" onclick="openAuth('login','patient')">Log In</button>
+              <button class="rc-btn teal" onclick="openAuth('signup','patient')">Sign Up</button>
+            </div>
+          </div>
+
+          <div class="nav-dropdown-divider"></div>
+
+          <!-- DOCTOR ROLE CARD -->
+          <div class="role-card doctor">
+            <div class="rc-top">
+              <span class="rc-icon">&#x1F4BB;</span>
+              <span class="rc-title">Doctor</span>
+            </div>
+            <div class="rc-desc">Interaction matrices, PK summaries, evidence citations, override controls, patient risk queue.</div>
+            <div class="rc-actions">
+              <button class="rc-btn gold" onclick="openAuth('login','doctor')">Log In</button>
+              <button class="rc-btn gold" onclick="openAuth('signup','doctor')">Sign Up</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-tag">Evidence-Traceable &middot; Deterministic &middot; Clinically Auditable</div>
+    <h1><em>AbsorbAI</em></h1>
+    <p class="hero-sub">Drug&ndash;food interaction scheduling, computationally optimized and evidence-traceable. Resolving polypharmacy conflicts before they become pharmacokinetic failures.</p>
+    <div class="hero-actions">
+      <button class="btn-primary" onclick="document.getElementById('hero-role-pick').scrollIntoView({behavior:'smooth'})">Get Started &darr;</button>
+      <button class="btn-ghost" onclick="document.getElementById('landing-features').scrollIntoView({behavior:'smooth'})">Learn More</button>
+    </div>
+  </section>
+
+  <!-- ROLE PICK — Get Started anchor -->
+  <section id="hero-role-pick" style="padding:5rem 2rem;text-align:center;position:relative;z-index:1;background:rgba(13,115,119,0.04);border-top:1px solid var(--card-border)">
+    <div style="max-width:720px;margin:0 auto">
+      <div style="font-family:'DM Mono',monospace;font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--teal-light);margin-bottom:1rem;display:flex;align-items:center;justify-content:center;gap:0.8rem">Who are you? <span style="width:44px;height:1px;background:var(--teal);display:inline-block"></span></div>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3rem);font-weight:300;line-height:1.2;margin-bottom:0.8rem">Choose your <em style="font-style:italic;color:var(--gold-light)">role to begin</em></h2>
+      <p style="color:var(--muted);font-size:0.88rem;margin-bottom:3rem;line-height:1.7">Patients get a personalized, doctor-prescribed schedule. Doctors get full clinical controls, evidence citations, and real-time prescription management.</p>
+      <div class="role-pick-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;max-width:640px;margin:0 auto">
+        <div style="background:var(--card);border:1px solid rgba(13,115,119,0.3);border-radius:1.4rem;padding:2.2rem 1.8rem;text-align:left;transition:border-color 0.3s,background 0.3s" onmouseenter="this.style.background='rgba(13,115,119,0.07)'" onmouseleave="this.style.background='var(--card)'">
+          <div style="font-size:2.2rem;margin-bottom:1rem">&#x1F9D1;&#x200D;&#x2695;&#xFE0F;</div>
+          <div style="font-size:1.05rem;font-weight:400;margin-bottom:0.5rem">I'm a Patient</div>
+          <div style="font-size:0.8rem;color:var(--muted);line-height:1.65;margin-bottom:1.4rem">View your doctor-prescribed schedule, understand each medication, set reminders.</div>
+          <div style="display:flex;gap:0.6rem;flex-wrap:wrap">
+            <button class="btn-primary" style="padding:0.52rem 1.2rem;font-size:0.78rem;border-radius:1rem" onclick="openAuth('login','patient')">Log In</button>
+            <button class="btn-ghost" style="padding:0.52rem 1.2rem;font-size:0.78rem;border-radius:1rem" onclick="openAuth('signup','patient')">Sign Up</button>
+          </div>
+        </div>
+        <div style="background:var(--card);border:1px solid rgba(200,169,110,0.3);border-radius:1.4rem;padding:2.2rem 1.8rem;text-align:left;transition:border-color 0.3s,background 0.3s" onmouseenter="this.style.background='rgba(200,169,110,0.06)'" onmouseleave="this.style.background='var(--card)'">
+          <div style="font-size:2.2rem;margin-bottom:1rem">&#x1F4BB;</div>
+          <div style="font-size:1.05rem;font-weight:400;margin-bottom:0.5rem">I'm a Doctor</div>
+          <div style="font-size:0.8rem;color:var(--muted);line-height:1.65;margin-bottom:1.4rem">Prescribe medications, review interactions, PK summaries, and manage your patient risk queue.</div>
+          <div style="display:flex;gap:0.6rem;flex-wrap:wrap">
+            <button class="btn-gold" style="padding:0.52rem 1.2rem;font-size:0.78rem;border-radius:1rem" onclick="openAuth('login','doctor')">Log In</button>
+            <button class="btn-ghost" style="padding:0.52rem 1.2rem;font-size:0.78rem;border-radius:1rem;border-color:rgba(200,169,110,0.4);color:var(--gold-light)" onclick="openAuth('signup','doctor')">Sign Up</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="stats-strip">
+    <div class="stat-item"><div class="stat-num"><span class="count-up" data-target="1200">0</span>+</div><div class="stat-label">Drug&ndash;Nutrient Rules</div></div>
+    <div class="stat-item"><div class="stat-num"><span class="count-up" data-target="98">0</span>%</div><div class="stat-label">Conflict Resolution Rate</div></div>
+    <div class="stat-item"><div class="stat-num"><span class="count-up" data-target="5">0</span></div><div class="stat-label">Architectural Layers</div></div>
+    <div class="stat-item"><div class="stat-num"><span class="count-up" data-target="12">0</span>+</div><div class="stat-label">Languages Supported</div></div>
+  </div>
+
+  <!-- FEATURES — 3 × 2 grid -->
+  <section id="landing-features" class="std-section">
+    <div class="std-inner">
+      <div class="reveal">
+        <div class="section-label">Capabilities</div>
+        <h2 class="section-title">Built for the real<br><em>complexity of therapy</em></h2>
+      </div>
+      <div class="feat-grid">
+        <div class="feat-card">
+          <div class="feat-icon">&#x2697;&#xFE0F;</div>
+          <div class="feat-title">Deterministic Rule Engine</div>
+          <div class="feat-desc">Every interaction rule is explicitly coded from regulatory labels&mdash;no probabilistic inference. Every output is clinically defensible and auditable.</div>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon">&#x1F578;&#xFE0F;</div>
+          <div class="feat-title">Knowledge Graph Reasoning</div>
+          <div class="feat-desc">Multi-hop inference over drug&ndash;nutrient relationships uncovers secondary interaction cascades invisible to linear rule lists.</div>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon">&#x1F512;</div>
+          <div class="feat-title">Narrow TI Drug Safety</div>
+          <div class="feat-desc">Heightened scoring for warfarin, levothyroxine, digoxin&mdash;where AUC deviation carries direct toxicity or under-treatment risk.</div>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon">&#x1F310;</div>
+          <div class="feat-title">Multilingual Voice Interface</div>
+          <div class="feat-desc">Voice-first interface in 12+ Indian languages, designed to bridge digital literacy gaps in rural and elderly populations.</div>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon">&#x1F3E5;</div>
+          <div class="feat-title">ABDM / FHIR Integration</div>
+          <div class="feat-desc">Consent-based ABHA record retrieval and full interoperability with hospital EHR systems via FHIR-compliant APIs.</div>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon">&#x1F504;</div>
+          <div class="feat-title">Adaptive Scheduling</div>
+          <div class="feat-desc">Wearable integration enables dynamic schedule adjustment based on actual meal timing, enabling adaptive pharmacotherapy.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer style="border-top:1px solid var(--card-border);padding:2.2rem 3rem;text-align:center;color:var(--muted);font-size:0.76rem;position:relative;z-index:1">
+    <strong style="color:var(--white);font-weight:400">AbsorbAI</strong> &middot; Deterministic Drug&ndash;Food Interaction Platform &middot; FHIR-Compatible &middot; ABDM-Integrated
+  </footer>
+</div>
+
+<!-- ══════════════════════════════
+     PAGE 2 — AUTH
+══════════════════════════════ -->
+<div id="page-auth" class="page hidden">
+  <nav class="top-nav">
+    <div class="nav-logo" onclick="showPage('landing')" style="cursor:pointer">Absorb<span>AI</span></div>
+    <div class="nav-right">
+      <button class="btn-ghost" style="padding:0.45rem 1.1rem;font-size:0.76rem" onclick="showPage('landing')">&larr; Back</button>
+    </div>
+  </nav>
+  <div class="auth-wrap">
+    <div class="auth-card">
+      <div class="auth-logo">Absorb<span>AI</span></div>
+      <div class="auth-sub" id="auth-sub-text">Welcome back</div>
+      <div class="auth-mode-tabs">
+        <button class="auth-mode-tab active" id="tab-login" onclick="setAuthMode('login')">Log In</button>
+        <button class="auth-mode-tab" id="tab-signup" onclick="setAuthMode('signup')">Sign Up</button>
+      </div>
+      <div class="role-selector">
+        <button class="role-btn active patient-active" id="rbtn-patient" onclick="setAuthRole('patient')">&#x1F9D1;&#x200D;&#x2695;&#xFE0F; Patient</button>
+        <button class="role-btn" id="rbtn-doctor" onclick="setAuthRole('doctor')">&#x1F4BB; Doctor</button>
+      </div>
+
+      <!-- LOGIN FORM -->
+      <div id="login-form">
+        <div class="form-field">
+          <label style="display:block;font-family:'DM Mono',monospace;font-size:0.61rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-bottom:0.42rem">Login Method</label>
+          <div class="method-tabs">
+            <button class="method-tab active" onclick="setLoginMethod(this,'email')">Email</button>
+            <button class="method-tab" onclick="setLoginMethod(this,'mobile')">Mobile OTP</button>
+            <button class="method-tab" onclick="setLoginMethod(this,'abha')">ABHA ID</button>
+          </div>
+        </div>
+        <div id="lm-email">
+          <div class="form-field"><label>Email Address</label><input type="email" id="login-email" placeholder="you@example.com"></div>
+          <div class="form-field"><label>Password</label><input type="password" id="login-pass" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;"></div>
+        </div>
+        <div id="lm-mobile" style="display:none">
+          <div class="form-field"><label>Mobile Number</label><input type="tel" id="login-mobile" placeholder="+91 98XXXXXXXX"></div>
+          <div class="form-field" id="otp-field-wrap" style="display:none">
+            <label>Enter OTP</label>
+            <div class="otp-fields">
+              <input maxlength="1" oninput="otpNext(this)"><input maxlength="1" oninput="otpNext(this)">
+              <input maxlength="1" oninput="otpNext(this)"><input maxlength="1" oninput="otpNext(this)">
+              <input maxlength="1" oninput="otpNext(this)"><input maxlength="1">
+            </div>
+          </div>
+          <button class="btn-ghost" style="width:100%;padding:0.6rem;font-size:0.82rem;margin-bottom:0.8rem" id="send-otp-btn" onclick="sendOTP()">Send OTP</button>
+        </div>
+        <div id="lm-abha" style="display:none">
+          <div class="form-field"><label>ABHA ID (14-digit)</label><input type="text" placeholder="XX-XXXX-XXXX-XXXX"></div>
+          <div class="form-field"><label>Linked Mobile OTP</label>
+            <div class="otp-fields">
+              <input maxlength="1" oninput="otpNext(this)"><input maxlength="1" oninput="otpNext(this)">
+              <input maxlength="1" oninput="otpNext(this)"><input maxlength="1" oninput="otpNext(this)">
+              <input maxlength="1" oninput="otpNext(this)"><input maxlength="1">
+            </div>
+          </div>
+          <p style="font-size:0.72rem;color:var(--muted);margin-bottom:0.9rem;line-height:1.5">OTP will be sent to your ABHA-linked mobile for identity verification.</p>
+        </div>
+        <div class="form-row">
+          <div class="form-field"><label>Language</label><select><option>English</option><option>Hindi</option><option>Tamil</option><option>Telugu</option><option>Bengali</option><option>Marathi</option><option>Kannada</option></select></div>
+          <div class="form-field"><label>Accessibility</label><select><option>Standard</option><option>Voice Mode</option><option>Large Font</option></select></div>
+        </div>
+        <button class="auth-btn" id="login-submit-btn" onclick="doLogin()">Log In</button>
+        <div class="auth-error" id="login-error">Invalid credentials. Please check and try again.</div>
+        <div style="margin-top:1rem;text-align:center;font-size:0.78rem;color:var(--muted)">No account? <a href="#" onclick="setAuthMode('signup');return false" style="color:var(--teal-light);text-decoration:none">Sign up free</a></div>
+      </div>
+
+      <!-- SIGNUP FORM -->
+      <div id="signup-form" style="display:none">
+        <div class="form-row">
+          <div class="form-field"><label>First Name</label><input type="text" id="su-fname" placeholder="Ananya"></div>
+          <div class="form-field"><label>Last Name</label><input type="text" id="su-lname" placeholder="Rao"></div>
+        </div>
+        <div class="form-field"><label>Email Address</label><input type="email" id="su-email" placeholder="you@example.com"></div>
+        <div class="form-field"><label>Mobile Number</label><input type="tel" placeholder="+91 98XXXXXXXX"></div>
+        <div class="form-field" id="su-reg-wrap" style="display:none"><label>Medical Registration Number</label><input type="text" id="su-reg" placeholder="MCI / State Council Reg No."></div>
+        <div class="form-field" id="su-spec-wrap" style="display:none"><label>Specialization</label><select><option>General Physician</option><option>Cardiologist</option><option>Endocrinologist</option><option>Nephrologist</option><option>Internal Medicine</option><option>Other</option></select></div>
+        <div class="form-field"><label>Password</label><input type="password" id="su-pass" placeholder="Min 8 characters"></div>
+        <div class="form-field"><label>Confirm Password</label><input type="password" id="su-pass2" placeholder="Repeat password"></div>
+        <div class="form-row">
+          <div class="form-field"><label>Language</label><select><option>English</option><option>Hindi</option><option>Tamil</option><option>Telugu</option><option>Bengali</option><option>Marathi</option><option>Kannada</option></select></div>
+          <div class="form-field"><label>Accessibility</label><select><option>Standard</option><option>Voice Mode</option><option>Large Font</option></select></div>
+        </div>
+        <div class="consent-row">
+          <input type="checkbox" id="su-consent" checked>
+          <span>I consent to ABHA-linked retrieval of my medication records via FHIR-compliant APIs for scheduling optimization.</span>
+        </div>
+        <button class="auth-btn" id="signup-submit-btn" onclick="doSignup()">Create Account</button>
+        <div class="auth-error" id="signup-error">Please fill all required fields correctly.</div>
+        <div class="auth-success" id="signup-success">Account created! Redirecting to your dashboard&hellip;</div>
+        <div style="margin-top:1rem;text-align:center;font-size:0.78rem;color:var(--muted)">Have an account? <a href="#" onclick="setAuthMode('login');return false" style="color:var(--teal-light);text-decoration:none">Log in</a></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════
+     PAGE 3 — PATIENT DASHBOARD
+══════════════════════════════ -->
+<div id="page-patient" class="page hidden">
+  <nav class="top-nav">
+    <div class="nav-logo" onclick="showPage('landing')" style="cursor:pointer">Absorb<span>AI</span></div>
+    <div class="nav-right">
+      <div class="nav-user"><span id="patient-name-nav">Ananya R.</span><span class="nav-badge badge-patient">Patient</span></div>
+      <button class="nav-logout" onclick="doLogout()">Sign Out</button>
+    </div>
+  </nav>
+  <div class="dash-layout">
+    <div class="sidebar">
+      <div class="sidebar-section">
+        <div class="sidebar-label">My Health</div>
+        <div class="sidebar-item active" onclick="showPatientPanel('timeline',this)"><span class="sidebar-icon">&#x1F4C5;</span> Today's Schedule</div>
+        <div class="sidebar-item" onclick="showPatientPanel('risk',this)"><span class="sidebar-icon">&#x26A0;&#xFE0F;</span> Risk Summary</div>
+        <div class="sidebar-item" onclick="showPatientPanel('meds',this)"><span class="sidebar-icon">&#x1F48A;</span> My Medications</div>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-label">Preferences</div>
+        <div class="sidebar-item" onclick="showPatientPanel('diet',this)"><span class="sidebar-icon">&#x1F37D;&#xFE0F;</span> Dietary Profile</div>
+        <div class="sidebar-item" onclick="showPatientPanel('reminders',this)"><span class="sidebar-icon">&#x1F514;</span> Reminders</div>
+      </div>
+    </div>
+    <div class="dash-main">
+      <div class="dash-panel active" id="p-timeline">
+        <div class="greeting"><h2>Good morning, <em id="patient-greet-name">Ananya</em></h2><p>Your schedule is optimized for today &mdash; 5 medications, 0 unresolved conflicts</p></div>
+        <div class="widget-grid">
+          <div class="widget"><div class="widget-label">Medications</div><div class="widget-value" id="w-meds">0</div><div class="widget-sub" id="w-meds-sub">Awaiting prescription</div></div>
+          <div class="widget widget-danger"><div class="widget-label">High Risk</div><div class="widget-value" id="w-high">0</div><div class="widget-sub" id="w-high-sub">No flags</div></div>
+          <div class="widget widget-warn"><div class="widget-label">Moderate</div><div class="widget-value" id="w-mod">0</div><div class="widget-sub" id="w-mod-sub">No flags</div></div>
+          <div class="widget"><div class="widget-label">Adherence Score</div><div class="widget-value" id="w-adh" style="color:var(--muted)">—</div><div class="widget-sub">Awaiting data</div></div>
+        </div>
+        <div class="content-card">
+          <div class="card-title">Today's Medication Timeline <span class="card-badge">Conflict-Free</span></div>
+          <div class="full-timeline" id="pt-full-timeline"></div>
+        </div>
+      </div>
+      <div class="dash-panel" id="p-risk">
+        <div class="greeting"><h2>Risk <em>Summary</em></h2><p>Interaction analysis for your current medication profile</p></div>
+        <div class="risk-grid">
+          <div class="risk-card high"><div class="risk-count" id="rc-high">0</div><div class="risk-type">High Risk</div></div>
+          <div class="risk-card med"><div class="risk-count" id="rc-med">0</div><div class="risk-type">Moderate</div></div>
+          <div class="risk-card low"><div class="risk-count" id="rc-low">0</div><div class="risk-type">Low / Clear</div></div>
+        </div>
+        <div class="content-card">
+          <div class="card-title">Interaction Details</div>
+          <div class="full-timeline" id="pt-risk-detail">
+            <div style="text-align:center;padding:2rem;color:var(--muted);font-size:0.84rem">No medications prescribed yet. Interaction details will appear here once your doctor adds prescriptions.</div>
+          </div>
+        </div>
+      </div>
+      <div class="dash-panel" id="p-meds">
+        <div class="greeting"><h2>My <em>Medications</em></h2><p>Prescribed by your doctor — shown in real time. Contact your doctor to make changes.</p></div>
+
+        <!-- DOCTOR-PRESCRIBED — READ ONLY -->
+        <div class="content-card">
+          <div class="card-title">
+            Prescribed by Doctor
+            <div style="display:flex;align-items:center;gap:0.6rem">
+              <span id="pt-live-dot" style="width:8px;height:8px;border-radius:50%;background:#7dce82;box-shadow:0 0 6px #7dce82;animation:pulse 2s infinite;display:inline-block"></span>
+              <span style="font-family:'DM Mono',monospace;font-size:0.62rem;color:#7dce82;letter-spacing:0.08em">LIVE SYNC</span>
+            </div>
+          </div>
+          <div id="pt-prescribed-list" style="display:flex;flex-direction:column;gap:0.5rem"></div>
+          <div id="pt-no-rx" style="display:none;text-align:center;padding:2rem;color:var(--muted);font-size:0.84rem">No prescriptions yet. Your doctor will push medications here.</div>
+        </div>
+
+        <!-- SELF-REPORTED (editable) -->
+        <div class="content-card">
+          <div class="card-title">Self-Reported Supplements <span class="card-badge">Editable</span></div>
+          <p style="font-size:0.78rem;color:var(--muted);margin-bottom:1rem;line-height:1.6">These are visible to your doctor but do not affect your prescribed schedule. Only supplements and OTC items here.</p>
+          <div class="toggle-row"><span class="toggle-label">Calcium Supplement</span><label class="toggle"><input type="checkbox" checked><span class="slider"></span></label></div>
+          <div class="toggle-row"><span class="toggle-label">Iron Tablets</span><label class="toggle"><input type="checkbox"><span class="slider"></span></label></div>
+          <div class="toggle-row"><span class="toggle-label">Multivitamin</span><label class="toggle"><input type="checkbox" checked><span class="slider"></span></label></div>
+          <div class="toggle-row"><span class="toggle-label">Herbal Supplements</span><label class="toggle"><input type="checkbox"><span class="slider"></span></label></div>
+          <div class="toggle-row"><span class="toggle-label">Protein Powder</span><label class="toggle"><input type="checkbox"><span class="slider"></span></label></div>
+        </div>
+      </div>
+      <div class="dash-panel" id="p-diet">
+        <div class="greeting"><h2>Dietary <em>Profile</em></h2><p>Your eating patterns are used to optimize medication timing</p></div>
+        <div class="content-card">
+          <div class="card-title">Meal Timings</div>
+          <div class="input-form">
+            <div class="input-row"><div class="input-group"><label>Breakfast</label><input type="time" value="07:00"></div><div class="input-group"><label>Lunch</label><input type="time" value="13:00"></div></div>
+            <div class="input-row"><div class="input-group"><label>Dinner</label><input type="time" value="19:30"></div><div class="input-group"><label>Snack Time</label><input type="time" value="16:00"></div></div>
+            <div class="input-row"><div class="input-group"><label>Wake-Up</label><input type="time" value="06:00"></div><div class="input-group"><label>Sleep Time</label><input type="time" value="22:30"></div></div>
+          </div>
+        </div>
+        <div class="content-card">
+          <div class="card-title">Dietary Flags</div>
+          <div class="toggle-row"><span class="toggle-label">High Dairy Consumption</span><label class="toggle"><input type="checkbox" checked><span class="slider"></span></label></div>
+          <div class="toggle-row"><span class="toggle-label">High-Fiber Diet</span><label class="toggle"><input type="checkbox"><span class="slider"></span></label></div>
+          <div class="toggle-row"><span class="toggle-label">Grapefruit Consumption</span><label class="toggle"><input type="checkbox"><span class="slider"></span></label></div>
+          <div class="toggle-row"><span class="toggle-label">Intermittent Fasting</span><label class="toggle"><input type="checkbox"><span class="slider"></span></label></div>
+          <div style="margin-top:1.2rem;display:flex;justify-content:flex-end"><button class="btn-primary" style="padding:0.62rem 1.5rem;font-size:0.82rem" onclick="alert('Profile saved!')">Save &amp; Update Schedule</button></div>
+        </div>
+      </div>
+      <div class="dash-panel" id="p-reminders">
+        <div class="greeting"><h2>Reminder <em>Settings</em></h2><p>Configure notifications for your medication schedule</p></div>
+        <div class="content-card">
+          <div class="card-title">Notification Channels</div>
+          <div class="toggle-row"><span class="toggle-label">SMS Reminders</span><label class="toggle"><input type="checkbox" checked><span class="slider"></span></label></div>
+          <div class="toggle-row"><span class="toggle-label">Email Reminders</span><label class="toggle"><input type="checkbox"><span class="slider"></span></label></div>
+          <div class="toggle-row"><span class="toggle-label">Voice Reminders</span><label class="toggle"><input type="checkbox" checked><span class="slider"></span></label></div>
+        </div>
+        <div class="content-card">
+          <div class="card-title">Voice Language</div>
+          <div class="input-group"><label>Instruction Language</label><select><option>English</option><option>Hindi</option><option>Tamil</option><option>Telugu</option><option>Bengali</option><option>Marathi</option><option>Kannada</option></select></div>
+          <div style="margin-top:1.2rem;display:flex;justify-content:flex-end"><button class="btn-primary" style="padding:0.62rem 1.5rem;font-size:0.82rem;margin-top:0.8rem" onclick="alert('Reminders configured!')">Save Settings</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════
+     PAGE 4 — DOCTOR DASHBOARD
+══════════════════════════════ -->
+<div id="page-doctor" class="page hidden">
+  <nav class="top-nav">
+    <div class="nav-logo" onclick="showPage('landing')" style="cursor:pointer">Absorb<span>AI</span></div>
+    <div class="nav-right">
+      <div class="nav-user"><span id="doctor-name-nav">Dr. Priya Mehta</span><span class="nav-badge badge-doctor">Doctor</span></div>
+      <button class="nav-logout" onclick="doLogout()">Sign Out</button>
+    </div>
+  </nav>
+  <div class="doc-tabs">
+    <button class="doc-tab active" onclick="showDocPanel('queue',this)">&#x1F6A8; Risk Queue</button>
+    <button class="doc-tab" onclick="showDocPanel('prescribe',this)">&#x1F48A; Prescribe</button>
+    <button class="doc-tab" onclick="showDocPanel('matrix',this)">&#x1F9EA; Interaction Matrix</button>
+    <button class="doc-tab" onclick="showDocPanel('pk',this)">&#x1F4C8; PK Impact</button>
+    <button class="doc-tab" onclick="showDocPanel('override',this)">&#x270F;&#xFE0F; Override</button>
+    <button class="doc-tab" onclick="showDocPanel('patients',this)">&#x1F465; Patients</button>
+  </div>
+  <div class="doc-content">
+    <div class="doc-panel active" id="d-queue">
+      <div class="greeting"><h2>Risk Priority <em>Queue</em></h2><p>Patients with active prescriptions, sorted by interaction severity</p></div>
+      <div class="content-card" style="padding:0">
+        <div class="queue-row qheader"><span>#</span><span>Patient</span><span>Drugs</span><span>Top Flag</span><span>Action</span></div>
+        <div id="queue-body"></div>
+      </div>
+    </div>
+
+    <!-- PRESCRIBE PANEL -->
+    <div class="doc-panel" id="d-prescribe">
+      <div class="greeting"><h2>Prescribe <em>Medication</em></h2><p>Add or update a patient's prescription — changes push to their dashboard in real time</p></div>
+
+      <div class="content-card">
+        <div class="card-title">New Prescription <span class="card-badge">Real-Time Sync</span></div>
+        <div class="doc-rx-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem">
+          <div class="input-group">
+            <label>Select Patient</label>
+            <select id="rx-patient" onchange="updateRxPatientInfo()">
+              <option value="">— Choose patient —</option>
+              <option value="patient_demo">Ananya R. (patient@demo.com)</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label>Drug Name</label>
+            <input type="text" id="rx-drug" placeholder="e.g. Metformin">
+          </div>
+          <div class="input-group">
+            <label>Dosage</label>
+            <input type="text" id="rx-dose" placeholder="e.g. 500mg">
+          </div>
+          <div class="input-group">
+            <label>Frequency</label>
+            <select id="rx-freq">
+              <option>Once daily</option>
+              <option>Twice daily</option>
+              <option>Thrice daily</option>
+              <option>With meals</option>
+              <option>At bedtime</option>
+              <option>As needed</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label>Scheduled Time</label>
+            <input type="time" id="rx-time" value="08:00">
+          </div>
+          <div class="input-group">
+            <label>Duration</label>
+            <input type="text" id="rx-duration" placeholder="e.g. 30 days / Ongoing">
+          </div>
+          <div class="input-group" style="grid-column:1/-1">
+            <label>Instructions for Patient</label>
+            <input type="text" id="rx-instructions" placeholder="e.g. Take with food, avoid grapefruit">
+          </div>
+          <div class="input-group" style="grid-column:1/-1">
+            <label>Clinical Notes (internal only)</label>
+            <textarea id="rx-notes" placeholder="Rationale, interaction flags, monitoring requirements..." style="min-height:65px"></textarea>
+          </div>
+        </div>
+        <div id="rx-patient-info" style="display:none;padding:0.8rem 1rem;background:rgba(13,115,119,0.08);border:1px solid rgba(13,115,119,0.2);border-radius:0.6rem;margin-bottom:1rem;font-size:0.8rem;color:var(--muted);line-height:1.6"></div>
+        <div style="display:flex;gap:0.8rem;justify-content:flex-end;align-items:center">
+          <span id="rx-live-badge" style="display:none;font-family:'DM Mono',monospace;font-size:0.65rem;color:#7dce82;letter-spacing:0.08em">&#x25CF; SYNCING TO PATIENT</span>
+          <button class="btn-gold" onclick="prescribeDrug()" style="padding:0.7rem 1.8rem">Prescribe &amp; Push to Patient &#x2192;</button>
+        </div>
+        <div id="rx-error" style="display:none;margin-top:0.7rem;padding:0.6rem 1rem;background:rgba(240,128,128,0.1);border:1px solid rgba(240,128,128,0.25);border-radius:0.5rem;font-size:0.76rem;color:#f08080;font-family:'DM Mono',monospace"></div>
+      </div>
+
+      <!-- ACTIVE PRESCRIPTIONS TABLE -->
+      <div class="content-card">
+        <div class="card-title">Active Prescriptions <span class="card-badge" id="rx-count-badge">Loading…</span></div>
+        <div id="doc-rx-list" style="display:flex;flex-direction:column;gap:0"></div>
+      </div>
+    </div>
+    <div class="doc-panel" id="d-matrix">
+      <div class="greeting"><h2>Drug&ndash;Nutrient<br><em>Interaction Matrix</em></h2><p id="matrix-patient-label">Prescribe medications to see interaction data here.</p></div>
+      <div class="content-card">
+        <div class="matrix-wrap">
+          <table class="interaction-matrix">
+            <thead><tr><th>Drug</th><th>Interactant</th><th>Mechanism</th><th>Severity</th><th>Separation</th><th>Evidence</th></tr></thead>
+            <tbody id="matrix-body">
+              <tr><td colspan="6" style="text-align:center;padding:2.5rem;color:var(--muted);font-size:0.84rem">No prescriptions yet. Matrix will populate once the doctor prescribes medications.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="color:var(--muted);font-size:0.7rem;margin-top:1rem;font-family:'DM Mono',monospace">Click any row for full evidence citation &middot; Sorted by severity</p>
+      </div>
+    </div>
+    <div class="doc-panel" id="d-pk">
+      <div class="greeting"><h2>Pharmacokinetic<br><em>Impact Summary</em></h2><p>Expected bioavailability changes for current interactions</p></div>
+      <div class="pk-grid" id="pk-grid">
+        <div style="grid-column:1/-1;text-align:center;padding:2.5rem;color:var(--muted);font-size:0.84rem">No prescriptions yet. PK summaries will appear once medications are prescribed.</div>
+      </div>
+      <div class="content-card" style="margin-top:1.5rem">
+        <div class="card-title">Update Lab Values &mdash; <span id="pk-patient-name">No patient selected</span></div>
+        <div class="input-form">
+          <div class="input-row"><div class="input-group"><label>TSH (mIU/L)</label><input type="number" value="2.4"></div><div class="input-group"><label>Creatinine (mg/dL)</label><input type="number" value="1.1"></div></div>
+          <div class="input-row"><div class="input-group"><label>INR</label><input type="number" value="2.3"></div><div class="input-group"><label>ALT (U/L)</label><input type="number" value="28"></div></div>
+          <div style="display:flex;justify-content:flex-end"><button class="btn-gold" onclick="alert('Lab values updated.')">Update &amp; Recalculate</button></div>
+        </div>
+      </div>
+    </div>
+    <div class="doc-panel" id="d-override">
+      <div class="greeting"><h2>Schedule <em>Override</em></h2><p>Modify timing or accept known risks with clinical annotation</p></div>
+      <div class="content-card">
+        <div class="card-title">Override Entry</div>
+        <div class="override-form">
+          <div class="ov-group"><label>Patient</label><input type="text" placeholder="Enter patient name"></div>
+          <div class="ov-group"><label>Drug</label><select id="ov-drug"><option value="">— Select drug —</option></select></div>
+          <div class="ov-group"><label>New Time</label><input type="time" value="09:00"></div>
+          <div class="ov-group"><label>Action</label><select><option>Reschedule to new time</option><option>Lock this time slot</option><option>Accept known risk</option><option>Suspend medication</option></select></div>
+          <div class="ov-group full"><label>Clinical Justification</label><textarea placeholder="Document clinical rationale..."></textarea></div>
+          <div class="ov-actions"><button class="btn-outline-red">Cancel</button><button class="btn-gold" onclick="alert('Override saved to audit log.')">Save Override</button></div>
+        </div>
+      </div>
+      <div class="content-card">
+        <div class="card-title">Audit Log <span class="card-badge">Recent</span></div>
+        <div id="audit-log" style="font-family:'DM Mono',monospace;font-size:0.72rem;color:var(--muted)">
+          <div style="text-align:center;padding:1.5rem;color:var(--muted);font-size:0.82rem">No overrides recorded yet.</div>
+        </div>
+      </div>
+    </div>
+    <div class="doc-panel" id="d-patients">
+      <div class="greeting"><h2>Patient <em>Registry</em></h2><p>Manage patient profiles and import via ABHA</p></div>
+      <div class="content-card">
+        <div class="card-title">Import Patient <span class="card-badge">ABHA / FHIR</span></div>
+        <div style="display:flex;gap:1rem;align-items:flex-end;flex-wrap:wrap">
+          <div class="input-group" style="flex:1;min-width:200px"><label>ABHA ID or Patient Name</label><input type="text" placeholder="14-digit ABHA or full name"></div>
+          <button class="btn-primary" style="padding:0.68rem 1.4rem;font-size:0.82rem" onclick="alert('ABHA record imported via FHIR.')">Import &amp; Load</button>
+        </div>
+      </div>
+      <div class="content-card">
+        <div class="card-title">Registered Patients</div>
+        <div id="patients-list" class="patient-list">
+          <div style="text-align:center;padding:2rem;color:var(--muted);font-size:0.84rem">No patients registered yet.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── STARS
+(function(){const c=document.getElementById('stars');for(let i=0;i<120;i++){const s=document.createElement('div');s.className='star';const z=Math.random()*2.5+0.5;s.style.cssText=`width:${z}px;height:${z}px;left:${Math.random()*100}%;top:${Math.random()*100}%;--d:${(Math.random()*4+2).toFixed(1)}s;--o:${(Math.random()*0.6+0.1).toFixed(2)};animation-delay:${(Math.random()*5).toFixed(1)}s`;c.appendChild(s);}})();
+
+// ── SHARED IN-MEMORY PRESCRIPTION STATE
+// This acts as a simulated backend — doctor writes, patient reads live
+const SHARED = {
+  prescriptions: [],
+  listeners: [],
+  notify() { this.listeners.forEach(fn => fn()); }
+};
+
+// ── PAGE ROUTER
+function showPage(id){
+  document.querySelectorAll('.page').forEach(p=>{p.classList.remove('visible');p.classList.add('hidden');});
+  const el=document.getElementById('page-'+id);
+  if(!el)return;
+  el.classList.remove('hidden');
+  setTimeout(()=>el.classList.add('visible'),10);
+  try{el.scrollTo(0,0);}catch(e){}
+}
+
+// ── NAV DROPDOWN
+function toggleNavDropdown(){
+  const dd=document.getElementById('nav-dropdown');
+  const btn=document.getElementById('nav-dd-btn');
+  const open=dd.classList.contains('open');
+  dd.classList.toggle('open',!open);
+  btn.classList.toggle('open',!open);
+}
+document.addEventListener('click',e=>{
+  const trigger=document.querySelector('.nav-dropdown-trigger');
+  if(trigger&&!trigger.contains(e.target)){
+    document.getElementById('nav-dropdown').classList.remove('open');
+    document.getElementById('nav-dd-btn').classList.remove('open');
+  }
+});
+
+// ── COUNTERS
+const cObs=new IntersectionObserver(en=>{en.forEach(e=>{if(e.isIntersecting)startCount(e.target)});},{threshold:0.5});
+document.querySelectorAll('.count-up').forEach(el=>cObs.observe(el));
+function startCount(el){if(el.dataset.done)return;el.dataset.done='1';const t=+el.dataset.target,dur=1600,s=performance.now();function tick(n){const p=Math.min((n-s)/dur,1),ev=1-Math.pow(1-p,3);el.textContent=Math.floor(ev*t);if(p<1)requestAnimationFrame(tick);else el.textContent=t;}requestAnimationFrame(tick);}
+
+// ── REVEAL
+const revObs=new IntersectionObserver(en=>{en.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.1});
+document.querySelectorAll('.reveal,.feat-card').forEach((el,i)=>{if(el.classList.contains('feat-card'))el.style.transitionDelay=`${(i%6)*0.08}s`;revObs.observe(el);});
+
+// ── AUTH STATE
+let authRole='patient', currentUser=null;
+function openAuth(mode,role){
+  setAuthMode(mode);
+  if(role)setAuthRole(role);
+  document.getElementById('nav-dropdown').classList.remove('open');
+  document.getElementById('nav-dd-btn').classList.remove('open');
+  showPage('auth');
+}
+function setAuthMode(mode){
+  document.getElementById('tab-login').classList.toggle('active',mode==='login');
+  document.getElementById('tab-signup').classList.toggle('active',mode==='signup');
+  document.getElementById('login-form').style.display=mode==='login'?'block':'none';
+  document.getElementById('signup-form').style.display=mode==='signup'?'block':'none';
+  document.getElementById('auth-sub-text').textContent=mode==='login'?'Welcome back':'Create your account';
+  ['login-error','signup-error','signup-success'].forEach(id=>{const el=document.getElementById(id);if(el)el.classList.remove('show');});
+}
+function setAuthRole(role){
+  authRole=role;
+  document.getElementById('rbtn-patient').classList.toggle('active',role==='patient');
+  document.getElementById('rbtn-patient').classList.toggle('patient-active',role==='patient');
+  document.getElementById('rbtn-doctor').classList.toggle('active',role==='doctor');
+  document.getElementById('rbtn-doctor').classList.toggle('doctor-active',role==='doctor');
+  const sr=document.getElementById('su-reg-wrap'), ss=document.getElementById('su-spec-wrap');
+  if(sr)sr.style.display=role==='doctor'?'block':'none';
+  if(ss)ss.style.display=role==='doctor'?'block':'none';
+  const lb=document.getElementById('login-submit-btn'), sb=document.getElementById('signup-submit-btn');
+  if(role==='doctor'){lb.classList.add('doctor-btn');if(sb)sb.classList.add('doctor-btn');}
+  else{lb.classList.remove('doctor-btn');if(sb)sb.classList.remove('doctor-btn');}
+}
+let loginMethod='email';
+function setLoginMethod(btn,method){
+  document.querySelectorAll('.method-tab').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active'); loginMethod=method;
+  document.getElementById('lm-email').style.display=method==='email'?'block':'none';
+  document.getElementById('lm-mobile').style.display=method==='mobile'?'block':'none';
+  document.getElementById('lm-abha').style.display=method==='abha'?'block':'none';
+}
+function sendOTP(){
+  const mob=document.getElementById('login-mobile').value;
+  if(!mob){alert('Enter a mobile number first.');return;}
+  document.getElementById('otp-field-wrap').style.display='block';
+  document.getElementById('send-otp-btn').textContent='Resend OTP';
+  document.querySelectorAll('#lm-mobile .otp-fields input').forEach((inp,i)=>inp.value=['1','2','3','4','5','6'][i]);
+}
+function otpNext(el){if(el.value&&el.nextElementSibling)el.nextElementSibling.focus();}
+
+const USERS={
+  'patient@demo.com':{pass:'patient123',role:'patient',name:'Ananya Rao',fname:'Ananya',patientKey:'ananya'},
+  'doctor@demo.com': {pass:'doctor123', role:'doctor', name:'Dr. Priya Mehta',fname:'Priya',patientKey:null},
+};
+
+function doLogin(){
+  const id=(document.getElementById('login-email').value||'').trim().toLowerCase();
+  const pass=(document.getElementById('login-pass').value||'').trim();
+  const err=document.getElementById('login-error');
+  err.classList.remove('show');
+  const user=USERS[id];
+  if(!user||user.pass!==pass){err.classList.add('show');return;}
+  if(user.role!==authRole){err.textContent=`This is a ${user.role} account. Please select the correct role above.`;err.classList.add('show');return;}
+  launchDashboard(user);
+}
+function doSignup(){
+  const fn=(document.getElementById('su-fname').value||'').trim();
+  const ln=(document.getElementById('su-lname').value||'').trim();
+  const em=(document.getElementById('su-email').value||'').trim();
+  const p1=(document.getElementById('su-pass').value||'').trim();
+  const p2=(document.getElementById('su-pass2').value||'').trim();
+  const err=document.getElementById('signup-error'), suc=document.getElementById('signup-success');
+  err.classList.remove('show');suc.classList.remove('show');
+  if(!fn||!ln||!em){err.textContent='Please fill in your name and email.';err.classList.add('show');return;}
+  if(p1.length<8){err.textContent='Password must be at least 8 characters.';err.classList.add('show');return;}
+  if(p1!==p2){err.textContent='Passwords do not match.';err.classList.add('show');return;}
+  const suReg=document.getElementById('su-reg');
+  if(authRole==='doctor'&&suReg&&!(suReg.value||'').trim()){err.textContent='Medical registration number required.';err.classList.add('show');return;}
+  suc.classList.add('show');
+  const pkey = fn.toLowerCase()+ln.toLowerCase().charAt(0);
+  setTimeout(()=>launchDashboard({role:authRole,name:(authRole==='doctor'?'Dr. ':'')+fn+' '+ln,fname:fn,patientKey:pkey}),1200);
+}
+
+function launchDashboard(user){
+  currentUser=user;
+  if(user.role==='doctor'){
+    document.getElementById('doctor-name-nav').textContent=user.name;
+    showPage('doctor');
+    renderAllDocPanels();
+  } else {
+    document.getElementById('patient-name-nav').textContent=user.fname+' R.';
+    document.getElementById('patient-greet-name').textContent=user.fname;
+    showPage('patient');
+    buildPatientTimeline();
+    renderPatientPrescriptions();
+    // Register live listener
+    SHARED.listeners = SHARED.listeners.filter(fn=>fn._uid!=='patient_rx');
+    const listener = ()=>{buildPatientTimeline();renderPatientPrescriptions();};
+    listener._uid='patient_rx';
+    SHARED.listeners.push(listener);
+  }
+}
+function doLogout(){currentUser=null;SHARED.listeners=SHARED.listeners.filter(fn=>fn._uid!=='patient_rx');showPage('landing');}
+
+// ── PATIENT NAV
+function showPatientPanel(id,el){
+  document.querySelectorAll('.dash-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.sidebar-item').forEach(s=>s.classList.remove('active'));
+  document.getElementById('p-'+id).classList.add('active');
+  if(el)el.classList.add('active');
+}
+
+// ── DOCTOR NAV
+function showDocPanel(id,btn){
+  document.querySelectorAll('.doc-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.doc-tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('d-'+id).classList.add('active');
+  if(btn)btn.classList.add('active');
+  if(id==='prescribe') renderDocPrescriptions();
+}
+
+// ── DOCTOR: PRESCRIBE
+const PATIENT_INFO = {
+  patient_demo: 'Ananya R. · patient@demo.com · No medications prescribed yet',
+};
+function updateRxPatientInfo(){
+  const sel=document.getElementById('rx-patient').value;
+  const info=document.getElementById('rx-patient-info');
+  if(sel&&PATIENT_INFO[sel]){info.style.display='block';info.innerHTML='<strong style="color:var(--teal-light)">Patient Profile: </strong>'+PATIENT_INFO[sel];}
+  else info.style.display='none';
+}
+function prescribeDrug(){
+  const pat=document.getElementById('rx-patient').value;
+  const drug=(document.getElementById('rx-drug').value||'').trim();
+  const dose=(document.getElementById('rx-dose').value||'').trim();
+  const freq=document.getElementById('rx-freq').value;
+  const time=document.getElementById('rx-time').value;
+  const dur=(document.getElementById('rx-duration').value||'').trim();
+  const instr=(document.getElementById('rx-instructions').value||'').trim();
+  const notes=(document.getElementById('rx-notes').value||'').trim();
+  const errEl=document.getElementById('rx-error');
+  errEl.style.display='none';
+  if(!pat||!drug||!dose){errEl.textContent='Please select a patient and enter drug name and dosage.';errEl.style.display='block';return;}
+
+  // Show syncing badge
+  const badge=document.getElementById('rx-live-badge');
+  badge.style.display='inline';
+
+  // Determine risk dot/badge from drug name (simple heuristic)
+  const dname=drug.toLowerCase();
+  let dot='', badgeText='Scheduled', badgeClass='risk-ok';
+  if(['warfarin','digoxin','phenytoin'].some(d=>dname.includes(d))){dot='danger';badgeText='Narrow TI';badgeClass='risk-high';}
+  else if(['levothyroxine','lithium'].some(d=>dname.includes(d))){dot='warn';badgeText='Monitor';badgeClass='risk-warn';}
+  else if(['metformin'].some(d=>dname.includes(d))){badgeText='Optimal';badgeClass='risk-clear';}
+
+  const rx = {
+    id:'rx'+Date.now(),
+    patient: pat,
+    drug, dose, freq, time, duration:dur||'Ongoing',
+    instructions: instr||'As directed',
+    notes,
+    prescribedBy: currentUser ? currentUser.name : 'Doctor',
+    ts: Date.now(),
+    dot, badge: badgeClass, badgeText
+  };
+  SHARED.prescriptions.push(rx);
+  SHARED.notify(); // ← real-time push to patient
+
+  // Clear form
+  ['rx-drug','rx-dose','rx-duration','rx-instructions','rx-notes'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+  document.getElementById('rx-patient').value='';
+  document.getElementById('rx-patient-info').style.display='none';
+  renderAllDocPanels();
+
+  // Show sync confirmation then hide badge
+  setTimeout(()=>{badge.style.display='none';},2000);
+
+  // Update patient timeline if patient is currently viewing
+  if(document.getElementById('page-patient').classList.contains('visible')){
+    buildPatientTimeline();
+    renderPatientPrescriptions();
+  }
+}
+
+// Patient display name from key
+const PAT_DISPLAY = { patient_demo: 'Ananya R.' };
+
+function renderAllDocPanels(){
+  renderDocPrescriptions();
+  renderQueue();
+  renderMatrix();
+  renderPK();
+  renderPatientsList();
+  // update override drug list
+  const ovDrug=document.getElementById('ov-drug');
+  if(ovDrug){
+    const drugs=[...new Set(SHARED.prescriptions.map(r=>r.drug+' '+r.dose))];
+    ovDrug.innerHTML='<option value="">— Select drug —</option>'+drugs.map(d=>`<option>${d}</option>`).join('');
+  }
+  // update PK patient name
+  const pkName=document.getElementById('pk-patient-name');
+  if(pkName) pkName.textContent = SHARED.prescriptions.length ? (PAT_DISPLAY['patient_demo']+' · patient@demo.com') : 'No patient selected';
+  // update matrix subtitle
+  const matLbl=document.getElementById('matrix-patient-label');
+  if(matLbl) matLbl.textContent = SHARED.prescriptions.length ? 'Ananya R. · click any row for notes' : 'Prescribe medications to see interaction data here.';
+}
+
+function renderQueue(){
+  const body=document.getElementById('queue-body');
+  if(!body)return;
+  const rxs=SHARED.prescriptions;
+  if(!rxs.length){body.innerHTML='<div style="text-align:center;padding:2.5rem;color:var(--muted);font-size:0.84rem">No prescriptions yet. Use the Prescribe tab to add medications.</div>';return;}
+  // Group by patient
+  const byPat={};
+  rxs.forEach(r=>{if(!byPat[r.patient])byPat[r.patient]=[];byPat[r.patient].push(r);});
+  body.innerHTML='';
+  let rank=1;
+  Object.entries(byPat).forEach(([pat,meds])=>{
+    const highRisk=meds.filter(m=>m.badge==='risk-high');
+    const topFlag=highRisk.length?highRisk[0].drug+' ('+highRisk[0].badgeText+')':meds[0].drug;
+    const scoreClass=highRisk.length?'high':meds.some(m=>m.badge==='risk-warn')?'med':'ok';
+    const row=document.createElement('div');
+    row.className='queue-row';
+    row.innerHTML=`<span class="q-rank">${rank++}</span><div><div style="font-size:0.84rem">${PAT_DISPLAY[pat]||pat}</div><div class="p-info">${meds.length} drug${meds.length!==1?'s':''} prescribed</div></div><span class="p-info">${meds.length} drug${meds.length!==1?'s':''}</span><span class="risk-badge ${highRisk.length?'risk-high':meds.some(m=>m.badge==='risk-warn')?'risk-warn':'risk-clear'}">${topFlag}</span><button class="btn-primary" style="padding:0.3rem 0.8rem;font-size:0.72rem" onclick="showDocPanel('matrix',document.querySelectorAll('.doc-tab')[2])">Review</button>`;
+    body.appendChild(row);
+  });
+}
+
+function renderMatrix(){
+  const tbody=document.getElementById('matrix-body');
+  if(!tbody)return;
+  const rxs=SHARED.prescriptions;
+  if(!rxs.length){tbody.innerHTML='<tr><td colspan="6" style="text-align:center;padding:2.5rem;color:var(--muted);font-size:0.84rem">No prescriptions yet. Matrix will populate once the doctor prescribes medications.</td></tr>';return;}
+  // Known interaction DB
+  const INTERACTIONS={
+    warfarin:   [{with:'Vitamin K',mech:'Clotting factor antagonism',sev:'high',sep:'Consistent intake',ref:'FDA Label — Coumadin'}],
+    levothyroxine:[{with:'Calcium',mech:'GI chelation complex',sev:'high',sep:'4 hrs before/after',ref:'DrugBank DB01089'},{with:'Iron',mech:'Chelation / complex',sev:'high',sep:'2+ hrs',ref:'PMID 2060551'}],
+    amlodipine: [{with:'Grapefruit',mech:'CYP3A4 inhibition',sev:'high',sep:'Avoid entirely',ref:'FDA Label — Norvasc'}],
+    metformin:  [{with:'High-fat meal',mech:'GI tolerability',sev:'moderate',sep:'Take with food',ref:'PMID 1888786'}],
+    digoxin:    [{with:'Calcium',mech:'Cardiac contractility',sev:'moderate',sep:'Monitor levels',ref:'FDA Label — Lanoxin'}],
+  };
+  tbody.innerHTML='';
+  let hasRows=false;
+  rxs.forEach(rx=>{
+    const key=rx.drug.toLowerCase();
+    const ints=INTERACTIONS[key]||[];
+    ints.forEach(i=>{
+      hasRows=true;
+      const sevClass=i.sev==='high'?'sev-high':'sev-med';
+      const dotClass=i.sev==='high'?'high':'med';
+      const tr=document.createElement('tr');
+      tr.onclick=()=>alert(`${rx.drug} × ${i.with}\n\nMechanism: ${i.mech}\nSeparation: ${i.sep}\nSource: ${i.ref}`);
+      tr.innerHTML=`<td>${rx.drug}</td><td>${i.with}</td><td>${i.mech}</td><td><span class="sev-dot ${dotClass}"></span><span class="${sevClass}">${i.sev.charAt(0).toUpperCase()+i.sev.slice(1)}</span></td><td>${i.sep}</td><td style="color:var(--teal-light);font-family:'DM Mono',monospace;font-size:0.66rem">${i.ref} &#x2197;</td>`;
+      tbody.appendChild(tr);
+    });
+  });
+  if(!hasRows) tbody.innerHTML='<tr><td colspan="6" style="text-align:center;padding:2rem;color:var(--muted);font-size:0.84rem">No known interactions for current prescriptions.</td></tr>';
+}
+
+function renderPK(){
+  const grid=document.getElementById('pk-grid');
+  if(!grid)return;
+  const rxs=SHARED.prescriptions;
+  if(!rxs.length){grid.innerHTML='<div style="grid-column:1/-1;text-align:center;padding:2.5rem;color:var(--muted);font-size:0.84rem">No prescriptions yet. PK summaries will appear once medications are prescribed.</div>';return;}
+  const PK_DATA={
+    warfarin:   [{p:'Cmax Variation',v:'+12% w/ high Vit K',c:'warn'},{p:'AUC Change',v:'Variable w/ diet',c:'warn'},{p:'INR Target',v:'2.0–3.0',c:'ok'},{p:'Monitoring',v:'Weekly INR',c:'warn'}],
+    levothyroxine:[{p:'Absorption w/ Ca++',v:'–40% if simultaneous',c:'bad'},{p:'Tmax (4hr gap)',v:'Normal',c:'ok'},{p:'AUC w/ Iron',v:'–30% concurrent',c:'bad'},{p:'TSH Target',v:'0.5–4.5 mIU/L',c:'ok'}],
+    amlodipine: [{p:'Cmax w/ Grapefruit',v:'+35%',c:'bad'},{p:'AUC w/ Grapefruit',v:'+40%',c:'bad'},{p:'Half-life',v:'30–50 hrs',c:'ok'},{p:'BP Target',v:'<130/80 mmHg',c:'ok'}],
+    metformin:  [{p:'Cmax w/ food',v:'–17% (intended)',c:'ok'},{p:'Tmax w/ food',v:'+35 min',c:'ok'},{p:'AUC Change',v:'<5%',c:'ok'},{p:'HbA1c Target',v:'<7%',c:'ok'}],
+    digoxin:    [{p:'Therapeutic Window',v:'0.5–2.0 ng/mL',c:'warn'},{p:'Ca++ Interaction',v:'Potentiates toxicity',c:'bad'},{p:'P-gp Substrate',v:'Monitor level',c:'warn'},{p:'Renal Clearance',v:'CrCl dependent',c:'warn'}],
+  };
+  grid.innerHTML='';
+  let found=false;
+  rxs.forEach(rx=>{
+    const data=PK_DATA[rx.drug.toLowerCase()];
+    if(!data)return;
+    found=true;
+    const card=document.createElement('div');card.className='pk-card';
+    card.innerHTML=`<div class="pk-drug">${rx.drug} ${rx.dose}</div>`+data.map(r=>`<div class="pk-row"><span class="pk-param">${r.p}</span><span class="pk-val ${r.c}">${r.v}</span></div>`).join('');
+    grid.appendChild(card);
+  });
+  if(!found) grid.innerHTML='<div style="grid-column:1/-1;text-align:center;padding:2rem;color:var(--muted);font-size:0.84rem">No PK data available for current prescriptions.</div>';
+}
+
+function renderPatientsList(){
+  const list=document.getElementById('patients-list');
+  if(!list)return;
+  const rxs=SHARED.prescriptions;
+  if(!rxs.length){list.innerHTML='<div style="text-align:center;padding:2rem;color:var(--muted);font-size:0.84rem">No patients registered yet.</div>';return;}
+  const byPat={};
+  rxs.forEach(r=>{if(!byPat[r.patient])byPat[r.patient]=[];byPat[r.patient].push(r);});
+  list.innerHTML='';
+  Object.entries(byPat).forEach(([pat,meds])=>{
+    const hasHigh=meds.some(m=>m.badge==='risk-high');
+    const hasMed=meds.some(m=>m.badge==='risk-warn');
+    const scoreClass=hasHigh?'high':hasMed?'med':'ok';
+    const riskLabel=hasHigh?'High Risk':hasMed?'Moderate':'Low Risk';
+    const riskBadge=hasHigh?'risk-high':hasMed?'risk-warn':'risk-clear';
+    const row=document.createElement('div');row.className='patient-row';
+    row.innerHTML=`<div><div class="p-name">${PAT_DISPLAY[pat]||pat}</div><div class="p-info">${meds.length} drug${meds.length!==1?'s':''} · prescribed by ${meds[0].prescribedBy}</div></div><span class="p-score ${scoreClass}">${meds.length}</span><span class="risk-badge ${riskBadge}">${riskLabel}</span><button class="btn-primary" style="padding:0.38rem 0.9rem;font-size:0.74rem" onclick="showDocPanel('prescribe',document.querySelectorAll('.doc-tab')[1])">Prescribe</button>`;
+    list.appendChild(row);
+  });
+}
+
+function renderDocPrescriptions(){
+  const list=document.getElementById('doc-rx-list');
+  const badge=document.getElementById('rx-count-badge');
+  if(!list)return;
+  const all=SHARED.prescriptions;
+  badge.textContent=all.length+' active';
+  if(all.length===0){list.innerHTML='<div style="text-align:center;padding:2rem;color:var(--muted);font-size:0.84rem">No prescriptions issued yet.</div>';return;}
+  list.innerHTML='';
+  const hdr=document.createElement('div');
+  hdr.style.cssText='display:grid;grid-template-columns:100px 1fr 80px 1fr auto;gap:0.8rem;padding:0.6rem 1rem;font-family:DM Mono,monospace;font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--card-border);background:rgba(255,255,255,0.02);min-width:600px';
+  hdr.innerHTML='<span>Patient</span><span>Drug / Dose</span><span>Time</span><span>Instructions</span><span>Action</span>';
+  list.appendChild(hdr);
+  all.forEach(rx=>{
+    const row=document.createElement('div');
+    row.style.cssText='display:grid;grid-template-columns:100px 1fr 80px 1fr auto;gap:0.8rem;padding:0.75rem 1rem;border-bottom:1px solid var(--card-border);font-size:0.8rem;align-items:center;transition:background 0.2s;min-width:600px';
+    row.onmouseenter=()=>row.style.background='rgba(255,255,255,0.02)';
+    row.onmouseleave=()=>row.style.background='transparent';
+    row.innerHTML=`
+      <span style="font-size:0.78rem;color:var(--muted)">${PAT_DISPLAY[rx.patient]||rx.patient}</span>
+      <div><strong style="color:var(--white)">${rx.drug} ${rx.dose}</strong><div style="font-size:0.72rem;color:var(--muted)">${rx.freq}</div></div>
+      <span style="font-family:'DM Mono',monospace;font-size:0.72rem;color:var(--teal-light)">${rx.time}</span>
+      <span style="font-size:0.76rem;color:var(--muted)">${rx.instructions}</span>
+      <button onclick="revokePrescription('${rx.id}')" style="padding:0.25rem 0.6rem;border-radius:0.4rem;border:1px solid rgba(240,128,128,0.35);background:transparent;color:#f08080;font-size:0.7rem;cursor:pointer;font-family:Outfit,sans-serif;white-space:nowrap">Revoke</button>`;
+    list.appendChild(row);
+  });
+}
+
+function revokePrescription(id){
+  if(!confirm('Revoke this prescription? The patient will no longer see it.'))return;
+  SHARED.prescriptions=SHARED.prescriptions.filter(r=>r.id!==id);
+  SHARED.notify();
+  renderAllDocPanels();
+}
+
+// ── PATIENT: RENDER PRESCRIBED MEDS (read-only, locked)
+function renderPatientPrescriptions(){
+  const list=document.getElementById('pt-prescribed-list');
+  const noRx=document.getElementById('pt-no-rx');
+  if(!list||!currentUser)return;
+  const mine=SHARED.prescriptions.filter(r=>r.patient===currentUser.patientKey);
+
+  // Update widgets
+  const highCount=mine.filter(m=>m.badge==='risk-high').length;
+  const modCount=mine.filter(m=>m.badge==='risk-warn').length;
+  const wMeds=document.getElementById('w-meds'); if(wMeds)wMeds.textContent=mine.length;
+  const wHigh=document.getElementById('w-high'); if(wHigh)wHigh.textContent=highCount;
+  const wMod=document.getElementById('w-mod');  if(wMod)wMod.textContent=modCount;
+  const wAdh=document.getElementById('w-adh');
+  if(wAdh){wAdh.textContent=mine.length?'87%':'—';wAdh.style.color=mine.length?'#7dce82':'var(--muted)';}
+  const wMedsSub=document.getElementById('w-meds-sub'); if(wMedsSub)wMedsSub.textContent=mine.length?'All scheduled':'Awaiting prescription';
+  const wHighSub=document.getElementById('w-high-sub'); if(wHighSub)wHighSub.textContent=highCount?mine.filter(m=>m.badge==='risk-high')[0].drug:'No flags';
+  const wModSub=document.getElementById('w-mod-sub');  if(wModSub)wModSub.textContent=modCount?'Timing adjusted':'No flags';
+  const sub=document.getElementById('schedule-sub');
+  if(sub)sub.textContent=mine.length?`${mine.length} medication${mine.length!==1?'s':''} prescribed — schedule optimized`:'Awaiting prescriptions from your doctor.';
+
+  // Risk counts
+  const rcHigh=document.getElementById('rc-high'); if(rcHigh)rcHigh.textContent=highCount;
+  const rcMed=document.getElementById('rc-med');   if(rcMed)rcMed.textContent=modCount;
+  const rcLow=document.getElementById('rc-low');   if(rcLow)rcLow.textContent=mine.filter(m=>m.badge==='risk-clear'||m.badge==='risk-ok').length;
+
+  // Risk detail rows
+  const riskDetail=document.getElementById('pt-risk-detail');
+  if(riskDetail){
+    if(!mine.length){riskDetail.innerHTML='<div style="text-align:center;padding:2rem;color:var(--muted);font-size:0.84rem">No medications prescribed yet. Interaction details will appear here.</div>';}
+    else{
+      const RISK_NOTES={
+        warfarin:'Antagonism — INR destabilization risk. Maintain consistent dietary Vitamin K intake.',
+        levothyroxine:'Chelation — 4-hour separation enforced before calcium-rich meals or supplements.',
+        amlodipine:'CYP3A4 inhibition — grapefruit excluded from dietary profile.',
+        metformin:'GI tolerability — take with food, AUC impact minimal.',
+        digoxin:'Cardiac contractility — monitor calcium levels, narrow therapeutic window.',
+      };
+      const sevOrder={'risk-high':0,'risk-warn':1,'risk-ok':2,'risk-clear':3};
+      const sorted=[...mine].sort((a,b)=>(sevOrder[a.badge]||9)-(sevOrder[b.badge]||9));
+      riskDetail.innerHTML=sorted.map(rx=>{
+        const note=RISK_NOTES[rx.drug.toLowerCase()]||'No known major interactions. Follow prescribed instructions.';
+        const sevLabel=rx.badge==='risk-high'?'HIGH':rx.badge==='risk-warn'?'MOD':'LOW';
+        const sevColor=rx.badge==='risk-high'?'#f08080':rx.badge==='risk-warn'?'var(--gold-light)':'#7dce82';
+        const dotColor=rx.badge==='risk-high'?'#f08080':rx.badge==='risk-warn'?'var(--gold-light)':'var(--teal)';
+        return `<div class="tl-day-row" style="cursor:default"><div class="tl-hr" style="color:${sevColor}">${sevLabel}</div><div class="tl-dot-col"><div class="tl-dot" style="background:${dotColor};box-shadow:0 0 6px ${dotColor}"></div></div><div class="tl-info"><span class="tl-name">${rx.drug} ${rx.dose}</span><span class="risk-badge ${rx.badge}">${rx.badgeText}</span><span class="tl-note">${note}</span></div></div>`;
+      }).join('');
+    }
+  }
+
+  // Prescribed list (read-only)
+  if(!mine.length){list.innerHTML='';noRx.style.display='block';return;}
+  noRx.style.display='none';
+  list.innerHTML='';
+  mine.forEach(rx=>{
+    const card=document.createElement('div');
+    card.style.cssText='display:grid;grid-template-columns:60px 1fr auto;align-items:start;gap:0;padding:0.9rem 0;border-bottom:1px solid var(--card-border)';
+    const dotColor={'':`var(--teal)`,meal:`var(--gold)`,warn:`var(--gold-light)`,danger:`#f08080`}[rx.dot]||'var(--teal)';
+    card.innerHTML=`
+      <div style="font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--muted);padding-top:2px">${rx.time}</div>
+      <div style="padding:0 0.8rem">
+        <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.3rem;flex-wrap:wrap">
+          <div style="width:9px;height:9px;border-radius:50%;background:${dotColor};box-shadow:0 0 6px ${dotColor};flex-shrink:0"></div>
+          <span style="font-size:0.85rem;font-weight:400">${rx.drug} ${rx.dose}</span>
+          <span class="risk-badge ${rx.badge}" style="font-size:0.58rem">${rx.badgeText}</span>
+          <span style="font-family:'DM Mono',monospace;font-size:0.58rem;color:var(--muted)">&#x1F512; Doctor-Prescribed</span>
+        </div>
+        <div style="font-size:0.76rem;color:var(--muted);line-height:1.55">${rx.instructions} &nbsp;&middot;&nbsp; ${rx.freq} &nbsp;&middot;&nbsp; ${rx.duration}</div>
+        <div style="font-size:0.72rem;color:var(--teal-light);margin-top:0.2rem">Prescribed by ${rx.prescribedBy}</div>
+      </div>
+      <span style="font-family:'DM Mono',monospace;font-size:0.6rem;color:rgba(240,128,128,0.6);border:1px solid rgba(240,128,128,0.2);padding:0.12rem 0.5rem;border-radius:0.8rem;margin-top:2px;white-space:nowrap">Read Only</span>`;
+    list.appendChild(card);
+  });
+}
+
+// ── PATIENT TIMELINE (from shared prescriptions)
+const MEAL_ROWS=[
+  {time:'07:00',name:'🍳 Breakfast',note:'Calcium-rich meal — supplement flag active',dot:'meal',badge:'risk-warn',badgeText:'Monitored',why:'Breakfast contains calcium-rich foods (dairy). Calcium forms insoluble chelates with levothyroxine and iron supplements.'},
+  {time:'19:30',name:'🍽️ Dinner',note:'Low Vitamin K — consistent with warfarin schedule',dot:'meal',badge:'risk-ok',badgeText:'Consistent',why:'Dinner is maintained low in Vitamin K to stabilize warfarin anticoagulation.'},
+];
+const WHY_MAP={
+  levothyroxine:'Levothyroxine absorption is significantly reduced by food, especially calcium and iron. Empty stomach administration ensures maximum bioavailability. (FDA Label — Synthroid; PMID: 9922410)',
+  amlodipine:'Amlodipine is a CYP3A4 substrate. Grapefruit inhibits intestinal CYP3A4, increasing bioavailability by 20–40% raising hypotension risk. (FDA Label — Norvasc; PMID: 8568566)',
+  metformin:'Taking metformin with food reduces peak plasma concentration and GI side effects without meaningful AUC reduction. (PMID: 1888786)',
+  warfarin:"Warfarin administered 1.5 hrs after low-Vitamin K dinner to maintain INR stability. Vitamin K directly antagonizes warfarin's anticoagulation. (FDA Label — Coumadin)",
+  default:'This medication has been scheduled by your doctor to minimize interactions and maximize therapeutic benefit.',
+};
+
+function buildPatientTimeline(){
+  const c=document.getElementById('pt-full-timeline');
+  if(!c)return;
+  c.innerHTML='';
+  delete c.dataset.built;
+
+  const rxMeds = currentUser ? SHARED.prescriptions.filter(r=>r.patient===currentUser.patientKey) : [];
+  // Only show meal rows if there are medications to pair with
+  const mealRows = rxMeds.length ? MEAL_ROWS : [];
+  const allRows=[
+    ...rxMeds.map(rx=>({
+      time:rx.time, name:`${rx.drug} ${rx.dose}`, note:rx.instructions,
+      dot:rx.dot, badge:rx.badge, badgeText:rx.badgeText,
+      why:WHY_MAP[rx.drug.toLowerCase()]||WHY_MAP.default, isRx:true
+    })),
+    ...mealRows
+  ].sort((a,b)=>a.time.localeCompare(b.time));
+
+  if(allRows.length===0){c.innerHTML='<div style="text-align:center;padding:2rem;color:var(--muted);font-size:0.84rem">Your schedule will appear here once your doctor prescribes medications.</div>';return;}
+
+  allRows.forEach(d=>{
+    const id='w'+Math.random().toString(36).slice(2);
+    const row=document.createElement('div');row.className='tl-day-row';row.style.cursor='default';
+    row.innerHTML=`<div class="tl-hr">${d.time}</div><div class="tl-dot-col"><div class="tl-dot ${d.dot}"></div></div><div class="tl-info"><span class="tl-name">${d.name}</span><div class="tl-badges"><span class="risk-badge ${d.badge}">${d.badgeText}</span><button class="why-btn" onclick="toggleWhy('${id}',this)">Why?</button></div><span class="tl-note">${d.note}</span></div>`;
+    const why=document.createElement('div');why.className='why-panel';why.id=id;why.textContent=d.why;
+    c.appendChild(row);c.appendChild(why);
+  });
+}
+function toggleWhy(id,btn){
+  const el=document.getElementById(id);const open=el.classList.contains('open');
+  document.querySelectorAll('.why-panel').forEach(p=>p.classList.remove('open'));
+  document.querySelectorAll('.why-btn').forEach(b=>b.textContent='Why?');
+  if(!open){el.classList.add('open');btn.textContent='Close';}
+}
+</script>
+</body>
+</html>

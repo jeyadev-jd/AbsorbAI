@@ -1,0 +1,126 @@
+<!-- ══════════════════════════════
+     PAGE 3 — PATIENT DASHBOARD
+══════════════════════════════ -->
+<div id="page-patient" class="page hidden">
+  <nav class="top-nav">
+    <div class="nav-logo" onclick="showPage('landing')" style="cursor:pointer">Absorb<span>AI</span></div>
+    <div class="nav-right">
+      <div class="nav-user"><span id="patient-name-nav">Ananya R.</span><span class="nav-badge badge-patient">Patient</span></div>
+      <button class="nav-logout" onclick="doLogout()">Sign Out</button>
+    </div>
+  </nav>
+  <div class="dash-layout">
+    <div class="sidebar">
+      <div class="sidebar-section">
+        <div class="sidebar-label">My Health</div>
+        <div class="sidebar-item active" onclick="showPatientPanel('timeline',this)">
+          <span class="sidebar-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span> Today's Schedule
+        </div>
+        <div class="sidebar-item" onclick="showPatientPanel('risk',this)">
+          <span class="sidebar-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span> Risk Summary
+        </div>
+        <div class="sidebar-item" onclick="showPatientPanel('meds',this)">
+          <span class="sidebar-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 20H4a2 2 0 0 1-2-2V5c0-1.1.9-2 2-2h3.93a2 2 0 0 1 1.66.9l.82 1.2a2 2 0 0 0 1.66.9H20a2 2 0 0 1 2 2v3"/><circle cx="18" cy="18" r="4"/><path d="M18 15v3M18 21v.01M16.5 18h3"/></svg></span> My Medications
+        </div>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-label">Preferences</div>
+        <div class="sidebar-item" onclick="showPatientPanel('diet',this)">
+          <span class="sidebar-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg></span> Dietary Profile
+        </div>
+        <div class="sidebar-item" onclick="showPatientPanel('reminders',this)">
+          <span class="sidebar-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></span> Reminders
+        </div>
+      </div>
+    </div>
+    <div class="dash-main">
+      <div class="dash-panel active" id="p-timeline">
+        <div class="greeting"><h2>Good morning, <em id="patient-greet-name">Ananya</em></h2><p>Your schedule is optimized for today &mdash; 5 medications, 0 unresolved conflicts</p></div>
+        <div class="widget-grid">
+          <div class="widget"><div class="widget-label">Medications</div><div class="widget-value" id="w-meds">0</div><div class="widget-sub" id="w-meds-sub">Awaiting prescription</div></div>
+          <div class="widget widget-danger"><div class="widget-label">High Risk</div><div class="widget-value" id="w-high">0</div><div class="widget-sub" id="w-high-sub">No flags</div></div>
+          <div class="widget widget-warn"><div class="widget-label">Moderate</div><div class="widget-value" id="w-mod">0</div><div class="widget-sub" id="w-mod-sub">No flags</div></div>
+          <div class="widget"><div class="widget-label">Adherence Score</div><div class="widget-value" id="w-adh" style="color:var(--muted)">—</div><div class="widget-sub">Awaiting data</div></div>
+        </div>
+        <div class="content-card">
+          <div class="card-title">Today's Medication Timeline <span class="card-badge">Conflict-Free</span></div>
+          <div class="full-timeline" id="pt-full-timeline"></div>
+        </div>
+      </div>
+      <div class="dash-panel" id="p-risk">
+        <div class="greeting"><h2>Risk <em>Summary</em></h2><p>Interaction analysis for your current medication profile</p></div>
+        <div class="risk-grid">
+          <div class="risk-card high"><div class="risk-count" id="rc-high">0</div><div class="risk-type">High Risk</div></div>
+          <div class="risk-card med"><div class="risk-count" id="rc-med">0</div><div class="risk-type">Moderate</div></div>
+          <div class="risk-card low"><div class="risk-count" id="rc-low">0</div><div class="risk-type">Low / Clear</div></div>
+        </div>
+        <div class="content-card">
+          <div class="card-title">Interaction Details</div>
+          <div class="full-timeline" id="pt-risk-detail">
+            <div style="text-align:center;padding:2rem;color:var(--muted);font-size:0.84rem">No medications prescribed yet. Interaction details will appear here once your doctor adds prescriptions.</div>
+          </div>
+        </div>
+      </div>
+      <div class="dash-panel" id="p-meds">
+        <div class="greeting"><h2>My <em>Medications</em></h2><p>Prescribed by your doctor — shown in real time. Contact your doctor to make changes.</p></div>
+
+        <!-- DOCTOR-PRESCRIBED — READ ONLY -->
+        <div class="content-card">
+          <div class="card-title">
+            Prescribed by Doctor
+            <div style="display:flex;align-items:center;gap:0.6rem">
+              <span id="pt-live-dot" style="width:8px;height:8px;border-radius:50%;background:#7dce82;box-shadow:0 0 6px #7dce82;animation:pulse 2s infinite;display:inline-block"></span>
+              <span style="font-family:'DM Mono',monospace;font-size:0.62rem;color:#7dce82;letter-spacing:0.08em">LIVE SYNC</span>
+            </div>
+          </div>
+          <div id="pt-prescribed-list" style="display:flex;flex-direction:column;gap:0.5rem"></div>
+          <div id="pt-no-rx" style="display:none;text-align:center;padding:2rem;color:var(--muted);font-size:0.84rem">No prescriptions yet. Your doctor will push medications here.</div>
+        </div>
+
+        <!-- SELF-REPORTED (editable) -->
+        <div class="content-card">
+          <div class="card-title">Self-Reported Supplements <span class="card-badge">Editable</span></div>
+          <p style="font-size:0.78rem;color:var(--muted);margin-bottom:1rem;line-height:1.6">These are visible to your doctor but do not affect your prescribed schedule. Only supplements and OTC items here.</p>
+          <div class="toggle-row"><span class="toggle-label">Calcium Supplement</span><label class="toggle"><input type="checkbox" checked><span class="slider"></span></label></div>
+          <div class="toggle-row"><span class="toggle-label">Iron Tablets</span><label class="toggle"><input type="checkbox"><span class="slider"></span></label></div>
+          <div class="toggle-row"><span class="toggle-label">Multivitamin</span><label class="toggle"><input type="checkbox" checked><span class="slider"></span></label></div>
+          <div class="toggle-row"><span class="toggle-label">Herbal Supplements</span><label class="toggle"><input type="checkbox"><span class="slider"></span></label></div>
+          <div class="toggle-row"><span class="toggle-label">Protein Powder</span><label class="toggle"><input type="checkbox"><span class="slider"></span></label></div>
+        </div>
+      </div>
+      <div class="dash-panel" id="p-diet">
+        <div class="greeting"><h2>Dietary <em>Profile</em></h2><p>Your eating patterns are used to optimize medication timing</p></div>
+        <div class="content-card">
+          <div class="card-title">Meal Timings</div>
+          <div class="input-form">
+            <div class="input-row"><div class="input-group"><label>Breakfast</label><input type="time" value="07:00"></div><div class="input-group"><label>Lunch</label><input type="time" value="13:00"></div></div>
+            <div class="input-row"><div class="input-group"><label>Dinner</label><input type="time" value="19:30"></div><div class="input-group"><label>Snack Time</label><input type="time" value="16:00"></div></div>
+            <div class="input-row"><div class="input-group"><label>Wake-Up</label><input type="time" value="06:00"></div><div class="input-group"><label>Sleep Time</label><input type="time" value="22:30"></div></div>
+          </div>
+        </div>
+        <div class="content-card">
+          <div class="card-title">Dietary Flags</div>
+          <div class="toggle-row"><span class="toggle-label">High Dairy Consumption</span><label class="toggle"><input type="checkbox" checked><span class="slider"></span></label></div>
+          <div class="toggle-row"><span class="toggle-label">High-Fiber Diet</span><label class="toggle"><input type="checkbox"><span class="slider"></span></label></div>
+          <div class="toggle-row"><span class="toggle-label">Grapefruit Consumption</span><label class="toggle"><input type="checkbox"><span class="slider"></span></label></div>
+          <div class="toggle-row"><span class="toggle-label">Intermittent Fasting</span><label class="toggle"><input type="checkbox"><span class="slider"></span></label></div>
+          <div style="margin-top:1.2rem;display:flex;justify-content:flex-end"><button class="btn-primary" style="padding:0.62rem 1.5rem;font-size:0.82rem" onclick="alert('Profile saved!')">Save &amp; Update Schedule</button></div>
+        </div>
+      </div>
+      <div class="dash-panel" id="p-reminders">
+        <div class="greeting"><h2>Reminder <em>Settings</em></h2><p>Configure notifications for your medication schedule</p></div>
+        <div class="content-card">
+          <div class="card-title">Notification Channels</div>
+          <div class="toggle-row"><span class="toggle-label">SMS Reminders</span><label class="toggle"><input type="checkbox" checked><span class="slider"></span></label></div>
+          <div class="toggle-row"><span class="toggle-label">Email Reminders</span><label class="toggle"><input type="checkbox"><span class="slider"></span></label></div>
+          <div class="toggle-row"><span class="toggle-label">Voice Reminders</span><label class="toggle"><input type="checkbox" checked><span class="slider"></span></label></div>
+        </div>
+        <div class="content-card">
+          <div class="card-title">Voice Language</div>
+          <div class="input-group"><label>Instruction Language</label><select><option>English</option><option>Hindi</option><option>Tamil</option><option>Telugu</option><option>Bengali</option><option>Marathi</option><option>Kannada</option></select></div>
+          <div style="margin-top:1.2rem;display:flex;justify-content:flex-end"><button class="btn-primary" style="padding:0.62rem 1.5rem;font-size:0.82rem;margin-top:0.8rem" onclick="alert('Reminders configured!')">Save Settings</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

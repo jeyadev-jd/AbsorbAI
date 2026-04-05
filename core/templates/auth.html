@@ -1,0 +1,105 @@
+<!-- ══════════════════════════════
+     PAGE 2 — AUTH
+══════════════════════════════ -->
+<div id="page-auth" class="page hidden">
+  <nav class="top-nav">
+    <div class="nav-logo" onclick="showPage('landing')" style="cursor:pointer">Absorb<span>AI</span></div>
+    <div class="nav-right">
+      <button class="btn-ghost" style="padding:0.45rem 1.1rem;font-size:0.76rem" onclick="showPage('landing')">&larr; Back</button>
+    </div>
+  </nav>
+  <div class="auth-wrap">
+    <div class="auth-card">
+      <div class="auth-logo">Absorb<span>AI</span></div>
+      <div class="auth-sub" id="auth-sub-text">Welcome back</div>
+      <div class="auth-mode-tabs">
+        <button class="auth-mode-tab active" id="tab-login" onclick="setAuthMode('login')">Log In</button>
+        <button class="auth-mode-tab" id="tab-signup" onclick="setAuthMode('signup')">Sign Up</button>
+      </div>
+      <div class="role-selector">
+        <button class="role-btn active patient-active" id="rbtn-patient" onclick="setAuthRole('patient')">
+          <!-- Hospital bed patient -->
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20v-8a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v8"/><path d="M2 14h20"/><path d="M7 14v6"/><path d="M17 14v6"/><circle cx="9" cy="7" r="2"/><path d="M9 9v2"/></svg>
+          Patient
+        </button>
+        <button class="role-btn" id="rbtn-doctor" onclick="setAuthRole('doctor')">
+          <!-- Stethoscope -->
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3"/><path d="M8 15v1a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6v-4"/><circle cx="20" cy="10" r="2"/></svg>
+          Doctor
+        </button>
+      </div>
+
+      <!-- LOGIN FORM -->
+      <div id="login-form">
+        <div class="form-field">
+          <label style="display:block;font-family:'DM Mono',monospace;font-size:0.61rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-bottom:0.42rem">Login Method</label>
+          <div class="method-tabs">
+            <button class="method-tab active" onclick="setLoginMethod(this,'email')">Email</button>
+            <button class="method-tab" onclick="setLoginMethod(this,'mobile')">Mobile OTP</button>
+            <button class="method-tab" onclick="setLoginMethod(this,'abha')">ABHA ID</button>
+          </div>
+        </div>
+        <div id="lm-email">
+          <div class="form-field"><label>Email Address</label><input type="email" id="login-email" placeholder="you@example.com"></div>
+          <div class="form-field"><label>Password</label><input type="password" id="login-pass" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;"></div>
+        </div>
+        <div id="lm-mobile" style="display:none">
+          <div class="form-field"><label>Mobile Number</label><input type="tel" id="login-mobile" placeholder="+91 98XXXXXXXX"></div>
+          <div class="form-field" id="otp-field-wrap" style="display:none">
+            <label>Enter OTP</label>
+            <div class="otp-fields">
+              <input maxlength="1" oninput="otpNext(this)"><input maxlength="1" oninput="otpNext(this)">
+              <input maxlength="1" oninput="otpNext(this)"><input maxlength="1" oninput="otpNext(this)">
+              <input maxlength="1" oninput="otpNext(this)"><input maxlength="1">
+            </div>
+          </div>
+          <button class="btn-ghost" style="width:100%;padding:0.6rem;font-size:0.82rem;margin-bottom:0.8rem" id="send-otp-btn" onclick="sendOTP()">Send OTP</button>
+        </div>
+        <div id="lm-abha" style="display:none">
+          <div class="form-field"><label>ABHA ID (14-digit)</label><input type="text" placeholder="XX-XXXX-XXXX-XXXX"></div>
+          <div class="form-field"><label>Linked Mobile OTP</label>
+            <div class="otp-fields">
+              <input maxlength="1" oninput="otpNext(this)"><input maxlength="1" oninput="otpNext(this)">
+              <input maxlength="1" oninput="otpNext(this)"><input maxlength="1" oninput="otpNext(this)">
+              <input maxlength="1" oninput="otpNext(this)"><input maxlength="1">
+            </div>
+          </div>
+          <p style="font-size:0.72rem;color:var(--muted);margin-bottom:0.9rem;line-height:1.5">OTP will be sent to your ABHA-linked mobile for identity verification.</p>
+        </div>
+        <div class="form-row">
+          <div class="form-field"><label>Language</label><select><option>English</option><option>Hindi</option><option>Tamil</option><option>Telugu</option><option>Bengali</option><option>Marathi</option><option>Kannada</option></select></div>
+          <div class="form-field"><label>Accessibility</label><select><option>Standard</option><option>Voice Mode</option><option>Large Font</option></select></div>
+        </div>
+        <button class="auth-btn" id="login-submit-btn" onclick="doLogin()">Log In</button>
+        <div class="auth-error" id="login-error">Invalid credentials. Please check and try again.</div>
+        <div style="margin-top:1rem;text-align:center;font-size:0.78rem;color:var(--muted)">No account? <a href="#" onclick="setAuthMode('signup');return false" style="color:var(--teal-light);text-decoration:none">Sign up free</a></div>
+      </div>
+
+      <!-- SIGNUP FORM -->
+      <div id="signup-form" style="display:none">
+        <div class="form-row">
+          <div class="form-field"><label>First Name</label><input type="text" id="su-fname" placeholder="Ananya"></div>
+          <div class="form-field"><label>Last Name</label><input type="text" id="su-lname" placeholder="Rao"></div>
+        </div>
+        <div class="form-field"><label>Email Address</label><input type="email" id="su-email" placeholder="you@example.com"></div>
+        <div class="form-field"><label>Mobile Number</label><input type="tel" placeholder="+91 98XXXXXXXX"></div>
+        <div class="form-field" id="su-reg-wrap" style="display:none"><label>Medical Registration Number</label><input type="text" id="su-reg" placeholder="MCI / State Council Reg No."></div>
+        <div class="form-field" id="su-spec-wrap" style="display:none"><label>Specialization</label><select><option>General Physician</option><option>Cardiologist</option><option>Endocrinologist</option><option>Nephrologist</option><option>Internal Medicine</option><option>Other</option></select></div>
+        <div class="form-field"><label>Password</label><input type="password" id="su-pass" placeholder="Min 8 characters"></div>
+        <div class="form-field"><label>Confirm Password</label><input type="password" id="su-pass2" placeholder="Repeat password"></div>
+        <div class="form-row">
+          <div class="form-field"><label>Language</label><select><option>English</option><option>Hindi</option><option>Tamil</option><option>Telugu</option><option>Bengali</option><option>Marathi</option><option>Kannada</option></select></div>
+          <div class="form-field"><label>Accessibility</label><select><option>Standard</option><option>Voice Mode</option><option>Large Font</option></select></div>
+        </div>
+        <div class="consent-row">
+          <input type="checkbox" id="su-consent" checked>
+          <span>I consent to ABHA-linked retrieval of my medication records via FHIR-compliant APIs for scheduling optimization.</span>
+        </div>
+        <button class="auth-btn" id="signup-submit-btn" onclick="doSignup()">Create Account</button>
+        <div class="auth-error" id="signup-error">Please fill all required fields correctly.</div>
+        <div class="auth-success" id="signup-success">Account created! Redirecting to your dashboard&hellip;</div>
+        <div style="margin-top:1rem;text-align:center;font-size:0.78rem;color:var(--muted)">Have an account? <a href="#" onclick="setAuthMode('login');return false" style="color:var(--teal-light);text-decoration:none">Log in</a></div>
+      </div>
+    </div>
+  </div>
+</div>
