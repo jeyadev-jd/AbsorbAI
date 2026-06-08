@@ -1360,6 +1360,229 @@ function toggleWhy(id,btn){
   document.querySelectorAll('.why-btn').forEach(b=>b.textContent='Why?');
   if(!open){el.classList.add('open');btn.textContent='Close';}
 }
+
+// ══════════════════════════════════════════════════
+//  ENGINE API INTEGRATION — 10-Layer AbsorbAI Engine
+// ══════════════════════════════════════════════════
+
+let _engineResult = null;
+
+async function runEngineAnalysis(prescriptions, patientKey) {
+  if (!prescriptions || prescriptions.length === 0) return;
+
+  const profile = await fetch(`/api/patient/profile/?patient_key=${patientKey||'ananya'}`)
+    .then(r=>r.json()).then(d=>d.profile).catch(()=>({}));
+
+  const dietary = [];
+  document.querySelectorAll('#p-diet .toggle-row').forEach(row=>{
+    const label = row.querySelector('.toggle-label')?.textContent?.trim().toLowerCase().replace(/\s+/g,'_');
+    const checked = row.querySelector('input[type=checkbox]')?.checked;
+    if (checked && label) {
+      if (label.includes('grapefruit')) dietary.push('grapefruit');
+      if (label.includes('dairy') || label.includes('calcium')) dietary.push('calcium');
+      if (label.includes('vitamin_k') || label.includes('fiber')) dietary.push('vitamin_k');
+      if (label.includes('iron')) dietary.push('iron');
+    }
+  });
+
+  const rxForEngine = prescriptions.map(rx => ({
+    drug_name: rx.drug,
+    dose_mg: parseFloat(rx.dose) || 100,
+    frequency_per_day: rx.freq === 'Twice daily' ? 2 : rx.freq === 'Thrice daily' ? 3 : 1,
+    start_time_hr: rx.time ? parseInt(rx.time.split(':')[0]) : 8,
+    bioavailability: 0.8,
+    with_food: rx.instructions?.toLowerCase().includes('food') || false,
+    empty_stomach: rx.instructions?.toLowerCase().includes('empty') || false,
+  }));
+
+  try {
+    const resp = await fetch('/api/engine/analyze/', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        patient_id: patientKey || 'ananya',
+        patient_profile: profile,
+        prescriptions: rxForEngine,
+        dietary_factors: [...new Set(dietary)],
+      })
+    });
+    const data = await resp.json();
+    if (data.success) {
+      _engineResult = data.data;
+      renderEngineResultsInPatientDash(data.data);
+      renderEngineResultsInDoctorDash(data.data);
+    }
+  } catch(e) {
+    console.warn('Engine API unavailable:', e);
+  }
+}
+
+function renderEngineResultsInPatientDash(result) {
+  if (!result) return;
+
+  // Update risk widgets with real engine data
+  const high = result.safety_violations?.filter(v=>v.severity==='HIGH'||v.severity==='FATAL').length || 0;
+  const mod = result.interaction_chains?.filter(i=>i.severity>0.3&&i.severity<=0.6).length || 0;
+  const wHigh = document.getElementById('w-high'); if (wHigh) wHigh.textContent = high + (result.interaction_chains?.filter(i=>i.severity>0.6).length||0);
+  const wMod = document.getElementById('w-mod'); if (wMod) wMod.textContent = mod;
+
+  // Render engine interaction details in Risk Summary panel
+  const riskDetail = document.getElementById('pt-risk-detail');
+  if (riskDetail && result.interaction_chains?.length > 0) {
+    const rows = result.interaction_chains.map(itx => {
+      const sev = itx.severity > 0.6 ? 'risk-high' : itx.severity > 0.3 ? 'risk-warn' : 'risk-clear';
+      const sevLabel = itx.severity > 0.6 ? 'HIGH' : itx.severity > 0.3 ? 'MOD' : 'LOW';
+      const sevColor = itx.severity > 0.6 ? '#f08080' : itx.severity > 0.3 ? 'var(--gold-light)' : '#7dce82';
+      const id = 'eng_'+Math.random().toString(36).slice(2);
+      const chain = (itx.reasoning_chain||'').replace(/\|/g,' | ').substring(0,180);
+      return `<div class="tl-day-row" style="cursor:default">
+        <div class="tl-hr" style="color:${sevColor}">${sevLabel}</div>
+        <div class="tl-dot-col"><div class="tl-dot" style="background:${sevColor};box-shadow:0 0 6px ${sevColor}"></div></div>
+        <div class="tl-info" style="flex-direction:column">
+          <div style="display:flex;align-items:center;gap:0.6rem;flex-wrap:wrap">
+            <span class="tl-name">${itx.entity_a} ↔ ${itx.entity_b}</span>
+            <span class="risk-badge ${sev}">${itx.mechanism?.substring(0,30)||sevLabel}</span>
+            <button class="why-btn" onclick="toggleWhy('${id}',this)">Reasoning Chain</button>
+          </div>
+          <span class="tl-note" style="margin-top:0.3rem">${itx.magnitude} ${itx.magnitude_unit} | ${itx.references?.[0]||'KG inference'}</span>
+        </div>
+      </div>
+      <div class="why-panel" id="${id}" style="font-size:0.74rem;line-height:1.7">${chain}</div>`;
+    }).join('');
+    riskDetail.innerHTML = rows;
+  }
+
+  // Render best Pareto schedule if available
+  if (result.pareto_schedules?.length > 0) {
+    const best = result.pareto_schedules.find(s=>s.label==='Maximum Efficacy') || result.pareto_schedules[0];
+    const timelineEl = document.getElementById('pt-full-timeline');
+    if (timelineEl && best?.doses?.length > 0) {
+      // Merge engine schedule with existing timeline
+      const engineDoses = best.doses.filter(d=>d.day===0).map(d => ({
+        time: `${String(Math.floor(d.time_hr)).padStart(2,'0')}:00`,
+        name: `${d.drug} — Engine-Optimized`,
+        note: d.rationale,
+        dot: '',
+        badge: best.is_feasible ? 'risk-clear' : 'risk-warn',
+        badgeText: best.is_feasible ? 'Pareto-Optimal' : 'Suboptimal',
+        why: `Pareto optimizer selected this time for ${d.drug}. Objectives: ${JSON.stringify(best.objectives).substring(0,120)}`
+      }));
+      // Don't rebuild timeline — just add engine annotation above it
+      const card = document.getElementById('pt-full-timeline')?.closest('.content-card');
+      if (card) {
+        let badgeEl = card.querySelector('.card-badge');
+        if (badgeEl && best.is_feasible) {
+          badgeEl.textContent = 'Engine-Optimized';
+          badgeEl.style.background = 'rgba(100,180,100,0.15)';
+          badgeEl.style.color = '#7dce82';
+          badgeEl.style.borderColor = 'rgba(100,180,100,0.3)';
+        }
+      }
+    }
+  }
+
+  // Show PK data per drug
+  if (result.pk_results) {
+    for (const [drug, pkData] of Object.entries(result.pk_results)) {
+      const sim = pkData.simulation || {};
+      const pk = pkData.pk_params || {};
+      console.log(`[Engine] ${drug}: t1/2=${pk.half_life_mean?.toFixed(1)}hr, Cmax=${sim.cmax?.toFixed(4)}, AUC=${sim.auc?.toFixed(3)}, CrCl=${pk.crcl}`);
+    }
+  }
+
+  // Stress test warnings
+  if (result.stress_test_results) {
+    for (const [drug, stress] of Object.entries(result.stress_test_results)) {
+      if (stress.is_fragile) {
+        console.warn(`[Engine] FRAGILE schedule for ${drug}: ${stress.recommendation}`);
+      }
+    }
+  }
+}
+
+function renderEngineResultsInDoctorDash(result) {
+  if (!result) return;
+
+  // Enhance interaction matrix with engine data
+  const tbody = document.getElementById('matrix-body');
+  if (tbody && result.interaction_chains?.length > 0) {
+    const engineRows = result.interaction_chains.map(itx => {
+      const sev = itx.severity > 0.6 ? 'high' : itx.severity > 0.3 ? 'med' : 'low';
+      const sevClass = `sev-${sev}`;
+      return `<tr onclick="showInteractionDetail(${JSON.stringify(itx).replace(/"/g,'&quot;')})">
+        <td>${itx.entity_a}</td>
+        <td>${itx.entity_b}</td>
+        <td>${itx.mechanism?.substring(0,40)||'—'}</td>
+        <td><span class="sev-dot ${sev}"></span><span class="${sevClass}">${sev.charAt(0).toUpperCase()+sev.slice(1)}</span></td>
+        <td>${itx.magnitude} ${itx.magnitude_unit}</td>
+        <td style="color:var(--teal-light);font-family:'DM Mono',monospace;font-size:0.66rem">${itx.references?.[0]||'KG inference'} ↗</td>
+      </tr>`;
+    }).join('');
+    tbody.innerHTML = engineRows || tbody.innerHTML;
+  }
+
+  // Enhance PK grid with real simulation data
+  const pkGrid = document.getElementById('pk-grid');
+  if (pkGrid && result.pk_results && Object.keys(result.pk_results).length > 0) {
+    pkGrid.innerHTML = '';
+    for (const [drug, pkData] of Object.entries(result.pk_results)) {
+      const pk = pkData.pk_params || {};
+      const sim = pkData.simulation || {};
+      const mc = pkData.uncertainty || {};
+      const card = document.createElement('div');
+      card.className = 'pk-card';
+      const rows = [
+        {p:'Half-life (personalized)', v: pk.half_life_mean ? `${pk.half_life_mean.toFixed(1)} ± ${pk.half_life_std?.toFixed(1)} hr` : '—', c: 'ok'},
+        {p:'CrCl (Cockcroft-Gault)', v: pk.crcl ? `${pk.crcl} mL/min` : '—', c: pk.crcl>60?'ok':pk.crcl>30?'warn':'bad'},
+        {p:'Clearance (personalized)', v: pk.cl_mean ? `${pk.cl_mean.toFixed(3)} L/hr` : '—', c: 'ok'},
+        {p:'Cmax (simulated)', v: sim.cmax != null ? sim.cmax.toFixed(4) : '—', c: 'ok'},
+        {p:'AUC 0-72hr', v: sim.auc != null ? sim.auc.toFixed(3) : '—', c: 'ok'},
+        {p:'Bioavailability (F)', v: pk.f_mean ? `${(pk.f_mean*100).toFixed(0)}%` : '—', c: 'ok'},
+        {p:'MC AUC median', v: mc.median != null ? mc.median.toFixed(3) : '—', c: 'ok'},
+        {p:'MC AUC P95', v: mc.p95 != null ? mc.p95.toFixed(3) : '—', c: mc.p95>5?'warn':'ok'},
+      ];
+      card.innerHTML = `<div class="pk-drug">${drug} — Engine Simulation</div>`
+        + rows.map(r=>`<div class="pk-row"><span class="pk-param">${r.p}</span><span class="pk-val ${r.c}">${r.v}</span></div>`).join('');
+      pkGrid.appendChild(card);
+    }
+  }
+
+  // Add risk summary to queue panel
+  if (result.risk_summary) {
+    const summary = document.getElementById('risk-engine-summary');
+    if (summary) summary.textContent = result.risk_summary;
+  }
+
+  // Counterfactual risk contribution
+  if (result.counterfactual_risk && Object.keys(result.counterfactual_risk).length > 0) {
+    console.log('[Engine] Counterfactual risk contributions:', result.counterfactual_risk);
+  }
+}
+
+function showInteractionDetail(itx) {
+  const refs = (itx.references||[]).join('; ') || 'Knowledge graph inference';
+  const chain = (itx.reasoning_chain||'').replace(/\|/g,'\n');
+  alert(`${itx.entity_a} ↔ ${itx.entity_b}\n\nMechanism: ${itx.mechanism}\nDirection: ${itx.direction}\nMagnitude: ${itx.magnitude} ${itx.magnitude_unit}\nConfidence: ${(itx.confidence*100).toFixed(0)}%\nOnset: ${itx.onset_hours}hr | Offset: ${itx.offset_hours}hr\n\nSources: ${refs}\n\nReasoning chain:\n${chain.substring(0,500)}`);
+}
+
+// Auto-run engine analysis after prescriptions are updated
+const _origPrescribeDrug = prescribeDrug;
+prescribeDrug = async function() {
+  _origPrescribeDrug();
+  if (SHARED.prescriptions.length > 0) {
+    const patientKey = currentUser?.patientKey || 'ananya';
+    await runEngineAnalysis(SHARED.prescriptions, patientKey);
+  }
+};
+
+// Also run on patient login if prescriptions exist
+const _origLaunchDashboard = launchDashboard;
+launchDashboard = async function(user) {
+  _origLaunchDashboard(user);
+  if (user.role === 'patient' && SHARED.prescriptions.length > 0) {
+    await runEngineAnalysis(SHARED.prescriptions, user.patientKey);
+  }
+};
 </script>
 </body>
 </html>

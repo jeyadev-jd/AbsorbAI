@@ -1,0 +1,3402 @@
+{
+  "warfarin": [
+    {
+      "reaction": "INTERNATIONAL NORMALISED RATIO INCREASED",
+      "count": 11106
+    },
+    {
+      "reaction": "DYSPNOEA",
+      "count": 8851
+    },
+    {
+      "reaction": "DRUG INTERACTION",
+      "count": 6725
+    },
+    {
+      "reaction": "FATIGUE",
+      "count": 6438
+    },
+    {
+      "reaction": "DIARRHOEA",
+      "count": 6307
+    },
+    {
+      "reaction": "NAUSEA",
+      "count": 6252
+    },
+    {
+      "reaction": "DIZZINESS",
+      "count": 5449
+    },
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 5360
+    }
+  ],
+  "heparin": [
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 4147
+    },
+    {
+      "reaction": "HEPARIN-INDUCED THROMBOCYTOPENIA",
+      "count": 3919
+    },
+    {
+      "reaction": "OFF LABEL USE",
+      "count": 3762
+    },
+    {
+      "reaction": "NAUSEA",
+      "count": 3539
+    },
+    {
+      "reaction": "PAIN",
+      "count": 3444
+    },
+    {
+      "reaction": "RENAL FAILURE",
+      "count": 3255
+    },
+    {
+      "reaction": "DYSPNOEA",
+      "count": 3156
+    },
+    {
+      "reaction": "HYPOTENSION",
+      "count": 3095
+    }
+  ],
+  "rivaroxaban": [
+    {
+      "reaction": "DYSPNOEA",
+      "count": 1544
+    },
+    {
+      "reaction": "DRUG INTERACTION",
+      "count": 1531
+    },
+    {
+      "reaction": "ANAEMIA",
+      "count": 1338
+    },
+    {
+      "reaction": "OFF LABEL USE",
+      "count": 1307
+    },
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 1209
+    },
+    {
+      "reaction": "PULMONARY EMBOLISM",
+      "count": 1086
+    },
+    {
+      "reaction": "FATIGUE",
+      "count": 1043
+    },
+    {
+      "reaction": "GASTROINTESTINAL HAEMORRHAGE",
+      "count": 973
+    }
+  ],
+  "apixaban": [
+    {
+      "reaction": "ATRIAL FIBRILLATION",
+      "count": 4036
+    },
+    {
+      "reaction": "DYSPNOEA",
+      "count": 3696
+    },
+    {
+      "reaction": "CEREBROVASCULAR ACCIDENT",
+      "count": 3559
+    },
+    {
+      "reaction": "THROMBOSIS",
+      "count": 2837
+    },
+    {
+      "reaction": "OFF LABEL USE",
+      "count": 2769
+    },
+    {
+      "reaction": "CARDIAC DISORDER",
+      "count": 2513
+    },
+    {
+      "reaction": "DEATH",
+      "count": 2394
+    },
+    {
+      "reaction": "FALL",
+      "count": 2394
+    }
+  ],
+  "amlodipine": [
+    {
+      "reaction": "FATIGUE",
+      "count": 23036
+    },
+    {
+      "reaction": "DIARRHOEA",
+      "count": 19948
+    },
+    {
+      "reaction": "NAUSEA",
+      "count": 19061
+    },
+    {
+      "reaction": "DYSPNOEA",
+      "count": 18560
+    },
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 17767
+    },
+    {
+      "reaction": "OFF LABEL USE",
+      "count": 15617
+    },
+    {
+      "reaction": "DIZZINESS",
+      "count": 15381
+    },
+    {
+      "reaction": "HEADACHE",
+      "count": 14458
+    }
+  ],
+  "lisinopril": [
+    {
+      "reaction": "FATIGUE",
+      "count": 20773
+    },
+    {
+      "reaction": "NAUSEA",
+      "count": 19416
+    },
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 18721
+    },
+    {
+      "reaction": "DIARRHOEA",
+      "count": 18070
+    },
+    {
+      "reaction": "DYSPNOEA",
+      "count": 14495
+    },
+    {
+      "reaction": "DIZZINESS",
+      "count": 14226
+    },
+    {
+      "reaction": "PAIN",
+      "count": 14072
+    },
+    {
+      "reaction": "HEADACHE",
+      "count": 13501
+    }
+  ],
+  "enalapril": [
+    {
+      "reaction": "DIARRHOEA",
+      "count": 3105
+    },
+    {
+      "reaction": "DYSPNOEA",
+      "count": 2905
+    },
+    {
+      "reaction": "NAUSEA",
+      "count": 2861
+    },
+    {
+      "reaction": "DRUG INTERACTION",
+      "count": 2812
+    },
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 2763
+    },
+    {
+      "reaction": "FATIGUE",
+      "count": 2639
+    },
+    {
+      "reaction": "DIZZINESS",
+      "count": 2497
+    },
+    {
+      "reaction": "ACUTE KIDNEY INJURY",
+      "count": 2400
+    }
+  ],
+  "losartan": [
+    {
+      "reaction": "FATIGUE",
+      "count": 13573
+    },
+    {
+      "reaction": "DIARRHOEA",
+      "count": 11400
+    },
+    {
+      "reaction": "NAUSEA",
+      "count": 10697
+    },
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 10659
+    },
+    {
+      "reaction": "DYSPNOEA",
+      "count": 9636
+    },
+    {
+      "reaction": "DIZZINESS",
+      "count": 9227
+    },
+    {
+      "reaction": "HEADACHE",
+      "count": 9051
+    },
+    {
+      "reaction": "PAIN",
+      "count": 8257
+    }
+  ],
+  "metoprolol": [
+    {
+      "reaction": "FATIGUE",
+      "count": 21642
+    },
+    {
+      "reaction": "DYSPNOEA",
+      "count": 18733
+    },
+    {
+      "reaction": "DIARRHOEA",
+      "count": 18411
+    },
+    {
+      "reaction": "NAUSEA",
+      "count": 18005
+    },
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 16180
+    },
+    {
+      "reaction": "DIZZINESS",
+      "count": 15530
+    },
+    {
+      "reaction": "OFF LABEL USE",
+      "count": 13224
+    },
+    {
+      "reaction": "DEATH",
+      "count": 12941
+    }
+  ],
+  "atenolol": [
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 7832
+    },
+    {
+      "reaction": "NAUSEA",
+      "count": 7670
+    },
+    {
+      "reaction": "FATIGUE",
+      "count": 7422
+    },
+    {
+      "reaction": "DIARRHOEA",
+      "count": 6856
+    },
+    {
+      "reaction": "DIZZINESS",
+      "count": 6098
+    },
+    {
+      "reaction": "DYSPNOEA",
+      "count": 6090
+    },
+    {
+      "reaction": "HEADACHE",
+      "count": 5781
+    },
+    {
+      "reaction": "PAIN",
+      "count": 5537
+    }
+  ],
+  "carvedilol": [
+    {
+      "reaction": "FATIGUE",
+      "count": 6522
+    },
+    {
+      "reaction": "DYSPNOEA",
+      "count": 5968
+    },
+    {
+      "reaction": "DIARRHOEA",
+      "count": 5417
+    },
+    {
+      "reaction": "DIZZINESS",
+      "count": 4829
+    },
+    {
+      "reaction": "NAUSEA",
+      "count": 4680
+    },
+    {
+      "reaction": "DEATH",
+      "count": 4473
+    },
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 4444
+    },
+    {
+      "reaction": "HYPOTENSION",
+      "count": 4355
+    }
+  ],
+  "digoxin": [
+    {
+      "reaction": "DYSPNOEA",
+      "count": 5662
+    },
+    {
+      "reaction": "NAUSEA",
+      "count": 4446
+    },
+    {
+      "reaction": "DIZZINESS",
+      "count": 4179
+    },
+    {
+      "reaction": "FATIGUE",
+      "count": 3917
+    },
+    {
+      "reaction": "ATRIAL FIBRILLATION",
+      "count": 3675
+    },
+    {
+      "reaction": "DIARRHOEA",
+      "count": 3500
+    },
+    {
+      "reaction": "ASTHENIA",
+      "count": 3214
+    },
+    {
+      "reaction": "VOMITING",
+      "count": 3108
+    }
+  ],
+  "amiodarone": [
+    {
+      "reaction": "DYSPNOEA",
+      "count": 4502
+    },
+    {
+      "reaction": "ATRIAL FIBRILLATION",
+      "count": 3779
+    },
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 3615
+    },
+    {
+      "reaction": "DRUG INTERACTION",
+      "count": 3522
+    },
+    {
+      "reaction": "ASTHENIA",
+      "count": 3181
+    },
+    {
+      "reaction": "FATIGUE",
+      "count": 3062
+    },
+    {
+      "reaction": "OFF LABEL USE",
+      "count": 2991
+    },
+    {
+      "reaction": "HYPOTENSION",
+      "count": 2744
+    }
+  ],
+  "spironolactone": [
+    {
+      "reaction": "DYSPNOEA",
+      "count": 8957
+    },
+    {
+      "reaction": "FATIGUE",
+      "count": 7307
+    },
+    {
+      "reaction": "NAUSEA",
+      "count": 6855
+    },
+    {
+      "reaction": "DIARRHOEA",
+      "count": 6449
+    },
+    {
+      "reaction": "ACUTE KIDNEY INJURY",
+      "count": 5713
+    },
+    {
+      "reaction": "DIZZINESS",
+      "count": 5573
+    },
+    {
+      "reaction": "HEADACHE",
+      "count": 5340
+    },
+    {
+      "reaction": "OFF LABEL USE",
+      "count": 5049
+    }
+  ],
+  "furosemide": [
+    {
+      "reaction": "DYSPNOEA",
+      "count": 18613
+    },
+    {
+      "reaction": "ACUTE KIDNEY INJURY",
+      "count": 16612
+    },
+    {
+      "reaction": "FATIGUE",
+      "count": 13344
+    },
+    {
+      "reaction": "DIARRHOEA",
+      "count": 13279
+    },
+    {
+      "reaction": "DEATH",
+      "count": 12474
+    },
+    {
+      "reaction": "NAUSEA",
+      "count": 11647
+    },
+    {
+      "reaction": "FALL",
+      "count": 11221
+    },
+    {
+      "reaction": "OFF LABEL USE",
+      "count": 10553
+    }
+  ],
+  "hydrochlorothiazide": [
+    {
+      "reaction": "FATIGUE",
+      "count": 14492
+    },
+    {
+      "reaction": "NAUSEA",
+      "count": 14154
+    },
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 13304
+    },
+    {
+      "reaction": "DIARRHOEA",
+      "count": 12186
+    },
+    {
+      "reaction": "DYSPNOEA",
+      "count": 11025
+    },
+    {
+      "reaction": "DIZZINESS",
+      "count": 10932
+    },
+    {
+      "reaction": "HEADACHE",
+      "count": 10636
+    },
+    {
+      "reaction": "PAIN",
+      "count": 10437
+    }
+  ],
+  "atorvastatin": [
+    {
+      "reaction": "FATIGUE",
+      "count": 19633
+    },
+    {
+      "reaction": "DIARRHOEA",
+      "count": 17630
+    },
+    {
+      "reaction": "DYSPNOEA",
+      "count": 16436
+    },
+    {
+      "reaction": "NAUSEA",
+      "count": 16408
+    },
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 15257
+    },
+    {
+      "reaction": "DIZZINESS",
+      "count": 13555
+    },
+    {
+      "reaction": "OFF LABEL USE",
+      "count": 13149
+    },
+    {
+      "reaction": "HEADACHE",
+      "count": 12084
+    }
+  ],
+  "simvastatin": [
+    {
+      "reaction": "FATIGUE",
+      "count": 11860
+    },
+    {
+      "reaction": "NAUSEA",
+      "count": 10907
+    },
+    {
+      "reaction": "DYSPNOEA",
+      "count": 10673
+    },
+    {
+      "reaction": "DIARRHOEA",
+      "count": 10492
+    },
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 9456
+    },
+    {
+      "reaction": "DIZZINESS",
+      "count": 9452
+    },
+    {
+      "reaction": "FALL",
+      "count": 7927
+    },
+    {
+      "reaction": "HEADACHE",
+      "count": 7647
+    }
+  ],
+  "rosuvastatin": [
+    {
+      "reaction": "FATIGUE",
+      "count": 8360
+    },
+    {
+      "reaction": "DYSPNOEA",
+      "count": 7255
+    },
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 6669
+    },
+    {
+      "reaction": "NAUSEA",
+      "count": 6618
+    },
+    {
+      "reaction": "OFF LABEL USE",
+      "count": 6481
+    },
+    {
+      "reaction": "DIARRHOEA",
+      "count": 6297
+    },
+    {
+      "reaction": "PAIN",
+      "count": 6034
+    },
+    {
+      "reaction": "HEADACHE",
+      "count": 5458
+    }
+  ],
+  "pravastatin": [
+    {
+      "reaction": "FATIGUE",
+      "count": 5276
+    },
+    {
+      "reaction": "DIARRHOEA",
+      "count": 4504
+    },
+    {
+      "reaction": "NAUSEA",
+      "count": 4334
+    },
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 4134
+    },
+    {
+      "reaction": "DYSPNOEA",
+      "count": 4035
+    },
+    {
+      "reaction": "DIZZINESS",
+      "count": 3390
+    },
+    {
+      "reaction": "HEADACHE",
+      "count": 3388
+    },
+    {
+      "reaction": "PAIN",
+      "count": 3293
+    }
+  ],
+  "metformin": [
+    {
+      "reaction": "NAUSEA",
+      "count": 29647
+    },
+    {
+      "reaction": "DIARRHOEA",
+      "count": 27399
+    },
+    {
+      "reaction": "BLOOD GLUCOSE INCREASED",
+      "count": 26997
+    },
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 22106
+    },
+    {
+      "reaction": "FATIGUE",
+      "count": 20955
+    },
+    {
+      "reaction": "LACTIC ACIDOSIS",
+      "count": 19534
+    },
+    {
+      "reaction": "VOMITING",
+      "count": 19172
+    },
+    {
+      "reaction": "ACUTE KIDNEY INJURY",
+      "count": 17885
+    }
+  ],
+  "glipizide": [
+    {
+      "reaction": "BLOOD GLUCOSE INCREASED",
+      "count": 5880
+    },
+    {
+      "reaction": "NAUSEA",
+      "count": 3974
+    },
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 3293
+    },
+    {
+      "reaction": "DIARRHOEA",
+      "count": 3206
+    },
+    {
+      "reaction": "FATIGUE",
+      "count": 2856
+    },
+    {
+      "reaction": "WEIGHT DECREASED",
+      "count": 2391
+    },
+    {
+      "reaction": "DIZZINESS",
+      "count": 2245
+    },
+    {
+      "reaction": "DYSPNOEA",
+      "count": 2170
+    }
+  ],
+  "sitagliptin": [
+    {
+      "reaction": "ACUTE KIDNEY INJURY",
+      "count": 1114
+    },
+    {
+      "reaction": "DIARRHOEA",
+      "count": 965
+    },
+    {
+      "reaction": "NAUSEA",
+      "count": 889
+    },
+    {
+      "reaction": "VOMITING",
+      "count": 812
+    },
+    {
+      "reaction": "FATIGUE",
+      "count": 785
+    },
+    {
+      "reaction": "DYSPNOEA",
+      "count": 756
+    },
+    {
+      "reaction": "GENERAL PHYSICAL HEALTH DETERIORATION",
+      "count": 691
+    },
+    {
+      "reaction": "LACTIC ACIDOSIS",
+      "count": 612
+    }
+  ],
+  "empagliflozin": [
+    {
+      "reaction": "EUGLYCAEMIC DIABETIC KETOACIDOSIS",
+      "count": 814
+    },
+    {
+      "reaction": "ACUTE KIDNEY INJURY",
+      "count": 790
+    },
+    {
+      "reaction": "OFF LABEL USE",
+      "count": 581
+    },
+    {
+      "reaction": "DIABETIC KETOACIDOSIS",
+      "count": 550
+    },
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 528
+    },
+    {
+      "reaction": "NAUSEA",
+      "count": 475
+    },
+    {
+      "reaction": "VOMITING",
+      "count": 469
+    },
+    {
+      "reaction": "DYSPNOEA",
+      "count": 445
+    }
+  ],
+  "insulin_glargine": [
+    {
+      "reaction": "BLOOD GLUCOSE INCREASED",
+      "count": 1846
+    },
+    {
+      "reaction": "HYPOGLYCAEMIA",
+      "count": 1700
+    },
+    {
+      "reaction": "DEVICE MECHANICAL ISSUE",
+      "count": 1209
+    },
+    {
+      "reaction": "NAUSEA",
+      "count": 1056
+    },
+    {
+      "reaction": "DYSPNOEA",
+      "count": 1043
+    },
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 1016
+    },
+    {
+      "reaction": "ACUTE KIDNEY INJURY",
+      "count": 998
+    },
+    {
+      "reaction": "DIARRHOEA",
+      "count": 984
+    }
+  ],
+  "levothyroxine": [
+    {
+      "reaction": "FATIGUE",
+      "count": 22599
+    },
+    {
+      "reaction": "NAUSEA",
+      "count": 19473
+    },
+    {
+      "reaction": "DIARRHOEA",
+      "count": 18354
+    },
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 16551
+    },
+    {
+      "reaction": "HEADACHE",
+      "count": 15717
+    },
+    {
+      "reaction": "DYSPNOEA",
+      "count": 15135
+    },
+    {
+      "reaction": "OFF LABEL USE",
+      "count": 13647
+    },
+    {
+      "reaction": "DIZZINESS",
+      "count": 13543
+    }
+  ],
+  "amoxicillin": [
+    {
+      "reaction": "DIARRHOEA",
+      "count": 6803
+    },
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 5936
+    },
+    {
+      "reaction": "DYSPNOEA",
+      "count": 5903
+    },
+    {
+      "reaction": "NAUSEA",
+      "count": 5673
+    },
+    {
+      "reaction": "ACUTE KIDNEY INJURY",
+      "count": 5290
+    },
+    {
+      "reaction": "RASH",
+      "count": 5264
+    },
+    {
+      "reaction": "CHRONIC KIDNEY DISEASE",
+      "count": 5001
+    },
+    {
+      "reaction": "FATIGUE",
+      "count": 4960
+    }
+  ],
+  "ciprofloxacin": [
+    {
+      "reaction": "FATIGUE",
+      "count": 5392
+    },
+    {
+      "reaction": "PAIN",
+      "count": 5238
+    },
+    {
+      "reaction": "DIARRHOEA",
+      "count": 5162
+    },
+    {
+      "reaction": "NAUSEA",
+      "count": 5145
+    },
+    {
+      "reaction": "ARTHRALGIA",
+      "count": 5134
+    },
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 4614
+    },
+    {
+      "reaction": "ACUTE KIDNEY INJURY",
+      "count": 4487
+    },
+    {
+      "reaction": "DYSPNOEA",
+      "count": 4209
+    }
+  ],
+  "azithromycin": [
+    {
+      "reaction": "OFF LABEL USE",
+      "count": 8665
+    },
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 6089
+    },
+    {
+      "reaction": "DYSPNOEA",
+      "count": 5237
+    },
+    {
+      "reaction": "CHRONIC KIDNEY DISEASE",
+      "count": 5168
+    },
+    {
+      "reaction": "ACUTE KIDNEY INJURY",
+      "count": 4152
+    },
+    {
+      "reaction": "NAUSEA",
+      "count": 3945
+    },
+    {
+      "reaction": "PNEUMONIA",
+      "count": 3915
+    },
+    {
+      "reaction": "COUGH",
+      "count": 3588
+    }
+  ],
+  "clarithromycin": [
+    {
+      "reaction": "DRUG INTERACTION",
+      "count": 3182
+    },
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 2647
+    },
+    {
+      "reaction": "NAUSEA",
+      "count": 2495
+    },
+    {
+      "reaction": "DYSPNOEA",
+      "count": 2204
+    },
+    {
+      "reaction": "DIARRHOEA",
+      "count": 2189
+    },
+    {
+      "reaction": "MALAISE",
+      "count": 1840
+    },
+    {
+      "reaction": "PYREXIA",
+      "count": 1762
+    },
+    {
+      "reaction": "HEADACHE",
+      "count": 1748
+    }
+  ],
+  "doxycycline": [
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 5353
+    },
+    {
+      "reaction": "NAUSEA",
+      "count": 5250
+    },
+    {
+      "reaction": "FATIGUE",
+      "count": 4833
+    },
+    {
+      "reaction": "OFF LABEL USE",
+      "count": 4776
+    },
+    {
+      "reaction": "RASH",
+      "count": 4284
+    },
+    {
+      "reaction": "DIARRHOEA",
+      "count": 4197
+    },
+    {
+      "reaction": "PAIN",
+      "count": 4176
+    },
+    {
+      "reaction": "DYSPNOEA",
+      "count": 4165
+    }
+  ],
+  "metronidazole": [
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 4788
+    },
+    {
+      "reaction": "NAUSEA",
+      "count": 3692
+    },
+    {
+      "reaction": "OFF LABEL USE",
+      "count": 3394
+    },
+    {
+      "reaction": "DIARRHOEA",
+      "count": 2916
+    },
+    {
+      "reaction": "VOMITING",
+      "count": 2466
+    },
+    {
+      "reaction": "HEADACHE",
+      "count": 2447
+    },
+    {
+      "reaction": "PYREXIA",
+      "count": 2439
+    },
+    {
+      "reaction": "PAIN",
+      "count": 2252
+    }
+  ],
+  "fluconazole": [
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 4662
+    },
+    {
+      "reaction": "OFF LABEL USE",
+      "count": 4000
+    },
+    {
+      "reaction": "PYREXIA",
+      "count": 3421
+    },
+    {
+      "reaction": "NAUSEA",
+      "count": 2928
+    },
+    {
+      "reaction": "DIARRHOEA",
+      "count": 2865
+    },
+    {
+      "reaction": "DRUG INTERACTION",
+      "count": 2785
+    },
+    {
+      "reaction": "FATIGUE",
+      "count": 2528
+    },
+    {
+      "reaction": "PAIN",
+      "count": 2409
+    }
+  ],
+  "sertraline": [
+    {
+      "reaction": "NAUSEA",
+      "count": 8662
+    },
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 8661
+    },
+    {
+      "reaction": "FATIGUE",
+      "count": 7763
+    },
+    {
+      "reaction": "HEADACHE",
+      "count": 6928
+    },
+    {
+      "reaction": "DIARRHOEA",
+      "count": 6852
+    },
+    {
+      "reaction": "DIZZINESS",
+      "count": 6156
+    },
+    {
+      "reaction": "ANXIETY",
+      "count": 6143
+    },
+    {
+      "reaction": "OFF LABEL USE",
+      "count": 5922
+    }
+  ],
+  "fluoxetine": [
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 4808
+    },
+    {
+      "reaction": "DRUG INTERACTION",
+      "count": 4438
+    },
+    {
+      "reaction": "NAUSEA",
+      "count": 4406
+    },
+    {
+      "reaction": "FATIGUE",
+      "count": 4397
+    },
+    {
+      "reaction": "TOXICITY TO VARIOUS AGENTS",
+      "count": 4345
+    },
+    {
+      "reaction": "HEADACHE",
+      "count": 3953
+    },
+    {
+      "reaction": "COMPLETED SUICIDE",
+      "count": 3749
+    },
+    {
+      "reaction": "OFF LABEL USE",
+      "count": 3500
+    }
+  ],
+  "escitalopram": [
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 4944
+    },
+    {
+      "reaction": "FATIGUE",
+      "count": 4735
+    },
+    {
+      "reaction": "NAUSEA",
+      "count": 4563
+    },
+    {
+      "reaction": "OFF LABEL USE",
+      "count": 3936
+    },
+    {
+      "reaction": "HEADACHE",
+      "count": 3855
+    },
+    {
+      "reaction": "DIARRHOEA",
+      "count": 3813
+    },
+    {
+      "reaction": "DRUG INTERACTION",
+      "count": 3284
+    },
+    {
+      "reaction": "DIZZINESS",
+      "count": 3277
+    }
+  ],
+  "alprazolam": [
+    {
+      "reaction": "DRUG ABUSE",
+      "count": 9426
+    },
+    {
+      "reaction": "TOXICITY TO VARIOUS AGENTS",
+      "count": 8497
+    },
+    {
+      "reaction": "COMPLETED SUICIDE",
+      "count": 7722
+    },
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 7601
+    },
+    {
+      "reaction": "NAUSEA",
+      "count": 6072
+    },
+    {
+      "reaction": "FATIGUE",
+      "count": 5712
+    },
+    {
+      "reaction": "DEATH",
+      "count": 5221
+    },
+    {
+      "reaction": "HEADACHE",
+      "count": 4826
+    }
+  ],
+  "phenytoin": [
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 3348
+    },
+    {
+      "reaction": "DRUG INTERACTION",
+      "count": 1901
+    },
+    {
+      "reaction": "SEIZURE",
+      "count": 1827
+    },
+    {
+      "reaction": "TOXICITY TO VARIOUS AGENTS",
+      "count": 1647
+    },
+    {
+      "reaction": "CONVULSION",
+      "count": 1520
+    },
+    {
+      "reaction": "OFF LABEL USE",
+      "count": 1267
+    },
+    {
+      "reaction": "STATUS EPILEPTICUS",
+      "count": 920
+    },
+    {
+      "reaction": "PYREXIA",
+      "count": 857
+    }
+  ],
+  "levetiracetam": [
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 9146
+    },
+    {
+      "reaction": "SEIZURE",
+      "count": 9078
+    },
+    {
+      "reaction": "OFF LABEL USE",
+      "count": 6371
+    },
+    {
+      "reaction": "MATERNAL EXPOSURE DURING PREGNANCY",
+      "count": 3079
+    },
+    {
+      "reaction": "EPILEPSY",
+      "count": 2865
+    },
+    {
+      "reaction": "FATIGUE",
+      "count": 2541
+    },
+    {
+      "reaction": "DRUG INTERACTION",
+      "count": 2533
+    },
+    {
+      "reaction": "FOETAL EXPOSURE DURING PREGNANCY",
+      "count": 2521
+    }
+  ],
+  "salbutamol": [
+    {
+      "reaction": "DYSPNOEA",
+      "count": 32196
+    },
+    {
+      "reaction": "ASTHMA",
+      "count": 16420
+    },
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 16044
+    },
+    {
+      "reaction": "COUGH",
+      "count": 14836
+    },
+    {
+      "reaction": "FATIGUE",
+      "count": 13176
+    },
+    {
+      "reaction": "PNEUMONIA",
+      "count": 12674
+    },
+    {
+      "reaction": "WRONG TECHNIQUE IN PRODUCT USAGE PROCESS",
+      "count": 12325
+    },
+    {
+      "reaction": "NAUSEA",
+      "count": 12269
+    }
+  ],
+  "montelukast": [
+    {
+      "reaction": "DYSPNOEA",
+      "count": 8187
+    },
+    {
+      "reaction": "ASTHMA",
+      "count": 7820
+    },
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 6327
+    },
+    {
+      "reaction": "FATIGUE",
+      "count": 5838
+    },
+    {
+      "reaction": "HEADACHE",
+      "count": 5112
+    },
+    {
+      "reaction": "COUGH",
+      "count": 4918
+    },
+    {
+      "reaction": "NAUSEA",
+      "count": 4524
+    },
+    {
+      "reaction": "OFF LABEL USE",
+      "count": 4125
+    }
+  ],
+  "omeprazole": [
+    {
+      "reaction": "NAUSEA",
+      "count": 21532
+    },
+    {
+      "reaction": "DIARRHOEA",
+      "count": 21362
+    },
+    {
+      "reaction": "FATIGUE",
+      "count": 21311
+    },
+    {
+      "reaction": "DYSPNOEA",
+      "count": 17542
+    },
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 17329
+    },
+    {
+      "reaction": "HEADACHE",
+      "count": 15778
+    },
+    {
+      "reaction": "CHRONIC KIDNEY DISEASE",
+      "count": 14879
+    },
+    {
+      "reaction": "PAIN",
+      "count": 14667
+    }
+  ],
+  "pantoprazole": [
+    {
+      "reaction": "FATIGUE",
+      "count": 21957
+    },
+    {
+      "reaction": "OFF LABEL USE",
+      "count": 19654
+    },
+    {
+      "reaction": "NAUSEA",
+      "count": 18907
+    },
+    {
+      "reaction": "DYSPNOEA",
+      "count": 18493
+    },
+    {
+      "reaction": "DIARRHOEA",
+      "count": 18485
+    },
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 18478
+    },
+    {
+      "reaction": "PAIN",
+      "count": 16665
+    },
+    {
+      "reaction": "HEADACHE",
+      "count": 14255
+    }
+  ],
+  "ondansetron": [
+    {
+      "reaction": "NAUSEA",
+      "count": 15545
+    },
+    {
+      "reaction": "FATIGUE",
+      "count": 10931
+    },
+    {
+      "reaction": "DIARRHOEA",
+      "count": 10300
+    },
+    {
+      "reaction": "VOMITING",
+      "count": 9515
+    },
+    {
+      "reaction": "OFF LABEL USE",
+      "count": 8133
+    },
+    {
+      "reaction": "DYSPNOEA",
+      "count": 6398
+    },
+    {
+      "reaction": "DEATH",
+      "count": 6193
+    },
+    {
+      "reaction": "PYREXIA",
+      "count": 5987
+    }
+  ],
+  "ibuprofen": [
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 16908
+    },
+    {
+      "reaction": "PAIN",
+      "count": 15922
+    },
+    {
+      "reaction": "FATIGUE",
+      "count": 15075
+    },
+    {
+      "reaction": "NAUSEA",
+      "count": 14240
+    },
+    {
+      "reaction": "HEADACHE",
+      "count": 12779
+    },
+    {
+      "reaction": "ARTHRALGIA",
+      "count": 11199
+    },
+    {
+      "reaction": "DYSPNOEA",
+      "count": 11032
+    },
+    {
+      "reaction": "VOMITING",
+      "count": 10535
+    }
+  ],
+  "naproxen": [
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 12614
+    },
+    {
+      "reaction": "PAIN",
+      "count": 10867
+    },
+    {
+      "reaction": "FATIGUE",
+      "count": 9645
+    },
+    {
+      "reaction": "ARTHRALGIA",
+      "count": 9063
+    },
+    {
+      "reaction": "NAUSEA",
+      "count": 9057
+    },
+    {
+      "reaction": "OFF LABEL USE",
+      "count": 7684
+    },
+    {
+      "reaction": "HEADACHE",
+      "count": 7479
+    },
+    {
+      "reaction": "DIARRHOEA",
+      "count": 7139
+    }
+  ],
+  "celecoxib": [
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 5418
+    },
+    {
+      "reaction": "PAIN",
+      "count": 3278
+    },
+    {
+      "reaction": "FATIGUE",
+      "count": 3258
+    },
+    {
+      "reaction": "OFF LABEL USE",
+      "count": 3230
+    },
+    {
+      "reaction": "ARTHRALGIA",
+      "count": 3214
+    },
+    {
+      "reaction": "NAUSEA",
+      "count": 3160
+    },
+    {
+      "reaction": "DIARRHOEA",
+      "count": 2874
+    },
+    {
+      "reaction": "VOMITING",
+      "count": 2545
+    }
+  ],
+  "allopurinol": [
+    {
+      "reaction": "DIARRHOEA",
+      "count": 8800
+    },
+    {
+      "reaction": "FATIGUE",
+      "count": 8350
+    },
+    {
+      "reaction": "DYSPNOEA",
+      "count": 8026
+    },
+    {
+      "reaction": "NAUSEA",
+      "count": 7375
+    },
+    {
+      "reaction": "DEATH",
+      "count": 6912
+    },
+    {
+      "reaction": "ACUTE KIDNEY INJURY",
+      "count": 6774
+    },
+    {
+      "reaction": "OFF LABEL USE",
+      "count": 6570
+    },
+    {
+      "reaction": "PYREXIA",
+      "count": 6237
+    }
+  ],
+  "alendronate": [
+    {
+      "reaction": "PAIN",
+      "count": 7743
+    },
+    {
+      "reaction": "FATIGUE",
+      "count": 7548
+    },
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 7149
+    },
+    {
+      "reaction": "ARTHRALGIA",
+      "count": 6916
+    },
+    {
+      "reaction": "RHEUMATOID ARTHRITIS",
+      "count": 5738
+    },
+    {
+      "reaction": "RASH",
+      "count": 5579
+    },
+    {
+      "reaction": "FEMUR FRACTURE",
+      "count": 5440
+    },
+    {
+      "reaction": "ABDOMINAL DISCOMFORT",
+      "count": 5422
+    }
+  ],
+  "calcium_carbonate": [
+    {
+      "reaction": "FATIGUE",
+      "count": 6832
+    },
+    {
+      "reaction": "NAUSEA",
+      "count": 6059
+    },
+    {
+      "reaction": "OFF LABEL USE",
+      "count": 5881
+    },
+    {
+      "reaction": "DIARRHOEA",
+      "count": 5381
+    },
+    {
+      "reaction": "PAIN",
+      "count": 5366
+    },
+    {
+      "reaction": "DYSPNOEA",
+      "count": 5264
+    },
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 5152
+    },
+    {
+      "reaction": "VOMITING",
+      "count": 4791
+    }
+  ],
+  "theophylline": [
+    {
+      "reaction": "DYSPNOEA",
+      "count": 2489
+    },
+    {
+      "reaction": "ASTHMA",
+      "count": 2138
+    },
+    {
+      "reaction": "PNEUMONIA",
+      "count": 1464
+    },
+    {
+      "reaction": "WHEEZING",
+      "count": 1425
+    },
+    {
+      "reaction": "VOMITING",
+      "count": 1239
+    },
+    {
+      "reaction": "COUGH",
+      "count": 1148
+    },
+    {
+      "reaction": "DRUG HYPERSENSITIVITY",
+      "count": 927
+    },
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 841
+    }
+  ],
+  "prednisolone": [
+    {
+      "reaction": "OFF LABEL USE",
+      "count": 15860
+    },
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 13672
+    },
+    {
+      "reaction": "PYREXIA",
+      "count": 8969
+    },
+    {
+      "reaction": "DYSPNOEA",
+      "count": 7450
+    },
+    {
+      "reaction": "PNEUMONIA",
+      "count": 7344
+    },
+    {
+      "reaction": "DIARRHOEA",
+      "count": 7173
+    },
+    {
+      "reaction": "CONDITION AGGRAVATED",
+      "count": 6384
+    },
+    {
+      "reaction": "NAUSEA",
+      "count": 5960
+    }
+  ],
+  "azathioprine": [
+    {
+      "reaction": "OFF LABEL USE",
+      "count": 10945
+    },
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 10893
+    },
+    {
+      "reaction": "CONDITION AGGRAVATED",
+      "count": 5602
+    },
+    {
+      "reaction": "ARTHRALGIA",
+      "count": 4666
+    },
+    {
+      "reaction": "DIARRHOEA",
+      "count": 4058
+    },
+    {
+      "reaction": "FATIGUE",
+      "count": 3996
+    },
+    {
+      "reaction": "NAUSEA",
+      "count": 3989
+    },
+    {
+      "reaction": "DRUG INTOLERANCE",
+      "count": 3699
+    }
+  ],
+  "cyclosporine": [
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 7464
+    },
+    {
+      "reaction": "OFF LABEL USE",
+      "count": 7339
+    },
+    {
+      "reaction": "PRODUCT USE IN UNAPPROVED INDICATION",
+      "count": 3553
+    },
+    {
+      "reaction": "PYREXIA",
+      "count": 2724
+    },
+    {
+      "reaction": "DIARRHOEA",
+      "count": 2186
+    },
+    {
+      "reaction": "NAUSEA",
+      "count": 2050
+    },
+    {
+      "reaction": "CONDITION AGGRAVATED",
+      "count": 2037
+    },
+    {
+      "reaction": "PNEUMONIA",
+      "count": 1959
+    }
+  ],
+  "hydroxychloroquine": [
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 33131
+    },
+    {
+      "reaction": "RHEUMATOID ARTHRITIS",
+      "count": 21850
+    },
+    {
+      "reaction": "OFF LABEL USE",
+      "count": 20306
+    },
+    {
+      "reaction": "PAIN",
+      "count": 17595
+    },
+    {
+      "reaction": "FATIGUE",
+      "count": 15020
+    },
+    {
+      "reaction": "DRUG INTOLERANCE",
+      "count": 14552
+    },
+    {
+      "reaction": "ARTHRALGIA",
+      "count": 14378
+    },
+    {
+      "reaction": "JOINT SWELLING",
+      "count": 13376
+    }
+  ],
+  "morphine": [
+    {
+      "reaction": "DRUG DEPENDENCE",
+      "count": 21856
+    },
+    {
+      "reaction": "PAIN",
+      "count": 17415
+    },
+    {
+      "reaction": "OVERDOSE",
+      "count": 14908
+    },
+    {
+      "reaction": "DRUG HYPERSENSITIVITY",
+      "count": 12853
+    },
+    {
+      "reaction": "NAUSEA",
+      "count": 10888
+    },
+    {
+      "reaction": "DEATH",
+      "count": 10626
+    },
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 9962
+    },
+    {
+      "reaction": "VOMITING",
+      "count": 8297
+    }
+  ],
+  "codeine": [
+    {
+      "reaction": "DRUG HYPERSENSITIVITY",
+      "count": 10777
+    },
+    {
+      "reaction": "PAIN",
+      "count": 9690
+    },
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 9344
+    },
+    {
+      "reaction": "FATIGUE",
+      "count": 8628
+    },
+    {
+      "reaction": "DEPENDENCE",
+      "count": 8039
+    },
+    {
+      "reaction": "NAUSEA",
+      "count": 8003
+    },
+    {
+      "reaction": "ARTHRALGIA",
+      "count": 7526
+    },
+    {
+      "reaction": "RASH",
+      "count": 7086
+    }
+  ],
+  "tramadol": [
+    {
+      "reaction": "DRUG DEPENDENCE",
+      "count": 20042
+    },
+    {
+      "reaction": "PAIN",
+      "count": 15923
+    },
+    {
+      "reaction": "NAUSEA",
+      "count": 13927
+    },
+    {
+      "reaction": "OVERDOSE",
+      "count": 13325
+    },
+    {
+      "reaction": "FATIGUE",
+      "count": 12150
+    },
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 11721
+    },
+    {
+      "reaction": "VOMITING",
+      "count": 10805
+    },
+    {
+      "reaction": "HEADACHE",
+      "count": 10358
+    }
+  ],
+  "fentanyl": [
+    {
+      "reaction": "DRUG ABUSE",
+      "count": 12737
+    },
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 10338
+    },
+    {
+      "reaction": "PAIN",
+      "count": 9970
+    },
+    {
+      "reaction": "OVERDOSE",
+      "count": 8932
+    },
+    {
+      "reaction": "DEATH",
+      "count": 8177
+    },
+    {
+      "reaction": "TOXICITY TO VARIOUS AGENTS",
+      "count": 7965
+    },
+    {
+      "reaction": "NAUSEA",
+      "count": 7151
+    },
+    {
+      "reaction": "DRUG DEPENDENCE",
+      "count": 6635
+    }
+  ],
+  "oxycodone": [
+    {
+      "reaction": "DRUG DEPENDENCE",
+      "count": 65155
+    },
+    {
+      "reaction": "OVERDOSE",
+      "count": 41509
+    },
+    {
+      "reaction": "PAIN",
+      "count": 40905
+    },
+    {
+      "reaction": "DEATH",
+      "count": 27550
+    },
+    {
+      "reaction": "EMOTIONAL DISTRESS",
+      "count": 25758
+    },
+    {
+      "reaction": "TOXICITY TO VARIOUS AGENTS",
+      "count": 19501
+    },
+    {
+      "reaction": "DRUG WITHDRAWAL SYNDROME",
+      "count": 17882
+    },
+    {
+      "reaction": "DEPENDENCE",
+      "count": 16693
+    }
+  ],
+  "haloperidol": [
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 2274
+    },
+    {
+      "reaction": "DRUG INTERACTION",
+      "count": 1870
+    },
+    {
+      "reaction": "NEUROLEPTIC MALIGNANT SYNDROME",
+      "count": 1822
+    },
+    {
+      "reaction": "OFF LABEL USE",
+      "count": 1512
+    },
+    {
+      "reaction": "WEIGHT INCREASED",
+      "count": 1467
+    },
+    {
+      "reaction": "EXTRAPYRAMIDAL DISORDER",
+      "count": 1410
+    },
+    {
+      "reaction": "TOXICITY TO VARIOUS AGENTS",
+      "count": 1184
+    },
+    {
+      "reaction": "AGITATION",
+      "count": 957
+    }
+  ],
+  "olanzapine": [
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 5939
+    },
+    {
+      "reaction": "OFF LABEL USE",
+      "count": 4200
+    },
+    {
+      "reaction": "TOXICITY TO VARIOUS AGENTS",
+      "count": 3953
+    },
+    {
+      "reaction": "DRUG INTERACTION",
+      "count": 3406
+    },
+    {
+      "reaction": "WEIGHT INCREASED",
+      "count": 2889
+    },
+    {
+      "reaction": "SOMNOLENCE",
+      "count": 2820
+    },
+    {
+      "reaction": "NAUSEA",
+      "count": 2735
+    },
+    {
+      "reaction": "CONDITION AGGRAVATED",
+      "count": 2386
+    }
+  ],
+  "quetiapine": [
+    {
+      "reaction": "TOXICITY TO VARIOUS AGENTS",
+      "count": 9731
+    },
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 8763
+    },
+    {
+      "reaction": "OFF LABEL USE",
+      "count": 7763
+    },
+    {
+      "reaction": "DRUG INTERACTION",
+      "count": 6909
+    },
+    {
+      "reaction": "COMPLETED SUICIDE",
+      "count": 6851
+    },
+    {
+      "reaction": "FATIGUE",
+      "count": 5740
+    },
+    {
+      "reaction": "NAUSEA",
+      "count": 4903
+    },
+    {
+      "reaction": "CONDITION AGGRAVATED",
+      "count": 4852
+    }
+  ],
+  "risperidone": [
+    {
+      "reaction": "GYNAECOMASTIA",
+      "count": 9404
+    },
+    {
+      "reaction": "OFF LABEL USE",
+      "count": 5591
+    },
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 5184
+    },
+    {
+      "reaction": "WEIGHT INCREASED",
+      "count": 4408
+    },
+    {
+      "reaction": "DRUG INTERACTION",
+      "count": 3276
+    },
+    {
+      "reaction": "PRODUCT USE IN UNAPPROVED INDICATION",
+      "count": 2920
+    },
+    {
+      "reaction": "ABNORMAL WEIGHT GAIN",
+      "count": 2878
+    },
+    {
+      "reaction": "EMOTIONAL DISORDER",
+      "count": 2878
+    }
+  ],
+  "clozapine": [
+    {
+      "reaction": "NEUTROPENIA",
+      "count": 17358
+    },
+    {
+      "reaction": "HOSPITALISATION",
+      "count": 7885
+    },
+    {
+      "reaction": "DEATH",
+      "count": 6187
+    },
+    {
+      "reaction": "GRANULOCYTOPENIA",
+      "count": 3464
+    },
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 3140
+    },
+    {
+      "reaction": "DRUG INTERACTION",
+      "count": 2795
+    },
+    {
+      "reaction": "NEUTROPHILIA",
+      "count": 2431
+    },
+    {
+      "reaction": "OFF LABEL USE",
+      "count": 2098
+    }
+  ],
+  "acyclovir": [
+    {
+      "reaction": "FATIGUE",
+      "count": 8429
+    },
+    {
+      "reaction": "DIARRHOEA",
+      "count": 7515
+    },
+    {
+      "reaction": "OFF LABEL USE",
+      "count": 6732
+    },
+    {
+      "reaction": "NAUSEA",
+      "count": 5871
+    },
+    {
+      "reaction": "PNEUMONIA",
+      "count": 5810
+    },
+    {
+      "reaction": "PYREXIA",
+      "count": 4970
+    },
+    {
+      "reaction": "DEATH",
+      "count": 4957
+    },
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 4817
+    }
+  ],
+  "valacyclovir": [
+    {
+      "reaction": "OFF LABEL USE",
+      "count": 2751
+    },
+    {
+      "reaction": "FATIGUE",
+      "count": 2638
+    },
+    {
+      "reaction": "DIARRHOEA",
+      "count": 2366
+    },
+    {
+      "reaction": "NAUSEA",
+      "count": 2105
+    },
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 2092
+    },
+    {
+      "reaction": "FEBRILE NEUTROPENIA",
+      "count": 1661
+    },
+    {
+      "reaction": "PYREXIA",
+      "count": 1658
+    },
+    {
+      "reaction": "PNEUMONIA",
+      "count": 1626
+    }
+  ],
+  "oseltamivir": [
+    {
+      "reaction": "OFF LABEL USE",
+      "count": 1828
+    },
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 770
+    },
+    {
+      "reaction": "NO ADVERSE EVENT",
+      "count": 586
+    },
+    {
+      "reaction": "VOMITING",
+      "count": 532
+    },
+    {
+      "reaction": "NAUSEA",
+      "count": 513
+    },
+    {
+      "reaction": "HEADACHE",
+      "count": 439
+    },
+    {
+      "reaction": "PNEUMONIA",
+      "count": 394
+    },
+    {
+      "reaction": "CONDITION AGGRAVATED",
+      "count": 371
+    }
+  ],
+  "tenofovir": [
+    {
+      "reaction": "FOETAL EXPOSURE DURING PREGNANCY",
+      "count": 3803
+    },
+    {
+      "reaction": "MATERNAL EXPOSURE DURING PREGNANCY",
+      "count": 2550
+    },
+    {
+      "reaction": "VIROLOGIC FAILURE",
+      "count": 1896
+    },
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 1867
+    },
+    {
+      "reaction": "DRUG INTERACTION",
+      "count": 1728
+    },
+    {
+      "reaction": "DEATH",
+      "count": 1475
+    },
+    {
+      "reaction": "ABORTION SPONTANEOUS",
+      "count": 1365
+    },
+    {
+      "reaction": "DRUG RESISTANCE",
+      "count": 1277
+    }
+  ],
+  "emtricitabine": [
+    {
+      "reaction": "FOETAL EXPOSURE DURING PREGNANCY",
+      "count": 2709
+    },
+    {
+      "reaction": "MATERNAL EXPOSURE DURING PREGNANCY",
+      "count": 1915
+    },
+    {
+      "reaction": "DRUG INTERACTION",
+      "count": 1180
+    },
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 985
+    },
+    {
+      "reaction": "ABORTION SPONTANEOUS",
+      "count": 971
+    },
+    {
+      "reaction": "VIROLOGIC FAILURE",
+      "count": 889
+    },
+    {
+      "reaction": "DEATH",
+      "count": 852
+    },
+    {
+      "reaction": "DRUG RESISTANCE",
+      "count": 644
+    }
+  ],
+  "carbamazepine": [
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 3536
+    },
+    {
+      "reaction": "DRUG INTERACTION",
+      "count": 2489
+    },
+    {
+      "reaction": "TOXICITY TO VARIOUS AGENTS",
+      "count": 2316
+    },
+    {
+      "reaction": "SEIZURE",
+      "count": 2015
+    },
+    {
+      "reaction": "FALL",
+      "count": 1898
+    },
+    {
+      "reaction": "OFF LABEL USE",
+      "count": 1823
+    },
+    {
+      "reaction": "DIZZINESS",
+      "count": 1539
+    },
+    {
+      "reaction": "FATIGUE",
+      "count": 1415
+    }
+  ],
+  "valproate": [
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 3213
+    },
+    {
+      "reaction": "DRUG INTERACTION",
+      "count": 2223
+    },
+    {
+      "reaction": "OFF LABEL USE",
+      "count": 2182
+    },
+    {
+      "reaction": "SEIZURE",
+      "count": 1752
+    },
+    {
+      "reaction": "SOMNOLENCE",
+      "count": 1598
+    },
+    {
+      "reaction": "FOETAL EXPOSURE DURING PREGNANCY",
+      "count": 1444
+    },
+    {
+      "reaction": "EPILEPSY",
+      "count": 1382
+    },
+    {
+      "reaction": "TOXICITY TO VARIOUS AGENTS",
+      "count": 1344
+    }
+  ],
+  "lamotrigine": [
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 6608
+    },
+    {
+      "reaction": "SEIZURE",
+      "count": 4515
+    },
+    {
+      "reaction": "TOXICITY TO VARIOUS AGENTS",
+      "count": 4123
+    },
+    {
+      "reaction": "OFF LABEL USE",
+      "count": 3460
+    },
+    {
+      "reaction": "DRUG INTERACTION",
+      "count": 3336
+    },
+    {
+      "reaction": "COMPLETED SUICIDE",
+      "count": 3204
+    },
+    {
+      "reaction": "DIZZINESS",
+      "count": 3090
+    },
+    {
+      "reaction": "NAUSEA",
+      "count": 3085
+    }
+  ],
+  "lithium": [
+    {
+      "reaction": "TOXICITY TO VARIOUS AGENTS",
+      "count": 3611
+    },
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 3428
+    },
+    {
+      "reaction": "DRUG INTERACTION",
+      "count": 2711
+    },
+    {
+      "reaction": "TREMOR",
+      "count": 2702
+    },
+    {
+      "reaction": "NAUSEA",
+      "count": 2264
+    },
+    {
+      "reaction": "OFF LABEL USE",
+      "count": 2184
+    },
+    {
+      "reaction": "WEIGHT INCREASED",
+      "count": 1967
+    },
+    {
+      "reaction": "FATIGUE",
+      "count": 1833
+    }
+  ],
+  "vancomycin": [
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 7623
+    },
+    {
+      "reaction": "ACUTE KIDNEY INJURY",
+      "count": 5448
+    },
+    {
+      "reaction": "OFF LABEL USE",
+      "count": 4689
+    },
+    {
+      "reaction": "PYREXIA",
+      "count": 4353
+    },
+    {
+      "reaction": "DRUG REACTION WITH EOSINOPHILIA AND SYSTEMIC SYMPTOMS",
+      "count": 2924
+    },
+    {
+      "reaction": "RENAL FAILURE",
+      "count": 2673
+    },
+    {
+      "reaction": "DRUG HYPERSENSITIVITY",
+      "count": 2574
+    },
+    {
+      "reaction": "RASH",
+      "count": 2563
+    }
+  ],
+  "meropenem": [
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 4445
+    },
+    {
+      "reaction": "OFF LABEL USE",
+      "count": 3302
+    },
+    {
+      "reaction": "PYREXIA",
+      "count": 2298
+    },
+    {
+      "reaction": "PNEUMONIA",
+      "count": 1583
+    },
+    {
+      "reaction": "SEPSIS",
+      "count": 1492
+    },
+    {
+      "reaction": "SEPTIC SHOCK",
+      "count": 1464
+    },
+    {
+      "reaction": "ACUTE KIDNEY INJURY",
+      "count": 1307
+    },
+    {
+      "reaction": "CONDITION AGGRAVATED",
+      "count": 1288
+    }
+  ],
+  "linezolid": [
+    {
+      "reaction": "OFF LABEL USE",
+      "count": 2268
+    },
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 1833
+    },
+    {
+      "reaction": "THROMBOCYTOPENIA",
+      "count": 1788
+    },
+    {
+      "reaction": "ANAEMIA",
+      "count": 1460
+    },
+    {
+      "reaction": "DRUG INTERACTION",
+      "count": 1209
+    },
+    {
+      "reaction": "NAUSEA",
+      "count": 1001
+    },
+    {
+      "reaction": "LACTIC ACIDOSIS",
+      "count": 904
+    },
+    {
+      "reaction": "ACUTE KIDNEY INJURY",
+      "count": 870
+    }
+  ],
+  "insulin_aspart": [
+    {
+      "reaction": "NAUSEA",
+      "count": 723
+    },
+    {
+      "reaction": "DYSPNOEA",
+      "count": 712
+    },
+    {
+      "reaction": "BLOOD GLUCOSE INCREASED",
+      "count": 700
+    },
+    {
+      "reaction": "HYPOGLYCAEMIA",
+      "count": 673
+    },
+    {
+      "reaction": "VOMITING",
+      "count": 637
+    },
+    {
+      "reaction": "OFF LABEL USE",
+      "count": 558
+    },
+    {
+      "reaction": "DIARRHOEA",
+      "count": 504
+    },
+    {
+      "reaction": "ABDOMINAL PAIN",
+      "count": 474
+    }
+  ],
+  "contraceptive_pill_ethinyl_estradiol": [
+    {
+      "reaction": "PAIN",
+      "count": 4484
+    },
+    {
+      "reaction": "NO ADVERSE EVENT",
+      "count": 3124
+    },
+    {
+      "reaction": "PRODUCT ADHESION ISSUE",
+      "count": 3078
+    },
+    {
+      "reaction": "FATIGUE",
+      "count": 3026
+    },
+    {
+      "reaction": "DYSPNOEA",
+      "count": 2848
+    },
+    {
+      "reaction": "RASH",
+      "count": 2673
+    },
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 2655
+    },
+    {
+      "reaction": "PRURITUS",
+      "count": 2589
+    }
+  ],
+  "testosterone": [
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 2282
+    },
+    {
+      "reaction": "FATIGUE",
+      "count": 1810
+    },
+    {
+      "reaction": "OFF LABEL USE",
+      "count": 1654
+    },
+    {
+      "reaction": "PAIN",
+      "count": 1341
+    },
+    {
+      "reaction": "MYOCARDIAL INFARCTION",
+      "count": 1268
+    },
+    {
+      "reaction": "NAUSEA",
+      "count": 1166
+    },
+    {
+      "reaction": "HEADACHE",
+      "count": 1125
+    },
+    {
+      "reaction": "ANXIETY",
+      "count": 1054
+    }
+  ],
+  "levodopa_carbidopa": [
+    {
+      "reaction": "FALL",
+      "count": 6412
+    },
+    {
+      "reaction": "DEATH",
+      "count": 5793
+    },
+    {
+      "reaction": "HALLUCINATION",
+      "count": 5389
+    },
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 4515
+    },
+    {
+      "reaction": "DYSKINESIA",
+      "count": 4186
+    },
+    {
+      "reaction": "PARKINSON^S DISEASE",
+      "count": 3315
+    },
+    {
+      "reaction": "TREMOR",
+      "count": 2942
+    },
+    {
+      "reaction": "GAIT DISTURBANCE",
+      "count": 2857
+    }
+  ],
+  "pramipexole": [
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 1916
+    },
+    {
+      "reaction": "FATIGUE",
+      "count": 1454
+    },
+    {
+      "reaction": "FALL",
+      "count": 1427
+    },
+    {
+      "reaction": "NAUSEA",
+      "count": 1179
+    },
+    {
+      "reaction": "PAIN",
+      "count": 1104
+    },
+    {
+      "reaction": "CONDITION AGGRAVATED",
+      "count": 1084
+    },
+    {
+      "reaction": "OFF LABEL USE",
+      "count": 1052
+    },
+    {
+      "reaction": "DIZZINESS",
+      "count": 1037
+    }
+  ],
+  "baclofen": [
+    {
+      "reaction": "FATIGUE",
+      "count": 6418
+    },
+    {
+      "reaction": "PAIN",
+      "count": 6255
+    },
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 5718
+    },
+    {
+      "reaction": "FALL",
+      "count": 5691
+    },
+    {
+      "reaction": "NAUSEA",
+      "count": 4912
+    },
+    {
+      "reaction": "HEADACHE",
+      "count": 4586
+    },
+    {
+      "reaction": "GAIT DISTURBANCE",
+      "count": 4266
+    },
+    {
+      "reaction": "OFF LABEL USE",
+      "count": 3916
+    }
+  ],
+  "tamsulosin": [
+    {
+      "reaction": "FATIGUE",
+      "count": 6722
+    },
+    {
+      "reaction": "DYSPNOEA",
+      "count": 5165
+    },
+    {
+      "reaction": "DIARRHOEA",
+      "count": 5126
+    },
+    {
+      "reaction": "DIZZINESS",
+      "count": 5086
+    },
+    {
+      "reaction": "DEATH",
+      "count": 4617
+    },
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 4401
+    },
+    {
+      "reaction": "FALL",
+      "count": 4249
+    },
+    {
+      "reaction": "OFF LABEL USE",
+      "count": 4215
+    }
+  ],
+  "finasteride": [
+    {
+      "reaction": "FATIGUE",
+      "count": 3165
+    },
+    {
+      "reaction": "ADVERSE DRUG REACTION",
+      "count": 2686
+    },
+    {
+      "reaction": "DEPRESSION",
+      "count": 2393
+    },
+    {
+      "reaction": "ERECTILE DYSFUNCTION",
+      "count": 2376
+    },
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 2007
+    },
+    {
+      "reaction": "DIZZINESS",
+      "count": 1965
+    },
+    {
+      "reaction": "DEATH",
+      "count": 1944
+    },
+    {
+      "reaction": "ANXIETY",
+      "count": 1917
+    }
+  ],
+  "acetazolamide": [
+    {
+      "reaction": "OFF LABEL USE",
+      "count": 712
+    },
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 689
+    },
+    {
+      "reaction": "HEADACHE",
+      "count": 298
+    },
+    {
+      "reaction": "CONDITION AGGRAVATED",
+      "count": 294
+    },
+    {
+      "reaction": "FATIGUE",
+      "count": 259
+    },
+    {
+      "reaction": "NAUSEA",
+      "count": 258
+    },
+    {
+      "reaction": "DYSPNOEA",
+      "count": 250
+    },
+    {
+      "reaction": "METABOLIC ACIDOSIS",
+      "count": 209
+    }
+  ],
+  "enoxaparin": [
+    {
+      "reaction": "OFF LABEL USE",
+      "count": 3114
+    },
+    {
+      "reaction": "DYSPNOEA",
+      "count": 2175
+    },
+    {
+      "reaction": "PYREXIA",
+      "count": 2002
+    },
+    {
+      "reaction": "NAUSEA",
+      "count": 1995
+    },
+    {
+      "reaction": "DIARRHOEA",
+      "count": 1905
+    },
+    {
+      "reaction": "ANAEMIA",
+      "count": 1670
+    },
+    {
+      "reaction": "VOMITING",
+      "count": 1630
+    },
+    {
+      "reaction": "FATIGUE",
+      "count": 1605
+    }
+  ],
+  "clopidogrel": [
+    {
+      "reaction": "DYSPNOEA",
+      "count": 5594
+    },
+    {
+      "reaction": "FATIGUE",
+      "count": 4908
+    },
+    {
+      "reaction": "DIZZINESS",
+      "count": 4410
+    },
+    {
+      "reaction": "DIARRHOEA",
+      "count": 4242
+    },
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 4142
+    },
+    {
+      "reaction": "NAUSEA",
+      "count": 4100
+    },
+    {
+      "reaction": "DRUG INTERACTION",
+      "count": 3908
+    },
+    {
+      "reaction": "ANAEMIA",
+      "count": 3894
+    }
+  ],
+  "aspirin": [
+    {
+      "reaction": "FATIGUE",
+      "count": 38030
+    },
+    {
+      "reaction": "DYSPNOEA",
+      "count": 31830
+    },
+    {
+      "reaction": "NAUSEA",
+      "count": 31455
+    },
+    {
+      "reaction": "DIARRHOEA",
+      "count": 31181
+    },
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 26658
+    },
+    {
+      "reaction": "DIZZINESS",
+      "count": 26448
+    },
+    {
+      "reaction": "HEADACHE",
+      "count": 23508
+    },
+    {
+      "reaction": "OFF LABEL USE",
+      "count": 22998
+    }
+  ],
+  "methotrexate": [
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 94765
+    },
+    {
+      "reaction": "RHEUMATOID ARTHRITIS",
+      "count": 43704
+    },
+    {
+      "reaction": "ARTHRALGIA",
+      "count": 41213
+    },
+    {
+      "reaction": "PAIN",
+      "count": 40128
+    },
+    {
+      "reaction": "OFF LABEL USE",
+      "count": 39626
+    },
+    {
+      "reaction": "FATIGUE",
+      "count": 33368
+    },
+    {
+      "reaction": "NAUSEA",
+      "count": 29458
+    },
+    {
+      "reaction": "JOINT SWELLING",
+      "count": 25265
+    }
+  ],
+  "budesonide": [
+    {
+      "reaction": "DYSPNOEA",
+      "count": 8980
+    },
+    {
+      "reaction": "ASTHMA",
+      "count": 7721
+    },
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 6236
+    },
+    {
+      "reaction": "OFF LABEL USE",
+      "count": 5196
+    },
+    {
+      "reaction": "WHEEZING",
+      "count": 4689
+    },
+    {
+      "reaction": "COUGH",
+      "count": 4291
+    },
+    {
+      "reaction": "THERAPEUTIC PRODUCT EFFECT INCOMPLETE",
+      "count": 3712
+    },
+    {
+      "reaction": "FATIGUE",
+      "count": 3566
+    }
+  ],
+  "ipratropium": [
+    {
+      "reaction": "DYSPNOEA",
+      "count": 5052
+    },
+    {
+      "reaction": "PNEUMONIA",
+      "count": 3049
+    },
+    {
+      "reaction": "COUGH",
+      "count": 2501
+    },
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 2410
+    },
+    {
+      "reaction": "ASTHMA",
+      "count": 2258
+    },
+    {
+      "reaction": "FATIGUE",
+      "count": 2253
+    },
+    {
+      "reaction": "NAUSEA",
+      "count": 2043
+    },
+    {
+      "reaction": "OFF LABEL USE",
+      "count": 1925
+    }
+  ],
+  "donepezil": [
+    {
+      "reaction": "FALL",
+      "count": 2215
+    },
+    {
+      "reaction": "DEATH",
+      "count": 1584
+    },
+    {
+      "reaction": "DIARRHOEA",
+      "count": 1331
+    },
+    {
+      "reaction": "CONFUSIONAL STATE",
+      "count": 1262
+    },
+    {
+      "reaction": "FATIGUE",
+      "count": 1237
+    },
+    {
+      "reaction": "DIZZINESS",
+      "count": 1206
+    },
+    {
+      "reaction": "NAUSEA",
+      "count": 1112
+    },
+    {
+      "reaction": "HALLUCINATION",
+      "count": 1096
+    }
+  ],
+  "diazepam": [
+    {
+      "reaction": "TOXICITY TO VARIOUS AGENTS",
+      "count": 9053
+    },
+    {
+      "reaction": "DRUG ABUSE",
+      "count": 6464
+    },
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 5108
+    },
+    {
+      "reaction": "NAUSEA",
+      "count": 4203
+    },
+    {
+      "reaction": "COMPLETED SUICIDE",
+      "count": 4015
+    },
+    {
+      "reaction": "FATIGUE",
+      "count": 3875
+    },
+    {
+      "reaction": "DRUG INTERACTION",
+      "count": 3845
+    },
+    {
+      "reaction": "SOMNOLENCE",
+      "count": 3601
+    }
+  ],
+  "zolpidem": [
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 4900
+    },
+    {
+      "reaction": "COMPLETED SUICIDE",
+      "count": 4410
+    },
+    {
+      "reaction": "TOXICITY TO VARIOUS AGENTS",
+      "count": 4051
+    },
+    {
+      "reaction": "NAUSEA",
+      "count": 3955
+    },
+    {
+      "reaction": "FATIGUE",
+      "count": 3830
+    },
+    {
+      "reaction": "FALL",
+      "count": 3120
+    },
+    {
+      "reaction": "DIARRHOEA",
+      "count": 2982
+    },
+    {
+      "reaction": "HEADACHE",
+      "count": 2917
+    }
+  ],
+  "venlafaxine": [
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 7863
+    },
+    {
+      "reaction": "NAUSEA",
+      "count": 5706
+    },
+    {
+      "reaction": "FATIGUE",
+      "count": 5344
+    },
+    {
+      "reaction": "HEADACHE",
+      "count": 4910
+    },
+    {
+      "reaction": "TOXICITY TO VARIOUS AGENTS",
+      "count": 4825
+    },
+    {
+      "reaction": "OFF LABEL USE",
+      "count": 4720
+    },
+    {
+      "reaction": "COMPLETED SUICIDE",
+      "count": 4166
+    },
+    {
+      "reaction": "DIZZINESS",
+      "count": 4092
+    }
+  ],
+  "bupropion": [
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 7083
+    },
+    {
+      "reaction": "COMPLETED SUICIDE",
+      "count": 6649
+    },
+    {
+      "reaction": "FATIGUE",
+      "count": 4892
+    },
+    {
+      "reaction": "DEPRESSION",
+      "count": 4815
+    },
+    {
+      "reaction": "HEADACHE",
+      "count": 4534
+    },
+    {
+      "reaction": "NAUSEA",
+      "count": 4504
+    },
+    {
+      "reaction": "TOXICITY TO VARIOUS AGENTS",
+      "count": 4454
+    },
+    {
+      "reaction": "OFF LABEL USE",
+      "count": 3533
+    }
+  ],
+  "sulfasalazine": [
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 28994
+    },
+    {
+      "reaction": "RHEUMATOID ARTHRITIS",
+      "count": 19226
+    },
+    {
+      "reaction": "PAIN",
+      "count": 15759
+    },
+    {
+      "reaction": "DRUG INTOLERANCE",
+      "count": 13646
+    },
+    {
+      "reaction": "ARTHRALGIA",
+      "count": 13197
+    },
+    {
+      "reaction": "FATIGUE",
+      "count": 13142
+    },
+    {
+      "reaction": "JOINT SWELLING",
+      "count": 12594
+    },
+    {
+      "reaction": "OFF LABEL USE",
+      "count": 10895
+    }
+  ],
+  "tamoxifen": [
+    {
+      "reaction": "MALIGNANT NEOPLASM PROGRESSION",
+      "count": 1825
+    },
+    {
+      "reaction": "FATIGUE",
+      "count": 1662
+    },
+    {
+      "reaction": "ALOPECIA",
+      "count": 1623
+    },
+    {
+      "reaction": "NAUSEA",
+      "count": 1453
+    },
+    {
+      "reaction": "METASTASES TO BONE",
+      "count": 1249
+    },
+    {
+      "reaction": "PAIN",
+      "count": 1224
+    },
+    {
+      "reaction": "DIARRHOEA",
+      "count": 1212
+    },
+    {
+      "reaction": "ARTHRALGIA",
+      "count": 1113
+    }
+  ],
+  "imatinib": [
+    {
+      "reaction": "DRUG INEFFECTIVE",
+      "count": 1745
+    },
+    {
+      "reaction": "NAUSEA",
+      "count": 1416
+    },
+    {
+      "reaction": "DIARRHOEA",
+      "count": 1322
+    },
+    {
+      "reaction": "DEATH",
+      "count": 1116
+    },
+    {
+      "reaction": "DRUG RESISTANCE",
+      "count": 1101
+    },
+    {
+      "reaction": "FATIGUE",
+      "count": 1047
+    },
+    {
+      "reaction": "DRUG INTOLERANCE",
+      "count": 950
+    },
+    {
+      "reaction": "VOMITING",
+      "count": 907
+    }
+  ]
+}

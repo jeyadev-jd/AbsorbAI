@@ -1,0 +1,3058 @@
+{
+  "warfarin": {
+    "openfda_generic_name": [
+      "WARFARIN SODIUM"
+    ],
+    "openfda_brand_name": [
+      "Warfarin Sodium"
+    ],
+    "openfda_manufacturer": [
+      "Teva Pharmaceuticals USA, Inc."
+    ],
+    "openfda_product_ndc": [
+      "0093-1712",
+      "0093-1713",
+      "0093-1714"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "855288",
+      "855296",
+      "855302",
+      "855312",
+      "855318",
+      "855324",
+      "855332",
+      "855338",
+      "855344"
+    ],
+    "openfda_spl_id": [
+      "b8c33971-54b3-4971-bf7f-1bec66999a29"
+    ],
+    "warnings_summary": "",
+    "contraindications_text": "4 CONTRAINDICATIONS Warfarin sodium is contraindicated in: Pregnancy Warfarin sodium is contraindicated in women who are pregnant except in pregnant women with mechanical heart valves, who are at high risk of thromboembolism [see Warnings and Precautions ( 5.7 ) and Use in Specific Populations ( 8.1",
+    "drug_interactions_text": "7 DRUG INTERACTIONS Concomitant use of drugs that increase bleeding risk, antibiotics, antifungals, botanical (herbal) products, and inhibitors and inducers of CYP2C9, 1A2, or 3A4. ( 7 ) Consult labeling of all concurrently used drugs for complete information about interactions with warfarin sodium or increased risks for bleeding. ( 7 ) 7.1 General Information Drugs may interact with warfarin sodi",
+    "dosage_forms_storage": "",
+    "pregnancy_text": "8.1 Pregnancy Risk Summary Warfarin sodium is contraindicated in women who are pregnant except in pregnant women with mechanical heart valves, who are at high risk of thromboembolism, and for whom the"
+  },
+  "heparin": {
+    "openfda_generic_name": [
+      "HEPARIN SODIUM"
+    ],
+    "openfda_brand_name": [
+      "Heparin Sodium"
+    ],
+    "openfda_manufacturer": [
+      "Meitheal Pharmaceuticals Inc."
+    ],
+    "openfda_product_ndc": [
+      "71288-402",
+      "71288-449",
+      "71288-403"
+    ],
+    "openfda_route": [
+      "INTRAVENOUS",
+      "SUBCUTANEOUS"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "1361226",
+      "1361615",
+      "1362831",
+      "1658637",
+      "1658659",
+      "1659263"
+    ],
+    "openfda_spl_id": [
+      "505f018d-608d-4dd4-b7b9-640b25b0fc44"
+    ],
+    "warnings_summary": "",
+    "contraindications_text": "4 CONTRAINDICATIONS The use of Heparin Sodium Injection is contraindicated in patients with the following conditions: History of heparin-induced thrombocytopenia and heparin-induced thrombocytopenia and thrombosis [see Warnings and Precautions ( 5.3 )] ; Known hypersensitivity to heparin or pork pro",
+    "drug_interactions_text": "7 DRUG INTERACTIONS Drugs that interfere with platelet aggregation: May induce bleeding ( 7.2 ) 7.1 Oral Anticoagulants Heparin sodium may prolong the one-stage prothrombin time. Therefore, when heparin sodium is given with dicumarol or warfarin sodium, a period of at least 5 hours after the last intravenous dose or 24 hours after the last subcutaneous dose should elapse before blood is drawn, if ",
+    "dosage_forms_storage": "Store at 20\u00b0 to 25\u00b0C (68\u00b0 to 77\u00b0F); excursions permitted between 15\u00b0 and 30\u00b0C (59\u00b0 and 86\u00b0F). [See USP Controlled Room Temperature.] Sterile, Nonpyrogenic. The container closure is not made with natur",
+    "pregnancy_text": "8.1 Pregnancy Risk Summary There are no available data on Heparin Sodium Injection use in pregnant women to inform a drug-associated risk of major birth defects and miscarriage. In published reports, "
+  },
+  "rivaroxaban": {
+    "openfda_generic_name": [
+      "RIVAROXABAN"
+    ],
+    "openfda_brand_name": [
+      "Xarelto",
+      "XARELTO"
+    ],
+    "openfda_manufacturer": [
+      "Janssen Pharmaceuticals, Inc."
+    ],
+    "openfda_product_ndc": [
+      "50458-575",
+      "50458-577",
+      "50458-580"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "1114198",
+      "1114202",
+      "1232082",
+      "1232084",
+      "1232086",
+      "1232088",
+      "1549682",
+      "1549683",
+      "2059015",
+      "2059017",
+      "2588062",
+      "2588066"
+    ],
+    "openfda_spl_id": [
+      "452610f0-5abb-448d-a1fc-9dd9be02bb66"
+    ],
+    "warnings_summary": "",
+    "contraindications_text": "4 CONTRAINDICATIONS XARELTO is contraindicated in patients with: active pathological bleeding [see Warnings and Precautions (5.2) ] severe hypersensitivity reaction to XARELTO (e.g., anaphylactic reactions) [see Adverse Reactions (6.2) ] Active pathological bleeding ( 4 ) Severe hypersensitivity rea",
+    "drug_interactions_text": "7 DRUG INTERACTIONS Avoid combined P-gp and strong CYP3A inhibitors and inducers ( 7.2 , 7.3 ) Anticoagulants: Avoid concomitant use ( 7.4 ) 7.1 General Inhibition and Induction Properties Rivaroxaban is a substrate of CYP3A4/5, CYP2J2, and the P-gp and ATP-binding cassette G2 (ABCG2) transporters, the latter also known as breast cancer resistance protein (BCRP). Combined P-gp and strong CYP3A inh",
+    "dosage_forms_storage": "Storage of tablets, granules and reconstituted suspension: Store at room temperature between 20 \u00b0C to 25 \u00b0C (68 \u00b0F to 77 \u00b0F); excursions permitted between 15 \u00b0C to 30 \u00b0C (59 \u00b0F to 86 \u00b0F) [see USP Cont",
+    "pregnancy_text": "8.1 Pregnancy Risk Summary The limited available data on XARELTO in pregnant women are insufficient to inform a drug-associated risk of adverse developmental outcomes. Use XARELTO with caution in preg"
+  },
+  "apixaban": {
+    "openfda_generic_name": [
+      "APIXABAN"
+    ],
+    "openfda_brand_name": [
+      "apixaban"
+    ],
+    "openfda_manufacturer": [
+      "Indoco Remedies Limited"
+    ],
+    "openfda_product_ndc": [
+      "14445-149",
+      "14445-150"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "1364435",
+      "1364445"
+    ],
+    "openfda_spl_id": [
+      "6a6e421b-6ed3-403c-b07d-09dbbd6a487c"
+    ],
+    "warnings_summary": "",
+    "contraindications_text": "4 CONTRAINDICATIONS Apixaban tablets are contraindicated in patients with the following conditions: \u2022 Active pathological bleeding [see Warnings and Precautions ( 5.2 ) and Adverse Reactions( 6.1) ] \u2022 Severe hypersensitivity reaction to apixaban (e.g., anaphylactic reactions) [see Adverse Reactions ",
+    "drug_interactions_text": "7 DRUG INTERACTIONS Apixaban is a substrate of both CYP3A4 and P-gp. Inhibitors of CYP3A4 and P-gp increase exposure to apixaban and increase the risk of bleeding. Inducers of CYP3A4 and P-gp decrease exposure to apixaban and increase the risk of stroke and other thromboembolic events. Combined P-gp and strong CYP3A4 inhibitors increase blood levels of apixaban. Reduce apixaban dose or avoid coadm",
+    "dosage_forms_storage": "",
+    "pregnancy_text": "8.1 Pregnancy Risk Summary The limited available data on apixaban tablets use in pregnant women are insufficient to inform drug-associated risks of major birth defects, miscarriage, or adverse develop"
+  },
+  "amlodipine": {
+    "openfda_generic_name": [
+      "AMLODIPINE BESYLATE"
+    ],
+    "openfda_brand_name": [
+      "Amlodipine Besylate"
+    ],
+    "openfda_manufacturer": [
+      "Lupin Pharmaceuticals, Inc."
+    ],
+    "openfda_product_ndc": [
+      "68180-233",
+      "68180-750",
+      "68180-751"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "197361",
+      "308135",
+      "308136"
+    ],
+    "openfda_spl_id": [
+      "cc27c9a5-dd2e-4a79-af00-28f51408362a"
+    ],
+    "warnings_summary": "",
+    "contraindications_text": "4 CONTRAINDICATIONS Known sensitivity to amlodipine ( 4 ) Amlodipine besylate tablets are contraindicated in patients with known sensitivity to amlodipine.",
+    "drug_interactions_text": "7 DRUG INTERACTIONS Do not exceed doses greater than 20 mg daily of simvastatin. ( 7.2 ) 7.1 Impact of Other Drugs on Amlodipine CYP3A Inhibitors Co-administration with CYP3A inhibitors (moderate and strong) results in increased systemic exposure to amlodipine and may require dose reduction. Monitor for symptoms of hypotension and edema when amlodipine is co-administered with CYP3A inhibitors to d",
+    "dosage_forms_storage": "",
+    "pregnancy_text": "8.1 Pregnancy Risk Summary The limited available data based on post-marketing reports with amlodipine use in pregnant women are not sufficient to inform a drug-associated risk for major birth defects "
+  },
+  "lisinopril": {
+    "openfda_generic_name": [
+      "LISINOPRIL AND HYDROCHLOROTHIAZIDE TABLETS"
+    ],
+    "openfda_brand_name": [
+      "Lisinopril and Hydrochlorothiazide"
+    ],
+    "openfda_manufacturer": [
+      "ST. MARY'S MEDICAL PARK PHARMACY"
+    ],
+    "openfda_product_ndc": [
+      "60760-586"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "197885"
+    ],
+    "openfda_spl_id": [
+      "00b256d4-1691-cc3b-e063-6294a90a47ec"
+    ],
+    "warnings_summary": "WARNINGS General Lisinopril Anaphylactoid and Possibly Related Reactions: Presumably because angiotensin-converting enzyme inhibitors affect the metabolism of eicosanoids and polypeptides, including endogenous bradykinin, patients receiving ACE inhibitors (including lisinopril and hydrochlorothiazid",
+    "contraindications_text": "CONTRAINDICATIONS Lisinopril and hydrochlorothiazide tablets are contraindicated in patients who are hypersensitive to any component of this product and in patients with a history of angioedema related to previous treatment with an angiotensin converting enzyme inhibitor and in patients with heredit",
+    "drug_interactions_text": "Drug Interactions Lisinopril Hypotension - Patients on Diuretic Therapy: Patients on diuretics and especially those in whom diuretic therapy was recently instituted, may occasionally experience an excessive reduction of blood pressure after initiation of therapy with lisinopril. The possibility of hypotensive effects with lisinopril can be minimized by either discontinuing the diuretic or increasi",
+    "dosage_forms_storage": "",
+    "pregnancy_text": ""
+  },
+  "enalapril": {
+    "openfda_generic_name": [
+      "ENALAPRIL MALEATE"
+    ],
+    "openfda_brand_name": [
+      "Enalapril Maleate"
+    ],
+    "openfda_manufacturer": [
+      "Golden State Medical Supply, Inc."
+    ],
+    "openfda_product_ndc": [
+      "51407-828"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "858817"
+    ],
+    "openfda_spl_id": [
+      "074fb8a1-3ea1-0d6b-e063-6394a90aaf60"
+    ],
+    "warnings_summary": "WARNINGS Anaphylactoid and Possibly Related Reactions Presumably because angiotensin-converting enzyme inhibitors affect the metabolism of eicosanoids and polypeptides, including endogenous bradykinin, patients receiving ACE inhibitors (including enalapril maleate) may be subject to a variety of adv",
+    "contraindications_text": "CONTRAINDICATIONS Enalapril maleate is contraindicated in patients who are hypersensitive to this product and in patients with a history of angioedema related to previous treatment with an angiotensin-converting enzyme inhibitor and in patients with hereditary or idiopathic angioedema. Do not coadmi",
+    "drug_interactions_text": "Drug Interactions Neprilysin Inhibitors Patients taking concomitant neprilysin inhibitors may be at increased risk for angioedema (see WARNINGS ). Dual Blockade of the Renin-Angiotensin System (RAS) Dual blockade of the RAS with angiotensin receptor blockers, ACE inhibitors, or aliskiren is associated with increased risks of hypotension, hyperkalemia, and changes in renal function (including acute",
+    "dosage_forms_storage": "Storage Store at 20\u00b0 to 25\u00b0C (68\u00b0 to 77\u00b0F) [see USP Controlled Room Temperature]. Keep container tightly closed. Protect from moisture. Dispense in a tight container as per USP, if product package is ",
+    "pregnancy_text": "Pregnancy Nursing Mothers Enalapril and enalaprilat have been detected in human breast milk. Because of the potential for serious adverse reactions in nursing infants from enalapril, a decision should"
+  },
+  "losartan": {
+    "openfda_generic_name": [
+      "LOSARTAN POTASSIUM"
+    ],
+    "openfda_brand_name": [
+      "Losartan Potassium"
+    ],
+    "openfda_manufacturer": [
+      "Cardinal Health 107, LLC"
+    ],
+    "openfda_product_ndc": [
+      "55154-2089",
+      "55154-4783",
+      "55154-6643"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "979480",
+      "979485",
+      "979492"
+    ],
+    "openfda_spl_id": [
+      "016461a7-40a7-4ebc-9342-66ea16cdb6fc"
+    ],
+    "warnings_summary": "",
+    "contraindications_text": "4 CONTRAINDICATIONS Losartan potassium is contraindicated: \u2022 In patients who are hypersensitive to any component of this product. \u2022 For coadministration with aliskiren in patients with diabetes. \u2022 Hypersensitivity to any component. (4) \u2022 Coadministration with aliskiren in patients with diabetes. (4)",
+    "drug_interactions_text": "7 DRUG INTERACTIONS \u2022 Agents Increasing Serum Potassium: Risk of hyperkalemia. (7.1) \u2022 Lithium: Risk of lithium toxicity. (7.2) \u2022 NSAIDs: Increased risk of renal impairment and reduced diuretic, natriuretic, and antihypertensive effects. (7.3) \u2022 Dual Inhibition of the Renin-Angiotensin System: Increased risk of renal impairment, hypotension, syncope, and hyperkalemia. (7.4) 7.1 Agents Increasing S",
+    "dosage_forms_storage": "",
+    "pregnancy_text": "8.1 Pregnancy Risk Summary Losartan potassium can cause fetal harm when administered to a pregnant woman. Use of drugs that act on the renin-angiotensin system during the second and third trimesters o"
+  },
+  "metoprolol": {
+    "openfda_generic_name": [
+      "METOPROLOL TARTRATE"
+    ],
+    "openfda_brand_name": [
+      "Metoprolol Tartrate"
+    ],
+    "openfda_manufacturer": [
+      "PD-Rx Pharmaceuticals, Inc."
+    ],
+    "openfda_product_ndc": [
+      "43063-927"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "866924"
+    ],
+    "openfda_spl_id": [
+      "3739dcda-d80d-94c4-e063-6394a90a1dc6"
+    ],
+    "warnings_summary": "",
+    "contraindications_text": "4 CONTRAINDICATIONS Metoprolol tartrate tablets are contraindicated in severe bradycardia, second- or third-degree heart block, cardiogenic shock, systolic blood pressure <100, decompensated heart failure, sick sinus syndrome (unless a permanent pacemaker is in place), and in patients who are hypers",
+    "drug_interactions_text": "7 DRUG INTERACTIONS Catecholamine-depleting drugs may have an additive effect when given with beta-blocking agents. ( 7.1 ) Patients may be unresponsive to the usual doses of epinephrine used to treat allergic reaction. ( 7.2 ) CYP2D6 Inhibitors are likely to increase metoprolol concentration. ( 7.3 ) Concomitant use of glycosides, clonidine, and diltiazem and verapamil with beta-blockers can incr",
+    "dosage_forms_storage": "",
+    "pregnancy_text": "8.1 Pregnancy Risk Summary Available data from published observational studies have not demonstrated an association of adverse developmental outcomes with maternal use of metoprolol during pregnancy ("
+  },
+  "atenolol": {
+    "openfda_generic_name": [
+      "ATENOLOL"
+    ],
+    "openfda_brand_name": [
+      "Atenolol"
+    ],
+    "openfda_manufacturer": [
+      "Bryant Ranch Prepack"
+    ],
+    "openfda_product_ndc": [
+      "71335-2531"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "197379"
+    ],
+    "openfda_spl_id": [
+      "e2d819f9-b7db-4c40-9ce9-953d58aa371c"
+    ],
+    "warnings_summary": "WARNINGS Cardiac Failure Sympathetic stimulation is necessary in supporting circulatory function in congestive heart failure, and beta-blockade carries the potential hazard of further depressing myocardial contractility and precipitating more severe failure. In patients with acute myocardial infarct",
+    "contraindications_text": "CONTRAINDICATIONS Atenolol tablets are contraindicated in sinus bradycardia, heart block greater than first degree, cardiogenic shock, and overt cardiac failure. (See WARNINGS .) Atenolol tablets are contraindicated in those patients with a history of hypersensitivity to the atenolol or any of the d",
+    "drug_interactions_text": "Drug Interactions Catecholamine-depleting drugs (e.g., reserpine) may have an additive effect when given with beta-blocking agents. Patients treated with atenolol plus a catecholamine depletor should therefore be closely observed for evidence of hypotension and/or marked bradycardia which may produce vertigo, syncope, or postural hypotension. Calcium channel blockers may also have an additive effe",
+    "dosage_forms_storage": "",
+    "pregnancy_text": "Pregnancy See WARNINGS - Pregnancy and Fetal Injury ."
+  },
+  "carvedilol": {
+    "openfda_generic_name": [
+      "CARVEDILOL"
+    ],
+    "openfda_brand_name": [
+      "Carvedilol"
+    ],
+    "openfda_manufacturer": [
+      "QPharma Inc"
+    ],
+    "openfda_product_ndc": [
+      "42708-181"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "686924"
+    ],
+    "openfda_spl_id": [
+      "518bf5ef-f275-ba4d-e063-6294a90a9f66"
+    ],
+    "warnings_summary": "",
+    "contraindications_text": "4 CONTRAINDICATIONS Bronchial asthma or related bronchospastic conditions. ( 4 ) Second- or third-degree AV block. ( 4 ) Sick sinus syndrome. ( 4 ) Severe bradycardia (unless permanent pacemaker in place). ( 4 ) Patients in cardiogenic shock or decompensated heart failure requiring the use of IV ino",
+    "drug_interactions_text": "7 DRUG INTERACTIONS CYP P450 2D6 enzyme inhibitors may increase and rifampin may decrease carvedilol levels. ( 7.1 , 7.5 ) Hypotensive agents (e.g., reserpine, MAO inhibitors, clonidine) may increase the risk of hypotension and/or severe bradycardia. ( 7.4 ) Cyclosporine or digoxin levels may increase. ( 7.3 , 7.4 ) Both digitalis glycosides and \u03b2-blockers slow atrioventricular conduction and decr",
+    "dosage_forms_storage": "",
+    "pregnancy_text": "8.1 Pregnancy Risk Summary Available data regarding use of carvedilol in pregnant women are insufficient to determine whether there are drug-associated risks of adverse developmental outcomes. There a"
+  },
+  "digoxin": {
+    "openfda_generic_name": [
+      "DIGOXIN"
+    ],
+    "openfda_brand_name": [
+      "Digoxin"
+    ],
+    "openfda_manufacturer": [
+      "Bryant Ranch Prepack"
+    ],
+    "openfda_product_ndc": [
+      "71335-2464"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "197606"
+    ],
+    "openfda_spl_id": [
+      "20347bf0-6858-4d38-b1f6-8ec210d2bb1a"
+    ],
+    "warnings_summary": "",
+    "contraindications_text": "4 CONTRAINDICATIONS Digoxin is contraindicated in patients with: Ventricular fibrillation [see Warnings and Precautions (5.1)] Known hypersensitivity to digoxin (reactions seen include unexplained rash, swelling of the mouth, lips or throat or a difficulty in breathing). A hypersensitivity reaction ",
+    "drug_interactions_text": "7 DRUG INTERACTIONS Digoxin has a narrow therapeutic index, increased monitoring of serum digoxin concentrations and for potential signs and symptoms of clinical toxicity is necessary when initiating, adjusting, or discontinuing drugs that may interact with digoxin. Prescribers should consult the prescribing information of any drug which is co-prescribed with digoxin for potential drug interaction",
+    "dosage_forms_storage": "",
+    "pregnancy_text": ""
+  },
+  "amiodarone": {
+    "openfda_generic_name": [
+      "AMIODARONE HYDROCHLORIDE"
+    ],
+    "openfda_brand_name": [
+      "Pacerone"
+    ],
+    "openfda_manufacturer": [
+      "Aphena Pharma Solutions - Tennessee, LLC"
+    ],
+    "openfda_product_ndc": [
+      "71610-787"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "833528",
+      "834346"
+    ],
+    "openfda_spl_id": [
+      "f373ed89-c786-4f7c-a55e-2d1dc62971b0"
+    ],
+    "warnings_summary": "",
+    "contraindications_text": "4 CONTRAINDICATIONS Cardiogenic shock. Sick sinus syndrome, second- or third-degree atrioventricular block, bradycardia leading to syncope without a functioning pacemaker. Known hypersensitivity to the drug or to any of its components, including iodine. Pacerone is contraindicated in patients with (",
+    "drug_interactions_text": "7 DRUG INTERACTIONS Because of amiodarone's long half-life, expect drug interactions to persist for weeks to months after discontinuation of amiodarone. Drug interactions with amiodarone are described in Table 1 below. Table 1: Amiodarone Drug Interactions Concomitant Drug Class/Name Examples Clinical Comment Pharmacodynamic Interactions QT Prolonging Drugs class I and III antiarrhythmics, lithium",
+    "dosage_forms_storage": "Store at 20\u00b0 to 25\u00b0C (68\u00b0 to 77\u00b0F); excursions permitted to 15\u00b0 to 30\u00b0C (59\u00b0 to 86\u00b0F) [See USP Controlled Room Temperature]. Protect from light. Dispense in a tight, light-resistant container with a c",
+    "pregnancy_text": "8.1 Pregnancy Risk Summary Available data from post-marketing reports and published case series indicate that amiodarone use in pregnant women may increase the risk for fetal adverse effects including"
+  },
+  "spironolactone": {
+    "openfda_generic_name": [
+      "SPIRONOLACTONE"
+    ],
+    "openfda_brand_name": [
+      "Spironolactone"
+    ],
+    "openfda_manufacturer": [
+      "A-S Medication Solutions"
+    ],
+    "openfda_product_ndc": [
+      "50090-6539"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "198222"
+    ],
+    "openfda_spl_id": [
+      "76b5d6ad-0b7b-4781-b990-5ba036cf5a67"
+    ],
+    "warnings_summary": "",
+    "contraindications_text": "4 CONTRAINDICATIONS Spironolactone is contraindicated in the patients with: Hyperkalemia Addison\u2019s disease Concomitant use of eplerenone Spironolactone is contraindicated in patients with ( 4 ): Hyperkalemia Addison\u2019s disease Concomitant use of eplerenone",
+    "drug_interactions_text": "7 DRUG INTERACTIONS Agents increasing serum potassium: Concomitant administration can lead to hyperkalemia ( 5.1 , 7.1 ). Lithium: Increased risk of lithium toxicity ( 7.2 ). NSAIDs: May reduce the diuretic, natriuretic and antihypertensive effect of spironolactone ( 7.3 ). Digoxin: spironolactone can interfere with radioimmunologic assays of digoxin exposure ( 7.4) . Cholestyramine: Hyperkalemic ",
+    "dosage_forms_storage": "",
+    "pregnancy_text": "8.1 Pregnancy Risk Summary Based on mechanism of action and findings in animal studies, spironolactone may affect sex differentiation of the male during embryogenesis [see Data ] . Rat embryofetal stu"
+  },
+  "furosemide": {
+    "openfda_generic_name": [
+      "FUROSEMIDE"
+    ],
+    "openfda_brand_name": [
+      "Furosemide"
+    ],
+    "openfda_manufacturer": [
+      "Bryant Ranch Prepack"
+    ],
+    "openfda_product_ndc": [
+      "63629-1120"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "197732"
+    ],
+    "openfda_spl_id": [
+      "620c9a96-bc8b-4966-ab6d-3a77ecb29747"
+    ],
+    "warnings_summary": "WARNING Furosemide is a potent diuretic which, if given in excessive amounts, can lead to a profound diuresis with water and electrolyte depletion. Therefore, careful medical supervision is required and dose and dose schedule must be adjusted to the individual patient's needs (see DOSAGE AND ADMINIS",
+    "contraindications_text": "CONTRAINDICATIONS Furosemide tablets are contraindicated in patients with anuria and in patients with a history of hypersensitivity to furosemide.",
+    "drug_interactions_text": "Drug Interactions Furosemide may increase the ototoxic potential of aminoglycoside antibiotics, especially in the presence of impaired renal function. Except in life-threatening situations, avoid this combination. Furosemide should not be used concomitantly with ethacrynic acid because of the possibility of ototoxicity. Patients receiving high doses of salicylates concomitantly with furosemide, as",
+    "dosage_forms_storage": "STORAGE Store at 20\u00b0 to 25\u00b0C (68\u00b0 to 77\u00b0F) [see USP Controlled Room Temperature]. Protect from light. Dispense in well-closed, light-resistant containers. Exposure to light might cause a slight discol",
+    "pregnancy_text": "Pregnancy Pregnancy Category C: Furosemide has been shown to cause unexplained maternal deaths and abortions in rabbits at 2, 4 and 8 times the maximal recommended human dose. There are no adequate an"
+  },
+  "hydrochlorothiazide": {
+    "openfda_generic_name": [
+      "LISINOPRIL AND HYDROCHLOROTHIAZIDE TABLETS"
+    ],
+    "openfda_brand_name": [
+      "Lisinopril and Hydrochlorothiazide"
+    ],
+    "openfda_manufacturer": [
+      "ST. MARY'S MEDICAL PARK PHARMACY"
+    ],
+    "openfda_product_ndc": [
+      "60760-586"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "197885"
+    ],
+    "openfda_spl_id": [
+      "00b256d4-1691-cc3b-e063-6294a90a47ec"
+    ],
+    "warnings_summary": "WARNINGS General Lisinopril Anaphylactoid and Possibly Related Reactions: Presumably because angiotensin-converting enzyme inhibitors affect the metabolism of eicosanoids and polypeptides, including endogenous bradykinin, patients receiving ACE inhibitors (including lisinopril and hydrochlorothiazid",
+    "contraindications_text": "CONTRAINDICATIONS Lisinopril and hydrochlorothiazide tablets are contraindicated in patients who are hypersensitive to any component of this product and in patients with a history of angioedema related to previous treatment with an angiotensin converting enzyme inhibitor and in patients with heredit",
+    "drug_interactions_text": "Drug Interactions Lisinopril Hypotension - Patients on Diuretic Therapy: Patients on diuretics and especially those in whom diuretic therapy was recently instituted, may occasionally experience an excessive reduction of blood pressure after initiation of therapy with lisinopril. The possibility of hypotensive effects with lisinopril can be minimized by either discontinuing the diuretic or increasi",
+    "dosage_forms_storage": "",
+    "pregnancy_text": ""
+  },
+  "atorvastatin": {
+    "openfda_generic_name": [
+      "ATORVASTATIN CALCIUM"
+    ],
+    "openfda_brand_name": [
+      "Atorvastatin calcium"
+    ],
+    "openfda_manufacturer": [
+      "Bryant Ranch Prepack"
+    ],
+    "openfda_product_ndc": [
+      "71335-1336"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "259255"
+    ],
+    "openfda_spl_id": [
+      "05b0f170-ac97-4a83-b03a-659a4b493ee2"
+    ],
+    "warnings_summary": "",
+    "contraindications_text": "4 CONTRAINDICATIONS Acute liver failure or decompensated cirrhosis [see Warnings and Precautions (5.3) ] Hypersensitivity to atorvastatin or any excipients in atorvastatin calcium. Hypersensitivity reactions, including anaphylaxis, angioneurotic edema, erythema multiforme, Stevens-Johnson syndrome, ",
+    "drug_interactions_text": "7 DRUG INTERACTIONS See full prescribing information for details regarding concomitant use of atorvastatin calcium with other drugs or grapefruit juice that increase the risk of myopathy and rhabdomyolysis ( 2.5 , 7.1 ). Rifampin: May reduce atorvastatin plasma concentrations. Administer simultaneously with atorvastatin calcium ( 7.2 ). Oral Contraceptives: May increase plasma levels of norethindr",
+    "dosage_forms_storage": "",
+    "pregnancy_text": "8.1 Pregnancy Risk Summary Discontinue atorvastatin when pregnancy is recognized. Alternatively, consider the ongoing therapeutic needs of the individual patient. atorvastatin decreases synthesis of c"
+  },
+  "simvastatin": {
+    "openfda_generic_name": [
+      "SIMVASTATIN"
+    ],
+    "openfda_brand_name": [
+      "SIMVASTATIN"
+    ],
+    "openfda_manufacturer": [
+      "PD-Rx Pharmaceuticals, Inc."
+    ],
+    "openfda_product_ndc": [
+      "72789-304"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "198211"
+    ],
+    "openfda_spl_id": [
+      "4bbbb5c9-6c29-bc3b-e063-6294a90a6cce"
+    ],
+    "warnings_summary": "",
+    "contraindications_text": "4 CONTRAINDICATIONS Simvastatin is contraindicated in the following conditions: Concomitant use of strong CYP3A4 inhibitors (select azole anti-fungals, macrolide antibiotics, anti-viral medications, and nefazodone) [see DRUG INTERACTIONS ( 7.1 )]. Concomitant use of cyclosporine, danazol or gemfibro",
+    "drug_interactions_text": "7 DRUG INTERACTIONS See full prescribing information for details regarding concomitant use of simvastatin with other drugs or grapefruit juice that increase the risk of myopathy and rhabdomyolysis. ( 2.5 , 7.1 ) Coumarin Anticoagulants: Obtain INR before simvastatin initiation and monitor INR during simvastatin dosage initiation or adjustment. ( 7.2 ) Digoxin: During simvastatin initiation, monito",
+    "dosage_forms_storage": "",
+    "pregnancy_text": "8.1 Pregnancy Risk Summary Discontinue simvastatin when pregnancy is recognized. Alternatively, consider the ongoing therapeutic needs of the individual patient. Simvastatin decreases synthesis of cho"
+  },
+  "rosuvastatin": {
+    "openfda_generic_name": [
+      "ROSUVASTATIN CALCIUM"
+    ],
+    "openfda_brand_name": [
+      "Rosuvastatin Calcium"
+    ],
+    "openfda_manufacturer": [
+      "Westminster Pharmaceuticals, LLC"
+    ],
+    "openfda_product_ndc": [
+      "69367-359",
+      "69367-360",
+      "69367-361"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "859419",
+      "859424",
+      "859747",
+      "859751"
+    ],
+    "openfda_spl_id": [
+      "447c034b-bd46-2a37-e063-6394a90a4feb"
+    ],
+    "warnings_summary": "",
+    "contraindications_text": "4 CONTRAINDICATIONS Rosuvastatin tablets is contraindicated in the following conditions: Acute liver failure or decompensated cirrhosis [see Warnings and Precautions ( 5.3 )] . Hypersensitivity to rosuvastatin or any excipients in rosuvastatin tablets. Hypersensitivity reactions including rash, prur",
+    "drug_interactions_text": "7 DRUG INTERACTIONS See full prescribing information for details regarding concomitant use of rosuvastatin with other drugs that increase the risk of myopathy and rhabdomyolysis. ( 7.1 ) Aluminum and Magnesium Hydroxide Combination Antacids : Administer rosuvastatin at least 2 hours before the antacid. ( 7.2 ) Warfarin : Obtain INR prior to starting rosuvastatin. Monitor INR frequently until stabl",
+    "dosage_forms_storage": "",
+    "pregnancy_text": "8.1 Pregnancy Risk Summary Discontinue rosuvastatin when pregnancy is recognized. Alternatively, consider the ongoing therapeutic needs of the individual patient. Rosuvastatin decreases synthesis of c"
+  },
+  "pravastatin": {
+    "openfda_generic_name": [
+      "PRAVASTATIN SODIUM"
+    ],
+    "openfda_brand_name": [
+      "PRAVASTATIN SODIUM"
+    ],
+    "openfda_manufacturer": [
+      "Bryant Ranch Prepack"
+    ],
+    "openfda_product_ndc": [
+      "63629-9165"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "904481"
+    ],
+    "openfda_spl_id": [
+      "89f10602-4be6-4d81-94bd-268f5f5467b8"
+    ],
+    "warnings_summary": "",
+    "contraindications_text": "4 CONTRAINDICATIONS Hypersensitivity to any component of this medication. (4.1, 6.2, 11) Active liver disease or unexplained, persistent elevations of serum transaminases. (4.2, 5.3 ) Pregnancy (4.3, 8.1, 8.3) Lactation (4.4, 8.2) 4.1 Hypersensitivity Hypersensitivity to any component of this medica",
+    "drug_interactions_text": "7 DRUG INTERACTIONS For the concurrent therapy of either cyclosporine, fibrates, niacin (nicotinic acid), or erythromycin, the risk of myopathy increases [see Warnings and Precautions (5.1) and Clinical Pharmacology (12.3) ]. Concomitant lipid-lowering therapies: use with fibrates or lipid-modifying doses (\u22651 g/day) of niacin increases the risk of adverse skeletal muscle effects. Caution should be",
+    "dosage_forms_storage": "",
+    "pregnancy_text": "8.1 Pregnancy Risk Summary Pravastatin Sodium is contraindicated for use in pregnant woman because of the potential for fetal harm. As safety in pregnant women has not been established and there is no"
+  },
+  "metformin": {
+    "openfda_generic_name": [
+      "SITAGLIPTIN AND METFORMIN HYDROCHLORIDE"
+    ],
+    "openfda_brand_name": [
+      "ZITUVIMET"
+    ],
+    "openfda_manufacturer": [
+      "Zydus Lifesciences Limited"
+    ],
+    "openfda_product_ndc": [
+      "70771-1859",
+      "70771-1860"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "861769",
+      "861819",
+      "2677162",
+      "2677164"
+    ],
+    "openfda_spl_id": [
+      "3bf9383a-afe0-4989-b952-50c995bd3fa5"
+    ],
+    "warnings_summary": "",
+    "contraindications_text": "4 CONTRAINDICATIONS Severe renal impairment: (eGFR below 30 mL/min/1.73 m 2 ) ( 4) Metabolic acidosis, including diabetic ketoacidosis. ( 4 ) History of a serious hypersensitivity reaction to ZITUVIMET, sitagliptin, or metformin, such as anaphylaxis or angioedema. (4) ZITUVIMET is contraindicated in",
+    "drug_interactions_text": "7 DRUG INTERACTIONS Table 4 presents clinically significant drug interactions with ZITUVIMET: Table 4: Clinically Significant Drug Interactions with ZITUVIMET Carbonic Anhydrase Inhibitors Clinical Impact: Carbonic anhydrase inhibitors frequently cause a decrease in serum bicarbonate and induce non-anion gap, hyperchloremic metabolic acidosis. Concomitant use of these drugs with ZITUVIMET may incr",
+    "dosage_forms_storage": "",
+    "pregnancy_text": "8.1 Pregnancy Risk Summary Available data with ZITUVIMET and sitagliptin use in pregnant women are not sufficient to inform a ZITUVIMET-associated or sitagliptin-associated risk for major birth defect"
+  },
+  "glipizide": {
+    "openfda_generic_name": [
+      "GLIPIZIDE"
+    ],
+    "openfda_brand_name": [
+      "Glipizide"
+    ],
+    "openfda_manufacturer": [
+      "Bryant Ranch Prepack"
+    ],
+    "openfda_product_ndc": [
+      "72162-2215"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "310488"
+    ],
+    "openfda_spl_id": [
+      "304659f5-e61c-47e0-9aea-1415d67ad2f7"
+    ],
+    "warnings_summary": "WARNINGS SPECIAL WARNING ON INCREASED RISK OF CARDIOVASCULAR MORTALITY The administration of oral hypoglycemic drugs has been reported to be associated with increased cardiovascular mortality as compared to treatment with diet alone or diet plus insulin. This warning is based on the study conducted ",
+    "contraindications_text": "CONTRAINDICATIONS Glipizide is contraindicated in patients with: 1. Known hypersensitivity to the drug. 2. Type 1 diabetes mellitus, diabetic ketoacidosis, with or without coma. This condition should be treated with insulin.",
+    "drug_interactions_text": "Drug Interactions The hypoglycemic action of sulfonylureas may be potentiated by certain drugs including non-steroidal anti-inflammatory agents, some azoles, and other drugs that are highly protein bound, salicylates, sulfonamides, chloramphenicol, probenecid, coumarins, monoamine oxidase inhibitors, quinolones and beta-adrenergic blocking agents. When such drugs are administered to a patient rece",
+    "dosage_forms_storage": "",
+    "pregnancy_text": "Pregnancy Glipizide was found to be mildly fetotoxic in rat reproductive studies at all dose levels (5 to 50 mg/kg). This fetotoxicity has been similarly noted with other sulfonylureas, such as tolbut"
+  },
+  "sitagliptin": {
+    "openfda_generic_name": [
+      "SITAGLIPTIN AND METFORMIN HYDROCHLORIDE"
+    ],
+    "openfda_brand_name": [
+      "ZITUVIMET"
+    ],
+    "openfda_manufacturer": [
+      "Zydus Lifesciences Limited"
+    ],
+    "openfda_product_ndc": [
+      "70771-1859",
+      "70771-1860"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "861769",
+      "861819",
+      "2677162",
+      "2677164"
+    ],
+    "openfda_spl_id": [
+      "3bf9383a-afe0-4989-b952-50c995bd3fa5"
+    ],
+    "warnings_summary": "",
+    "contraindications_text": "4 CONTRAINDICATIONS Severe renal impairment: (eGFR below 30 mL/min/1.73 m 2 ) ( 4) Metabolic acidosis, including diabetic ketoacidosis. ( 4 ) History of a serious hypersensitivity reaction to ZITUVIMET, sitagliptin, or metformin, such as anaphylaxis or angioedema. (4) ZITUVIMET is contraindicated in",
+    "drug_interactions_text": "7 DRUG INTERACTIONS Table 4 presents clinically significant drug interactions with ZITUVIMET: Table 4: Clinically Significant Drug Interactions with ZITUVIMET Carbonic Anhydrase Inhibitors Clinical Impact: Carbonic anhydrase inhibitors frequently cause a decrease in serum bicarbonate and induce non-anion gap, hyperchloremic metabolic acidosis. Concomitant use of these drugs with ZITUVIMET may incr",
+    "dosage_forms_storage": "",
+    "pregnancy_text": "8.1 Pregnancy Risk Summary Available data with ZITUVIMET and sitagliptin use in pregnant women are not sufficient to inform a ZITUVIMET-associated or sitagliptin-associated risk for major birth defect"
+  },
+  "empagliflozin": {
+    "openfda_generic_name": [
+      "EMPAGLIFLOZIN AND METFORMIN HYDROCHLORIDE"
+    ],
+    "openfda_brand_name": [
+      "Synjardy"
+    ],
+    "openfda_manufacturer": [
+      "Boehringer Ingelheim Pharmaceuticals, Inc."
+    ],
+    "openfda_product_ndc": [
+      "0597-0159",
+      "0597-0175",
+      "0597-0180"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "1664315",
+      "1664321",
+      "1664323",
+      "1664325",
+      "1664326",
+      "1664328",
+      "1665367",
+      "1665369"
+    ],
+    "openfda_spl_id": [
+      "06cb5e7a-ca7a-474a-a968-b3ddc7af1c43"
+    ],
+    "warnings_summary": "",
+    "contraindications_text": "4 CONTRAINDICATIONS SYNJARDY and SYNJARDY XR are contraindicated in patients with: severe renal impairment (eGFR less than 30 mL/min/1.73 m 2 ) [see Warnings and Precautions (5.1) and Use in Specific Populations (8.6) ]. acute or chronic metabolic acidosis, including diabetic ketoacidosis [see Warni",
+    "drug_interactions_text": "7 DRUG INTERACTIONS See Table 4 for clinically relevant interactions with SYNJARDY or SYNJARDY XR. Table 4 Clinically Relevant Interactions with SYNJARDY or SYNJARDY XR Carbonic Anhydrase Inhibitors Clinical Impact Topiramate or other carbonic anhydrase inhibitors (e.g., zonisamide, acetazolamide or dichlorphenamide) frequently causes a decrease in serum bicarbonate and induce non-anion gap, hyper",
+    "dosage_forms_storage": "Storage Store at 20\u00b0C to 25\u00b0C (68\u00b0F to 77\u00b0F); excursions permitted to 15\u00b0C to 30\u00b0C (59\u00b0F to 86\u00b0F) [see USP Controlled Room Temperature].",
+    "pregnancy_text": "8.1 Pregnancy Risk Summary Based on animal data showing adverse renal effects from empagliflozin, SYNJARDY and SYNJARDY XR are not recommended during the second and third trimesters of pregnancy. The "
+  },
+  "insulin_glargine": {
+    "openfda_generic_name": [
+      "INSULIN GLARGINE"
+    ],
+    "openfda_brand_name": [
+      "BASAGLAR KwikPen",
+      "BASAGLAR Tempo Pen"
+    ],
+    "openfda_manufacturer": [
+      "Eli Lilly and Company"
+    ],
+    "openfda_product_ndc": [
+      "0002-7715",
+      "0002-8214"
+    ],
+    "openfda_route": [
+      "SUBCUTANEOUS"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "847230",
+      "1736863",
+      "2268064",
+      "2268065"
+    ],
+    "openfda_spl_id": [
+      "3c2283e6-2844-44d2-a447-579b07e77c27"
+    ],
+    "warnings_summary": "",
+    "contraindications_text": "4 CONTRAINDICATIONS BASAGLAR is contraindicated: During episodes of hypoglycemia [see Warnings and Precautions ( 5.3 )] . In patients with hypersensitivity to insulin glargine or any of the excipients in BASAGLAR [see Warnings and Precautions ( 5.5 )] . During episodes of hypoglycemia. ( 4 ) Hyperse",
+    "drug_interactions_text": "7 DRUG INTERACTIONS Table 6 includes clinically significant drug interactions with BASAGLAR Table 6: Clinically Significant Drug Interactions with BASAGLAR Drugs That May Increase the Risk of Hypoglycemia Drugs: Antidiabetic agents, ACE inhibitors, angiotensin II receptor blocking agents, disopyramide, fibrates, fluoxetine, monoamine oxidase inhibitors, pentoxifylline, pramlintide, salicylates, so",
+    "dosage_forms_storage": "16.2 Storage and Handling Dispense in the original sealed carton with the enclosed Instructions for Use. Protect BASAGLAR from heat and light. Do not freeze BASAGLAR. In-use BASAGLAR prefilled pens mu",
+    "pregnancy_text": "8.1 Pregnancy Risk Summary Published studies with use of insulin glargine products during pregnancy have not reported a clear association with insulin glargine products and adverse developmental outco"
+  },
+  "levothyroxine": {
+    "openfda_generic_name": [
+      "LEVOTHYROXINE SODIUM"
+    ],
+    "openfda_brand_name": [
+      "Levothyroxine sodium"
+    ],
+    "openfda_manufacturer": [
+      "A-S Medication Solutions"
+    ],
+    "openfda_product_ndc": [
+      "50090-6115"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "966249"
+    ],
+    "openfda_spl_id": [
+      "f059a576-bb4b-441d-917e-4338bc3df403"
+    ],
+    "warnings_summary": "",
+    "contraindications_text": "4 CONTRAINDICATIONS Levothyroxine sodium tablets are contraindicated in patients with uncorrected adrenal insufficiency [see Warnings and Precautions (5.4) ]. Uncorrected adrenal insufficiency. (4)",
+    "drug_interactions_text": "7 DRUG INTERACTIONS See full prescribing information for drugs that affect thyroid hormone pharmacokinetics and metabolism (e.g., absorption, synthesis, secretion, catabolism, protein binding, and target tissue response) and may alter the therapeutic response to levothyroxine sodium. (7) 7.1 Drugs Known to Affect Thyroid Hormone Pharmacokinetics Many drugs can exert effects on thyroid hormone phar",
+    "dosage_forms_storage": "",
+    "pregnancy_text": "8.1 Pregnancy Risk Summary The clinical experience, including data from postmarketing studies, in pregnant women treated with oral levothyroxine to maintain euthyroid state have not reported increased"
+  },
+  "amoxicillin": {
+    "openfda_generic_name": [
+      "AMOXICILLIN AND CLAVULANATE POTASSIUM"
+    ],
+    "openfda_brand_name": [
+      "AMOXICILLIN AND CLAVULANATE POTASSIUM"
+    ],
+    "openfda_manufacturer": [
+      "A-S Medication Solutions"
+    ],
+    "openfda_product_ndc": [
+      "50090-6324"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "562508"
+    ],
+    "openfda_spl_id": [
+      "a2a30785-599c-4436-a3cc-b4db011b7a87"
+    ],
+    "warnings_summary": "",
+    "contraindications_text": "4 CONTRAINDICATIONS History of a serious hypersensitivity reaction (e.g., anaphylaxis or Stevens-Johnson syndrome) to Amoxicillin and Clavulanate Potassium or to other beta\u2011lactams (e.g., penicillins or cephalosporins). ( 4.1 ) History of cholestatic jaundice/hepatic dysfunction associated with Amox",
+    "drug_interactions_text": "7 DRUG INTERACTIONS Co\u2011administration with probenecid is not recommended. ( 7.1 ) Concomitant use of Amoxicillin and Clavulanate Potassium and oral anticoagulants may increase the prolongation of prothrombin time.( 7.2 ) Co-administration with allopurinol increases the risk of rash. ( 7.3 ) Amoxicillin and Clavulanate Potassium may reduce efficacy of oral contraceptives. ( 7.4 ) 7.1 Probenecid Pro",
+    "dosage_forms_storage": "",
+    "pregnancy_text": "8.1 Pregnancy Teratogenic Effects : Pregnancy Category B. Reproduction studies performed in pregnant rats and mice given Amoxicillin and Clavulanate Potassium (2:1 ratio formulation of amoxicillin:cla"
+  },
+  "ciprofloxacin": {
+    "openfda_generic_name": [
+      "CIPROFLOXACIN"
+    ],
+    "openfda_brand_name": [
+      "ciprofloxacin"
+    ],
+    "openfda_manufacturer": [
+      "Proficient Rx LP"
+    ],
+    "openfda_product_ndc": [
+      "71205-300"
+    ],
+    "openfda_route": [
+      "OPHTHALMIC"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "309307"
+    ],
+    "openfda_spl_id": [
+      "a797de06-c8be-4417-9bac-137dc4931c8b"
+    ],
+    "warnings_summary": "",
+    "contraindications_text": "CONTRAINDICATIONS A history of hypersensitivity to ciprofloxacin or any other component of the medication is a contraindication to its use. A history of hypersensitivity to other quinolones may also contraindicate the use of ciprofloxacin.",
+    "drug_interactions_text": "Drug Interactions: Specific drug interaction studies have not been conducted with ophthalmic ciprofloxacin. However, the systemic administration of some quinolones has been shown to elevate plasma concentrations of theophylline, interfere with the metabolism of caffeine, enhance the effects of the oral anticoagulant, warfarin, and its derivatives, and has been associated with transient elevations ",
+    "dosage_forms_storage": "",
+    "pregnancy_text": ""
+  },
+  "azithromycin": {
+    "openfda_generic_name": [
+      "AZITHROMYCIN"
+    ],
+    "openfda_brand_name": [
+      "Azithromycin"
+    ],
+    "openfda_manufacturer": [
+      "Preferred Pharmaceuticals Inc."
+    ],
+    "openfda_product_ndc": [
+      "68788-7598"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "248656"
+    ],
+    "openfda_spl_id": [
+      "6efa1622-de6a-4eee-b5bb-6a8149bbe1c1"
+    ],
+    "warnings_summary": "",
+    "contraindications_text": "4 CONTRAINDICATIONS \u2022 Patients with known hypersensitivity to azithromycin, erythromycin, any macrolide or ketolide drug. () \u2022 Patients with a history of cholestatic jaundice/hepatic dysfunction associated with prior use of azithromycin. () 4.1 Hypersensitivity Azithromycin tablets are contraindicat",
+    "drug_interactions_text": "7 DRUG INTERACTIONS \u2022 Nelfinavir: Close monitoring for known adverse reactions of azithromycin, such as liver enzyme abnormalities and hearing impairment, is warranted. () \u2022 Warfarin: Use with azithromycin may increase coagulation times; monitor prothrombin time. () 7.1 Nelfinavir Co-administration of nelfinavir at steady-state with a single oral dose of azithromycin resulted in increased azithrom",
+    "dosage_forms_storage": "",
+    "pregnancy_text": "8.1 Pregnancy Risk Summary Available data from published literature and postmarketing experience over several decades with azithromycin use in pregnant women have not identified any drug-associated ri"
+  },
+  "clarithromycin": {
+    "openfda_generic_name": [
+      "CLARITHROMYCIN"
+    ],
+    "openfda_brand_name": [
+      "Clarithromycin"
+    ],
+    "openfda_manufacturer": [
+      "PD-Rx Pharmaceuticals, Inc."
+    ],
+    "openfda_product_ndc": [
+      "43063-530"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "197517"
+    ],
+    "openfda_spl_id": [
+      "41392bb7-d916-446c-e063-6294a90a2c5c"
+    ],
+    "warnings_summary": "",
+    "contraindications_text": "4 CONTRAINDICATIONS Hypersensitivity to clarithromycin or any macrolide drug ( 4.1 ) Cisapride and pimozide ( 4.2 ) History of cholestatic jaundice/hepatic dysfunction with use of clarithromycin ( 4.3 ) Colchicine in renal or hepatic impairment ( 4.4 ) Lomitapide, lovastatin, and simvastatin ( 4.5 )",
+    "drug_interactions_text": "7 DRUG INTERACTIONS Co-administration of clarithromycin tablets is known to inhibit CYP3A, and a drug primarily metabolized by CYP3A may be associated with elevations in drug concentrations that could increase or prolong both therapeutic and adverse effects of the concomitant drug. Clarithromycin tablets should be used with caution in patients receiving treatment with other drugs known to be CYP3A",
+    "dosage_forms_storage": "",
+    "pregnancy_text": "8.1 Pregnancy Risk Summary Based on findings from animal studies, clarithromycin tablets are not recommended for use in pregnant women except in clinical circumstances where no alternative therapy is "
+  },
+  "doxycycline": {
+    "openfda_generic_name": [
+      "DOXYCYCLINE"
+    ],
+    "openfda_brand_name": [
+      "doxycycline"
+    ],
+    "openfda_manufacturer": [
+      "ST. MARY'S MEDICAL PARK PHARMACY"
+    ],
+    "openfda_product_ndc": [
+      "60760-721"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "1649988"
+    ],
+    "openfda_spl_id": [
+      "50c3fdb2-97a0-1143-e063-6294a90a90df"
+    ],
+    "warnings_summary": "WARNINGS The use of drugs of the tetracycline class during tooth development (last half of pregnancy, infancy and childhood to the age of 8 years) may cause permanent discoloration of the teeth (yellow-gray-brown). This adverse reaction is more common during long-term use of the drugs, but it has be",
+    "contraindications_text": "CONTRAINDICATIONS This drug is contraindicated in persons who have shown hypersensitivity to any of the tetracyclines.",
+    "drug_interactions_text": "Drug Interactions Because tetracyclines have been shown to depress plasma prothrombin activity, patients who are on anticoagulant therapy may require downward adjustment of their anticoagulant dosage. Since bacteriostatic drugs may interfere with the bactericidal action of penicillin, it is advisable to avoid giving tetracyclines in conjunction with penicillin. Absorption of tetracyclines is impai",
+    "dosage_forms_storage": "",
+    "pregnancy_text": "Pregnancy: Teratogenic Effects There are no adequate and well-controlled studies on the use of doxycycline in pregnant women. The vast majority of reported experience with doxycycline during human pre"
+  },
+  "metronidazole": {
+    "openfda_generic_name": [
+      "METRONIDAZOLE"
+    ],
+    "openfda_brand_name": [
+      "Metronidazole"
+    ],
+    "openfda_manufacturer": [
+      "A-S Medication Solutions"
+    ],
+    "openfda_product_ndc": [
+      "50090-0201"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "314106"
+    ],
+    "openfda_spl_id": [
+      "29651ae0-6297-4821-9b15-9d7753e1a3b8"
+    ],
+    "warnings_summary": "WARNINGS Hypersensitivity Reactions Hypersensitivity reactions including severe cutaneous adverse reactions (SCARs) can be serious and potentially life threatening (see ADVERSE REACTIONS ). Severe Cutaneous Adverse Reactions Severe cutaneous adverse reactions (SCARs) including toxic epidermal necrol",
+    "contraindications_text": "CONTRAINDICATIONS Hypersensitivity Metronidazole tablet are contraindicated in patients with a prior history of hypersensitivity to metronidazole or other nitroimidazole derivatives. In patients with trichomoniasis, metronidazole tablet are contraindicated during the first trimester of pregnancy (se",
+    "drug_interactions_text": "Drug Interactions Disulfiram Psychotic reactions have been reported in alcoholic patients who are using metronidazole and disulfiram concurrently. Metronidazole should not be given to patients who have taken disulfiram within the last two weeks (see CONTRAINDICATIONS ). Alcoholic Beverages Abdominal cramps, nausea, vomiting, headaches, and flushing may occur if alcoholic beverages or products cont",
+    "dosage_forms_storage": "",
+    "pregnancy_text": "Pregnancy: Teratogenic Effects There are no adequate and well controlled studies of metronidazole in pregnant women. There are published data from case-control studies, cohort studies, and 2 meta-anal"
+  },
+  "fluconazole": {
+    "openfda_generic_name": [
+      "FLUCONAZOLE"
+    ],
+    "openfda_brand_name": [
+      "Fluconazole"
+    ],
+    "openfda_manufacturer": [
+      "NuCare Pharmaceuticals,Inc."
+    ],
+    "openfda_product_ndc": [
+      "68071-3474"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "197699"
+    ],
+    "openfda_spl_id": [
+      "43cd3f95-0325-4286-e063-6294a90a0572"
+    ],
+    "warnings_summary": "WARNINGS (1) Hepatic injury: Fluconazole should be administered with caution to patients with liver dysfunction. Fluconazole has been associated with rare cases of serious hepatic toxicity, including fatalities primarily in patients with serious underlying medical conditions. In cases of fluconazole",
+    "contraindications_text": "CONTRAINDICATIONS Fluconazole tablets are contraindicated in patients who have shown hypersensitivity to fluconazole or to any of its excipients. There is no information regarding cross-hypersensitivity between fluconazole and other azole antifungal agents. Caution should be used in prescribing fluc",
+    "drug_interactions_text": "Drug Interaction Studies (See PRECAUTIONS, Drug Interactions) Oral contraceptives: Oral contraceptives were administered as a single dose both before and after the oral administration of fluconazole 50 mg once daily for 10 days in 10 healthy women. There was no significant difference in ethinyl estradiol or levonorgestrel AUC after the administration of 50 mg of fluconazole. The mean increase in e",
+    "dosage_forms_storage": "",
+    "pregnancy_text": "Pregnancy Teratogenic Effects Potential for Fetal Harm: Use in pregnancy should be avoided except in patients with severe or potentially life-threatening fungal infections in whom fluconazole may be u"
+  },
+  "sertraline": {
+    "openfda_generic_name": [
+      "SERTRALINE HYDROCHLORIDE"
+    ],
+    "openfda_brand_name": [
+      "Sertraline Hydrochloride"
+    ],
+    "openfda_manufacturer": [
+      "Proficient Rx LP"
+    ],
+    "openfda_product_ndc": [
+      "63187-859"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "312940"
+    ],
+    "openfda_spl_id": [
+      "7731d02d-7220-4f43-b230-9d38875f4192"
+    ],
+    "warnings_summary": "WARNINGS Clinical Worsening and Suicide Risk Patients with major depressive disorder (MDD), both adult and pediatric, may experience worsening of their depression and/or the emergence of suicidal ideation and behavior (suicidality) or unusual changes in behavior, whether or not they are taking antid",
+    "contraindications_text": "CONTRAINDICATIONS All Dosage Forms of Sertraline: The use of MAOIs intended to treat psychiatric disorders with Sertraline hydrochloride or within 14 days of stopping treatment with Sertraline hydrochloride is contraindicated because of an because of an increased risk if serotonin syndrome. The use ",
+    "drug_interactions_text": "Drug Interactions Potential Effects of Coadministration of Drugs Highly Bound to Plasma Proteins \u2013Because sertraline is tightly bound to plasma protein, the administration of sertraline hydrochloride to a patient taking another drug which is tightly bound to protein (e.g., warfarin, digitoxin) may cause a shift in plasma concentrations potentially resulting in an adverse effect. Conversely, advers",
+    "dosage_forms_storage": "",
+    "pregnancy_text": ""
+  },
+  "fluoxetine": {
+    "openfda_generic_name": [
+      "FLUOXETINE HYDROCHLORIDE"
+    ],
+    "openfda_brand_name": [
+      "Fluoxetine"
+    ],
+    "openfda_manufacturer": [
+      "Bryant Ranch Prepack"
+    ],
+    "openfda_product_ndc": [
+      "71335-0827",
+      "71335-0923",
+      "71335-1033"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "310384",
+      "310385",
+      "313989"
+    ],
+    "openfda_spl_id": [
+      "b9d5a8f5-39f1-425d-93fa-8adf95867fdb"
+    ],
+    "warnings_summary": "",
+    "contraindications_text": "4 CONTRAINDICATIONS When using fluoxetine capsules and olanzapine in combination, also refer to the Contraindications section of the package insert for Symbyax. Serotonin Syndrome and MAOIs: Do not use MAOIs intended to treat psychiatric disorders with fluoxetine or within 5 weeks of stopping treatm",
+    "drug_interactions_text": "7 DRUG INTERACTIONS As with all drugs, the potential for interaction by a variety of mechanisms (e.g., pharmacodynamic, pharmacokinetic drug inhibition or enhancement, etc.) is a possibility. Monoamine Oxidase Inhibitors (MAOIs): ( 2.9 , 2.10 , 4.1 , 5.2 ) Drugs Metabolized by CYP2D6: Fluoxetine is a potent inhibitor of CYP2D6 enzyme pathway ( 7.7 ) Tricyclic Antidepressants (TCAs): Monitor TCA le",
+    "dosage_forms_storage": "",
+    "pregnancy_text": "8.1 Pregnancy Pregnancy Category C \u2014 Fluoxetine should be used during pregnancy only if the potential benefit justifies the potential risk to the fetus. All pregnancies have a background risk of birth"
+  },
+  "escitalopram": {
+    "openfda_generic_name": [
+      "ESCITALOPRAM ORAL"
+    ],
+    "openfda_brand_name": [
+      "Escitalopram Oral Solution"
+    ],
+    "openfda_manufacturer": [
+      "Chartwell RX, LLC"
+    ],
+    "openfda_product_ndc": [
+      "62135-729"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "351285"
+    ],
+    "openfda_spl_id": [
+      "2f987c95-695b-d900-e063-6294a90a0cf8"
+    ],
+    "warnings_summary": "",
+    "contraindications_text": "4 CONTRAINDICATIONS Escitalopram is contraindicated in patients: taking MAOIs with escitalopram or within 14 days of stopping treatment with escitalopram because of an increased risk of serotonin syndrome. The use of escitalopram within 14 days of stopping an MAOI intended to treat psychiatric disor",
+    "drug_interactions_text": "7 DRUG INTERACTIONS Table 6 presents clinically important drug interactions with escitalopram. TABLE 6 Clinically Important Drug Interactions with Escitalopram Monoamine Oxidase Inhibitors (MAOIs) Clinical Impact: Concomitant use of SSRIs, including escitalopram, and MAOIs increases the risk of serotonin syndrome. Intervention: Escitalopram is contraindicated in patients taking MAOIs, including MA",
+    "dosage_forms_storage": "",
+    "pregnancy_text": ""
+  },
+  "alprazolam": {
+    "openfda_generic_name": [
+      "ALPRAZOLAM"
+    ],
+    "openfda_brand_name": [
+      "Alprazolam"
+    ],
+    "openfda_manufacturer": [
+      "NuCare Pharmaceuticals,Inc."
+    ],
+    "openfda_product_ndc": [
+      "68071-3481"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "308047"
+    ],
+    "openfda_spl_id": [
+      "2ad46bf8-1d4d-2bc8-e063-6294a90a9ef0"
+    ],
+    "warnings_summary": "",
+    "contraindications_text": "4 CONTRAINDICATIONS Alprazolam tablets are contraindicated in patients: with known hypersensitivity to alprazolam or other benzodiazepines. Angioedema has been reported [see Adverse Reactions (6.2) ] . taking strong cytochrome P450 3A (CYP3A) inhibitors (e.g., ketoconazole, itraconazole), except rit",
+    "drug_interactions_text": "7 DRUG INTERACTIONS Use with Opioids: Increase the risk of respiratory depression. ( 7.1 ) Use with Other CNS Depressants: Produces additive CNS depressant effects. ( 7.1 ) Use with Digoxin: Increase the risk of digoxin toxicity. ( 7.1 ) Use with CYP3A Inhibitors (except ritonavir): Increase the risk of adverse reactions of alprazolam. ( 4 , 5.5 , 7.1 ) Use with CYP3A Inducers: Increase the risk o",
+    "dosage_forms_storage": "",
+    "pregnancy_text": "8.1 Pregnancy Pregnancy Exposure Registry There is a pregnancy exposure registry that monitors pregnancy outcomes in women exposed to psychiatric medications, including alprazolam, during pregnancy. H"
+  },
+  "phenytoin": {
+    "openfda_generic_name": [
+      "PHENYTOIN SODIUM"
+    ],
+    "openfda_brand_name": [
+      "Phenytoin Sodium"
+    ],
+    "openfda_manufacturer": [
+      "Hikma Pharmaceuticals USA Inc."
+    ],
+    "openfda_product_ndc": [
+      "0641-0493",
+      "0641-2555"
+    ],
+    "openfda_route": [
+      "INTRAMUSCULAR",
+      "INTRAVENOUS"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "1670351",
+      "1670353"
+    ],
+    "openfda_spl_id": [
+      "1b68e42c-ebb1-4798-adba-712a41cd1cf4"
+    ],
+    "warnings_summary": "",
+    "contraindications_text": "4 CONTRAINDICATIONS Phenytoin Sodium Injection is contraindicated in patients with: A history of hypersensitivity to phenytoin, its inactive ingredients, or other hydantoins [see Warnings and Precautions (5.5) ] . Sinus bradycardia, sino-atrial block, second and third degree A-V block, and Adams-Sto",
+    "drug_interactions_text": "7 DRUG INTERACTIONS Phenytoin is extensively bound to plasma proteins and is prone to competitive displacement. Phenytoin is primarily metabolized by hepatic cytochrome P450 enzymes CYP2C9 and to a lesser extent by CYP2C19 and is particularly susceptible to inhibitory drug interactions because it is subject to saturable metabolism. Inhibition of metabolism may produce significant increases in circ",
+    "dosage_forms_storage": "",
+    "pregnancy_text": "8.1 Pregnancy P regnancy Exposure Registry There is a pregnancy exposure registry that monitors pregnancy outcomes in women exposed to antiepileptic drugs (AEDs), such as Phenytoin Sodium Injection, d"
+  },
+  "levetiracetam": {
+    "openfda_generic_name": [
+      "LEVETIRACETAM"
+    ],
+    "openfda_brand_name": [
+      "Levetiracetam"
+    ],
+    "openfda_manufacturer": [
+      "A-S Medication Solutions"
+    ],
+    "openfda_product_ndc": [
+      "50090-7774"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "311288"
+    ],
+    "openfda_spl_id": [
+      "a151a4a8-e0c6-4b3e-a97f-0b100d0edef6"
+    ],
+    "warnings_summary": "",
+    "contraindications_text": "4 CONTRAINDICATIONS Levetiracetam tablets are contraindicated in patients with a hypersensitivity to levetiracetam. Reactions have included anaphylaxis and angioedema [see Warnings and Precautions (5.4) ]. Known hypersensitivity to levetiracetam; angioedema and anaphylaxis have occurred ( 4 , 5.4 )",
+    "drug_interactions_text": "",
+    "dosage_forms_storage": "",
+    "pregnancy_text": "8.1 Pregnancy Pregnancy Exposure Registry There is a pregnancy exposure registry that monitors pregnancy outcomes in women exposed to antiepileptic drugs (AEDs), including levetiracetam, during pregna"
+  },
+  "montelukast": {
+    "openfda_generic_name": [
+      "MONTELUKAST SODIUM"
+    ],
+    "openfda_brand_name": [
+      "montelukast sodium"
+    ],
+    "openfda_manufacturer": [
+      "A-S Medication Solutions"
+    ],
+    "openfda_product_ndc": [
+      "50090-7920"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "311759"
+    ],
+    "openfda_spl_id": [
+      "c678afd8-0ddd-40a3-936e-594c126a275d"
+    ],
+    "warnings_summary": "",
+    "contraindications_text": "4 CONTRAINDICATIONS \u2022 Hypersensitivity to any component of this product. \u2022 Hypersensitivity to any component of this product ( 4 ).",
+    "drug_interactions_text": "7 DRUG INTERACTIONS No dose adjustment is needed when montelukast sodium is co-administered with theophylline, prednisone, prednisolone, oral contraceptives, terfenadine, digoxin, warfarin, gemfibrozil, itraconazole, thyroid hormones, sedative hypnotics, non-steroidal anti-inflammatory agents, benzodiazepines, decongestants, and Cytochrome P450 (CYP) enzyme inducers [see Clinical Pharmacology ( 12",
+    "dosage_forms_storage": "",
+    "pregnancy_text": "8.1 Pregnancy Risk Summary Available data from published prospective and retrospective cohort studies over decades with montelukast use in pregnant women have not established a drug-associated risk of"
+  },
+  "omeprazole": {
+    "openfda_generic_name": [
+      "OMEPRAZOLE"
+    ],
+    "openfda_brand_name": [
+      "Omeprazole"
+    ],
+    "openfda_manufacturer": [
+      "Chain Drug Marketing Association INC"
+    ],
+    "openfda_product_ndc": [
+      "63868-471"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "402014"
+    ],
+    "openfda_spl_id": [
+      "bbbf9415-a533-1629-8f52-3f286fdc2d46"
+    ],
+    "warnings_summary": "Warnings Allergy alert: do not use if you are allergic to omeprazole omeprazole may cause severe skin reactions. Symptoms may include: skin reddening blisters rash If an allergic reaction occurs, stop use and seek medical help right away. Do not use if you have: trouble or pain swallowing food, vomi",
+    "contraindications_text": "",
+    "drug_interactions_text": "",
+    "dosage_forms_storage": "",
+    "pregnancy_text": ""
+  },
+  "pantoprazole": {
+    "openfda_generic_name": [
+      "PANTOPRAZOLE SODIUM"
+    ],
+    "openfda_brand_name": [
+      "Pantoprazole Sodium"
+    ],
+    "openfda_manufacturer": [
+      "Meitheal Pharmaceuticals Inc."
+    ],
+    "openfda_product_ndc": [
+      "71288-600"
+    ],
+    "openfda_route": [
+      "INTRAVENOUS"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "283669"
+    ],
+    "openfda_spl_id": [
+      "48bbc577-3242-4da3-bca3-7a5f89105415"
+    ],
+    "warnings_summary": "",
+    "contraindications_text": "4 CONTRAINDICATIONS Pantoprazole sodium is contraindicated in patients with known hypersensitivity reactions including anaphylaxis to the formulation or any substituted benzimidazole. Hypersensitivity reactions may include anaphylaxis, anaphylactic shock, angioedema, bronchospasm, acute tubulointers",
+    "drug_interactions_text": "7 DRUG INTERACTIONS See the full prescribing information for a list of clinically important drug interactions. ( 7 ) Table 3 includes drugs with clinically important drug interactions and interaction with diagnostics when administered concomitantly with pantoprazole sodium and instructions for preventing or managing them. Consult the labeling of concomitantly used drugs to obtain further informati",
+    "dosage_forms_storage": "",
+    "pregnancy_text": "8.1 Pregnancy Risk Summary Available data from published observational studies did not demonstrate an association of major malformations or other adverse pregnancy outcomes with pantoprazole. In anima"
+  },
+  "ondansetron": {
+    "openfda_generic_name": [
+      "ONDANSETRON HYDROCHLORIDE"
+    ],
+    "openfda_brand_name": [
+      "ondansetron hydrochloride"
+    ],
+    "openfda_manufacturer": [
+      "NCS HealthCare of KY, LLC dba Vangard Labs"
+    ],
+    "openfda_product_ndc": [
+      "0615-8185"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "198052"
+    ],
+    "openfda_spl_id": [
+      "cb0b89ea-904e-424e-9213-80fc4d073fe3"
+    ],
+    "warnings_summary": "",
+    "contraindications_text": "4 CONTRAINDICATIONS Ondansetron is contraindicated in patients: known to have hypersensitivity (e.g., anaphylaxis) to ondansetron or any of the components of the formulation [see Adverse Reactions (6.2) ] receiving concomitant apomorphine due to the risk of profound hypotension and loss of conscious",
+    "drug_interactions_text": "7 DRUG INTERACTIONS 7.1 Serotonergic Drugs Serotonin syndrome (including altered mental status, autonomic instability, and neuromuscular symptoms) has been described following the concomitant use of 5-HT 3 receptor antagonists and other serotonergic drugs, including SSRIs and SNRIs. Monitor for the emergence of serotonin syndrome. If symptoms occur, discontinue ondansetron and initiate supportive ",
+    "dosage_forms_storage": "",
+    "pregnancy_text": "8.1 Pregnancy Risk Summary Published epidemiological studies on the association between ondansetron use and major birth defects have reported inconsistent findings and have important methodological li"
+  },
+  "ibuprofen": {
+    "openfda_generic_name": [
+      "IBUPROFEN"
+    ],
+    "openfda_brand_name": [
+      "Ibuprofen Dye Free"
+    ],
+    "openfda_manufacturer": [
+      "CVS Pharmacy"
+    ],
+    "openfda_product_ndc": [
+      "59779-438"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "310965"
+    ],
+    "openfda_spl_id": [
+      "4bd1345d-d116-426e-825f-bbf29381746a"
+    ],
+    "warnings_summary": "Warnings Allergy alert: Ibuprofen may cause a severe allergic reaction, especially in people allergic to aspirin. Symptoms may include: rash facial swelling asthma (wheezing) hives skin reddening shock blisters If an allergic reaction occurs, stop use and seek medical help right away. Stomach bleedi",
+    "contraindications_text": "",
+    "drug_interactions_text": "",
+    "dosage_forms_storage": "Other information store between 20\u00b0-25\u00b0C (68\u00b0-77\u00b0F) avoid excessive heat 40\u00b0C (104\u00b0F) see end flap for expiration date and lot number",
+    "pregnancy_text": ""
+  },
+  "naproxen": {
+    "openfda_generic_name": [
+      "NAPROXEN"
+    ],
+    "openfda_brand_name": [
+      "Naproxen"
+    ],
+    "openfda_manufacturer": [
+      "A-S Medication Solutions"
+    ],
+    "openfda_product_ndc": [
+      "50090-0481"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "198014"
+    ],
+    "openfda_spl_id": [
+      "8c45ef1f-f708-485b-bc20-60aa87ce6289"
+    ],
+    "warnings_summary": "",
+    "contraindications_text": "4 CONTRAINDICATIONS Naproxen tablets and naproxen sodium tablets are contraindicated in the following patients: \u2022 Known hypersensitivity (e.g., anaphylactic reactions and serious skin reactions) to naproxen or any components of the drug product [ see Warnings and Precautions ( 5.7 , 5.9 ) ] \u2022 Histor",
+    "drug_interactions_text": "7 DRUG INTERACTIONS See Table 1 for clinically significant drug interactions with naproxen. Table 1: Clinically Significant Drug Interactions with naproxen Drugs That Interfere with Hemostasis Clinical Impact: \u2022 Naproxen and anticoagulants such as warfarin have a synergistic effect on bleeding. The concomitant use of naproxen and anticoagulants have an increased risk of serious bleeding compared t",
+    "dosage_forms_storage": "",
+    "pregnancy_text": "8.1 Pregnancy Risk Summary Use of NSAIDs, including naproxen tablets and naproxen sodium tablets, can cause premature closure of the fetal ductus arteriosus and fetal renal dysfunction leading to olig"
+  },
+  "celecoxib": {
+    "openfda_generic_name": [
+      "CELECOXIB"
+    ],
+    "openfda_brand_name": [
+      "CELECOXIB"
+    ],
+    "openfda_manufacturer": [
+      "A-S Medication Solutions"
+    ],
+    "openfda_product_ndc": [
+      "50090-4789"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "205323"
+    ],
+    "openfda_spl_id": [
+      "2bbd635f-76fa-4feb-9d3d-f84505d0e381"
+    ],
+    "warnings_summary": "",
+    "contraindications_text": "4. CONTRAINDICATIONS Celecoxib is contraindicated in the following patients: Known hypersensitivity (e.g., anaphylactic reactions and serious skin reactions) to celecoxib, any components of the drug product [see Warnings and Precautions (5.7, 5.9) ]. History of asthma, urticaria, or other allergic-t",
+    "drug_interactions_text": "7. DRUG INTERACTIONS See Table 3 for clinically significant drug interactions with celecoxib. Table 3: Clinically Significant Drug Interactions with Celecoxib Drugs That Interfere with Hemostasis Clinical Impact: Celecoxib and anticoagulants such as warfarin have a synergistic effect on bleeding. The concomitant use of celecoxib and anticoagulants have an increased risk of serious bleeding compare",
+    "dosage_forms_storage": "",
+    "pregnancy_text": "8.1 Pregnancy Risk Summary Use of NSAIDs, including celecoxib, can cause premature closure of the fetal ductus arteriosus and fetal renal dysfunction leading to oligohydramnios and, in some cases, neo"
+  },
+  "allopurinol": {
+    "openfda_generic_name": [
+      "ALLOPURINOL"
+    ],
+    "openfda_brand_name": [
+      "Allopurinol"
+    ],
+    "openfda_manufacturer": [
+      "Bryant Ranch Prepack"
+    ],
+    "openfda_product_ndc": [
+      "63629-2113"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "197320"
+    ],
+    "openfda_spl_id": [
+      "ee55d296-fcb3-4442-bfe5-b740e6ca20f2"
+    ],
+    "warnings_summary": "",
+    "contraindications_text": "4 CONTRAINDICATIONS Allopurinol tablets are contraindicated in patients with a history of hypersensitivity reaction to allopurinol or to any of the ingredients of allopurinol tablets. Known hypersensitivity to allopurinol or to any of the ingredients of allopurinol tablets.",
+    "drug_interactions_text": "7 DRUG INTERACTIONS The following drugs may increase the risk of serious skin reactions: bendamustine, thiazide diuretics, ampicillin and amoxicillin. ( 7.1 ) Capecitabine: Avoid concomitant use. ( 7.2 ) Mercaptopurine or Azathioprine: Reduce mercaptopurine or azathioprine dose as recommended in the respective prescribing information. ( 7.2 ) Pegloticase: Discontinue and refrain from initiating tr",
+    "dosage_forms_storage": "",
+    "pregnancy_text": "8.1 Pregnancy Risk Summary Based on findings in animals, allopurinol tablets may cause fetal harm when administered to a pregnant woman. Adverse developmental outcomes have been described in exposed a"
+  },
+  "alendronate": {
+    "openfda_generic_name": [
+      "ALENDRONATE SODIUM"
+    ],
+    "openfda_brand_name": [
+      "Binosto"
+    ],
+    "openfda_manufacturer": [
+      "Radius Health, Inc."
+    ],
+    "openfda_product_ndc": [
+      "70539-400"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "1248077",
+      "1248083"
+    ],
+    "openfda_spl_id": [
+      "1ff6288a-ab6b-4443-81bd-fd1a37a2bd16"
+    ],
+    "warnings_summary": "",
+    "contraindications_text": "4 CONTRAINDICATIONS BINOSTO is contraindicated in patients with the following conditions: Abnormalities of the esophagus which delay esophageal emptying such as stricture or achalasia [see Warnings and Precautions (5.1) ] Inability to stand or sit upright for at least 30 minutes [see Dosage and Admi",
+    "drug_interactions_text": "7 DRUG INTERACTIONS Calcium supplements, antacids or oral medications containing multivalent cations interfere with absorption of alendronate. ( 7.1 ) Use caution when co-prescribing aspirin/nonsteroidal anti- inflammatory drugs that may worsen gastrointestinal irritation. ( 7.2 , 7.3 ) 7.1 Calcium Supplements/Antacids Co-administration of BINOSTO and calcium, antacids, or oral medications contain",
+    "dosage_forms_storage": "Store at 20\u00b0C to 25\u00b0C (68\u00b0F to 77\u00b0F), excursions permitted to 15\u00b0C to 30\u00b0C (59\u00b0F to 86\u00b0F), [See USP Controlled Room Temperature.] Protect from moisture. Store tablets in original blister package until",
+    "pregnancy_text": "8.1 Pregnancy Risk Summary Available data on the use of BINOSTO in pregnant women are insufficient to inform a drug-associated risk of adverse maternal or fetal outcomes. Discontinue BINOSTO when preg"
+  },
+  "calcium_carbonate": {
+    "openfda_generic_name": [
+      "CALCIUM CARBONATE"
+    ],
+    "openfda_brand_name": [
+      "ANTACID"
+    ],
+    "openfda_manufacturer": [
+      "Advance Pharmaceutical Inc."
+    ],
+    "openfda_product_ndc": [
+      "17714-025"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "577040"
+    ],
+    "openfda_spl_id": [
+      "60f41580-e08d-faad-e053-2a91aa0a9076"
+    ],
+    "warnings_summary": "Warnings Ask a doctor or pharmacist before use if you are taking a prescription drug. Antacids may interact with certain prescription drugs. Stop use and ask a doctor if symptoms last more than 2 weeks. If pregnant or breast-feeding, ask a health professional before use.",
+    "contraindications_text": "",
+    "drug_interactions_text": "",
+    "dosage_forms_storage": "",
+    "pregnancy_text": ""
+  },
+  "theophylline": {
+    "openfda_generic_name": [
+      "THEOPHYLLINE ANHYDROUS"
+    ],
+    "openfda_brand_name": [
+      "Theophylline (Anhydrous)"
+    ],
+    "openfda_manufacturer": [
+      "Westminster Pharmaceuticals, LLC"
+    ],
+    "openfda_product_ndc": [
+      "69367-414",
+      "69367-415"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "313291",
+      "348472"
+    ],
+    "openfda_spl_id": [
+      "46766222-63b4-478f-aa8b-a23b20476317"
+    ],
+    "warnings_summary": "WARNINGS Concurrent Illness Theophylline should be used with extreme caution in patients with the following clinical conditions due to the increased risk of exacerbation of the concurrent condition: Active peptic ulcer disease Seizure disorders Cardiac arrhythmias (not including bradyarrhythmias) Co",
+    "contraindications_text": "CONTRAINDICATIONS Theophylline (Anhydrous) Extended-Release Tablets are contraindicated in patients with a history of hypersensitivity to theophylline or other components in the product.",
+    "drug_interactions_text": "Drug Interactions Theophylline interacts with a wide variety of drugs. The interaction may be pharmacodynamic, i.e., alterations in the therapeutic response to theophylline or another drug or occurrence of adverse effects without a change in serum theophylline concentration. More frequently, however, the interaction is pharmacokinetic, i.e., the rate of theophylline clearance is altered by another",
+    "dosage_forms_storage": "Store at 20\u00b0 to 25\u00b0C (68\u00b0 to 77\u00b0F) [See USP Controlled Room Temperature]. Dispense in tight, light-resistant container.",
+    "pregnancy_text": "Pregnancy"
+  },
+  "prednisolone": {
+    "openfda_generic_name": [
+      "PREDNISOLONE ACETATE"
+    ],
+    "openfda_brand_name": [
+      "PRED FORTE"
+    ],
+    "openfda_manufacturer": [
+      "Allergan, Inc."
+    ],
+    "openfda_product_ndc": [
+      "11980-180"
+    ],
+    "openfda_route": [
+      "OPHTHALMIC"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "1376336",
+      "1548724"
+    ],
+    "openfda_spl_id": [
+      "bff1726c-7781-49de-8a61-bc37a755c92b"
+    ],
+    "warnings_summary": "WARNINGS Prolonged use of corticosteroids may result in posterior subcapsular cataract formation and may increase intraocular pressure in susceptible individuals, resulting in glaucoma with damage to the optic nerve, defects in visual acuity and fields of vision. Prolonged use may also suppress the ",
+    "contraindications_text": "CONTRAINDICATIONS PRED FORTE \u00ae suspension is contraindicated in acute untreated purulent ocular infections, in most viral diseases of the cornea and conjunctiva including epithelial herpes simplex keratitis (dendritic keratitis), vaccinia, and varicella, and also in mycobacterial infection of the ey",
+    "drug_interactions_text": "",
+    "dosage_forms_storage": "",
+    "pregnancy_text": "Pregnancy Prednisolone has been shown to be teratogenic in mice when given in doses 1-10 times the human dose. Dexamethasone, hydrocortisone, and prednisolone were ocularly applied to both eyes of pre"
+  },
+  "azathioprine": {
+    "openfda_generic_name": [
+      "AZATHIOPRINE"
+    ],
+    "openfda_brand_name": [
+      "Azathioprine"
+    ],
+    "openfda_manufacturer": [
+      "American Health Packaging"
+    ],
+    "openfda_product_ndc": [
+      "68084-229"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "197388"
+    ],
+    "openfda_spl_id": [
+      "3582bd73-c190-955e-e063-6394a90a634f"
+    ],
+    "warnings_summary": "WARNINGS Malignancy Patients receiving immunosuppressants, including azathioprine, are at increased risk of developing lymphoma and other malignancies, particularly of the skin. Physicians should inform patients of the risk of malignancy with azathioprine. As usual for patients with increased risk f",
+    "contraindications_text": "CONTRAINDICATIONS Azathioprine tablets should not be given to patients who have shown hypersensitivity to the drug. Azathioprine tablets should not be used for treating rheumatoid arthritis in pregnant women. Patients with rheumatoid arthritis previously treated with alkylating agents (cyclophospham",
+    "drug_interactions_text": "Drug Interactions Use with xanthine oxidase (XO) inhibitors: One of the pathways for inactivation of azathioprine is inhibited by XO inhibitors (allopurinol or febuxostat). Patients receiving azathioprine and allopurinol concomitantly should have a dose reduction of azathioprine, to approximately 1/ 3 to 1/ 4 the usual dose. Concomitant use of azathioprine with febuxostat is not recommended. Inhib",
+    "dosage_forms_storage": "",
+    "pregnancy_text": "Pregnancy Azathioprine tablets can cause fetal harm when administered to a pregnant woman. Azathioprine tablets should not be given during pregnancy without careful weighing of risk versus benefit. Wh"
+  },
+  "cyclosporine": {
+    "openfda_generic_name": [
+      "CYCLOSPORINE OPHTHALMIC SOLUTION"
+    ],
+    "openfda_brand_name": [
+      "VEVYE"
+    ],
+    "openfda_manufacturer": [
+      "Harrow Eye, LLC"
+    ],
+    "openfda_product_ndc": [
+      "82667-900"
+    ],
+    "openfda_route": [
+      "OPHTHALMIC"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "2639936",
+      "2639941"
+    ],
+    "openfda_spl_id": [
+      "4bc25aeb-44ca-06b2-e063-6294a90a03c0"
+    ],
+    "warnings_summary": "",
+    "contraindications_text": "4 CONTRAINDICATIONS None. None. ( 4 )",
+    "drug_interactions_text": "",
+    "dosage_forms_storage": "",
+    "pregnancy_text": "8.1 Pregnancy Risk Summary There are no adequate and well-controlled studies of VEVYE administration in pregnant women to inform a drug-associated risk. Oral administration of cyclosporine to pregnant"
+  },
+  "hydroxychloroquine": {
+    "openfda_generic_name": [
+      "HYDROXYCHLOROQUINE SULFATE"
+    ],
+    "openfda_brand_name": [
+      "HYDROXYCHLOROQUINE SULFATE"
+    ],
+    "openfda_manufacturer": [
+      "Creekwood Pharmaceuticals LLC"
+    ],
+    "openfda_product_ndc": [
+      "82619-131"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "979092"
+    ],
+    "openfda_spl_id": [
+      "40b93dff-c062-433c-e063-6294a90a6b67"
+    ],
+    "warnings_summary": "",
+    "contraindications_text": "4 CONTRAINDICATIONS Hydroxychloroquine sulfate tablets are contraindicated in patients with known hypersensitivity to 4-aminoquinoline compounds. Patients with hypersensitivity to 4-aminoquinoline compounds ( 4 )",
+    "drug_interactions_text": "7 DRUG INTERACTIONS Drugs Prolonging QT Interval and Other Arrhythmogenic Drugs. ( 7.1 ) See FPI for more important drug interactions. ( 7 ) 7.1 Drugs Prolonging QT Interval and Other Arrhythmogenic Drugs Hydroxychloroquine sulfate tablets prolongs the QT interval. There may be an increased risk of inducing ventricular arrhythmias if hydroxychloroquine sulfate tablets are used concomitantly with o",
+    "dosage_forms_storage": "",
+    "pregnancy_text": "8.1 Pregnancy Pregnancy Exposure Registry There is a pregnancy exposure registry that monitors pregnancy outcomes in women exposed to hydroxychloroquine sulfate tablets during pregnancy. Encourage pat"
+  },
+  "morphine": {
+    "openfda_generic_name": [
+      "MORPHINE SULFATE"
+    ],
+    "openfda_brand_name": [
+      "MORPHINE SULFATE"
+    ],
+    "openfda_manufacturer": [
+      "Ascend Laboratories, LLC"
+    ],
+    "openfda_product_ndc": [
+      "67877-670",
+      "67877-671"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "892582",
+      "892672"
+    ],
+    "openfda_spl_id": [
+      "2d263950-4148-405d-b582-13857ac88044"
+    ],
+    "warnings_summary": "",
+    "contraindications_text": "4 CONTRAINDICATIONS Morphine sulfate tablets are contraindicated in patients with: Significant respiratory depression [see Warnings and Precautions ( 5.2 )]. Acute or severe bronchial asthma in an unmonitored setting or in the absence of resuscitative equipment [see Warnings and Precautions ( 5.7 )]",
+    "drug_interactions_text": "7 DRUG INTERACTIONS Table 1 includes clinically significant drug interactions with morphine sulfate tablets. Table 1: Clinically Significant Drug Interactions with Morphine sulfate tablets Benzodiazepines and Other Central Nervous System (CNS) Depressants Clinical Impact: Due to additive pharmacologic effect, the concomitant use of benzodiazepines or other CNS depressants, including alcohol, can i",
+    "dosage_forms_storage": "",
+    "pregnancy_text": "8.1 Pregnancy Risk Summary: U se of opioid analgesics for an extended period of time during pregnancy can cause neonatal opioid withdrawal syndrome [see Warnings and Precautions ( 5.4 )] . There are n"
+  },
+  "codeine": {
+    "openfda_generic_name": [
+      "CODEINE SULFATE"
+    ],
+    "openfda_brand_name": [
+      "Codeine sulfate"
+    ],
+    "openfda_manufacturer": [
+      "Hikma Pharmaceuticals USA Inc."
+    ],
+    "openfda_product_ndc": [
+      "0054-0243",
+      "0054-0245",
+      "0054-0244"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "997170",
+      "997287",
+      "997296"
+    ],
+    "openfda_spl_id": [
+      "b04f74f8-d960-4b7a-988a-372d9a1e1406"
+    ],
+    "warnings_summary": "",
+    "contraindications_text": "4 CONTRAINDICATIONS Codeine Sulfate Tablets are contraindicated for: \u2022 All children younger than 12 years of age [see Warnings and Precautions ( 5.6 )] . \u2022 Post-operative management in children younger than 18 years of age following tonsillectomy and/or adenoidectomy [see Warnings and Precautions ( ",
+    "drug_interactions_text": "7 DRUG INTERACTIONS Table 1 includes clinically significant drug interactions with Codeine Sulfate Tablets. Table 1: Clinically Significant Drug Interactions with Codeine Sulfate Tablets Inhibitors of CYP3A4 Clinical Impact: The concomitant use of Codeine Sulfate Tablets with CYP3A4 inhibitors, may result in an increase in codeine plasma concentrations with subsequently greater metabolism by cytoc",
+    "dosage_forms_storage": "",
+    "pregnancy_text": "8.1 Pregnancy Risk Summary: Use of opioid analgesics for an extended period of time during pregnancy may cause neonatal opioid withdrawal syndrome [see Warnings and Precautions ( 5.4 )] . Available da"
+  },
+  "tramadol": {
+    "openfda_generic_name": [
+      "TRAMADOL HYDROCHLORIDE"
+    ],
+    "openfda_brand_name": [
+      "TRAMADOL HYDROCHLORIDE"
+    ],
+    "openfda_manufacturer": [
+      "Sun Pharmaceutical Industries, Inc."
+    ],
+    "openfda_product_ndc": [
+      "47335-859",
+      "47335-860",
+      "47335-861"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "833709",
+      "833711",
+      "833713"
+    ],
+    "openfda_spl_id": [
+      "a994e116-d201-47f9-baaf-dd76a84eba7e"
+    ],
+    "warnings_summary": "",
+    "contraindications_text": "4 CONTRAINDICATIONS Tramadol hydrochloride extended-release tablets are contraindicated for: all children younger than 12 years of age [see Warnings and Precautions (5.4)] post-operative management in children younger than 18 years of age following tonsillectomy and/or adenoidectomy [see Warnings an",
+    "drug_interactions_text": "7 DRUG INTERACTIONS Table 2 includes clinically significant drug interactions with tramadol hydrochloride extended-release tablets. Table 2: Clinically Significant Drug Interactions with Tramadol Hydrochloride Extended-Release Tablets Inhibitors of CYP2D6 Clinical Impact: The concomitant use of tramadol hydrochloride extended-release tablets and CYP2D6 inhibitors may result in an increase in the p",
+    "dosage_forms_storage": "",
+    "pregnancy_text": "8.1 Pregnancy Risk Summary Use of opioid analgesics for an extended period of time during pregnancy may cause neonatal opioid withdrawal syndrome [see Warnings and Precautions (5.4)] . Available data "
+  },
+  "fentanyl": {
+    "openfda_generic_name": [
+      "FENTANYL CITRATE"
+    ],
+    "openfda_brand_name": [
+      "Fentanyl Citrate"
+    ],
+    "openfda_manufacturer": [
+      "Fresenius Kabi USA, LLC"
+    ],
+    "openfda_product_ndc": [
+      "63323-808",
+      "63323-810"
+    ],
+    "openfda_route": [
+      "INTRAMUSCULAR",
+      "INTRAVENOUS"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "2474267",
+      "2474269"
+    ],
+    "openfda_spl_id": [
+      "a47a3a31-e293-49d5-b6bc-950303525a64"
+    ],
+    "warnings_summary": "",
+    "contraindications_text": "4 CONTRAINDICATIONS Fentanyl Citrate Injection is contraindicated in patients with: \u2022 Hypersensitivity to fentanyl (e.g., anaphylaxis) [See Adverse Reactions ( 6 )] \u2022 Hypersensitivity to fentanyl ( 4 )",
+    "drug_interactions_text": "7 DRUG INTERACTIONS Table 2 includes clinically significant drug interactions with Fentanyl Citrate Injection. Table 2: Clinically Significant Drug Interactions with Fentanyl Citrate Injection Inhibitors of CYP3A4 Clinical Impact: The concomitant use of Fentanyl Citrate Injection and CYP3A4 inhibitors can increase the plasma concentration of fentanyl, resulting in increased or prolonged opioid eff",
+    "dosage_forms_storage": "",
+    "pregnancy_text": "8.1 Pregnancy Risk Summary Use of opioid analgesics for an extended period of time during pregnancy may cause neonatal opioid withdrawal syndrome. Available data with Fentanyl Citrate Injection in pre"
+  },
+  "oxycodone": {
+    "openfda_generic_name": [
+      "OXYCODONE HYDROCHLORIDE"
+    ],
+    "openfda_brand_name": [
+      "Oxycodone Hydrochloride"
+    ],
+    "openfda_manufacturer": [
+      "Camber Pharmaceuticals Inc"
+    ],
+    "openfda_product_ndc": [
+      "31722-484",
+      "31722-485",
+      "31722-917"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "1049611",
+      "1049618",
+      "1049621",
+      "1049683",
+      "1049686"
+    ],
+    "openfda_spl_id": [
+      "a506a2bf-6041-4ed7-bf7c-ffe50b1b3c2e"
+    ],
+    "warnings_summary": "",
+    "contraindications_text": "4 CONTRAINDICATIONS Oxycodone hydrochloride is contraindicated in patients with: Significant respiratory depression [see Warnings and Precautions (5.2)]. Acute or severe bronchial asthma in an unmonitored setting or in the absence of resuscitative equipment or hypercarbia [see Warnings and Precautio",
+    "drug_interactions_text": "7 DRUG INTERACTIONS Table 1 includes clinically significant drug interactions with oxycodone hydrochloride. Table 1: Clinically Significant Drug Interactions with Oxycodone Hydrochloride Inhibitors of CYP3A4 and CYP2D6 Clinical Impact: The concomitant use of oxycodone hydrochloride and CYP3A4 inhibitors can increase the plasma concentration of oxycodone, resulting in increased or prolonged opioid ",
+    "dosage_forms_storage": "",
+    "pregnancy_text": ""
+  },
+  "haloperidol": {
+    "openfda_generic_name": [
+      "HALOPERIDOL"
+    ],
+    "openfda_brand_name": [
+      "Haloperidol"
+    ],
+    "openfda_manufacturer": [
+      "Lifestar Pharma LLC"
+    ],
+    "openfda_product_ndc": [
+      "70756-001",
+      "70756-002",
+      "70756-003"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "197754",
+      "310670",
+      "310671",
+      "310672",
+      "314034",
+      "314035"
+    ],
+    "openfda_spl_id": [
+      "7b545974-2d39-4106-8975-76c124a6c5ee"
+    ],
+    "warnings_summary": "WARNINGS Increased Mortality in Elderly Patients with Dementia-Related Psychosis Elderly patients with dementia-related psychosis treated with antipsychotic drugs are at an increased risk of death. Haloperidol is not approved for the treatment of patients with dementia-related psychosis (see BOXED W",
+    "contraindications_text": "CONTRAINDICATIONS Haloperidol tablets are contraindicated in severe toxic central nervous system depression or comatose states from any cause and in individuals who are hypersensitive to this drug or have Parkinson's disease.",
+    "drug_interactions_text": "",
+    "dosage_forms_storage": "",
+    "pregnancy_text": ""
+  },
+  "olanzapine": {
+    "openfda_generic_name": [
+      "OLANZAPINE"
+    ],
+    "openfda_brand_name": [
+      "Olanzapine"
+    ],
+    "openfda_manufacturer": [
+      "Lannett Company, Inc."
+    ],
+    "openfda_product_ndc": [
+      "0527-3161",
+      "0527-3162",
+      "0527-3163"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "312076",
+      "314155",
+      "351107",
+      "351108"
+    ],
+    "openfda_spl_id": [
+      "002da62b-aec3-8e2a-e063-6294a90a5efc"
+    ],
+    "warnings_summary": "",
+    "contraindications_text": "4 CONTRAINDICATIONS None with olanzapine monotherapy. When using olanzapine and fluoxetine in combination, also refer to the Contraindications section of the package insert for Symbyax. For specific information about the contraindications of lithium or valproate, refer to the Contraindications secti",
+    "drug_interactions_text": "7 DRUG INTERACTIONS The risks of using olanzapine in combination with other drugs have not been extensively evaluated in systematic studies. Diazepam: May potentiate orthostatic hypotension. ( 7.1 , 7.2 ) Alcohol: May potentiate orthostatic hypotension. ( 7.1 ) Carbamazepine: Increased clearance of olanzapine. ( 7.1 ) Fluvoxamine: May increase olanzapine levels. ( 7.1 ) Olanzapine and Fluoxetine i",
+    "dosage_forms_storage": "16.2 Storage and Handling Store olanzapine orally disintegrating tablets, USP at 20\u00b0 to 25\u00b0C (68\u00b0 to 77\u00b0F) [ see USP Controlled Room Temperature]. The USP defines controlled room temperature as a temp",
+    "pregnancy_text": "8.1 Pregnancy Pregnancy Exposure Registry There is a pregnancy exposure registry that monitors pregnancy outcomes in women exposed to atypical antipsychotics, including Olanzapine Tablets, during preg"
+  },
+  "quetiapine": {
+    "openfda_generic_name": [
+      "QUETIAPINE"
+    ],
+    "openfda_brand_name": [
+      "Quetiapine"
+    ],
+    "openfda_manufacturer": [
+      "Bryant Ranch Prepack"
+    ],
+    "openfda_product_ndc": [
+      "71335-1462"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "312743"
+    ],
+    "openfda_spl_id": [
+      "01261008-5f42-4844-8a65-d4545a67a309"
+    ],
+    "warnings_summary": "",
+    "contraindications_text": "4 CONTRAINDICATIONS Hypersensitivity to quetiapine or to any excipients in the quetiapine formulation. Anaphylactic reactions have been reported in patients treated with quetiapine. Known hypersensitivity to quetiapine or any components in the formulation. ( 4 )",
+    "drug_interactions_text": "7 DRUG INTERACTIONS Concomitant use of strong CYP3A4 inhibitors: Reduce quetiapine dose to one sixth when coadministered with strong CYP3A4 inhibitors (e.g., ketoconazole, ritonavir) ( 2.5 , 7.1 , 12.3 ) Concomitant use of strong CYP3A4 inducers: Increase quetiapine dose up to 5 fold when used in combination with a chronic treatment (more than 7-14 days) of potent CYP3A4 inducers (e.g., phenytoin,",
+    "dosage_forms_storage": "",
+    "pregnancy_text": "8.1 Pregnancy Pregnancy Exposure Registry There is a pregnancy exposure registry that monitors pregnancy outcomes in women exposed to atypical antipsychotics, including quetiapine tablets, during preg"
+  },
+  "risperidone": {
+    "openfda_generic_name": [
+      "RISPERIDONE"
+    ],
+    "openfda_brand_name": [
+      "RISPERIDONE"
+    ],
+    "openfda_manufacturer": [
+      "REMEDYREPACK INC."
+    ],
+    "openfda_product_ndc": [
+      "70518-0364"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "312830"
+    ],
+    "openfda_spl_id": [
+      "5257c6b8-5d9d-1918-e063-6394a90a3cbc"
+    ],
+    "warnings_summary": "",
+    "contraindications_text": "4 CONTRAINDICATIONS Risperidone tablets are contraindicated in patients with a known hypersensitivity to either risperidone or paliperidone, or to any of the excipients in the risperidone tablets formulation. Hypersensitivity reactions, including anaphylactic reactions and angioedema, have been repo",
+    "drug_interactions_text": "7 DRUG INTERACTIONS Carbamazepine and other enzyme inducers decrease plasma concentrations of risperidone. Increase the risperidone tablets dose up to double the patient\u2019s usual dose. Titrate slowly. ( 7.1 ) Fluoxetine, paroxetine, and other CYP 2D6 enzyme inhibitors increase plasma concentrations of risperidone. Reduce the initial dose. Do not exceed a final dose of 8 mg per day of risperidone ta",
+    "dosage_forms_storage": "",
+    "pregnancy_text": "8.1 Pregnancy Pregnancy Exposure Registry There is a pregnancy exposure registry that monitors pregnancy outcomes in women exposed to atypical antipsychotics, including risperidone, during pregnancy. "
+  },
+  "clozapine": {
+    "openfda_generic_name": [
+      "CLOZAPINE"
+    ],
+    "openfda_brand_name": [
+      "Clozapine"
+    ],
+    "openfda_manufacturer": [
+      "Safecor Health, LLC"
+    ],
+    "openfda_product_ndc": [
+      "48433-022"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "476177"
+    ],
+    "openfda_spl_id": [
+      "4cedfa23-a6bd-ddf7-e063-6294a90aa994"
+    ],
+    "warnings_summary": "",
+    "contraindications_text": "4 CONTRAINDICATIONS Clozapine ODT is contraindicated in patients with a history of hypersensitivity to clozapine (e.g., photosensitivity, vasculitis, erythema multiforme, or Stevens-Johnson Syndrome) or any other component of Clozapine ODT [see Adverse Reactions (6.2) ] . Known hypersensitivity to c",
+    "drug_interactions_text": "7 DRUG INTERACTIONS Concomitant use of Strong CYP1A2 Inhibitors : Reduce Clozapine ODT dose to one-third when coadministered with strong CYP1A2 inhibitors (e.g., fluvoxamine, ciprofloxacin, enoxacin). ( 2.7 , 7.1 ) Concomitant use of Strong CYP3A4 Inducers is not recommended. ( 2.7 , 7.1 ) Discontinuation of CYP1A2 or CYP3A4 Inducers: Consider reducing Clozapine ODT dose when CYP1A2 (e.g., tobacco",
+    "dosage_forms_storage": "",
+    "pregnancy_text": "8.1 Pregnancy Pregnancy Exposure Registry There is a pregnancy exposure registry that monitors pregnancy outcomes in women exposed to atypical antipsychotics, including Clozapine ODT, during pregnancy"
+  },
+  "acyclovir": {
+    "openfda_generic_name": [
+      "ACYCLOVIR"
+    ],
+    "openfda_brand_name": [
+      "Acyclovir"
+    ],
+    "openfda_manufacturer": [
+      "Bryant Ranch Prepack"
+    ],
+    "openfda_product_ndc": [
+      "71335-1290"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "197310"
+    ],
+    "openfda_spl_id": [
+      "cb9a2970-e0e8-4faf-9ed9-06bec3649207"
+    ],
+    "warnings_summary": "WARNINGS Acyclovir capsules are intended for oral ingestion only. Renal failure, in some cases resulting in death, has been observed with acyclovir therapy (see ADVERSE REACTIONS: Observed During Clinical Practice and OVERDOSAGE ). Thrombotic thrombocytopenic purpura/hemolytic uremic syndrome (TTP/H",
+    "contraindications_text": "CONTRAINDICATIONS Acyclovir is contraindicated for patients who develop hypersensitivity to acyclovir or valacyclovir.",
+    "drug_interactions_text": "Drug Interactions: See CLINICAL PHARMACOLOGY: Pharmacokinetics .",
+    "dosage_forms_storage": "",
+    "pregnancy_text": "Pregnancy: Teratogenic Effects: Pregnancy Category B. Acyclovir administered during organogenesis was not teratogenic in the mouse (450 mg/kg/day, p.o.), rabbit (50 mg/kg/day, s.c. and IV), or rat (50"
+  },
+  "valacyclovir": {
+    "openfda_generic_name": [
+      "VALACYCLOVIR"
+    ],
+    "openfda_brand_name": [
+      "Valacyclovir Hydrochloride"
+    ],
+    "openfda_manufacturer": [
+      "Safecor Health LLC"
+    ],
+    "openfda_product_ndc": [
+      "48433-144"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "313565"
+    ],
+    "openfda_spl_id": [
+      "4ee1037d-94f5-562f-e063-6394a90af03d"
+    ],
+    "warnings_summary": "",
+    "contraindications_text": "4 CONTRAINDICATIONS Valacyclovir tablets are contraindicated in patients who have had a demonstrated clinically significant hypersensitivity reaction [e.g., anaphylaxis, severe cutaneous adverse reactions (SCARs)] to valacyclovir, acyclovir, or any component of the formulation [see Warnings and Prec",
+    "drug_interactions_text": "7 DRUG INTERACTIONS No clinically significant drug-drug or drug-food interactions with valacyclovir tablets are known [see Clinical Pharmacology (12.3) ].",
+    "dosage_forms_storage": "",
+    "pregnancy_text": "8.1 Pregnancy Risk Summary Clinical data over several decades with valacyclovir and its metabolite, acyclovir, in pregnant women, have not identified a drug associated risk of major birth defects. The"
+  },
+  "oseltamivir": {
+    "openfda_generic_name": [
+      "OSELTAMIVIR PHOSPHATE"
+    ],
+    "openfda_brand_name": [
+      "Oseltamivir Phosphate"
+    ],
+    "openfda_manufacturer": [
+      "Lannett Company, Inc."
+    ],
+    "openfda_product_ndc": [
+      "0527-5137"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "1115698"
+    ],
+    "openfda_spl_id": [
+      "187a99bd-1c9b-8eaf-e063-6394a90a2a74"
+    ],
+    "warnings_summary": "",
+    "contraindications_text": "4 CONTRAINDICATIONS Oseltamivir phosphate for oral suspension is contraindicated in patients with known serious hypersensitivity to oseltamivir or any component of the product. Severe allergic reactions have included anaphylaxis and serious skin reactions including toxic epidermal necrolysis, Steven",
+    "drug_interactions_text": "7 DRUG INTERACTIONS Live attenuated influenza vaccine (LAIV), intranasal: Avoid administration of LAIV within 2 weeks before or 48 hours after oseltamivir phosphate for oral suspension use, unless medically indicated. ( 7 ) 7.1 Influenza Vaccines Live Attenuated Influenza Vaccine The concurrent use of oseltamivir phosphate with live attenuated influenza vaccine (LAIV) intranasal has not been evalu",
+    "dosage_forms_storage": "Storage Store dry powder at 20\u00ba to 25\u00baC (68\u00ba to 77\u00baF); excursions permitted to 15\u00ba to 30\u00baC (59\u00ba to 86\u00baF) [See USP Controlled Room Temperature]. Preserved in well closed container. Store constituted or",
+    "pregnancy_text": "8.1 Pregnancy Risk Summary There are no adequate and well-controlled studies with oseltamivir phosphate for oral suspension in pregnant women to inform a drug-associated risk of adverse developmental "
+  },
+  "tenofovir": {
+    "openfda_generic_name": [
+      "BICTEGRAVIR SODIUM, EMTRICITABINE, AND TENOFOVIR ALAFENAMIDE FUMARATE"
+    ],
+    "openfda_brand_name": [
+      "Biktarvy"
+    ],
+    "openfda_manufacturer": [
+      "A-S Medication Solutions"
+    ],
+    "openfda_product_ndc": [
+      "50090-6247"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "1999667",
+      "1999673"
+    ],
+    "openfda_spl_id": [
+      "a3c4a0eb-71e8-4b35-9706-240874b78ee0"
+    ],
+    "warnings_summary": "",
+    "contraindications_text": "4 CONTRAINDICATIONS BIKTARVY is contraindicated to be co-administered with: dofetilide due to the potential for increased dofetilide plasma concentrations and associated serious and/or life-threatening events [see Drug Interactions (7.5) ] . rifampin due to decreased BIC plasma concentrations, which",
+    "drug_interactions_text": "7 DRUG INTERACTIONS Because BIKTARVY is a complete regimen, coadministration with other antiretroviral medications for the treatment of HIV-1 infection is not recommended. ( 7.1 ) Consult the Full Prescribing Information prior to and during treatment for important drug interactions. ( 4 , 5.2 , 7 , 12.3 ) 7.1 Other Antiretroviral Medications Because BIKTARVY is a complete regimen, coadministration",
+    "dosage_forms_storage": "",
+    "pregnancy_text": "8.1 Pregnancy Pregnancy Exposure Registry There is a pregnancy exposure registry that monitors pregnancy outcomes in women exposed to BIKTARVY during pregnancy. Healthcare providers are encouraged to "
+  },
+  "emtricitabine": {
+    "openfda_generic_name": [
+      "BICTEGRAVIR SODIUM, EMTRICITABINE, AND TENOFOVIR ALAFENAMIDE FUMARATE"
+    ],
+    "openfda_brand_name": [
+      "Biktarvy"
+    ],
+    "openfda_manufacturer": [
+      "A-S Medication Solutions"
+    ],
+    "openfda_product_ndc": [
+      "50090-6247"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "1999667",
+      "1999673"
+    ],
+    "openfda_spl_id": [
+      "a3c4a0eb-71e8-4b35-9706-240874b78ee0"
+    ],
+    "warnings_summary": "",
+    "contraindications_text": "4 CONTRAINDICATIONS BIKTARVY is contraindicated to be co-administered with: dofetilide due to the potential for increased dofetilide plasma concentrations and associated serious and/or life-threatening events [see Drug Interactions (7.5) ] . rifampin due to decreased BIC plasma concentrations, which",
+    "drug_interactions_text": "7 DRUG INTERACTIONS Because BIKTARVY is a complete regimen, coadministration with other antiretroviral medications for the treatment of HIV-1 infection is not recommended. ( 7.1 ) Consult the Full Prescribing Information prior to and during treatment for important drug interactions. ( 4 , 5.2 , 7 , 12.3 ) 7.1 Other Antiretroviral Medications Because BIKTARVY is a complete regimen, coadministration",
+    "dosage_forms_storage": "",
+    "pregnancy_text": "8.1 Pregnancy Pregnancy Exposure Registry There is a pregnancy exposure registry that monitors pregnancy outcomes in women exposed to BIKTARVY during pregnancy. Healthcare providers are encouraged to "
+  },
+  "carbamazepine": {
+    "openfda_generic_name": [
+      "CARBAMAZEPINE"
+    ],
+    "openfda_brand_name": [
+      "Carbamazepine"
+    ],
+    "openfda_manufacturer": [
+      "A-S Medication Solutions"
+    ],
+    "openfda_product_ndc": [
+      "50090-5740"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "308979"
+    ],
+    "openfda_spl_id": [
+      "a420fd55-7029-4cc4-b63e-12fdcb76e6fe"
+    ],
+    "warnings_summary": "",
+    "contraindications_text": "CONTRAINDICATIONS Carbamazepine should not be used in patients with a history of previous bone marrow depression, hypersensitivity to the drug, or known sensitivity to any of the tricyclic compounds, such as amitriptyline, desipramine, imipramine, protriptyline, nortriptyline, etc. Likewise, on theo",
+    "drug_interactions_text": "Drug Interactions There has been a report of a patient who passed an orange rubbery precipitate in his stool the day after ingesting carbamazepine suspension immediately followed by Thorazine solution. Subsequent testing has shown that mixing carbamazepine suspension and chlorpromazine solution (both generic and brand name) as well as carbamazepine suspension and liquid Mellaril, resulted in the o",
+    "dosage_forms_storage": "",
+    "pregnancy_text": ""
+  },
+  "valproate": {
+    "openfda_generic_name": [
+      "VALPROATE SODIUM"
+    ],
+    "openfda_brand_name": [
+      "Valproate Sodium"
+    ],
+    "openfda_manufacturer": [
+      "Fresenius Kabi USA, LLC"
+    ],
+    "openfda_product_ndc": [
+      "63323-494"
+    ],
+    "openfda_route": [
+      "INTRAVENOUS"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "1099648"
+    ],
+    "openfda_spl_id": [
+      "f09a2148-edd9-4918-8359-7554ed263d3a"
+    ],
+    "warnings_summary": "",
+    "contraindications_text": "4 CONTRAINDICATIONS \u2022 Valproate sodium injection should not be administered to patients with hepatic disease or significant hepatic dysfunction [see Warnings and Precautions ( 5.1 )] . \u2022 Valproate sodium injection is contraindicated in patients known to have mitochondrial disorders caused by mutatio",
+    "drug_interactions_text": "7 DRUG INTERACTIONS \u2022 Hepatic enzyme-inducing drugs (e.g., phenytoin, carbamazepine, phenobarbital, primidone, rifampin) can increase valproate clearance, while enzyme inhibitors (e.g., felbamate) can decrease valproate clearance. Therefore increased monitoring of valproate and concomitant drug concentrations and dosage adjustment are indicated whenever enzyme-inducing or inhibiting drugs are intr",
+    "dosage_forms_storage": "",
+    "pregnancy_text": "8.1 Pregnancy Pregnancy Exposure Registry There is a pregnancy exposure registry that monitors pregnancy outcomes in women exposed to antiepileptic drugs (AEDs), including Valproate sodium, during pre"
+  },
+  "lamotrigine": {
+    "openfda_generic_name": [
+      "LAMOTRIGINE"
+    ],
+    "openfda_brand_name": [
+      "Lamotrigine"
+    ],
+    "openfda_manufacturer": [
+      "Par Health USA, LLC"
+    ],
+    "openfda_product_ndc": [
+      "49884-484",
+      "49884-485",
+      "49884-486"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "103968",
+      "198430",
+      "252478",
+      "252479",
+      "851748",
+      "851750",
+      "851752"
+    ],
+    "openfda_spl_id": [
+      "983458ba-0e97-42af-952c-3662407dde00"
+    ],
+    "warnings_summary": "",
+    "contraindications_text": "4 CONTRAINDICATIONS Lamotrigine is contraindicated in patients who have demonstrated hypersensitivity (e.g., rash, angioedema, acute urticaria, extensive pruritus, mucosal ulceration) to the drug or its ingredients [see Boxed Warning , Warnings and Precautions ( 5.1 , 5.3 )]. Hypersensitivity to the",
+    "drug_interactions_text": "7 DRUG INTERACTIONS Significant drug interactions with lamotrigine are summarized in this section. Uridine 5\u00b4-diphospho-glucuronyl transferases (UGT) have been identified as the enzymes responsible for metabolism of lamotrigine. Drugs that induce or inhibit glucuronidation may, therefore, affect the apparent clearance of lamotrigine. Strong or moderate inducers of the cytochrome P450 3A4 (CYP3A4) ",
+    "dosage_forms_storage": "",
+    "pregnancy_text": "8.1 Pregnancy Pregnancy Exposure Registry There is a pregnancy exposure registry that monitors pregnancy outcomes in women exposed to AEDs, including lamotrigine, during pregnancy. Encourage women who"
+  },
+  "lithium": {
+    "openfda_generic_name": [
+      "LITHIUM CARBONATE"
+    ],
+    "openfda_brand_name": [
+      "lithium carbonate"
+    ],
+    "openfda_manufacturer": [
+      "REMEDYREPACK INC."
+    ],
+    "openfda_product_ndc": [
+      "70518-4627"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "311355"
+    ],
+    "openfda_spl_id": [
+      "5072144b-30c0-ed6a-e063-6394a90a2b9c"
+    ],
+    "warnings_summary": "",
+    "contraindications_text": "4 CONTRAINDICATIONS Lithium is contraindicated in patients with known hypersensitivity to any inactive ingredient in the lithium carbonate capsule or lithium citrate products [see Adverse Reactions ( 6 )]. Known hypersensitivity to any inactive ingredient in the drug product ( 4 )",
+    "drug_interactions_text": "7 DRUG INTERACTIONS \u2022 Diuretics, NSAID, renin-angiotensin system antagonists, or metronidazole may increase lithium serum concentrations. Recommend frequent monitoring of serum lithium concentration and adjust dosage when necessary. ( 2.3 , 7.1 ) \u2022 Serotonergic Agents: Increased risk of serotonin syndrome when co-administered with lithium. ( 5.6 , 7.1 ) \u2022 Antipsychotics: There have been reports of",
+    "dosage_forms_storage": "",
+    "pregnancy_text": "8.1 Pregnancy Risk Summary: Lithium may cause harm when administered to a pregnant woman. Early voluntary reports to international birth registries suggested an increase in cardiovascular malformation"
+  },
+  "vancomycin": {
+    "openfda_generic_name": [
+      "VANCOMYCIN HYDROCHLORIDE"
+    ],
+    "openfda_brand_name": [
+      "Vancomycin Hydrochloride"
+    ],
+    "openfda_manufacturer": [
+      "Gland Pharma Limited"
+    ],
+    "openfda_product_ndc": [
+      "68083-143",
+      "68083-144"
+    ],
+    "openfda_route": [
+      "INTRAVENOUS"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "1807516",
+      "1807513"
+    ],
+    "openfda_spl_id": [
+      "35615711-767c-4182-b290-cb1b86d20524"
+    ],
+    "warnings_summary": "WARNINGS Infusion Reactions Rapid bolus administration (e.g., over several minutes) may be associated with exaggerated hypotension, including shock and rarely cardiac arrest. Vancomycin hydrochloride for injection should be administered in a diluted solution over a period of not less than 60 minutes",
+    "contraindications_text": "CONTRAINDICATIONS Vancomycin hydrochloride for injection is contraindicated in patients with known hypersensitivity to this antibiotic.",
+    "drug_interactions_text": "Drug Interactions Concomitant administration of vancomycin and anesthetic agents has been associated with erythema and histamine-like flushing (see Pediatric Use, PRECAUTIONS ) and anaphylactoid reactions (see ADVERSE REACTIONS ). Monitor renal function in patients receiving vancomycin and concurrent and/or sequential systemic or topical use of other potentially, neurotoxic and/or nephrotoxic drug",
+    "dosage_forms_storage": "",
+    "pregnancy_text": "Pregnancy Teratogenic Effects Animal reproduction studies have not been conducted with vancomycin. It is not known whether vancomycin can affect reproduction capacity. In a controlled clinical study, "
+  },
+  "meropenem": {
+    "openfda_generic_name": [
+      "MEROPENEM"
+    ],
+    "openfda_brand_name": [
+      "MEROPENEM"
+    ],
+    "openfda_manufacturer": [
+      "Xellia Pharmaceuticals USA LLC"
+    ],
+    "openfda_product_ndc": [
+      "70594-075",
+      "70594-076"
+    ],
+    "openfda_route": [
+      "INTRAVENOUS"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "1722934",
+      "1722939"
+    ],
+    "openfda_spl_id": [
+      "3ee484ef-4e7f-464a-ac2e-7963d9dc5df6"
+    ],
+    "warnings_summary": "",
+    "contraindications_text": "4 CONTRAINDICATIONS Meropenem for Injection, USP is contraindicated in patients with known hypersensitivity to any component of this product or to other drugs in the same class or in patients who have demonstrated anaphylactic reactions to beta (\u03b2)-lactams. Known hypersensitivity to product componen",
+    "drug_interactions_text": "7 DRUG INTERACTIONS Co-administration of Meropenem for Injection, USP with probenecid inhibits renal excretion of meropenem and is therefore not recommended. ( 7.1 ) The concomitant use of Meropenem for Injection, USP and valproic acid or divalproex sodium is generally not recommended. Antibacterial drugs other than carbapenems should be considered to treat infections in patients whose seizures ar",
+    "dosage_forms_storage": "Storage Conditions Store at 20\u00b0 to 25\u00b0C (68\u00b0 to 77\u00b0F). [See USP Controlled Room Temperature.] Sterile, Nonpyrogenic, Preservative-free. The container closure is not made with natural rubber latex.",
+    "pregnancy_text": "8.1 Pregnancy Risk Summary There are insufficient human data to establish whether there is a drug-associated risk of major birth defects or miscarriages with meropenem in pregnant women. No fetal toxi"
+  },
+  "linezolid": {
+    "openfda_generic_name": [
+      "LINEZOLID"
+    ],
+    "openfda_brand_name": [
+      "Linezolid"
+    ],
+    "openfda_manufacturer": [
+      "Hikma Pharmaceuticals USA Inc."
+    ],
+    "openfda_product_ndc": [
+      "0054-0319"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "311345"
+    ],
+    "openfda_spl_id": [
+      "ea8ff456-80d5-4f40-b397-a25b31a77947"
+    ],
+    "warnings_summary": "",
+    "contraindications_text": "4 CONTRAINDICATIONS \u2022 Known hypersensitivity to linezolid or any of the other product components. ( 4.1 ) \u2022 Patients taking any monoamine oxidase inhibitors (MAOI) or within two weeks of taking an MAOI. ( 4.2 ) 4.1 Hypersensitivity Linezolid formulations are contraindicated for use in patients who h",
+    "drug_interactions_text": "7 DRUG INTERACTIONS Monoamine oxidase inhibitors and potential for interaction with adrenergic and serotonergic agents. ( 4.2 , 5.3 , 5.6 , 7 , 12.3 ) 7.1 Monoamine Oxidase Inhibitors Linezolid is a reversible, nonselective inhibitor of monoamine oxidase [see Contraindications ( 4.2 ) and Clinical Pharmacology ( 12.3 )]. 7.2 Adrenergic and Serotonergic Agents Linezolid has the potential for intera",
+    "dosage_forms_storage": "",
+    "pregnancy_text": "8.1 Pregnancy Risk Summary Available data from published and postmarketing case reports with linezolid use in pregnant women have not identified a drug-associated risk of major birth defects, miscarri"
+  },
+  "insulin_aspart": {
+    "openfda_generic_name": [
+      "INSULIN ASPART"
+    ],
+    "openfda_brand_name": [
+      "NOVOLOG"
+    ],
+    "openfda_manufacturer": [
+      "A-S Medication Solutions"
+    ],
+    "openfda_product_ndc": [
+      "50090-4500"
+    ],
+    "openfda_route": [
+      "INTRAVENOUS",
+      "SUBCUTANEOUS"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "1653202",
+      "1653204"
+    ],
+    "openfda_spl_id": [
+      "5907ee0c-c7d5-4e1c-9c12-8390ccb34c42"
+    ],
+    "warnings_summary": "",
+    "contraindications_text": "4 CONTRAINDICATIONS NOVOLOG is contraindicated: \u2022 During episodes of hypoglycemia [see Warnings and Precautions ( 5.3 )] \u2022 In patients with hypersensitivity to NOVOLOG or one of its excipients, [see Warnings and Precautions ( 5.5 )] \u2022 During episodes of hypoglycemia ( 4 ). \u2022 Hypersensitivity to NOVO",
+    "drug_interactions_text": "7 DRUG INTERACTIONS The table below presents clinically significant drug interactions with NOVOLOG. Drugs That May Increase the Risk of Hypoglycemia Drugs: Antidiabetic agents, ACE inhibitors, angiotensin II receptor blocking agents, disopyramide, fibrates, fluoxetine, monoamine oxidase inhibitors, pentoxifylline, pramlintide, salicylates, somatostatin analog (e.g., octreotide), and sulfonamide an",
+    "dosage_forms_storage": "",
+    "pregnancy_text": "8.1 Pregnancy Risk Summary Available information from published randomized controlled trials with insulin aspart use during the second trimester of pregnancy have not reported an association with insu"
+  },
+  "testosterone": {
+    "openfda_generic_name": [
+      "TESTOSTERONE"
+    ],
+    "openfda_brand_name": [
+      "Testopel"
+    ],
+    "openfda_manufacturer": [
+      "Endo USA, Inc."
+    ],
+    "openfda_product_ndc": [
+      "66887-004"
+    ],
+    "openfda_route": [
+      "SUBCUTANEOUS"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "318240",
+      "404405"
+    ],
+    "openfda_spl_id": [
+      "0a13cf12-e51e-4d3d-a7c4-ea74712e6db2"
+    ],
+    "warnings_summary": "WARNINGS In patients with breast cancer, androgen therapy may cause hypercalcemia by stimulating osteolysis. In this case, the drug should be discontinued. Prolonged use of high doses of androgens has been associated with the development of peliosis hepatis and hepatic neoplasms including hepatocell",
+    "contraindications_text": "CONTRAINDICATIONS Androgens are contraindicated in men with carcinomas of the breast or with known or suspected carcinomas of the prostate. If administered to pregnant women, androgens cause virilization of the external genitalia of the female fetus. The virilization includes clitoromegaly, abnormal",
+    "drug_interactions_text": "",
+    "dosage_forms_storage": "",
+    "pregnancy_text": ""
+  },
+  "levodopa_carbidopa": {
+    "openfda_generic_name": [
+      "CARBIDOPA, LEVODOPA AND ENTACAPONE"
+    ],
+    "openfda_brand_name": [
+      "CARBIDOPA, LEVODOPA AND ENTACAPONE"
+    ],
+    "openfda_manufacturer": [
+      "Rising Pharma Holdings, Inc."
+    ],
+    "openfda_product_ndc": [
+      "16571-689",
+      "16571-690",
+      "16571-691"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "403850",
+      "403851",
+      "403852",
+      "730988",
+      "810083",
+      "810090"
+    ],
+    "openfda_spl_id": [
+      "4d1e7e53-059c-4a41-86b0-66d20ce660d0"
+    ],
+    "warnings_summary": "",
+    "contraindications_text": "4 CONTRAINDICATIONS Carbidopa, levodopa and entacapone tablets are contraindicated in patients: Taking nonselective monoamine oxidase (MAO) inhibitors (e.g., phenelzine and tranylcypromine). These nonselective MAO inhibitors must be discontinued at least two weeks prior to initiating therapy with ca",
+    "drug_interactions_text": "7 DRUG INTERACTIONS Drugs metabolized by COMT: use with caution ( 5.11 , 7.2 ) Anti-hypertensive agents: dose adjustment may be required ( 7.3 ) Tricyclic antidepressants: risk of hypertension and dyskinesia reported during concomitant use with carbidopa/levodopa ( 7.4 ) Dopamine D2 receptor antagonists, isoniazid, phenytoin, papaverine and iron salts: may reduce efficacy of carbidopa, levodopa an",
+    "dosage_forms_storage": "",
+    "pregnancy_text": "8.1 Pregnancy Risk Summary There are no adequate data on the developmental risk associated with the use of carbidopa, levodopa and entacapone tablets in pregnant women. In animals, administration of c"
+  },
+  "pramipexole": {
+    "openfda_generic_name": [
+      "PRAMIPEXOLE DIHYDROCHLORIDE"
+    ],
+    "openfda_brand_name": [
+      "Pramipexole dihydrochloride"
+    ],
+    "openfda_manufacturer": [
+      "Dr. Reddy's Laboratories Limited"
+    ],
+    "openfda_product_ndc": [
+      "55111-611",
+      "55111-612",
+      "55111-613"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "901534",
+      "901541",
+      "901546",
+      "901550",
+      "901555"
+    ],
+    "openfda_spl_id": [
+      "4dfe5cc9-1281-c6dc-a6dc-6113fd0aed67"
+    ],
+    "warnings_summary": "",
+    "contraindications_text": "4 CONTRAINDICATIONS None. None (4)",
+    "drug_interactions_text": "7 DRUG INTERACTIONS Dopamine antagonists: May diminish the effectiveness of pramipexole (7.1). 7.1 Dopamine Antagonists Since pramipexole is a dopamine agonist, it is possible that dopamine antagonists, such as the neuroleptics (phenothiazines, butyrophenones, thioxanthenes) or metoclopramide, may diminish the effectiveness of pramipexole dihydrochloride extended-release tablets.",
+    "dosage_forms_storage": "",
+    "pregnancy_text": "8.1 Pregnancy Risk Summary There are no adequate data on the developmental risk associated with the use of pramipexole dihydrochloride extended-release in pregnant women. No adverse developmental effe"
+  },
+  "baclofen": {
+    "openfda_generic_name": [
+      "BACLOFEN"
+    ],
+    "openfda_brand_name": [
+      "BACLOFEN"
+    ],
+    "openfda_manufacturer": [
+      "REMEDYREPACK INC."
+    ],
+    "openfda_product_ndc": [
+      "70518-4530"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "197392"
+    ],
+    "openfda_spl_id": [
+      "48e6b461-efdb-a69a-e063-6294a90aa1f9"
+    ],
+    "warnings_summary": "WARNINGS a. Neonatal Withdrawal Symptoms: Withdrawal symptoms have been reported starting hours to days after delivery in neonates whose mothers were treated with oral baclofen throughout pregnancy. The symptoms of withdrawal in these infants have included increased muscle tone, tremor, jitteriness,",
+    "contraindications_text": "CONTRAINDICATIONS Hypersensitivity to baclofen.",
+    "drug_interactions_text": "",
+    "dosage_forms_storage": "",
+    "pregnancy_text": ""
+  },
+  "tamsulosin": {
+    "openfda_generic_name": [
+      "TAMSULOSIN HYDROCHLORIDE"
+    ],
+    "openfda_brand_name": [
+      "tamsulosin hydrochloride"
+    ],
+    "openfda_manufacturer": [
+      "XLCare Pharmaceuticals, Inc."
+    ],
+    "openfda_product_ndc": [
+      "72865-350"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "863669"
+    ],
+    "openfda_spl_id": [
+      "9f4e621f-46a0-4d70-81cf-b6eb560383ca"
+    ],
+    "warnings_summary": "",
+    "contraindications_text": "4 CONTRAINDICATIONS Tamsulosin hydrochloride capsules are contraindicated in patients known to be hypersensitive to tamsulosin hydrochloride or any component of tamsulosin hydrochloride capsules. Reactions have included skin rash, urticaria, pruritus, angioedema, and respiratory symptoms [see Advers",
+    "drug_interactions_text": "7 DRUG INTERACTIONS \u2022 Tamsulosin hydrochloride capsules 0.4 mg should not be used with strong inhibitors of CYP3A4 (e.g., ketoconazole). Tamsulosin hydrochloride capsules should be used with caution in combination with moderate inhibitors of CYP3A4 (e.g., erythromycin), in combination with strong (e.g., paroxetine) or moderate (e.g., terbinafine) inhibitors of CYP2D6, or in patients known to be CY",
+    "dosage_forms_storage": "",
+    "pregnancy_text": "8.1 Pregnancy Risk Summary Tamsulosin hydrochloride is not indicated for use in women. There are no adequate data on the developmental risk associated with the use of tamsulosin hydrochloride in pregn"
+  },
+  "finasteride": {
+    "openfda_generic_name": [
+      "FINASTERIDE"
+    ],
+    "openfda_brand_name": [
+      "Finasteride"
+    ],
+    "openfda_manufacturer": [
+      "Camber Pharmaceuticals, Inc."
+    ],
+    "openfda_product_ndc": [
+      "31722-526"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "200172"
+    ],
+    "openfda_spl_id": [
+      "0ebbabf3-0681-484d-ab8d-58e670d80a0d"
+    ],
+    "warnings_summary": "",
+    "contraindications_text": "4 CONTRAINDICATIONS Finasteride tablets USP are contraindicated in the following: \u2022 Pregnancy. Finasteride use is contraindicated in women when they are or may potentially be pregnant. Because of the ability of Type II 5\u03b1-reductase inhibitors to inhibit the conversion of testosterone to 5\u03b1-dihydrote",
+    "drug_interactions_text": "7 DRUG INTERACTIONS 7.1 Cytochrome P450-Linked Drug Metabolizing Enzyme System No drug interactions of clinical importance have been identified. Finasteride does not appear to affect the cytochrome P450-linked drug-metabolizing enzyme system. Compounds that have been tested in man include antipyrine, digoxin, propranolol, theophylline, and warfarin and no clinically meaningful interactions were fo",
+    "dosage_forms_storage": "",
+    "pregnancy_text": "8.1 Pregnancy Teratogenic Effects : Pregnancy Category X [ see Contraindications (4) ]. Finasteride tablets USP is contraindicated for use in women who are or may become pregnant. Finasteride tablets "
+  },
+  "acetazolamide": {
+    "openfda_generic_name": [
+      "ACETAZOLAMIDE"
+    ],
+    "openfda_brand_name": [
+      "acetazolamide"
+    ],
+    "openfda_manufacturer": [
+      "Heritage Pharmaceuticals Inc. d/b/a Avet Pharmaceuticals Inc."
+    ],
+    "openfda_product_ndc": [
+      "23155-287",
+      "23155-288"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [],
+    "openfda_spl_id": [
+      "d5f7fb75-ef4b-4d7b-a9d6-c4ff08920973"
+    ],
+    "warnings_summary": "WARNINGS Fatalities have occurred, although rarely, due to severe reactions to sulfonamides including Stevens-Johnson syndrome, toxic epidermal necrolysis, fulminant hepatic necrosis, agranulocytosis, aplastic anemia, and other blood dyscrasias, and anaphylaxis. Sensitizations may recur when a sulfo",
+    "contraindications_text": "CONTRAINDICATIONS Hypersensitivity to acetazolamide or any excipients in the formulation. Since acetazolamide is a sulfonamide derivative, cross sensitivity between acetazolamide, sulfonamides and other sulfonamide derivatives is possible. Acetazolamide therapy is contraindicated in situations in wh",
+    "drug_interactions_text": "",
+    "dosage_forms_storage": "",
+    "pregnancy_text": "Pregnancy: Teratogenic effects Acetazolamide, administered orally or parenterally, has been shown to be teratogenic (defects of the limbs) in mice, rats, hamsters, and rabbits. There are no adequate a"
+  },
+  "enoxaparin": {
+    "openfda_generic_name": [
+      "ENOXAPARIN SODIUM"
+    ],
+    "openfda_brand_name": [
+      "Enoxaparin Sodium"
+    ],
+    "openfda_manufacturer": [
+      "NorthStar RxLLC"
+    ],
+    "openfda_product_ndc": [
+      "72603-165",
+      "72603-175",
+      "72603-185"
+    ],
+    "openfda_route": [
+      "SUBCUTANEOUS"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "854228",
+      "854235",
+      "854238",
+      "854241",
+      "854245",
+      "854248",
+      "854252"
+    ],
+    "openfda_spl_id": [
+      "1b5d6d46-a8fc-ed74-e063-6294a90af6c1"
+    ],
+    "warnings_summary": "",
+    "contraindications_text": "4 CONTRAINDICATIONS Enoxaparin sodium injection is contraindicated in patients with: \u2022 Active major bleeding \u2022 History of immune-mediated heparin-induced thrombocytopenia (HIT) within the past 100 days or in the presence of circulating antibodies [see Warnings and Precautions (5.4) ] \u2022 Known hyperse",
+    "drug_interactions_text": "7 DRUG INTERACTIONS Whenever possible, agents which may enhance the risk of hemorrhage should be discontinued prior to initiation of enoxaparin sodium therapy. These agents include medications such as: anticoagulants, platelet inhibitors including acetylsalicylic acid, salicylates, NSAIDs (including ketorolac tromethamine), dipyridamole, or sulfinpyrazone. If coadministration is essential, conduct",
+    "dosage_forms_storage": "",
+    "pregnancy_text": "8.1 Pregnancy Risk Summary Placental transfer of enoxaparin was observed in the animal studies. Human data from a retrospective cohort study, which included 693 live births, suggest that enoxaparin so"
+  },
+  "clopidogrel": {
+    "openfda_generic_name": [
+      "CLOPIDOGREL BISULFATE"
+    ],
+    "openfda_brand_name": [
+      "Clopidogrel"
+    ],
+    "openfda_manufacturer": [
+      "Aurobindo Pharma Limited"
+    ],
+    "openfda_product_ndc": [
+      "65862-357"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "309362"
+    ],
+    "openfda_spl_id": [
+      "ff58c1f3-4875-4d10-aca7-c622af163cef"
+    ],
+    "warnings_summary": "",
+    "contraindications_text": "4 CONTRAINDICATIONS Active pathological bleeding, such as peptic ulcer or intracranial hemorrhage (4.1) Hypersensitivity to clopidogrel or any component of the product (4.2) 4.1 Active Bleeding Clopidogrel tablets are contraindicated in patients with active pathological bleeding such as peptic ulcer",
+    "drug_interactions_text": "7 DRUG INTERACTIONS CYP2C19 inducers: Increases levels of clopidogrel active metabolite and increases platelet inhibition. ( 7.1 ) Opioids: Decreased exposure to clopidogrel. Consider use of parenteral antiplatelet agent. ( 7.3 ) Nonsteroidal anti-inflammatory drugs (NSAIDs), warfarin, selective serotonin and serotonin norepinephrine reuptake inhibitors (SSRIs, SNRIs): Increases risk of bleeding. ",
+    "dosage_forms_storage": "",
+    "pregnancy_text": "8.1 Pregnancy Risk Summary Available data from cases reported in published literature and postmarketing surveillance with clopidogrel use in pregnant women have not identified any drug-associated risk"
+  },
+  "aspirin": {
+    "openfda_generic_name": [
+      "ASPIRIN"
+    ],
+    "openfda_brand_name": [
+      "Low Dose Aspirin"
+    ],
+    "openfda_manufacturer": [
+      "P & L Development, LLC"
+    ],
+    "openfda_product_ndc": [
+      "59726-065"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "308416"
+    ],
+    "openfda_spl_id": [
+      "008ee85b-5cac-45a6-a857-a828f8125175"
+    ],
+    "warnings_summary": "Warnings Reye's syndrome : Children and teenagers who have or are recovering from chicken pox or flu-like symptoms should not use this product. When using this product, if changes in behavior with nausea and vomiting occur, consult a doctor because these symptoms could be an early sign of Reye's syn",
+    "contraindications_text": "",
+    "drug_interactions_text": "",
+    "dosage_forms_storage": "Other information store between 15-30\u00baC (59-86\u00baF)",
+    "pregnancy_text": ""
+  },
+  "methotrexate": {
+    "openfda_generic_name": [
+      "METHOTREXATE"
+    ],
+    "openfda_brand_name": [
+      "METHOTREXATE"
+    ],
+    "openfda_manufacturer": [
+      "Alembic Pharmaceuticals Inc."
+    ],
+    "openfda_product_ndc": [
+      "62332-730"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "105585"
+    ],
+    "openfda_spl_id": [
+      "f8955339-3c07-40ab-a866-ac75398ad2d6"
+    ],
+    "warnings_summary": "",
+    "contraindications_text": "4 CONTRAINDICATIONS Methotrexate tablets are contraindicated in: \u2022 Pregnant women receiving methotrexate tablets for treatment of non-neoplastic diseases [see Warnings and Precautions (5.1), and Use in Specific Populations (8.1, 8.3)]. \u2022 Patients with a history of severe hypersensitivity reactions, ",
+    "drug_interactions_text": "7 DRUG INTERACTIONS Refer to the full prescribing information for drug interactions with methotrexate. (7) 7.1 Effects of Other Drugs on Methotrexate Drugs that Increase Methotrexate Exposure Coadministration of methotrexate with the following products may increase methotrexate plasma concentrations, which may increase the risk of methotrexate severe adverse reactions. In some cases, the coadminis",
+    "dosage_forms_storage": "",
+    "pregnancy_text": "8.1 Pregnancy Risk Summary Methotrexate is contraindicated in pregnant women with non-neoplastic diseases [see Contraindications (4)]. Based on published reports and its mechanism of action [see Clini"
+  },
+  "budesonide": {
+    "openfda_generic_name": [
+      "BUDESONIDE"
+    ],
+    "openfda_brand_name": [
+      "Budesonide"
+    ],
+    "openfda_manufacturer": [
+      "Rugby Laboratories"
+    ],
+    "openfda_product_ndc": [
+      "0536-1112"
+    ],
+    "openfda_route": [
+      "NASAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "1797929"
+    ],
+    "openfda_spl_id": [
+      "ce26c1bb-c50d-7731-6877-0b8a5fda98df"
+    ],
+    "warnings_summary": "Warnings Do not use in children under 6 years of age if you have ever had an allergic reaction to any of the ingredients Ask a doctor before use if you have had recent nose ulcers or nose surgery have had a nose injury that has not healed are using a steroid medicine for asthma, allergies or skin ra",
+    "contraindications_text": "",
+    "drug_interactions_text": "",
+    "dosage_forms_storage": "",
+    "pregnancy_text": ""
+  },
+  "ipratropium": {
+    "openfda_generic_name": [
+      "IPRATROPIUM BROMIDE"
+    ],
+    "openfda_brand_name": [
+      "Ipratropium Bromide"
+    ],
+    "openfda_manufacturer": [
+      "Hikma Pharmaceuticals USA Inc."
+    ],
+    "openfda_product_ndc": [
+      "0054-0045"
+    ],
+    "openfda_route": [
+      "NASAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "1797833"
+    ],
+    "openfda_spl_id": [
+      "c8dbb0db-5c00-4205-a765-d664117c4398"
+    ],
+    "warnings_summary": "",
+    "contraindications_text": "",
+    "drug_interactions_text": "",
+    "dosage_forms_storage": "",
+    "pregnancy_text": ""
+  },
+  "donepezil": {
+    "openfda_generic_name": [
+      "DONEPEZIL HYDROCHLORIDE"
+    ],
+    "openfda_brand_name": [
+      "DONEPEZIL HYDROCHLORIDE"
+    ],
+    "openfda_manufacturer": [
+      "Lupin Pharmaceuticals, Inc."
+    ],
+    "openfda_product_ndc": [
+      "68180-527"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "1100184"
+    ],
+    "openfda_spl_id": [
+      "f8867ea9-a608-4b0f-9052-fa5c44d7e7c2"
+    ],
+    "warnings_summary": "",
+    "contraindications_text": "4 CONTRAINDICATIONS Known hypersensitivity to donepezil hydrochloride or to piperidine derivatives ( 4 ) Donepezil hydrochloride is contraindicated in patients with known hypersensitivity to donepezil hydrochloride or to piperidine derivatives.",
+    "drug_interactions_text": "7 DRUG INTERACTIONS Cholinesterase inhibitors have the potential to interfere with the activity of anticholinergic medications ( 7.1 ). A synergistic effect may be expected with concomitant administration of succinylcholine, similar neuromuscular blocking agents, or cholinergic agonists ( 7.2 ). 7.1 Use with Anticholinergics Because of their mechanism of action, cholinesterase inhibitors have the ",
+    "dosage_forms_storage": "",
+    "pregnancy_text": "8.1 Pregnancy Risk Summary There are no adequate data on the developmental risks associated with the use of donepezil hydrochloride in pregnant women. In animal studies, developmental toxicity was not"
+  },
+  "diazepam": {
+    "openfda_generic_name": [
+      "DIAZEPAM"
+    ],
+    "openfda_brand_name": [
+      "Diazepam"
+    ],
+    "openfda_manufacturer": [
+      "A-S Medication Solutions"
+    ],
+    "openfda_product_ndc": [
+      "50090-3390"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "197590"
+    ],
+    "openfda_spl_id": [
+      "842dfa9a-8c93-4c77-8f6b-95dd175df191"
+    ],
+    "warnings_summary": "WARNINGS Risks from Concomitant Use with Opioids Concomitant use of benzodiazepiones, including diazepam tablets, and opioids may result in profound sedation, respiratory depression, coma, and death. Because of these risks, reserve concomitant prescribing of these drugs in patients for whom alternat",
+    "contraindications_text": "CONTRAINDICATIONS Diazepam tablets are contraindicated in patients with a known hypersensitivity to diazepam and, because of lack of sufficient clinical experience, in pediatric patients under 6 months of age. Diazepam tablets are also contraindicated in patients with myasthenia gravis, severe respi",
+    "drug_interactions_text": "Drug Interactions Opioids The concomitant use of benzodiazepines and opioids increases the risk of respiratory depression because of actions at different receptor sites in the CNS that control respiration. Benzodiazepines interact at GABA A sites and opioids interact primarily at mu receptors. When benzodiazepines and opioids are combined, the potential for benzodiazepines to significantly worsen ",
+    "dosage_forms_storage": "",
+    "pregnancy_text": "Neonatal Sedation and Withdrawal Syndrome Use of diazepam tablets late in pregnancy can result in sedation (respiratory depression, lethargy, hypotonia) and/or withdrawal symptoms (hyperreflexia, irri"
+  },
+  "zolpidem": {
+    "openfda_generic_name": [
+      "ZOLPIDEM TARTRATE"
+    ],
+    "openfda_brand_name": [
+      "Zolpidem"
+    ],
+    "openfda_manufacturer": [
+      "ACI Healthcare USA, Inc"
+    ],
+    "openfda_product_ndc": [
+      "71093-155",
+      "71093-156"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "854873",
+      "854876"
+    ],
+    "openfda_spl_id": [
+      "69a3d187-578f-4e49-b8b3-109219a7bdf6"
+    ],
+    "warnings_summary": "",
+    "contraindications_text": "4 CONTRAINDICATIONS Zolpidem Tartrate Tablets is contraindicated in patients who have experienced complex sleep behaviors after taking Zolpidem Tartrate Tablets [see Warnings and Precautions ( 5.1 )] with known hypersensitivity to zolpidem. Observed reactions include anaphylaxis and angioedema [see ",
+    "drug_interactions_text": "7 DRUG INTERACTIONS CNS depressants, including alcohol: Possible adverse additive CNS- depressant effects ( 5.1 , 7.1 ) Opioids: Concomitant use may increase risk of respiratory depression ( 5.7 , 7.1 ) Imipramine: Decreased alertness observed ( 7.1 ) Chlorpromazine: Impaired alertness and psychomotor performance observed ( 7.1 ) CYP3A4 inducers (rifampin or St. John's wort): Combination use may d",
+    "dosage_forms_storage": "",
+    "pregnancy_text": "8.1 Pregnancy Risk Summary Neonates born to mothers using Zolpidem late in the third trimester of pregnancy have been reported to experience symptoms of respiratory depression and sedation [see Clinic"
+  },
+  "venlafaxine": {
+    "openfda_generic_name": [
+      "VENLAFAXINE"
+    ],
+    "openfda_brand_name": [
+      "Venlafaxine"
+    ],
+    "openfda_manufacturer": [
+      "NuCare Pharmaceuticals,Inc."
+    ],
+    "openfda_product_ndc": [
+      "68071-3431"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "313584"
+    ],
+    "openfda_spl_id": [
+      "2d58848f-040e-c4bd-e063-6294a90a33e4"
+    ],
+    "warnings_summary": "WARNINGS Clinical Worsening and Suicide Risk Patients with major depressive disorder (MDD), both adult and pediatric, may experience worsening of their depression and/or the emergence of suicidal ideation and behavior (suicidality) or unusual changes in behavior, whether or not they are taking antid",
+    "contraindications_text": "CONTRAINDICATIONS Hypersensitivity to venlafaxine hydrochloride or to any excipients in the formulation. The use of MAOIs intended to treat psychiatric disorders with venlafaxine tablets or within 7 days of stopping treatment with venlafaxine tablets is contraindicated because of an increased risk o",
+    "drug_interactions_text": "Drug Interactions As with all drugs, the potential for interaction by a variety of mechanisms is a possibility. Alcohol A single dose of ethanol (0.5 g/kg) had no effect on the pharmacokinetics of venlafaxine or ODV when venlafaxine was administered at 150 mg/day in 15 healthy male subjects. Additionally, administration of venlafaxine in a stable regimen did not exaggerate the psychomotor and psyc",
+    "dosage_forms_storage": "",
+    "pregnancy_text": "Clinical Worsening and Suicide Risk Patients, their families, and their caregivers should be encouraged to be alert to the emergence of anxiety, agitation, panic attacks, insomnia, irritability, hosti"
+  },
+  "bupropion": {
+    "openfda_generic_name": [
+      "BUPROPION HYDROCHLORIDE"
+    ],
+    "openfda_brand_name": [
+      "buPropion Hydrochloride XL"
+    ],
+    "openfda_manufacturer": [
+      "Oryza pharmaceuticals Inc."
+    ],
+    "openfda_product_ndc": [
+      "72516-035",
+      "72516-036"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "993541",
+      "993557"
+    ],
+    "openfda_spl_id": [
+      "47afeb95-a677-8969-e063-6294a90a7b2d"
+    ],
+    "warnings_summary": "",
+    "contraindications_text": "4 CONTRAINDICATIONS Bupropion hydrochloride extended-release tablets (XL) are contraindicated in patients with seizure disorder. Bupropion hydrochloride extended-release tablets (XL) are contraindicated in patients with a current or prior diagnosis of bulimia or anorexia nervosa as a higher incidenc",
+    "drug_interactions_text": "7 DRUG INTERACTIONS CYP2B6 inducers: Dose increase may be necessary if coadministered with CYP2B6 inducers (e.g., ritonavir, lopinavir, efavirenz, carbamazepine, phenobarbital, and phenytoin) based on clinical exposure, but should not exceed the maximum recommended dose. ( 7.1 ) Drugs metabolized by CYP2D6: Bupropion inhibits CYP2D6 and can increase concentrations of: antidepressants (e.g., venlaf",
+    "dosage_forms_storage": "",
+    "pregnancy_text": "8.1 Pregnancy Pregnancy Exposure Registry There is a pregnancy exposure registry that monitors pregnancy outcomes in women exposed to antidepressants during pregnancy. Healthcare providers are encoura"
+  },
+  "sulfasalazine": {
+    "openfda_generic_name": [
+      "SULFASALAZINE"
+    ],
+    "openfda_brand_name": [
+      "Sulfasalazine"
+    ],
+    "openfda_manufacturer": [
+      "Chartwell RX, LLC."
+    ],
+    "openfda_product_ndc": [
+      "62135-960"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "198232"
+    ],
+    "openfda_spl_id": [
+      "ef9f56ad-c921-6fe7-e053-2a95a90a85af"
+    ],
+    "warnings_summary": "WARNINGS Hepatic, Renal, and Hematologic Toxicity or Other Conditions Only after critical appraisal should Sulfasalazine Tablets be given to patients with hepatic or renal damage or blood dyscrasias. Deaths associated with the administration of sulfasalazine have been reported from hypersensitivity ",
+    "contraindications_text": "CONTRAINDICATIONS Sulfasalazine Tablets are contraindicated in: Patients with intestinal or urinary obstruction, Patients with porphyria as sulfonamides have been reported to precipitate an acute attack, Patients hypersensitive to sulfasalazine, its metabolites, sulfonamides, or salicylates.",
+    "drug_interactions_text": "",
+    "dosage_forms_storage": "",
+    "pregnancy_text": ""
+  },
+  "tamoxifen": {
+    "openfda_generic_name": [
+      "TAMOXIFEN CITRATE"
+    ],
+    "openfda_brand_name": [
+      "SOLTAMOX"
+    ],
+    "openfda_manufacturer": [
+      "Mayne Pharma"
+    ],
+    "openfda_product_ndc": [
+      "51862-682"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "389230",
+      "644304"
+    ],
+    "openfda_spl_id": [
+      "5bcbc281-342c-4b05-8409-53a08b1fc9f6"
+    ],
+    "warnings_summary": "",
+    "contraindications_text": "4 CONTRAINDICATIONS SOLTAMOX is contraindicated in patients with known hypersensitivity (e.g., angioedema, serious skin reactions) to tamoxifen or any other SOLTAMOX ingredient [see Adverse Reactions (6.2) ] . SOLTAMOX is contraindicated in patients who require concomitant warfarin therapy or have a",
+    "drug_interactions_text": "7 DRUG INTERACTIONS Anastrozole and letrozole: Should not be used in combination with tamoxifen. ( 7.1 ) Warfarin: Do not use in patients taking tamoxifen for DCIS and for reduction in breast cancer incidence in women at high risk. ( 4 ) Closely monitor coagulation indices for increased anticoagulant effect when used with tamoxifen for metastatic breast cancer or as adjuvant therapy. ( 7.2 ) 7.1 A",
+    "dosage_forms_storage": "Store at room temperatures 20\u00b0 to 25\u00b0C (68\u00b0 - 77\u00b0F); excursions permitted between 15\u00b0 to 30\u00b0C (59\u00b0 - 86\u00b0F) [see USP Controlled Room Temperature]. DO NOT freeze or refrigerate. Store in original packag",
+    "pregnancy_text": "8.1 Pregnancy Risk Summary SOLTAMOX can cause fetal harm when administered to a pregnant woman . There are no adequate and well- controlled studies of tamoxifen in pregnant women. There are limited po"
+  },
+  "imatinib": {
+    "openfda_generic_name": [
+      "IMATINIB MESYLATE"
+    ],
+    "openfda_brand_name": [
+      "Imatinib Mesylate"
+    ],
+    "openfda_manufacturer": [
+      "Apotex Corp"
+    ],
+    "openfda_product_ndc": [
+      "60505-2900",
+      "60505-2901"
+    ],
+    "openfda_route": [
+      "ORAL"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "403878",
+      "403879"
+    ],
+    "openfda_spl_id": [
+      "0bbdf523-ac79-a5cf-7e2b-73426c1f268e"
+    ],
+    "warnings_summary": "",
+    "contraindications_text": "4 CONTRAINDICATIONS None. None ( 4 ).",
+    "drug_interactions_text": "7 DRUG INTERACTIONS CYP3A4 inducers may decrease imatinib mesylate C max and area under curve (AUC). ( 2.12 , 7.1 , 12.3 ) CYP3A4 inhibitors may increase imatinib mesylate C max and AUC. ( 7.2 , 12.3 ) Imatinib mesylate is an inhibitor of CYP3A4 and CYP2D6 which may increase the C max and AUC of other drugs. ( 7.3 , 7.4 , 12.3 ) Patients who require anticoagulation should receive low-molecular wei",
+    "dosage_forms_storage": "",
+    "pregnancy_text": "8.1 Pregnancy Risk Summary Imatinib mesylate tablets can cause fetal harm when administered to a pregnant woman based on human and animal data. There are no clinical studies regarding use of imatinib "
+  },
+  "salbutamol": {
+    "openfda_generic_name": [
+      "ALBUTEROL SULFATE"
+    ],
+    "openfda_brand_name": [
+      "Albuterol Sulfate HFA"
+    ],
+    "openfda_manufacturer": [
+      "Advanced Rx of Tennessee, LLC"
+    ],
+    "openfda_product_ndc": [
+      "80425-0359"
+    ],
+    "openfda_route": [
+      "RESPIRATORY (INHALATION)"
+    ],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "2123076"
+    ],
+    "openfda_spl_id": [
+      "2a996b2b-b5da-65e7-e063-6394a90adeed"
+    ],
+    "warnings_summary": "",
+    "contraindications_text": "4 CONTRAINDICATIONS Albuterol Sulfate HFA is contraindicated in patients with a history of hypersensitivity to any of the ingredients [see Warnings and Precautions ( 5.6 ), Description ( 11 )] . Hypersensitivity to any ingredient. ( 4 )",
+    "drug_interactions_text": "7 DRUG INTERACTIONS Other short-acting sympathomimetic aerosol bronchodilators should not be used concomitantly with albuterol. If additional adrenergic drugs are to be administered by any route, they should be used with caution to avoid deleterious cardiovascular effects. Beta-blockers: Use with caution. May block bronchodilatory effects of beta-agonists and produce severe bronchospasm. ( 7.1 ) D",
+    "pregnancy_text": "8.1 Pregnancy Pregnancy Exposure Registry There is a pregnancy exposure registry that monitors pregnancy outcomes in women exposed to asthma medications during pregnancy. For more information, contact"
+  },
+  "contraceptive_pill_ethinyl_estradiol": {
+    "openfda_generic_name": [
+      "LEVONORGESTREL AND ETHINYL ESTRADIOL"
+    ],
+    "openfda_brand_name": [
+      "Iclevia"
+    ],
+    "openfda_manufacturer": [
+      "Aurobindo Pharma Limited"
+    ],
+    "openfda_product_ndc": [
+      "65862-865"
+    ],
+    "openfda_route": [],
+    "openfda_dosage_form": [],
+    "openfda_rxcui": [
+      "238019",
+      "748797",
+      "751901",
+      "2049264"
+    ],
+    "openfda_spl_id": [
+      "e44389c6-fdd2-408e-8bfe-324842c36d76"
+    ],
+    "warnings_summary": "",
+    "contraindications_text": "4 CONTRAINDICATIONS Iclevia is contraindicated in females who are known to have or develop the following conditions: A high risk of arterial or venous thrombotic diseases. Examples include females who are known to: Smoke, if over age 35 [see Boxed Warning and Warnings and Precautions (5.1) ]. Have c",
+    "drug_interactions_text": "7 DRUG INTERACTIONS The sections below provide information on substances for which data on drug interactions with COCs are available. There is little information available about the clinical effect of most drug interactions that may affect COCs. However, based on the known pharmacokinetic effects of these drugs, clinical strategies to minimize any potential adverse effect on contraceptive effectiv",
+    "pregnancy_text": "8.1 Pregnancy Risk Summary There is no use for contraception in pregnancy; therefore, Iclevia should be discontinued during pregnancy. Epidemiologic studies and meta-analyses have not found an increas"
+  }
+}
