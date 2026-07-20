@@ -1,166 +1,282 @@
 # AbsorbAI
 
-Clinical pharmacokinetic decision-support platform. Simulates personalised drug behaviour using a 10-layer PK/PD engine, Monte Carlo uncertainty quantification, and a pharmacological knowledge graph. For healthcare professionals only — all outputs are decision support, not medical advice.
+> **Clinical pharmacokinetic decision-support platform** — Personalised drug-interaction analysis, Monte Carlo uncertainty quantification, and evidence-traceable audit trails. For healthcare professionals only. All outputs are decision support, not medical advice.
+
+[![Python](https://img.shields.io/badge/Python-3.12-blue)](https://python.org)
+[![Django](https://img.shields.io/badge/Django-6.0-green)](https://djangoproject.com)
+[![License](https://img.shields.io/badge/License-MIT-yellow)](LICENSE)
+
+---
+
+## Screenshots
+
+<table>
+<tr>
+<td><img src="docs/screenshots/landing.png" alt="Landing page" width="380"/><br/><sub>Landing page — role selector</sub></td>
+<td><img src="docs/screenshots/login.png" alt="Doctor login" width="380"/><br/><sub>Doctor login with multi-method auth</sub></td>
+</tr>
+<tr>
+<td><img src="docs/screenshots/disclaimer.png" alt="Clinical disclaimer" width="380"/><br/><sub>Clinical decision-support disclaimer</sub></td>
+<td><img src="docs/screenshots/doctor-dashboard.png" alt="Doctor dashboard" width="380"/><br/><sub>Doctor dashboard — Risk Priority Queue</sub></td>
+</tr>
+<tr>
+<td><img src="docs/screenshots/ai-suggest.png" alt="AI Suggestions" width="380"/><br/><sub>AI Prescription Suggestions (evidence-augmented)</sub></td>
+<td><img src="docs/screenshots/interaction-matrix.png" alt="Interaction Matrix" width="380"/><br/><sub>Drug–Nutrient Interaction Matrix</sub></td>
+</tr>
+<tr>
+<td colspan="2"><img src="docs/screenshots/pk-impact.png" alt="PK Impact" width="760"/><br/><sub>Pharmacokinetic Impact Summary + Counterfactual Risk Contribution</sub></td>
+</tr>
+</table>
+
+---
+
+## What It Does
+
+AbsorbAI resolves **polypharmacy conflicts before they become pharmacokinetic failures**. Every analysis runs through a 10-layer clinical engine that:
+
+- **Personalises** PK parameters to the individual patient (age, weight, renal/hepatic function, CYP enzyme activity)
+- **Simulates** drug concentration over time with a two-compartment model + Monte Carlo uncertainty (100–500 samples)
+- **Detects** drug–drug and drug–food interactions from a merged knowledge graph (45 curated drugs, 170+ DDI/FDI)
+- **Optimises** dosing schedules via Pareto frontier (minimise peak risk, maximise trough efficacy)
+- **Stress-tests** regimens against missed doses, renal impairment, hepatic impairment, and elderly scenarios
+- **Explains** every recommendation with a traversable reasoning chain and immutable audit trail
+- **Updates** patient-specific Bayesian PK posteriors from real lab observations, persisted across server restarts
 
 ---
 
 ## Quick Start
 
 ```bash
-pip install django
-cd "Absorb AI"
+# 1. Clone and create virtualenv
+git clone https://github.com/jeyadev-jd/AbsorbAI.git
+cd AbsorbAI
+python -m venv venv
+venv\Scripts\activate        # Windows
+# source venv/bin/activate   # Linux/macOS
+
+# 2. Install dependencies
+pip install -r requirements.txt
+
+# 3. Configure environment
+cp .env.example .env         # edit SECRET_KEY and DEBUG=true
+
+# 4. Run migrations
+python manage.py migrate
+
+# 5. Seed demo users (optional)
+python manage.py shell -c "
+from core.models import AbsorbUser, Patient
+AbsorbUser.objects.create_user(username='doctor@demo.com', email='doctor@demo.com', password='doctor123', role='doctor', first_name='Demo', last_name='Doctor')
+u = AbsorbUser.objects.create_user(username='patient@demo.com', email='patient@demo.com', password='patient123', role='patient', first_name='Demo', last_name='Patient', patient_key='demo')
+Patient.objects.get_or_create(patient_key='demo', defaults={'name':'Demo Patient','age':35,'weight':70,'height':170,'sex':'M'})
+"
+
+# 6. Start server
 python manage.py runserver
-# visit http://127.0.0.1:8000
+# Visit http://127.0.0.1:8000
 ```
 
 **Demo credentials**
 
-| Role    | Email                | Password   |
-|---------|----------------------|------------|
-| Doctor  | doctor@demo.com      | doctor123  |
-| Patient | patient@demo.com     | patient123 |
+| Role    | Email                | Password    |
+|---------|----------------------|-------------|
+| Doctor  | doctor@demo.com      | doctor123   |
+| Patient | patient@demo.com     | patient123  |
+
+---
+
+## Features
+
+### Clinical Engine (10 Layers)
+
+| Layer | Module | What it does |
+|-------|--------|--------------|
+| 0 | `input_validator.py` | Data quality scoring, confidence-weighted Monte Carlo scaling |
+| 1 | `biological_twin.py` | Patient physiological personalisation (CrCl, Child-Pugh, CYP activity) |
+| 2 | `pk_pd_engine.py` | Two-compartment PK + Bliss/Loewe multi-drug interaction |
+| 3 | `knowledge_graph.py` | NetworkX causal pharmacology graph — drugs, enzymes, transporters |
+| 4 | `uncertainty_engine.py` | Monte Carlo credible intervals, Bayesian posterior updating |
+| 5 | `optimizer.py` | Pareto-optimal dosing schedule optimisation |
+| 6 | `adversarial_engine.py` | Missed-dose, double-dose, renal/hepatic stress tests |
+| 7 | `explainability.py` | Step-by-step reasoning chain + immutable compliance audit log |
+| 8 | `gemma_engine.py` | Evidence-based prescription suggestions (13 condition families) |
+| 9 | `orchestrator.py` | Bayesian PK update from lab observations, DB-persisted posteriors |
+
+### Security & Auth
+
+- **JWT authentication** — HttpOnly cookie, role-based access control (`doctor` / `patient`)
+- **Email-format validation** on signup + login — regex-enforced server-side
+- **Rate limiting** — per-IP sliding window (60 req/60 s, configurable)
+- **CORS** — django-cors-headers with origin allowlist
+- **Input validation** — negative doses rejected (400), bad patient profile rejected (400), all boundaries checked
+- **3-layer disclaimer enforcement** — engine level + API level + UI modal gate
+
+### Visualisations (engine-viz.js)
+
+- Concentration-vs-time curve with therapeutic window shading
+- Monte Carlo AUC/Cmax histogram (5th/50th/95th percentiles)
+- Pareto frontier scatter — click a point to change the schedule
+- NetworkX knowledge graph rendered as force-directed graph
+- Adversarial stress-test grid with fragility badge
+- Layer-by-layer progress indicator during analysis
+- Step-by-step reasoning chain timeline
+- Counterfactual risk contribution bars
+
+### Doctor Dashboard
+
+- **Risk Priority Queue** — patients sorted by interaction severity
+- **Prescribe** — drug search with auto-populated instructions, DDI check on add
+- **AI Suggest** — evidence-augmented prescription suggestions by diagnosis
+- **Interaction Matrix** — drug–nutrient DDI/FDI table sorted by severity, click for full evidence citation
+- **PK Impact** — pharmacokinetic summary + counterfactual risk contribution
+- **Override** — clinical override with mandatory justification
+- **Audit Trail** — searchable compliance timeline, full engine trace per recommendation
+
+### Patient Dashboard
+
+- Today's medication schedule with dietary separation timings
+- Risk summary widget
+- Medication list with food effect warnings
+- Dietary profile editor
+- Dose logging with adherence score
+
+### Multilingual & Accessibility
+
+- Language selector: English, Hindi, Tamil, Telugu, Bengali, Marathi, Kannada
+- Accessibility mode: Standard, Voice Mode, Large Font
+
+---
+
+## Architecture
+
+```
+Patient Profile + Prescriptions
+        │
+        ▼
+[Layer 0] Input Validator          ← data_confidence score, mc_multiplier
+        │
+        ▼
+[Layer 1] Biological Twin          ← personalise PK params per patient physiology
+        │
+        ▼
+[Layer 2] PK/PD Engine             ← 2-compartment ODE, Monte Carlo, DDI
+        │
+        ▼
+[Layer 3] Knowledge Graph          ← NetworkX causal graph, merged DDI/FDI
+        │
+        ▼
+[Layer 4] Uncertainty Engine       ← credible intervals, Bayesian update
+        │
+        ▼
+[Layer 5] Optimizer                ← Pareto-optimal schedules (up to 10)
+        │
+        ▼
+[Layer 6] Adversarial Engine       ← stress scenarios, counterfactuals
+        │
+        ▼
+[Layer 7] Explainability           ← reasoning chain, audit log
+        │
+        ▼
+[Layer 8] Gemma Suggestions        ← evidence-based Rx (13 condition families)
+        │
+        ▼
+[Layer 9] Bayesian Update          ← real lab obs → updated PK priors (DB-persisted)
+        │
+        ▼
+Result JSON  { decision_support_only: true, disclaimer, pk_results,
+               safety_violations, pareto_solutions, audit_entry_id }
+```
 
 ---
 
 ## Project Structure
 
 ```
-Absorb AI/
-├── absorbai_project/          # Django project config
-│   ├── settings.py
-│   ├── urls.py
-│   └── wsgi.py
+AbsorbAI/
+├── absorbai_project/
+│   ├── settings.py          # CORS, rate limiting, structured logging, startup checks
+│   └── urls.py
 │
 ├── core/
-│   ├── views.py               # All API endpoints (24 functions)
-│   ├── urls.py                # URL routing (11 API routes)
+│   ├── views.py             # 24 API endpoints, JWT auth, role-based access
+│   ├── middleware.py        # RateLimitMiddleware — per-IP sliding window
+│   ├── models.py            # AbsorbUser, Patient, EngineRun, AuditEntry, PKPrior
+│   ├── tests.py             # 61 tests — auth, JWT, validation, engine, audit, roles
+│   ├── urls.py              # 12 API routes + signup
+│   │
 │   ├── templates/
-│   │   └── index.html         # Single-page app (~2300 lines, vanilla JS)
+│   │   └── index.html       # Single-page app (~2400 lines, vanilla JS)
+│   │
+│   ├── static/
+│   │   ├── js/engine-viz.js # 8 engine visualisation functions
+│   │   └── css/engine-viz.css
 │   │
 │   ├── drugdb/
-│   │   ├── drug_data.py       # Hand-curated: ~45 drugs, 57 DDI, 25 FDI
-│   │   └── ddi_database.py    # Auto-generated from OpenFDA: 113 DDI, 20 FDI
+│   │   ├── drug_data.py     # ~45 drugs, hand-curated with clinical metadata
+│   │   └── ddi_database.py  # 113 DDI + 20 FDI from OpenFDA
 │   │
-│   └── engine/                # 10-layer clinical engine
-│       ├── orchestrator.py    # Entry point — coordinates all layers
-│       ├── input_validator.py # Layer 0 — data quality & confidence scoring
-│       ├── biological_twin.py # Layer 1 — patient physiology personalisation
-│       ├── pk_pd_engine.py    # Layer 2 — two-compartment PK + PD simulation
-│       ├── knowledge_graph.py # Layer 3 — pharmacological causal graph (NetworkX)
-│       ├── uncertainty_engine.py  # Layer 4 — Monte Carlo uncertainty
-│       ├── optimizer.py       # Layer 5 — Pareto-optimal schedule optimisation
-│       ├── adversarial_engine.py  # Layer 6 — stress testing & counterfactuals
-│       ├── explainability.py  # Layer 7 — reasoning chains & audit log
-│       └── gemma_engine.py    # Layer 8 — evidence-based prescription suggestions
+│   └── engine/
+│       ├── orchestrator.py       # Layer coordinator, Bayesian persist/restore
+│       ├── input_validator.py    # Layer 0
+│       ├── biological_twin.py    # Layer 1
+│       ├── pk_pd_engine.py       # Layer 2
+│       ├── knowledge_graph.py    # Layer 3
+│       ├── uncertainty_engine.py # Layer 4
+│       ├── optimizer.py          # Layer 5
+│       ├── adversarial_engine.py # Layer 6
+│       ├── explainability.py     # Layer 7
+│       └── gemma_engine.py       # Layer 8
 │
-├── build_ddi_database.py      # Pipeline: OpenFDA → ddi_database.py
+├── requirements.txt
+├── build_ddi_database.py    # OpenFDA → ddi_database.py pipeline
 └── manage.py
-```
-
----
-
-## Architecture — 10-Layer Engine
-
-Data flows through layers sequentially inside `orchestrator.analyze_patient_regimen()`.
-
-```
-Patient Profile + Prescriptions
-        │
-        ▼
-[Layer 0] Input Validator          input_validator.py
-  • Clamps physiological values to plausible ranges
-  • Computes data_confidence score (0–1)
-  • Scales Monte Carlo sample count via mc_multiplier
-  • Blocks simulation if confidence < 0.15 or mandatory fields missing
-        │
-        ▼
-[Layer 1] Biological Twin          biological_twin.py
-  • Personalises PK parameters from age, weight, sex, CrCl, Child-Pugh
-  • CYP enzyme activity adjustments (3A4, 2C9, 2D6, 2C19, 1A2, 2E1)
-  • Renal (Cockcroft-Gault) + hepatic function scaling
-        │
-        ▼
-[Layer 2] PK/PD Engine             pk_pd_engine.py
-  • Two-compartment model: central + peripheral volumes
-  • Monte Carlo: 100 samples real-time, 500 background thread
-  • Outputs: AUC, Cmax, Tmax, concentration timeline, EC50 comparison
-  • Bliss independence + Loewe additivity for multi-drug combinations
-        │
-        ▼
-[Layer 3] Knowledge Graph          knowledge_graph.py
-  • NetworkX DiGraph of causal pharmacological relationships
-  • Nodes: drugs, enzymes, transporters, dietary factors
-  • Edges: inhibition, induction, absorption, synergy, antagonism
-  • Merges hand-coded + auto-generated DDI/FDI at load time
-        │
-        ▼
-[Layer 4] Uncertainty Engine       uncertainty_engine.py
-  • PK std deviations widened proportional to data confidence
-  • Credible intervals on AUC/Cmax
-        │
-        ▼
-[Layer 5] Optimizer                optimizer.py
-  • Pareto-optimal dosing schedules (minimise peak, maximise trough)
-  • Returns up to 10 candidate regimens with trade-off scores
-        │
-        ▼
-[Layer 6] Adversarial Engine       adversarial_engine.py
-  • Stress tests: renal impairment, hepatic impairment, elderly
-  • Counterfactual "what if" scenarios
-        │
-        ▼
-[Layer 7] Explainability           explainability.py
-  • Human-readable reasoning chains per interaction edge
-  • Immutable GLOBAL_AUDIT_LOG keyed by patient_id
-  • Narrow-TI monitoring flags, safety violation detection
-        │
-        ▼
-[Layer 8] Gemma / Suggestions      gemma_engine.py
-  • Evidence-based prescription suggestions (13 condition families)
-  • Grounded in local drug DB + KG — no hallucination
-  • Optional Gemma 1.5B via Ollama for NL enhancement
-        │
-        ▼
-[Layer 9] Bayesian Update          orchestrator.update_patient_observation()
-  • Updates PK priors from real lab values (INR, drug levels)
-  • Posterior stored in-memory per (patient_id, drug)
-        │
-        ▼
-Result JSON: decision_support_only, disclaimer, data_quality,
-             pk_results, safety_violations, pareto_solutions, audit_entry_id
 ```
 
 ---
 
 ## API Reference
 
-Base URL: `http://localhost:8000`
-
-All engine responses include:
-```json
-{ "decision_support_only": true, "disclaimer": "FOR DECISION SUPPORT ONLY..." }
-```
+All responses include `{ "decision_support_only": true, "disclaimer": "..." }`.  
+All engine endpoints require `Authorization: Bearer <token>` via `absorb_jwt` cookie.
 
 ### Auth
 
-| Method | Path | Description |
-|--------|------|-------------|
-| POST | `/api/login/` | JWT login → sets `absorb_jwt` cookie |
-| POST | `/api/logout/` | Clears cookie |
-
-```json
-// POST /api/login/ body
-{ "email": "doctor@demo.com", "password": "doctor123", "role": "doctor" }
-```
+| Method | Path | Roles | Description |
+|--------|------|-------|-------------|
+| POST | `/api/login/` | — | JWT login → `absorb_jwt` HttpOnly cookie |
+| POST | `/api/signup/` | — | Register new account (patient or doctor) |
+| POST | `/api/logout/` | — | Clear cookie |
 
 ### Engine
 
-| Method | Path | Description |
-|--------|------|-------------|
-| POST | `/api/engine/analyze/` | Full 10-layer PK/PD regimen analysis |
-| POST | `/api/engine/observation/` | Bayesian update from lab observation |
-| POST | `/api/engine/suggestions/` | Evidence-based prescription suggestions |
-| GET  | `/api/engine/audit/` | `?patient_id=` — last 20 audit entries |
+| Method | Path | Roles | Description |
+|--------|------|-------|-------------|
+| POST | `/api/engine/analyze/` | doctor | Full 10-layer PK/PD analysis |
+| POST | `/api/engine/observation/` | doctor | Bayesian update from lab value |
+| POST | `/api/engine/suggestions/` | doctor | Evidence-based prescription suggestions |
+| GET  | `/api/engine/audit/` | doctor | `?patient_id=` — audit trail (last 50) |
+| GET  | `/api/engine/run/<id>/` | doctor | Engine run status |
+
+### Patient
+
+| Method | Path | Roles | Description |
+|--------|------|-------|-------------|
+| GET  | `/api/patient/profile/` | patient, doctor | `?patient_key=` — biological twin profile |
+| POST | `/api/patient/profile/update/` | doctor | Update physiological parameters |
+
+### Drugs
+
+| Method | Path | Roles | Description |
+|--------|------|-------|-------------|
+| GET | `/api/drugs/search/` | patient, doctor | `?q=&detail=true` — autocomplete + clinical metadata |
+| GET | `/api/drugs/interactions/` | patient, doctor | `?drug=` — merged DDI + FDI |
+
+### Adherence
+
+| Method | Path | Roles | Description |
+|--------|------|-------|-------------|
+| POST | `/api/adherence/log/` | patient, doctor | Log dose event (taken/skipped/late) |
+| GET  | `/api/adherence/history/` | patient, doctor | `?patient_key=` — adherence score + breakdown |
 
 **Analyze request body:**
 ```json
@@ -179,190 +295,147 @@ All engine responses include:
 }
 ```
 
-**Observation request body:**
-```json
-{
-  "patient_id": "ananya",
-  "drug_name": "warfarin",
-  "observation_type": "concentration",
-  "observed_value": 2.5
-}
-```
-
-### Patient
-
-| Method | Path | Description |
-|--------|------|-------------|
-| GET  | `/api/patient/profile/` | `?patient_key=` — biological twin profile |
-| POST | `/api/patient/profile/update/` | Update physiological parameters |
-
-### Drugs
-
-| Method | Path | Description |
-|--------|------|-------------|
-| GET | `/api/drugs/search/` | `?q=&detail=true` — autocomplete + full clinical metadata |
-| GET | `/api/drugs/interactions/` | `?drug=` — merged DDI + FDI |
-
-**Interactions response keys:** `ddi[]` · `fdi[]`  
-Each item has: `with`, `severity` (high/moderate/low), `mechanism`, `management`
-
-### Adherence
-
-| Method | Path | Description |
-|--------|------|-------------|
-| POST | `/api/adherence/log/` | Log dose event |
-| GET  | `/api/adherence/history/` | `?patient_key=` — score + breakdown |
-
-```json
-// POST /api/adherence/log/ body
-{
-  "patient_key": "ananya",
-  "rx_id": "rx_warfarin_08:00",
-  "drug": "warfarin",
-  "scheduled_time": "08:00",
-  "status": "taken",
-  "taken_at": "2026-05-31T08:05:00Z"
-}
-// status: "taken" | "skipped" | "late"
-```
-
 ---
 
 ## Drug Database
 
-### Hand-curated (`core/drugdb/drug_data.py`)
+**Hand-curated (`core/drugdb/drug_data.py`)** — ~45 drugs across 12 classes:  
+anticoagulants · antihypertensives · antidiabetics · thyroid · antiepileptics · antibiotics · statins · antidepressants · antiarrhythmics · immunosuppressants · cardiac glycosides · oncology
 
-~45 drugs. Each entry contains:
+Each entry: mechanism, food effects, monitoring requirements, therapeutic range, contraindications, primary CYP enzyme, narrow-TI flag.
 
-```python
-"warfarin": {
-    "mechanism": "Inhibits VKORC1...",
-    "food_effect": "Vitamin K antagonises effect...",
-    "monitoring": ["INR weekly until stable", "Signs of bleeding"],
-    "therapeutic_range": "INR 2.0-3.0",
-    "contraindications": ["active bleeding", "pregnancy"],
-    "primary_enzyme": "CYP2C9",
-    "narrow_ti": True,
-}
-```
+**Auto-generated (`core/drugdb/ddi_database.py`)** — built by `build_ddi_database.py`:
 
-Drug classes: anticoagulants, antihypertensives, antidiabetics, thyroid, antiepileptics, antibiotics, statins, antidepressants, antiarrhythmics, immunosuppressants, cardiac glycosides, oncology
-
-### Auto-generated (`core/drugdb/ddi_database.py`)
-
-Built by `build_ddi_database.py`:
-
-| Source | Method | Pairs |
-|--------|--------|-------|
-| OpenFDA Drug Labels | NLP regex on `drug_interactions_text` | 102 |
-| OpenFDA FAERS | Co-occurrence on 23 high-risk pairs | 11 |
-| RxNorm (NLM) | Structured RxCUI lookup | 0 (DNS blocked in dev) |
-
-Total: **113 DDI + 20 FDI** — deduplicated; hand-coded takes priority on conflict.
-
-**Rebuild:**
-```bash
-python build_ddi_database.py
-# requires openfda_labels.json in project root
-# writes core/drugdb/ddi_database.py
-```
+| Source | Pairs |
+|--------|-------|
+| OpenFDA Drug Labels (NLP regex) | 102 DDI |
+| OpenFDA FAERS (co-occurrence) | 11 DDI |
+| Curated FDI | 20 FDI |
+| **Total** | **113 DDI + 20 FDI** |
 
 ---
 
-## AI Suggestions
+## AI Suggestions (Layer 8)
 
-`gemma_engine.generate_doctor_prescription_suggestions()` maps free-text diagnosis to evidence-based drugs via keyword alias matching across 13 condition families:
+Evidence-based keyword alias matching across 13 condition families:
 
-| Input keywords | Suggested drugs |
-|----------------|-----------------|
-| hypertension, htn, blood pressure | Amlodipine, Lisinopril |
-| diabetes, t2dm, hyperglycemia | Metformin, Empagliflozin |
-| afib, atrial fibrillation, warfarin | Warfarin, Apixaban |
-| dry cough, ace inhibitor cough | Amlodipine, Losartan |
-| arrhythmia, palpitations | Bisoprolol, Amiodarone |
-| depression, mdd | Sertraline |
-| high cholesterol, statin, ldl | Atorvastatin |
-| gerd, acid reflux, heartburn | Omeprazole |
+| Diagnosis keywords | Suggested drugs |
+|--------------------|-----------------|
+| hypertension / htn / blood pressure | Amlodipine, Lisinopril |
+| diabetes / t2dm / hyperglycemia | Metformin, Empagliflozin |
+| afib / atrial fibrillation | Warfarin, Apixaban |
+| dry cough / ace inhibitor cough | Amlodipine, Losartan |
+| arrhythmia / palpitations | Bisoprolol, Amiodarone |
+| depression / mdd | Sertraline |
+| high cholesterol / statin / ldl | Atorvastatin |
+| gerd / acid reflux / heartburn | Omeprazole |
 | nausea | Ondansetron, Metoclopramide |
 | osteoporosis | Alendronate |
-| anemia, iron deficiency | Ferrous Sulfate |
+| anemia / iron deficiency | Ferrous Sulfate |
 | migraine | Sumatriptan |
 | asthma | Salbutamol |
 | copd | Tiotropium |
 
-Each suggestion: evidence-based dose/frequency, DDI check against current regimen, `is_consult_fallback` flag (blocks Prescribe button when no guideline match).
+Optional Gemma 1.5B via Ollama for natural-language enhancement — falls back to deterministic templates (clinical accuracy identical).
+
+```bash
+ollama pull gemma3:1b && ollama serve
+```
 
 ---
 
 ## Safety Architecture
 
-### Input validation confidence score
+### 3-layer disclaimer enforcement
+1. **Engine** — every `analyze_patient_regimen()` result: `decision_support_only: true` + full text
+2. **API** — `_dsr()` helper injects disclaimer into every JSON response
+3. **UI** — session-gated modal + checkbox required before dashboard access
 
+### Confidence-weighted uncertainty
 ```
-confidence = (mandatory_present / 4) × 0.75
-           + (optional_present / 8) × 0.25
-           - suspicion_penalties
-
-mc_multiplier = 1.0 + (1.0 - confidence) × 2.0
-unc_scale     = 1.0 + (1.0 - confidence) × 1.5
+confidence = (mandatory_present / 4) × 0.75 + (optional_present / 8) × 0.25 − penalties
+mc_multiplier = 1.0 + (1.0 − confidence) × 2.0   # more samples when data thin
+unc_scale     = 1.0 + (1.0 − confidence) × 1.5   # wider PK distributions
 ```
-
-Low confidence → more Monte Carlo samples + wider PK distributions (honest uncertainty, not false precision).
-
-### Disclaimer enforcement — 3 layers
-
-1. **Engine layer** — every `analyze_patient_regimen()` result contains `decision_support_only: true` + full disclaimer text
-2. **API layer** — `_dsr()` helper injects disclaimer into every JSON response
-3. **UI layer** — session-gated modal before dashboard; `sessionStorage` gate; checkbox required
 
 ### Result cache
-
-- In-process `dict`, SHA256 key from `(patient_id, prescriptions, dietary_factors)`, 10-min TTL
-- Evicts oldest entries when >200 keys
-- Cache invalidated on adherence log event (state changed)
+SHA256 key from `(patient_id, prescriptions, dietary_factors)` · 10-min TTL · 200-key LRU · invalidated on adherence log event.
 
 ---
 
-## Frontend
-
-Single-page app, vanilla JS, no framework. All pages in `core/templates/index.html`.
-
-**Patient panels:** Overview widgets · Medication schedule · Medication list · Risk summary · Dietary profile · Reminders
-
-**Doctor panels:** New prescription · AI suggestions · Interaction matrix · Audit log · PK analysis
-
-### Key JS functions
-
-| Function | File location (approx. line) | Purpose |
-|----------|------------------------------|---------|
-| `runEngineAnalysis()` | ~1680 | Calls `/api/engine/analyze/`, renders results |
-| `buildPatientTimeline()` | ~1610 | Medication + dynamic meal rows in schedule |
-| `buildDynamicMealRows()` | ~1579 | Meal rows from dietary profile + drug food effects |
-| `autoFillRxFields()` | ~2026 | Fills Instructions + Clinical Notes from drug API |
-| `loadDrugInteractions()` | ~2003 | Fetches DDI/FDI, opens severity-coloured panel |
-| `logDose()` | ~1650 | POSTs adherence event, updates score widget |
-| `renderAISuggestions()` | ~2160 | Suggestion cards; blocks Prescribe on fallback |
-| `showDisclaimerIfNeeded()` | ~1210 | Session-gated disclaimer modal |
-
----
-
-## Local LLM (Optional)
-
-Gemma 1.5B via Ollama enhances patient explanations. Falls back to deterministic templates — clinical accuracy identical either way.
+## Testing
 
 ```bash
-ollama pull gemma3:1b
-ollama serve
-# engine auto-detects at http://localhost:11434
+python manage.py test core --verbosity=2
 ```
+
+**61 tests** covering:
+- Auth: login success/failure, missing fields, empty email, logout
+- JWT protection: all 12 endpoints reject unauthenticated requests (401)
+- Validation: negative dose → 400, bad profile type → 400, unknown patient → 404
+- Engine: single drug analysis, audit entry creation, engine run
+- Drug search: autocomplete, detail, interactions
+- Suggestions: hypertension, diabetes, unknown fallback, aliases (htn, high blood pressure)
+- Adherence: log, audit creation, history
+- Audit: responds correctly, persists after analysis
+- Role protection: patient cannot access doctor endpoints
+
+---
+
+## Configuration
+
+| Env var | Default | Description |
+|---------|---------|-------------|
+| `SECRET_KEY` | — | Required in production |
+| `DEBUG` | `false` | Enable Django debug mode |
+| `ALLOWED_HOSTS` | `localhost,127.0.0.1` | Comma-separated |
+| `DATABASE_URL` | — | Postgres URL (falls back to SQLite) |
+| `REDIS_URL` | `redis://localhost:6379/0` | Cache + Celery broker |
+| `CORS_ALLOWED_ORIGINS` | `http://localhost:8000,...` | Comma-separated |
+| `RATE_LIMIT_REQUESTS` | `60` | Requests per window |
+| `RATE_LIMIT_WINDOW` | `60` | Window in seconds |
+| `ENGINE_VERSION` | `1.0.0` | Stamped on every audit entry |
+
+---
+
+## Roadmap
+
+- [ ] Email / phone verification on signup
+- [ ] HTTPS + production WSGI (gunicorn + nginx)
+- [ ] EHR/FHIR integration (HL7 FHIR R4 patient resource)
+- [ ] Paediatric PK population parameters
+- [ ] PDF export of audit trail and PK report
+- [ ] Bulk patient import (CSV)
+- [ ] Real-time dose alerts (WebSocket)
+- [ ] HIPAA field-level encryption (PII at rest)
+- [ ] GDPR data deletion and portability endpoints
+- [ ] Continuous sensor integration — Layer 9 generic observation schema
+
+---
+
+## Contributors
+
+| Name | Email | Role |
+|------|-------|------|
+| Jeyadev | jeyadev2006@gmail.com | Lead developer |
+| Vimochini | vvimochini@gmail.com | Contributor |
+
+Contributions welcome — open an issue or PR.
 
 ---
 
 ## Known Limitations
 
-- **In-memory only** — Bayesian posteriors, adherence logs, and cache reset on server restart. No persistent DB for engine state.
-- **Demo auth** — JWT secret is hardcoded in `views.py`. Not production-safe.
-- **RxNorm DNS** — Structured DDI lookup fails in some network environments; OpenFDA fallback used.
-- **Adult PK params** — Paediatric use is flagged and uncertainty widened but population params are adult-derived.
-- **No EHR integration** — Patient profiles are demo data; no HL7/FHIR connector.
-- **No HTTPS** — Dev server only. Production requires WSGI + TLS.
+- **In-memory rate limiter** — resets on server restart; use Redis in production
+- **RxNorm DNS** — structured DDI lookup fails in some networks; OpenFDA fallback used
+- **Adult PK params** — paediatric use flagged + uncertainty widened, but population params are adult-derived
+- **No HTTPS** — dev server only; production requires WSGI + TLS
+- **No EHR connector** — patient profiles are manually entered
+
+---
+
+## License
+
+MIT — see [LICENSE](LICENSE).
+
+> AbsorbAI is not approved as a medical device. Do not use as a substitute for clinical judgment. A licensed healthcare professional must review all recommendations before any clinical action is taken.

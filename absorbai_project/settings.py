@@ -10,14 +10,23 @@ try:
 except ImportError:
     pass
 
-SECRET_KEY = os.environ.get(
-    'SECRET_KEY',
-    'django-insecure-+o(blfq1^z(_59gb33y%otpy#*y5&g=!+h6!!v_s9w#^ri&ov^'
-)
+SECRET_KEY = os.environ.get('SECRET_KEY', '')
+if not SECRET_KEY:
+    if os.environ.get('DEBUG', 'false').lower() == 'true':
+        SECRET_KEY = 'django-insecure-dev-only-key-do-not-use-in-production'
+    else:
+        raise RuntimeError('SECRET_KEY environment variable is required in production')
 
-DEBUG = os.environ.get('DEBUG', 'true').lower() == 'true'
+DEBUG = os.environ.get('DEBUG', 'false').lower() == 'true'
 
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '*').split(',')
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
+
+_cors_available = False
+try:
+    import corsheaders  # noqa: F401
+    _cors_available = True
+except ImportError:
+    pass
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -27,17 +36,23 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'core',
-]
+] + (['corsheaders'] if _cors_available else [])
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+] + (['corsheaders.middleware.CorsMiddleware'] if _cors_available else []) + [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'core.middleware.RateLimitMiddleware',
 ]
+
+# ── CORS ─────────────────────────────────────────────────────────────────────
+CORS_ALLOWED_ORIGINS = os.environ.get('CORS_ALLOWED_ORIGINS', 'http://localhost:8000,http://127.0.0.1:8000').split(',')
+CORS_ALLOW_CREDENTIALS = True
 
 ROOT_URLCONF = 'absorbai_project.urls'
 
@@ -145,3 +160,71 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# ── Logging ──────────────────────────────────────────────────────────────────
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '{asctime} {levelname} {name} {message}',
+            'style': '{',
+        },
+    },
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose',
+        },
+        'file': {
+            'class': 'logging.FileHandler',
+            'filename': BASE_DIR / 'absorbai.log',
+            'formatter': 'verbose',
+        },
+    },
+    'root': {
+        'handlers': ['console', 'file'],
+        'level': 'INFO',
+    },
+    'loggers': {
+        'core': {
+            'handlers': ['console', 'file'],
+            'level': 'DEBUG' if DEBUG else 'INFO',
+            'propagate': False,
+        },
+        'django': {
+            'handlers': ['console'],
+            'level': 'WARNING',
+            'propagate': False,
+        },
+    },
+}
+
+# ── Startup checks ───────────────────────────────────────────────────────────
+import logging as _logging
+_boot_logger = _logging.getLogger('absorbai.boot')
+
+if not _redis_available:
+    _boot_logger.warning('django-redis not installed — using in-memory cache (not suitable for production)')
+
+if not _cors_available:
+    _boot_logger.warning('django-cors-headers not installed — CORS headers will not be set')
+
+try:
+    import celery  # noqa: F401
+except ImportError:
+    _boot_logger.warning('celery not installed — background tasks will use threading fallback')
+
+try:
+    import scipy  # noqa: F401
+except ImportError:
+    _boot_logger.error('scipy not installed — PK/PD engine will not function')
+
+try:
+    import networkx  # noqa: F401
+except ImportError:
+    _boot_logger.error('networkx not installed — knowledge graph will not function')
+
+# ── Rate limiting (simple in-memory, per-IP) ─────────────────────────────────
+RATE_LIMIT_REQUESTS = int(os.environ.get('RATE_LIMIT_REQUESTS', '60'))
+RATE_LIMIT_WINDOW = int(os.environ.get('RATE_LIMIT_WINDOW', '60'))

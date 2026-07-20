@@ -17,6 +17,13 @@ db.sqlite3
 # Node
 node_modules/
 
+# Logs
+*.log
+absorbai.log
+
+# Claude Code session files
+.claude/
+
 # OS Files
 .DS_Store
 Thumbs.db

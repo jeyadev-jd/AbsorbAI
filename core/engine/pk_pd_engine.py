@@ -216,10 +216,11 @@ def simulate_pk_pd(
                 [t_start_seg, t_end_seg],
                 current_y.tolist(),
                 t_eval=t_seg,
-                method='RK45',
-                rtol=1e-4,
-                atol=1e-6,
+                method='LSODA',
+                rtol=1e-3,
+                atol=1e-5,
                 dense_output=False,
+                max_step=2.0,
             )
             if sol.success and len(sol.t) > 1:
                 all_t.extend(sol.t[1:].tolist())

@@ -307,6 +307,12 @@ class BayesianParameterUpdater:
                 'unit': unit,
             })
 
+    def restore_posteriors(self, data: dict):
+        """Restore posteriors from a saved dict (e.g. from PKPrior.posterior_json)."""
+        for param, values in data.items():
+            if param in self.posteriors and isinstance(values, (list, tuple)) and len(values) == 2:
+                self.posteriors[param] = (float(values[0]), float(values[1]))
+
     def get_updated_pk(self) -> PersonalizedPKParams:
         """Return new PK params with Bayesian-updated estimates"""
         updated = PersonalizedPKParams(

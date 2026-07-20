@@ -5,6 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AbsorbAI</title>
+<link rel="stylesheet" href="{% static 'css/engine-viz.css' %}">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Outfit:wght@200;300;400;500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -810,6 +811,10 @@ body{background:var(--deep);color:var(--white);font-family:'Outfit',sans-serif;f
           <p style="font-size:0.8rem;color:var(--muted);margin-bottom:0.7rem;line-height:1.6">Drugs whose schedule is sensitive to small timing or meal-pattern deviations. Strict adherence recommended.</p>
           <div class="fragility-list" id="pt-fragility-list"></div>
         </div>
+        <div class="content-card" style="margin-top:1.5rem">
+          <div class="card-title">Adversarial Stress Test <span class="card-badge" style="background:rgba(200,169,110,0.15);color:var(--gold-light);border-color:rgba(200,169,110,0.3)">Robustness</span></div>
+          <div id="viz-stress"></div>
+        </div>
       </div>
       <div class="dash-panel" id="p-meds">
         <div class="greeting"><h2>My <em>Medications</em></h2><p>Prescribed by your doctor — shown in real time. Contact your doctor to make changes.</p></div>
@@ -894,6 +899,7 @@ body{background:var(--deep);color:var(--white);font-family:'Outfit',sans-serif;f
     <button class="doc-tab" onclick="showDocPanel('matrix',this)"><span class="icon icon-15"><svg viewBox="0 0 24 24" fill="none"><path d="M9 3v6l-5 9a3 3 0 0 0 2.6 4.5h10.8A3 3 0 0 0 20 18L15 9V3" stroke="currentColor" stroke-linejoin="round"/><path d="M8 3h8" stroke="currentColor" stroke-linecap="round"/></svg></span>Interaction Matrix</button>
     <button class="doc-tab" onclick="showDocPanel('pk',this)"><span class="icon icon-15"><svg viewBox="0 0 24 24" fill="none"><path d="M3 3v18h18" stroke="currentColor" stroke-linecap="round"/><path d="M7 16l4-5 3 3 5-7" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></span>PK Impact</button>
     <button class="doc-tab" onclick="showDocPanel('override',this)"><span class="icon icon-15"><svg viewBox="0 0 24 24" fill="none"><path d="M4 20l4-1L19 8l-3-3L5 16l-1 4z" stroke="currentColor" stroke-linejoin="round"/></svg></span>Override</button>
+    <button class="doc-tab" onclick="showDocPanel('audit',this)"><span class="icon icon-15"><svg viewBox="0 0 24 24" fill="none"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2" stroke="currentColor" stroke-linecap="round"/><rect x="9" y="2" width="6" height="4" rx="1" stroke="currentColor"/><path d="M9 12h6M9 16h4" stroke="currentColor" stroke-linecap="round"/></svg></span>Audit Trail</button>
     <button class="doc-tab" onclick="showDocPanel('patients',this)"><span class="icon icon-15"><svg viewBox="0 0 24 24" fill="none"><circle cx="9" cy="8" r="3.5" stroke="currentColor"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="currentColor" stroke-linecap="round"/><circle cx="17" cy="9" r="2.5" stroke="currentColor"/><path d="M15 14h2c2.2 0 4 1.8 4 4" stroke="currentColor" stroke-linecap="round"/></svg></span>Patients</button>
   </div>
   <div class="doc-content">
@@ -1034,9 +1040,14 @@ body{background:var(--deep);color:var(--white);font-family:'Outfit',sans-serif;f
         </div>
         <p style="color:var(--muted);font-size:0.7rem;margin-top:1rem;font-family:'DM Mono',monospace">Click any row for full evidence citation &middot; Sorted by severity</p>
       </div>
+      <div class="content-card" id="viz-kg-card" style="display:none">
+        <div class="card-title">Causal Knowledge Graph <span class="card-badge" style="background:rgba(13,115,119,0.15);color:var(--teal-light);border-color:rgba(13,115,119,0.3)">Interactive</span></div>
+        <div id="viz-kg"></div>
+      </div>
     </div>
     <div class="doc-panel" id="d-pk">
       <div class="greeting"><h2>Pharmacokinetic<br><em>Impact Summary</em></h2><p>Expected bioavailability changes for current interactions</p></div>
+      <div id="pk-viz-area"></div>
       <div class="pk-grid" id="pk-grid">
         <div style="grid-column:1/-1;text-align:center;padding:2.5rem;color:var(--muted);font-size:0.84rem">No prescriptions yet. PK summaries will appear once medications are prescribed.</div>
       </div>
@@ -1047,6 +1058,11 @@ body{background:var(--deep);color:var(--white);font-family:'Outfit',sans-serif;f
           <div style="text-align:center;padding:1.2rem;color:var(--muted);font-size:0.82rem">Counterfactual risk data will appear once the engine completes analysis.</div>
         </div>
       </div>
+      <div class="content-card" style="margin-top:1.5rem">
+        <div class="card-title">Pareto-Optimal Schedules <span class="card-badge">Optimizer</span></div>
+        <div id="viz-pareto"></div>
+      </div>
+      <div id="layer-progress"></div>
       <div class="content-card" style="margin-top:1.5rem">
         <div class="card-title">Update Lab Values &mdash; <span id="pk-patient-name">No patient selected</span></div>
         <div class="input-form">
@@ -1075,6 +1091,17 @@ body{background:var(--deep);color:var(--white);font-family:'Outfit',sans-serif;f
         <div id="audit-log" style="font-family:'DM Mono',monospace;font-size:0.72rem;color:var(--muted)">
           <div style="text-align:center;padding:1.5rem;color:var(--muted);font-size:0.82rem">No overrides recorded yet.</div>
         </div>
+      </div>
+    </div>
+    <div class="doc-panel" id="d-audit">
+      <div class="greeting"><h2>Audit <em>Trail</em></h2><p>Immutable compliance log — every recommendation, every input, every reasoning chain</p></div>
+      <div class="content-card">
+        <div class="card-title">Audit History <span class="card-badge">Layer 10</span></div>
+        <div style="display:flex;gap:1rem;align-items:flex-end;flex-wrap:wrap;margin-bottom:1rem">
+          <div class="input-group" style="flex:1;min-width:180px"><label>Patient ID</label><input type="text" id="audit-patient-id" placeholder="e.g. patient_eleanor"></div>
+          <button class="btn-primary" onclick="loadAuditTrail()">Load Audit Log</button>
+        </div>
+        <div id="audit-entries" style="font-size:0.82rem;color:var(--muted);text-align:center;padding:1.2rem">Select a patient to view audit trail.</div>
       </div>
     </div>
     <div class="doc-panel" id="d-patients">
@@ -1190,37 +1217,45 @@ function sendOTP(){
 }
 function otpNext(el){if(el.value&&el.nextElementSibling)el.nextElementSibling.focus();}
 
-const USERS={
-  'patient@demo.com':{pass:'patient123',role:'patient',name:'Ananya Rao',fname:'Ananya',patientKey:'ananya'},
-  'doctor@demo.com': {pass:'doctor123', role:'doctor', name:'Dr. Priya Mehta',fname:'Priya',patientKey:null},
-};
+const _emailRe=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-function doLogin(){
+async function doLogin(){
   const id=(document.getElementById('login-email').value||'').trim().toLowerCase();
   const pass=(document.getElementById('login-pass').value||'').trim();
   const err=document.getElementById('login-error');
   err.classList.remove('show');
-  const user=USERS[id];
-  if(!user||user.pass!==pass){err.classList.add('show');return;}
-  if(user.role!==authRole){err.textContent=`This is a ${user.role} account. Please select the correct role above.`;err.classList.add('show');return;}
-  showDisclaimerIfNeeded(user);
+  if(!_emailRe.test(id)){err.textContent='Please enter a valid email address.';err.classList.add('show');return;}
+  if(!pass){err.textContent='Please enter your password.';err.classList.add('show');return;}
+  try{
+    const res=await fetch('/api/login/',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:id,password:pass,role:authRole})});
+    const data=await res.json();
+    if(!data.success){err.textContent=data.message||'Invalid credentials.';err.classList.add('show');return;}
+    showDisclaimerIfNeeded(data.user);
+  }catch(e){err.textContent='Network error. Please try again.';err.classList.add('show');}
 }
-function doSignup(){
+async function doSignup(){
   const fn=(document.getElementById('su-fname').value||'').trim();
   const ln=(document.getElementById('su-lname').value||'').trim();
-  const em=(document.getElementById('su-email').value||'').trim();
+  const em=(document.getElementById('su-email').value||'').trim().toLowerCase();
   const p1=(document.getElementById('su-pass').value||'').trim();
   const p2=(document.getElementById('su-pass2').value||'').trim();
   const err=document.getElementById('signup-error'), suc=document.getElementById('signup-success');
   err.classList.remove('show');suc.classList.remove('show');
   if(!fn||!ln||!em){err.textContent='Please fill in your name and email.';err.classList.add('show');return;}
+  if(!_emailRe.test(em)){err.textContent='Please enter a valid email address.';err.classList.add('show');return;}
   if(p1.length<8){err.textContent='Password must be at least 8 characters.';err.classList.add('show');return;}
   if(p1!==p2){err.textContent='Passwords do not match.';err.classList.add('show');return;}
   const suReg=document.getElementById('su-reg');
   if(authRole==='doctor'&&suReg&&!(suReg.value||'').trim()){err.textContent='Medical registration number required.';err.classList.add('show');return;}
-  suc.classList.add('show');
-  const pkey = fn.toLowerCase()+ln.toLowerCase().charAt(0);
-  setTimeout(()=>showDisclaimerIfNeeded({role:authRole,name:(authRole==='doctor'?'Dr. ':'')+fn+' '+ln,fname:fn,patientKey:pkey}),1200);
+  try{
+    const body={email:em,password:p1,role:authRole,first_name:fn,last_name:ln};
+    if(suReg&&(suReg.value||'').trim())body.registration_number=(suReg.value||'').trim();
+    const res=await fetch('/api/signup/',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+    const data=await res.json();
+    if(!data.success){err.textContent=data.message||'Signup failed.';err.classList.add('show');return;}
+    suc.classList.add('show');
+    setTimeout(()=>showDisclaimerIfNeeded(data.user),1200);
+  }catch(e){err.textContent='Network error. Please try again.';err.classList.add('show');}
 }
 
 // ── DISCLAIMER GATE ──────────────────────────────────────────────────────────
@@ -2327,11 +2362,49 @@ async function saveDietaryProfile(){
   }
 }
 
+// ── (H) AUDIT TRAIL
+async function loadAuditTrail(){
+  const pid=document.getElementById('audit-patient-id').value.trim();
+  const container=document.getElementById('audit-entries');
+  if(!pid){container.innerHTML='<div style="color:var(--gold-light)">Enter a patient ID.</div>';return;}
+  container.innerHTML='<div style="color:var(--teal-light)">Loading…</div>';
+  try{
+    const resp=await fetch(`/api/engine/audit/?patient_id=${encodeURIComponent(pid)}`);
+    const data=await resp.json();
+    if(!data.success){container.innerHTML=`<div style="color:#e74c3c">${data.message||'Error'}</div>`;return;}
+    const entries=data.entries||[];
+    if(!entries.length){container.innerHTML='<div>No audit entries found for this patient.</div>';return;}
+    container.innerHTML=entries.map(e=>{
+      const ts=e.created_at||e.timestamp||'';
+      const dateStr=ts?new Date(ts).toLocaleString():'—';
+      const type=e.recommendation_type||'unknown';
+      const ver=e.engine_version||'—';
+      const inputKeys=e.input_state?Object.keys(e.input_state).join(', '):'—';
+      const outputSummary=e.output?JSON.stringify(e.output).slice(0,120):'—';
+      const hasChain=e.reasoning_chain&&(Array.isArray(e.reasoning_chain)?e.reasoning_chain.length:e.reasoning_chain.steps);
+      const hash=e.integrity_hash||'';
+      return `<div style="border:1px solid var(--card-border);border-radius:0.6rem;padding:0.8rem;margin-bottom:0.6rem;background:rgba(0,0,0,0.12)">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.4rem">
+          <span style="font-family:'DM Mono',monospace;font-size:0.72rem;color:var(--teal-light);text-transform:uppercase">${type}</span>
+          <span style="font-family:'DM Mono',monospace;font-size:0.68rem;color:var(--muted)">${dateStr}</span>
+        </div>
+        <div style="font-size:0.76rem;color:var(--white);margin-bottom:0.3rem">Engine v${ver}${hash?' · <span style="color:var(--muted);font-size:0.65rem">SHA: '+hash.slice(0,8)+'</span>':''}</div>
+        <div style="font-size:0.72rem;color:var(--muted);margin-bottom:0.2rem"><strong>Input:</strong> ${inputKeys}</div>
+        <div style="font-size:0.72rem;color:var(--muted)"><strong>Output:</strong> ${outputSummary}${outputSummary.length>=120?'…':''}</div>
+        ${hasChain?'<div style="margin-top:0.3rem;font-size:0.68rem;color:var(--teal-light)">✓ Reasoning chain attached</div>':''}
+      </div>`;
+    }).join('');
+  }catch(e){
+    container.innerHTML=`<div style="color:#e74c3c">Network error: ${e.message}</div>`;
+  }
+}
+
 // ── (G) STRESS TEST / COUNTERFACTUAL UI SURFACING
 const _origRenderPatientEngine = renderEngineResultsInPatientDash;
 renderEngineResultsInPatientDash = function(result){
   _origRenderPatientEngine(result);
   if(!result) return;
+  if(typeof renderAllVisualizations==='function') renderAllVisualizations(result);
   const card=document.getElementById('pt-fragility-card');
   const list=document.getElementById('pt-fragility-list');
   if(!card||!list) return;
@@ -2378,5 +2451,6 @@ renderEngineResultsInDoctorDash = function(result){
   }).join('');
 };
 </script>
+<script src="{% static 'js/engine-viz.js' %}"></script>
 </body>
 </html>
