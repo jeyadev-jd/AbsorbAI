@@ -102,6 +102,20 @@ python manage.py runserver
 | 8 | `gemma_engine.py` | Evidence-based prescription suggestions (13 condition families) |
 | 9 | `orchestrator.py` | Bayesian PK update from lab observations, DB-persisted posteriors |
 
+### FHIR R4 Interoperability (`core/fhir/`)
+
+- **`FHIRAdapter`** parses inbound FHIR `Bundle` resources (`Patient`, `MedicationRequest`, `Observation`, `AllergyIntolerance`) into the internal `patient_profile` / `prescriptions` shape the engine consumes
+- **`FHIRMapper`** converts engine output back to FHIR — `DetectedIssue` per safety violation, `RiskAssessment` per PK result, `GuidanceResponse` — wrapped in a response `Bundle`
+- 4 endpoints under `/fhir/` (see API Reference); every response carries `Content-Type: application/fhir+json` plus the same `decision_support_only` disclaimer as the native JSON API
+- Async variant (`/fhir/analyze/async/`) enqueues a Celery job and returns a pollable `run_id`
+
+### Async Execution (Redis + Celery)
+
+- `absorbai_project/celery.py` boots the Celery app; tasks in `core/tasks.py`
+- `run_hifi_analysis` — after every synchronous analyze call (n=100), re-runs at n=500 in the background and refreshes the cached result in place
+- `run_full_analysis_async` — full async run backed by an `EngineRun` DB row, polled via `/api/engine/run/<id>/`
+- Falls back gracefully without a worker: the synchronous n=100 path still returns normally; only the hi-fi refresh and async jobs no-op
+
 ### Security & Auth
 
 - **JWT authentication** — HttpOnly cookie, role-based access control (`doctor` / `patient`)
@@ -195,14 +209,20 @@ Result JSON  { decision_support_only: true, disclaimer, pk_results,
 AbsorbAI/
 ├── absorbai_project/
 │   ├── settings.py          # CORS, rate limiting, structured logging, startup checks
+│   ├── celery.py            # Celery app entry point
 │   └── urls.py
 │
 ├── core/
 │   ├── views.py             # 24 API endpoints, JWT auth, role-based access
 │   ├── middleware.py        # RateLimitMiddleware — per-IP sliding window
-│   ├── models.py            # AbsorbUser, Patient, EngineRun, AuditEntry, PKPrior
+│   ├── models.py            # AbsorbUser, Patient, PKPrior, AdherenceEvent, EngineRun, AuditEntry
+│   ├── tasks.py             # Celery tasks — async hi-fi engine runs
 │   ├── tests.py             # 61 tests — auth, JWT, validation, engine, audit, roles
 │   ├── urls.py              # 12 API routes + signup
+│   │
+│   ├── fhir/
+│   │   ├── adapter.py       # FHIRAdapter (FHIR→internal) + FHIRMapper (internal→FHIR)
+│   │   └── views.py         # FHIR R4 endpoints (4 routes)
 │   │
 │   ├── templates/
 │   │   └── index.html       # Single-page app (~2400 lines, vanilla JS)
@@ -277,6 +297,15 @@ All engine endpoints require `Authorization: Bearer <token>` via `absorb_jwt` co
 |--------|------|-------|-------------|
 | POST | `/api/adherence/log/` | patient, doctor | Log dose event (taken/skipped/late) |
 | GET  | `/api/adherence/history/` | patient, doctor | `?patient_key=` — adherence score + breakdown |
+
+### FHIR R4 (`/fhir/`)
+
+| Method | Path | Description |
+|--------|------|-------------|
+| POST | `/fhir/analyze/` | FHIR Bundle in → full 10-layer analysis → FHIR Bundle out |
+| POST | `/fhir/analyze/async/` | Same, enqueued as Celery job → `{run_id}` |
+| GET  | `/fhir/patient/<patient_id>/` | AbsorbAI `Patient` row → FHIR `Patient` resource |
+| POST | `/fhir/observation/` | FHIR `Observation` (lab/drug level) → Bayesian PK update |
 
 **Analyze request body:**
 ```json
@@ -402,7 +431,7 @@ python manage.py test core --verbosity=2
 
 - [ ] Email / phone verification on signup
 - [ ] HTTPS + production WSGI (gunicorn + nginx)
-- [ ] EHR/FHIR integration (HL7 FHIR R4 patient resource)
+- [x] EHR/FHIR integration (HL7 FHIR R4 — `core/fhir/`, Patient/MedicationRequest/Observation in, DetectedIssue/RiskAssessment out)
 - [ ] Paediatric PK population parameters
 - [ ] PDF export of audit trail and PK report
 - [ ] Bulk patient import (CSV)
@@ -430,7 +459,8 @@ Contributions welcome — open an issue or PR.
 - **RxNorm DNS** — structured DDI lookup fails in some networks; OpenFDA fallback used
 - **Adult PK params** — paediatric use flagged + uncertainty widened, but population params are adult-derived
 - **No HTTPS** — dev server only; production requires WSGI + TLS
-- **No EHR connector** — patient profiles are manually entered
+- **FHIR coverage is partial** — `core/fhir/` handles `Patient`, `MedicationRequest`, `Observation`, `AllergyIntolerance` in and `DetectedIssue`/`RiskAssessment`/`GuidanceResponse` out; no `MedicationStatement`, `Encounter`, subscriptions, or bulk export
+- **Celery requires a running worker + Redis** — without one, hi-fi background refresh and async FHIR jobs silently no-op; only the synchronous n=100 path is guaranteed
 
 ---
 
