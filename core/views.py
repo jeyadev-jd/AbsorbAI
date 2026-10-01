@@ -289,23 +289,47 @@ def api_logout(request):
     return response
 
 
+def _asset_version():
+    """Cache-busting token for static assets — newest mtime of the viz bundle.
+
+    Without this the browser keeps serving a stale engine-viz.js after an edit,
+    which silently ships old chart code against a new engine payload.
+    """
+    import os
+    paths = [
+        os.path.join(settings.BASE_DIR, 'core', 'static', 'js', 'engine-viz.js'),
+        os.path.join(settings.BASE_DIR, 'core', 'static', 'css', 'engine-viz.css'),
+    ]
+    try:
+        return str(int(max(os.path.getmtime(p) for p in paths if os.path.exists(p))))
+    except (OSError, ValueError):
+        return ENGINE_VERSION
+
+
+def _page(request, page, extra=None):
+    ctx = {'initial_page': page, 'asset_version': _asset_version()}
+    if extra:
+        ctx.update(extra)
+    return render(request, 'index.html', ctx)
+
+
 def index(request):
-    return render(request, 'index.html', {'initial_page': 'landing'})
+    return _page(request, 'landing')
 
 def auth_view(request):
-    return render(request, 'index.html', {'initial_page': 'auth'})
+    return _page(request, 'auth')
 
 def patient_view(request):
     decoded = verify_jwt_cookie(request, required_role='patient')
     if not decoded:
         return redirect('/auth/')
-    return render(request, 'index.html', {'initial_page': 'patient', 'auth_user': json.dumps(decoded)})
+    return _page(request, 'patient', {'auth_user': json.dumps(decoded)})
 
 def doctor_view(request):
     decoded = verify_jwt_cookie(request, required_role='doctor')
     if not decoded:
         return redirect('/auth/')
-    return render(request, 'index.html', {'initial_page': 'doctor', 'auth_user': json.dumps(decoded)})
+    return _page(request, 'doctor', {'auth_user': json.dumps(decoded)})
 
 
 # ══════════════════════════════════════════════════════

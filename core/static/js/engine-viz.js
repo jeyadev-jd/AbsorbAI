@@ -282,6 +282,9 @@ function renderParetoFrontier(containerId, paretoSchedules) {
   const tx = v => pad.l + (v / xMax) * pw;
   const ty = v => pad.t + ph - (v / yMax) * ph;
 
+  // Reset per render — labels are collision-staggered against this list below.
+  let _placedLabels = [];
+
   // Grid
   ctx.strokeStyle = VIZ.colors.grid;
   ctx.lineWidth = 0.5;
@@ -322,7 +325,17 @@ function renderParetoFrontier(containerId, paretoSchedules) {
       ctx.fillStyle = VIZ.colors.white;
       ctx.font = '9px "DM Mono", monospace';
       ctx.textAlign = 'center';
-      ctx.fillText(p.label, x, y - r - 5);
+      // Pareto points often cluster, and fixed-offset labels then print on top of
+      // each other. Stack colliding labels upward so each stays readable.
+      let ly = y - r - 5;
+      const lw = ctx.measureText(p.label).width;
+      let guard = 0;
+      while (guard++ < 12 && _placedLabels.some(o =>
+        Math.abs(o.y - ly) < 11 && Math.abs(o.x - x) < (o.w + lw) / 2)) {
+        ly -= 11;
+      }
+      _placedLabels.push({ x, y: ly, w: lw });
+      ctx.fillText(p.label, x, ly);
     }
   }
 
@@ -677,7 +690,11 @@ function renderAllVisualizations(result) {
     if (pkVizContainer) pkVizContainer.innerHTML = '';
 
     for (const [drug, pkData] of Object.entries(result.pk_results)) {
-      const sim = pkData.simulation || {};
+      // The curve renderer wants {t, c}. The engine nests those one level down
+      // under simulation.concentration_timeline, so passing `simulation` straight
+      // through left every concentration chart silently blank.
+      const simRaw = pkData.simulation || {};
+      const sim = (simRaw.t && simRaw.c) ? simRaw : (simRaw.concentration_timeline || {});
       const mcBands = pkData.concentration_bands || {};
       const mc = pkData.uncertainty || {};
       const mcCmax = pkData.mc_cmax || {};

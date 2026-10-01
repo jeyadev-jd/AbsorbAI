@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AbsorbAI</title>
-<link rel="stylesheet" href="{% static 'css/engine-viz.css' %}">
+<link rel="stylesheet" href="{% static 'css/engine-viz.css' %}?v={{ asset_version }}">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Outfit:wght@200;300;400;500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -304,7 +304,8 @@ body{background:var(--deep);color:var(--white);font-family:'Outfit',sans-serif;f
 .ov-group textarea{min-height:75px}
 .ov-group.full{grid-column:1/-1}
 .ov-actions{grid-column:1/-1;display:flex;gap:0.8rem;justify-content:flex-end}
-.queue-row{display:grid;grid-template-columns:32px 1fr 100px 80px 140px;align-items:center;gap:1rem;padding:0.85rem 1.2rem;border-bottom:1px solid var(--card-border);font-size:0.82rem;transition:background 0.2s;cursor:pointer}
+.queue-row{display:grid;grid-template-columns:32px minmax(0,1fr) 100px minmax(150px,auto) 110px;align-items:center;gap:1rem;padding:0.85rem 1.2rem;border-bottom:1px solid var(--card-border);font-size:0.82rem;transition:background 0.2s;cursor:pointer}
+.queue-row .risk-badge{justify-self:start;white-space:normal;overflow-wrap:anywhere;line-height:1.35}
 .queue-row:hover{background:rgba(255,255,255,0.02)}
 .queue-row.qheader{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);cursor:default}
 .queue-row.qheader:hover{background:none}
@@ -605,7 +606,7 @@ body{background:var(--deep);color:var(--white);font-family:'Outfit',sans-serif;f
   <div class="stats-strip">
     <div class="stat-item"><div class="stat-num"><span class="count-up" data-target="1200">0</span>+</div><div class="stat-label">Drug&ndash;Nutrient Rules</div></div>
     <div class="stat-item"><div class="stat-num"><span class="count-up" data-target="98">0</span>%</div><div class="stat-label">Conflict Resolution Rate</div></div>
-    <div class="stat-item"><div class="stat-num"><span class="count-up" data-target="5">0</span></div><div class="stat-label">Architectural Layers</div></div>
+    <div class="stat-item"><div class="stat-num"><span class="count-up" data-target="10">0</span></div><div class="stat-label">Architectural Layers</div></div>
     <div class="stat-item"><div class="stat-num"><span class="count-up" data-target="12">0</span>+</div><div class="stat-label">Languages Supported</div></div>
   </div>
 
@@ -781,7 +782,7 @@ body{background:var(--deep);color:var(--white);font-family:'Outfit',sans-serif;f
     </div>
     <div class="dash-main">
       <div class="dash-panel active" id="p-timeline">
-        <div class="greeting"><h2>Good morning, <em id="patient-greet-name">Ananya</em></h2><p>Your schedule is optimized for today &mdash; 5 medications, 0 unresolved conflicts</p></div>
+        <div class="greeting"><h2>Good morning, <em id="patient-greet-name">Ananya</em></h2><p id="patient-greet-sub">Your schedule is optimized for today</p></div>
         <div class="widget-grid">
           <div class="widget"><div class="widget-label">Medications</div><div class="widget-value" id="w-meds">0</div><div class="widget-sub" id="w-meds-sub">Awaiting prescription</div></div>
           <div class="widget widget-danger"><div class="widget-label">High Risk</div><div class="widget-value" id="w-high">0</div><div class="widget-sub" id="w-high-sub">No flags</div></div>
@@ -1130,7 +1131,136 @@ body{background:var(--deep);color:var(--white);font-family:'Outfit',sans-serif;f
 // ── SHARED IN-MEMORY PRESCRIPTION STATE
 // This acts as a simulated backend — doctor writes, patient reads live
 const SHARED = {
-  prescriptions: [],
+  prescriptions: [
+    {
+      id: 'rx_seed_warfarin', patient: 'patient_demo',
+      drug: 'Warfarin', dose: '5mg', freq: '1', time: '08:00', duration: 'Ongoing',
+      instructions: 'Take with water, same time daily. Avoid vitamin K-rich foods.',
+      notes: 'INR monitoring weekly until stable.',
+      prescribedBy: 'Dr. Priya Mehta', ts: Date.now() - 12 * 86400000,
+      dot: 'danger', badge: 'risk-high', badgeText: 'Narrow TI',
+    },
+    {
+      id: 'rx_seed_metformin', patient: 'patient_demo',
+      drug: 'Metformin', dose: '500mg', freq: '2', time: '08:00', duration: 'Ongoing',
+      instructions: 'Take with breakfast and dinner.',
+      notes: 'Monitor renal function every 6 months.',
+      prescribedBy: 'Dr. Priya Mehta', ts: Date.now() - 12 * 86400000,
+      dot: '', badge: 'risk-clear', badgeText: 'Optimal',
+    },
+    {
+      id: 'rx_seed_atorvastatin', patient: 'patient_demo',
+      drug: 'Atorvastatin', dose: '20mg', freq: '1', time: '21:00', duration: 'Ongoing',
+      instructions: 'Take at night. Avoid grapefruit juice.',
+      notes: 'Lipid panel at 3 months.',
+      prescribedBy: 'Dr. Priya Mehta', ts: Date.now() - 11 * 86400000,
+      dot: 'warn', badge: 'risk-warn', badgeText: 'Monitor',
+    },
+    {
+      id: 'rx_seed_lisinopril', patient: 'patient_demo',
+      drug: 'Lisinopril', dose: '10mg', freq: '1', time: '08:00', duration: 'Ongoing',
+      instructions: 'Take in the morning. Report persistent dry cough.',
+      notes: 'BP check at each visit.',
+      prescribedBy: 'Dr. Priya Mehta', ts: Date.now() - 11 * 86400000,
+      dot: '', badge: 'risk-clear', badgeText: 'Optimal',
+    },
+    {
+      id: 'rx_seed_levothyroxine', patient: 'patient_demo',
+      drug: 'Levothyroxine', dose: '75mcg', freq: '1', time: '06:30', duration: 'Ongoing',
+      instructions: 'Take on empty stomach, 30 min before breakfast.',
+      notes: 'TSH recheck in 8 weeks.',
+      prescribedBy: 'Dr. Priya Mehta', ts: Date.now() - 10 * 86400000,
+      dot: 'warn', badge: 'risk-warn', badgeText: 'Monitor',
+    },
+    {
+      id: 'rx_seed_omeprazole', patient: 'patient_demo',
+      drug: 'Omeprazole', dose: '20mg', freq: '1', time: '07:30', duration: '4 weeks',
+      instructions: 'Take before breakfast.',
+      notes: 'Review after 4 weeks — do not extend without reassessment.',
+      prescribedBy: 'Dr. Priya Mehta', ts: Date.now() - 9 * 86400000,
+      dot: '', badge: 'risk-clear', badgeText: 'Optimal',
+    },
+    {
+      id: 'rx_seed_sertraline', patient: 'patient_demo',
+      drug: 'Sertraline', dose: '50mg', freq: '1', time: '09:00', duration: 'Ongoing',
+      instructions: 'Take in the morning with food.',
+      notes: 'Follow up in 2 weeks for tolerability.',
+      prescribedBy: 'Dr. Priya Mehta', ts: Date.now() - 9 * 86400000,
+      dot: '', badge: 'risk-clear', badgeText: 'Optimal',
+    },
+    {
+      id: 'rx_seed_amlodipine', patient: 'patient_demo',
+      drug: 'Amlodipine', dose: '5mg', freq: '1', time: '08:00', duration: 'Ongoing',
+      instructions: 'Take at the same time daily.',
+      notes: 'Watch for ankle swelling.',
+      prescribedBy: 'Dr. Priya Mehta', ts: Date.now() - 8 * 86400000,
+      dot: '', badge: 'risk-clear', badgeText: 'Optimal',
+    },
+    {
+      id: 'rx_seed_metoprolol', patient: 'patient_demo',
+      drug: 'Metoprolol', dose: '25mg', freq: '2', time: '08:00', duration: 'Ongoing',
+      instructions: 'Take morning and evening with food.',
+      notes: 'Do not stop abruptly.',
+      prescribedBy: 'Dr. Priya Mehta', ts: Date.now() - 8 * 86400000,
+      dot: '', badge: 'risk-clear', badgeText: 'Optimal',
+    },
+    {
+      id: 'rx_seed_alprazolam', patient: 'patient_demo',
+      drug: 'Alprazolam', dose: '0.25mg', freq: '1', time: '22:00', duration: '2 weeks',
+      instructions: 'Take at bedtime as needed for sleep.',
+      notes: 'Short course only — reassess before renewal.',
+      prescribedBy: 'Dr. Priya Mehta', ts: Date.now() - 7 * 86400000,
+      dot: 'warn', badge: 'risk-warn', badgeText: 'Monitor',
+    },
+    {
+      id: 'rx_seed_ibuprofen', patient: 'patient_demo',
+      drug: 'Ibuprofen', dose: '400mg', freq: '3', time: '08:00', duration: '5 days',
+      instructions: 'Take with food to reduce GI upset.',
+      notes: 'Short course for acute pain — caution with anticoagulant therapy.',
+      prescribedBy: 'Dr. Priya Mehta', ts: Date.now() - 6 * 86400000,
+      dot: 'danger', badge: 'risk-high', badgeText: 'Interacts',
+    },
+    {
+      id: 'rx_seed_montelukast', patient: 'patient_demo',
+      drug: 'Montelukast', dose: '10mg', freq: '1', time: '21:00', duration: 'Ongoing',
+      instructions: 'Take in the evening.',
+      notes: 'For seasonal allergy control.',
+      prescribedBy: 'Dr. Priya Mehta', ts: Date.now() - 5 * 86400000,
+      dot: '', badge: 'risk-clear', badgeText: 'Optimal',
+    },
+    {
+      id: 'rx_seed_alendronate', patient: 'patient_demo',
+      drug: 'Alendronate', dose: '70mg', freq: '1', time: '07:00', duration: 'Weekly',
+      instructions: 'Take on an empty stomach with a full glass of water; remain upright 30 min.',
+      notes: 'Weekly dosing — bone density scan in 1 year.',
+      prescribedBy: 'Dr. Priya Mehta', ts: Date.now() - 4 * 86400000,
+      dot: 'warn', badge: 'risk-warn', badgeText: 'Monitor',
+    },
+    {
+      id: 'rx_seed_azithromycin', patient: 'patient_demo',
+      drug: 'Azithromycin', dose: '500mg', freq: '1', time: '08:00', duration: '3 days',
+      instructions: 'Take once daily for 3 days.',
+      notes: 'Short antibiotic course for respiratory infection.',
+      prescribedBy: 'Dr. Priya Mehta', ts: Date.now() - 3 * 86400000,
+      dot: 'warn', badge: 'risk-warn', badgeText: 'Monitor',
+    },
+    {
+      id: 'rx_seed_sitagliptin', patient: 'patient_demo',
+      drug: 'Sitagliptin', dose: '100mg', freq: '1', time: '08:00', duration: 'Ongoing',
+      instructions: 'Take once daily, with or without food.',
+      notes: 'Added alongside metformin for glycaemic control.',
+      prescribedBy: 'Dr. Priya Mehta', ts: Date.now() - 2 * 86400000,
+      dot: '', badge: 'risk-clear', badgeText: 'Optimal',
+    },
+    {
+      id: 'rx_seed_ondansetron', patient: 'patient_demo',
+      drug: 'Ondansetron', dose: '4mg', freq: '2', time: '08:00', duration: '3 days',
+      instructions: 'Take as needed for nausea, max twice daily.',
+      notes: 'Short course post-antibiotic GI upset.',
+      prescribedBy: 'Dr. Priya Mehta', ts: Date.now() - 1 * 86400000,
+      dot: '', badge: 'risk-clear', badgeText: 'Optimal',
+    },
+  ],
   listeners: [],
   notify() { this.listeners.forEach(fn => fn()); }
 };
@@ -1143,6 +1273,20 @@ function showPage(id){
   el.classList.remove('hidden');
   setTimeout(()=>el.classList.add('visible'),10);
   try{el.scrollTo(0,0);}catch(e){}
+  // Panels render from SHARED state, which the page-show alone never triggered —
+  // without this the dashboards open empty until some other action repaints them.
+  try{
+    if(id==='doctor'){
+      renderAllDocPanels();
+      // Counterfactual bars, Pareto frontier and the PK visualisations all read
+      // from the engine result. Nothing else kicks the engine off on page entry,
+      // so those panels sat permanently on their "awaiting analysis" placeholder.
+      if(typeof _engineResult!=='undefined' && !_engineResult && SHARED.prescriptions.length){
+        runEngineAnalysis(SHARED.prescriptions, currentUser?.patientKey||'patient_demo');
+      }
+    }
+    if(id==='patient'){ buildPatientTimeline(); renderPatientPrescriptions(); loadAdherenceScore(); }
+  }catch(e){ console.warn('panel render on showPage failed', e); }
 }
 
 // ── NAV DROPDOWN
@@ -1162,13 +1306,27 @@ document.addEventListener('click',e=>{
 });
 
 // ── COUNTERS
-const cObs=new IntersectionObserver(en=>{en.forEach(e=>{if(e.isIntersecting)startCount(e.target)});},{threshold:0.5});
-document.querySelectorAll('.count-up').forEach(el=>cObs.observe(el));
+// body is overflow:hidden and each .page is the real scroll container, so an
+// IntersectionObserver rooted at the viewport never fires. Root each observer
+// at the element's own .page ancestor instead.
+function observeIn(el, cb, threshold){
+  const root = el.closest('.page') || null;
+  const key = 'io_' + threshold;
+  root && (root[key] = root[key] || new IntersectionObserver(
+    en => en.forEach(e => { if (e.isIntersecting) cb(e.target); }),
+    { root, threshold }
+  ));
+  const obs = root ? root[key] : new IntersectionObserver(
+    en => en.forEach(e => { if (e.isIntersecting) cb(e.target); }),
+    { threshold }
+  );
+  obs.observe(el);
+}
 function startCount(el){if(el.dataset.done)return;el.dataset.done='1';const t=+el.dataset.target,dur=1600,s=performance.now();function tick(n){const p=Math.min((n-s)/dur,1),ev=1-Math.pow(1-p,3);el.textContent=Math.floor(ev*t);if(p<1)requestAnimationFrame(tick);else el.textContent=t;}requestAnimationFrame(tick);}
+document.querySelectorAll('.count-up').forEach(el=>observeIn(el,startCount,0.5));
 
 // ── REVEAL
-const revObs=new IntersectionObserver(en=>{en.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.1});
-document.querySelectorAll('.reveal,.feat-card').forEach((el,i)=>{if(el.classList.contains('feat-card'))el.style.transitionDelay=`${(i%6)*0.08}s`;revObs.observe(el);});
+document.querySelectorAll('.reveal,.feat-card').forEach((el,i)=>{if(el.classList.contains('feat-card'))el.style.transitionDelay=`${(i%6)*0.08}s`;observeIn(el,t=>t.classList.add('visible'),0.1);});
 
 // ── AUTH STATE
 let authRole='patient', currentUser=null;
@@ -1316,6 +1474,15 @@ function showDocPanel(id,btn){
   if(id==='prescribe') renderDocPrescriptions();
   if(id==='override') loadAuditLog();
   if(id==='suggest') refreshAISuggestContext();
+  // Canvas visualisations size themselves from container.clientWidth, which is 0
+  // while the panel is hidden — they'd stay stuck at the fallback width. Redraw
+  // now that the panel is laid out and has a real width.
+  if(id==='pk' && typeof _engineResult!=='undefined' && _engineResult){
+    requestAnimationFrame(()=>{
+      try{ renderAllVisualizations(_engineResult); }
+      catch(e){ console.warn('viz redraw failed', e); }
+    });
+  }
 }
 
 // ── DOCTOR: PRESCRIBE
@@ -1383,6 +1550,11 @@ function prescribeDrug(){
 
 // Patient display name from key
 const PAT_DISPLAY = { patient_demo: 'Ananya R.' };
+
+// The UI patient key ('patient_demo') is not the DB patient_key ('ananya').
+// Map it before hitting any patient-scoped API, or the lookup silently returns empty.
+const DB_PATIENT_KEY = { patient_demo: 'ananya' };
+function dbPatientKey(k){ return DB_PATIENT_KEY[k] || k || 'ananya'; }
 
 function renderAllDocPanels(){
   renderDocPrescriptions();
@@ -1555,6 +1727,15 @@ function renderPatientPrescriptions(){
   const wModSub=document.getElementById('w-mod-sub');  if(wModSub)wModSub.textContent=modCount?'Timing adjusted':'No flags';
   const sub=document.getElementById('schedule-sub');
   if(sub)sub.textContent=mine.length?`${mine.length} medication${mine.length!==1?'s':''} prescribed — schedule optimized`:'Awaiting prescriptions from your doctor.';
+  // Greeting line was hardcoded to "5 medications, 0 unresolved conflicts" and
+  // contradicted the widgets right beside it. Drive it from the same state.
+  const greetSub=document.getElementById('patient-greet-sub');
+  if(greetSub){
+    greetSub.textContent = mine.length
+      ? `Your schedule is optimized for today — ${mine.length} medication${mine.length!==1?'s':''}, `
+        + (highCount ? `${highCount} interaction${highCount!==1?'s':''} needing attention` : 'no unresolved conflicts')
+      : 'No medications scheduled yet.';
+  }
 
   // Risk counts
   const rcHigh=document.getElementById('rc-high'); if(rcHigh)rcHigh.textContent=highCount;
@@ -1722,7 +1903,7 @@ async function logDose(rxId, drug, scheduledTime, status, btn){
       method:'POST',
       headers:{'Content-Type':'application/json','X-CSRFToken':csrfToken},
       body: JSON.stringify({
-        patient_key: currentUser?.patientKey||'ananya',
+        patient_key: dbPatientKey(currentUser?.patientKey),
         rx_id: rxId, drug, scheduled_time: scheduledTime, status,
         taken_at: new Date().toISOString()
       })
@@ -1736,7 +1917,7 @@ async function logDose(rxId, drug, scheduledTime, status, btn){
 
 async function loadAdherenceScore(){
   try {
-    const patKey = currentUser?.patientKey||'ananya';
+    const patKey = dbPatientKey(currentUser?.patientKey);
     const res = await fetch(`/api/adherence/history/?patient_key=${patKey}`);
     if(!res.ok) return;
     const data = await res.json();
@@ -1747,7 +1928,8 @@ async function loadAdherenceScore(){
 function updateAdhWidget(score){
   const wAdh = document.getElementById('w-adh');
   if(!wAdh) return;
-  const pct = Math.round(score*100);
+  // API already returns a 0-100 percentage — do not rescale it.
+  const pct = Math.round(score);
   wAdh.textContent = pct+'%';
   wAdh.style.color = pct>=80?'#7dce82':pct>=50?'var(--gold-light)':'#f08080';
   const sub = wAdh.closest('.widget')?.querySelector('.widget-sub');
@@ -1763,7 +1945,7 @@ let _engineResult = null;
 async function runEngineAnalysis(prescriptions, patientKey) {
   if (!prescriptions || prescriptions.length === 0) return;
 
-  const profile = await fetch(`/api/patient/profile/?patient_key=${patientKey||'ananya'}`)
+  const profile = await fetch(`/api/patient/profile/?patient_key=${dbPatientKey(patientKey)}`)
     .then(r=>r.json()).then(d=>d.profile).catch(()=>({}));
 
   const dietary = [];
@@ -1793,7 +1975,7 @@ async function runEngineAnalysis(prescriptions, patientKey) {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
-        patient_id: patientKey || 'ananya',
+        patient_id: dbPatientKey(patientKey),
         patient_profile: profile,
         prescriptions: rxForEngine,
         dietary_factors: [...new Set(dietary)],
@@ -2172,7 +2354,7 @@ function appendMatrixRows(drugName, data){
 
 // ── (C) BAYESIAN OBSERVATION UPDATE
 async function submitLabObservations(){
-  const patientId = currentUser?.patientKey || 'ananya';
+  const patientId = dbPatientKey(currentUser?.patientKey);
   const rxs = SHARED.prescriptions;
   const drugName = rxs.length ? rxs[0].drug : '';
   const labs = [
@@ -2217,6 +2399,22 @@ function refreshAISuggestContext(){
     chips.innerHTML='<span style="font-size:0.74rem;color:var(--muted);font-family:DM Mono,monospace">None prescribed yet</span>';
   } else {
     chips.innerHTML=drugs.map(d=>`<span class="ai-drug-chip">${d}</span>`).join('');
+  }
+  // The profile line was a hardcoded placeholder ("34yo F") that disagreed with
+  // the stored patient record. Fill it from the real profile instead.
+  const box=document.getElementById('ai-patient-profile');
+  if(box){
+    fetch(`/api/patient/profile/?patient_key=${dbPatientKey(currentUser?.patientKey)}`)
+      .then(r=>r.json())
+      .then(d=>{
+        const p=d.profile; if(!p) return;
+        const bits=[p.name, `${Math.round(p.age)}yo ${p.sex||''}`.trim()];
+        if(p.weight) bits.push(`${Math.round(p.weight)} kg`);
+        if(p.serum_creatinine) bits.push(`SCr ${p.serum_creatinine} mg/dL`);
+        if(p.child_pugh_score) bits.push(`Child-Pugh ${p.child_pugh_score}`);
+        box.textContent=bits.filter(Boolean).join(' · ');
+      })
+      .catch(()=>{});
   }
 }
 
@@ -2306,18 +2504,37 @@ async function loadAuditLog(){
   const container=document.getElementById('audit-log');
   if(!container) return;
   try{
-    const resp=await fetch('/api/engine/audit/?patient_id=ananya');
+    const resp=await fetch(`/api/engine/audit/?patient_id=${dbPatientKey(currentUser?.patientKey)}`);
     const data=await resp.json();
     const entries=data.entries||data.audit_log||data.logs||[];
     if(!entries.length){
       container.innerHTML='<div style="text-align:center;padding:1.5rem;color:var(--muted);font-size:0.82rem">No overrides recorded yet.</div>';
       return;
     }
+    // The API returns created_at / recommendation_type / input_state / output.
+    // The old field guesses (timestamp, action, details) never matched, so every
+    // row fell through to JSON.stringify and rendered as a raw blob.
+    const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+    const fmtTs=v=>{ if(!v) return ''; const d=new Date(v); return isNaN(d)?String(v):d.toLocaleString(); };
+    const summarise=e=>{
+      const out=e.output||{};
+      const viol=out.safety_violations||[];
+      if(viol.length){
+        const v=viol[0];
+        return `${viol.length} safety flag${viol.length!==1?'s':''} — ${v.drug||''}`
+             + (v.with?` × ${v.with}`:'') + (v.severity?` (${v.severity})`:'');
+      }
+      if(out.suggestions?.length){
+        return `Suggested: ${out.suggestions.map(s=>s.drug).filter(Boolean).join(', ')}`;
+      }
+      const rx=(e.input_state||{}).prescriptions||[];
+      if(rx.length) return `${rx.length} drug${rx.length!==1?'s':''} analysed — no violations`;
+      return 'No violations recorded';
+    };
     container.innerHTML=entries.map(e=>{
-      const ts=e.timestamp||e.ts||e.time||'';
-      const action=(e.action||e.type||'EVENT').toString().toUpperCase();
-      const details=e.details||e.message||e.description||JSON.stringify(e);
-      return `<div class="audit-entry"><span class="audit-ts">[${ts}]</span><span class="audit-action">${action}</span><span class="audit-details">${details}</span></div>`;
+      const ts=fmtTs(e.created_at||e.timestamp||e.ts);
+      const action=String(e.recommendation_type||e.action||'event').replace(/_/g,' ').toUpperCase();
+      return `<div class="audit-entry"><span class="audit-ts">[${esc(ts)}]</span><span class="audit-action">${esc(action)}</span><span class="audit-details">${esc(summarise(e))}</span></div>`;
     }).join('');
   }catch(e){
     container.innerHTML='<div style="text-align:center;padding:1.5rem;color:var(--muted);font-size:0.82rem">Audit log unavailable.</div>';
@@ -2332,7 +2549,7 @@ function _timeToHr(t){
 }
 
 async function saveDietaryProfile(){
-  const patientKey=currentUser?.patientKey||'ananya';
+  const patientKey=dbPatientKey(currentUser?.patientKey);
   const breakfast=_timeToHr(document.getElementById('diet-breakfast')?.value);
   const lunch=_timeToHr(document.getElementById('diet-lunch')?.value);
   const dinner=_timeToHr(document.getElementById('diet-dinner')?.value);
@@ -2451,6 +2668,6 @@ renderEngineResultsInDoctorDash = function(result){
   }).join('');
 };
 </script>
-<script src="{% static 'js/engine-viz.js' %}"></script>
+<script src="{% static 'js/engine-viz.js' %}?v={{ asset_version }}"></script>
 </body>
 </html>
