@@ -469,3 +469,15 @@ Contributions welcome — open an issue or PR.
 MIT — see [LICENSE](LICENSE).
 
 > AbsorbAI is not approved as a medical device. Do not use as a substitute for clinical judgment. A licensed healthcare professional must review all recommendations before any clinical action is taken.
+
+---
+
+## Author
+
+**Jeyadev R** · AI/ML Engineer & Full-Stack Developer · Chennai, India
+
+- Portfolio: [jeyadev.dev](https://jeyadev.dev/projects/absorbai)
+- GitHub: [@jeyadev-jd](https://github.com/jeyadev-jd)
+- LinkedIn: [r-jeyadev](https://www.linkedin.com/in/r-jeyadev)
+
+If this project is useful to you, a ⭐ on the repo helps others find it.

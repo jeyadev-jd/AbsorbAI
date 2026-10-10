@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+type: software
+title: "AbsorbAI: Clinical Pharmacokinetic Decision-Support Platform"
+abstract: "Clinical decision-support platform simulating personalized drug behavior across ~45 drugs for doctor and patient roles. Features a 10-layer PK/PD engine, Monte Carlo uncertainty quantification, Bayesian updates, a pharmacological knowledge graph, and Gemma 1.5B LLM integration."
+authors:
+  - family-names: "R"
+    given-names: "Jeyadev"
+    email: "jeyadev2006@gmail.com"
+    affiliation: "Sri Ramachandra Institute of Higher Education and Research"
+repository-code: "https://github.com/jeyadev-jd/AbsorbAI"
+url: "https://jeyadev.dev/projects/absorbai"
+keywords:
+  - "Python"
+  - "Django"
+  - "NetworkX"
+  - "Gemma 1.5B"
+date-released: "2026-10-10"
